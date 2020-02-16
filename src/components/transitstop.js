@@ -79,7 +79,7 @@ class TransitStop extends React.Component {
             })   
         }
         return (
-            <div className = "stop" >
+            <div className = "stop-all" >
             <div className="stop-left">
                 
                 <br></br>

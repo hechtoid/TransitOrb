@@ -15,7 +15,7 @@
   },
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "src/hardlinks.sh && gh-pages -d build",
+    "deploy": "src/hardlinks.sh && git add . && git commit -m 'predeploy' && gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
