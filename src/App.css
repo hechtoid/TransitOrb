@@ -1,38 +1,127 @@
-.App {
-  text-align: center;
+.hourly-item{
+    margin: 10px;
+}
+.hour{
+    font-weight: 900;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.weather-tele{
+    /* border: 1px solid red; */
+    width: 20%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.weather-boxes{
+    display: flex;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.weather-spots{
+    display: inline;
 }
-
-.App-link {
-  color: #61dafb;
+.spot{
+    margin: 5px;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.transit-master{
+    border: 1px solid black;
+    border-radius: 10px;
+}
+.transit{
+    font-family: sans-serif;
+    display: flex;
+    width: 100%;
+    /* margin-left: 10px; */
+}
+.transit-switcher{
+    display: flex;
+    /* margin-left: 15px; */
+    width: 100%;
+}
+#marin{
+    border-radius: 10px 0 0 0;
+    
+}
+.transit-switch-on{
+    padding: 10px;
+    /* border-top: 1px solid black; */
+    /* border-left: 1px solid black; */
+    border-right: 2px solid black;
+    height: 15px;
+    width: 75px;
+    /* margin-left: 10px; */
+    background-color: lightgray;
+    color: green;
+}
+.transit-switch-off{
+    padding: 10px;
+    /* border-top: 1px solid black; */
+    /* border-left: 1px solid black; */
+    border-right: 2px solid black;
+    /* border-radius: 2px; */
+    height: 15px;
+    width: 75px;
+    /* margin-left: 10px; */
+    color: black;
+}
+.transit-switch-off:hover{
+    cursor: pointer;
+}
+.transit-on{
+    display: flex;
+    width: 100%;
+    background-color: lightgray;
+    /* border: 1px solid black; */
+    border-radius: 0 0 10px 10px;
+    padding: 5px;
+}
+.transit-off{
+    display: none;
+}
+.buss{
+    border: 1px solid black;
+    border-radius: 3px;
+    margin: 5px;
+    padding: 5px;
+    width: 33%;
+}
+.bus{
+    margin: 5px;
+    border: 1px solid gray;
+    border-radius: 3px;
+    padding: 5px;
+    width: 90%;
+}
+.line{
+    font-weight: 900;
+}
+.expected{
+    font-weight: 900;
+}
+.stop{
+    width: 100%;
+    margin: 2%;
+    display: flex;
+}
+.stop-left{
+    width: 100%;
+}
+.stop-right{
+    margin-left: 10px;
+    width: 100%;
+}
+.agency-select{
+    margin-bottom: 10px;
+    margin-top: 10px;
+    width: 350px;
+    margin-left: 10px;
+}
+.agency-code{
+    font-weight: 900;
+    margin: 10px;
+    font-size: 23px;
+}
+input[type="radio"]{
+    margin: 10px;
+}
+.stop-id{
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
