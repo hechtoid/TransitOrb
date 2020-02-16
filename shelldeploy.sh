@@ -1,7 +1,7 @@
 #!/bin/sh
 
-rm  /home/www/react511/src/components/*
 rm /home/www/react511/src/App.css
+rm  /home/www/react511/src/components/*
 
 ln /home/www/LocalNode/frontend/src/App.css /home/www/react511/src/App.css &&
 
@@ -15,5 +15,6 @@ ln /home/www/LocalNode/frontend/src/components/transit/broadway.js  /home/www/re
 
 git add . &&
 git commit -m 'predeploy' &&
-npx gh-pages -d build
+npm run build &&
+npx gh-pages -d build &&
 exit

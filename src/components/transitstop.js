@@ -5,6 +5,7 @@ class TransitStop extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            loaded: false,
             stopCode: '16513',
             agency: 'SF',
             buss: [],
@@ -39,12 +40,15 @@ class TransitStop extends React.Component {
             })
     }
     loadStops(e) {
+        this.setState({ loaded: true })
         axios.get(`https://api.511.org/transit/stops?api_key=72939361-85f9-4019-aa55-d62e4e7e2e59&Format=JSON&operator_id=${this.state.agency}`)
             .then(res => {
                 let stops = res.data.Contents.dataObjects.ScheduledStopPoint;
                 this.setState({ stops });
             })
     }
+
+    //http://api.511.org/transit/stoptimetable?api_key={your-key}&MonitoringRef=13008&OperatorRef=SF
 
     dateParser(zulu){
         return new Date(Date.parse(zulu)).toLocaleTimeString()
@@ -62,35 +66,39 @@ class TransitStop extends React.Component {
     }
     updateStop() {
         return e => this.setState({
-            stopCode: e.currentTarget.value
+            stopCode: this.state.stops[e.currentTarget.value].id,
+            stop: this.state.stops[e.currentTarget.value]
         })
     }
 
 
     render() {
-        let busss
+        let busss = <div>No Tracked Vehicles</div>
         let stop
         let stops
         let agencies
         if (this.state.agencies){
             agencies = this.state.agencies.map(agency => {
+                let key = 0
                 return (
-                        <option value={agency.Id}> 
+                        <option value={agency.Id} key={key++}> 
  {agency.ShortName?agency.ShortName:agency.Name} {agency.ShortName&&agency.ShortName!==agency.Name?`(${agency.Name})`:''}
                          </option> 
                 )
             })
         }
         if (this.state.stops){
+            let key = 0
             stops = this.state.stops.map(stop => {
                 return (
-                        <option key={stop.Id} value={stop.Id} obj={stop}>
-                            {stop.name}
+                        <option key={key} value={key++}>
+                            {stop.Name} ({stop.id})
                         </option>
                 )
             })
         }
         if (this.state.buss){
+            console.log(this.state.buss[0])
             let key = 0 
             busss = this.state.buss.map(bus => {
                 stop = bus.MonitoredVehicleJourney.MonitoredCall.StopPointName
@@ -128,11 +136,17 @@ class TransitStop extends React.Component {
                 >
                     {agencies}
                 </select>
-            <button className="load-stops" onclick={this.loadStops}>Load Stops</button>
-            <br></br>
+            <button className="load-stops" onClick={this.loadStops}>Load Stops</button>
+            <div className="slow">
+                {
+                (this.state.loaded)
+                ? <div>Loading.....Muni has ~3500 stops, <br></br>ACTransit more than 5000.</div>
+                : <div></div>
+                }
+            </div>
             <select
                 className="stop-select"
-                value={this.state.stop.Name}
+                // value={this.state.stop.Id}
                 onChange={this.updateStop()}
             >
                 {stops}
