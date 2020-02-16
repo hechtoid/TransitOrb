@@ -1,7 +1,6 @@
 .App{
-margin: 5px;
+    font-family: sans-serif;
 }
-
 .hourly-item{
     margin: 10px;
 }
@@ -27,43 +26,67 @@ margin: 5px;
 .transit-master{
     border: 1px solid black;
     border-radius: 10px;
+    background-color: black;
+
 }
 .transit{
     font-family: sans-serif;
     display: flex;
     width: 100%;
     /* margin-left: 10px; */
+    
 }
 .transit-switcher{
     display: flex;
     /* margin-left: 15px; */
     width: 100%;
+    /* margin-right: 15px; */
 }
 #marin{
-    border-radius: 10px 0 0 0;
+    /* border-radius: 10px 0 0 0; */
+    
+}
+.busemoji{
+    border-right: 1px solid black;
+    margin-top: 4px;
+    height: 15px;;
+    padding: 5px;
+    font-size: 23px;
+    margin-left: 10px;
+    margin-right: 10px;
     
 }
 .transit-switch-on{
+    margin-top: 5px;
     padding: 10px;
     /* border-top: 1px solid black; */
     /* border-left: 1px solid black; */
-    border-right: 2px solid black;
+    border-right: 1px solid black;
+    border-top: 1px solid black;
+    /* border-radius: 0px 10px 0 0; */
     height: 15px;
     width: 75px;
     /* margin-left: 10px; */
-    background-color: lightgray;
+    /* color: green; */
+    background-color: white;
     color: green;
+
+
 }
 .transit-switch-off{
+    background-color: lightgray;
+
+    margin-top: 5px;
     padding: 10px;
     /* border-top: 1px solid black; */
     /* border-left: 1px solid black; */
-    border-right: 2px solid black;
+    border-top: 1px solid black;
+    border-right: 1px solid black;
+    /* border-radius: 0px 10px 0 0; */
     /* border-radius: 2px; */
     height: 15px;
     width: 75px;
     /* margin-left: 10px; */
-    color: black;
 }
 .transit-switch-off:hover{
     cursor: pointer;
@@ -71,10 +94,10 @@ margin: 5px;
 .transit-on{
     display: flex;
     width: 100%;
-    background-color: lightgray;
-    /* border: 1px solid black; */
+    /* border-top: 1px solid black; */
     border-radius: 0 0 10px 10px;
     padding: 5px;
+    background-color: white;
 }
 .transit-off{
     display: none;
@@ -106,26 +129,48 @@ margin: 5px;
 }
 .stop-left{
     width: 100%;
+    margin-left: 5px;
 }
 .stop-right{
     margin-left: 10px;
     width: 100%;
 }
+.agencies-string{
+    margin-top: 15px;
+}
+.politics{
+    margin: 3px 0 10px 5px;
+    font-size: 11px;
+}
 .agency-select{
     margin-bottom: 10px;
-    margin-top: 10px;
-    width: 350px;
-    margin-left: 10px;
+    margin-top: 5px;
+    width: 123px;
+    margin-left: 5px;
+    height: 25px;
+
 }
 .agency-code{
     font-weight: 900;
     margin: 10px;
     font-size: 23px;
 }
-input[type="radio"]{
-    margin: 10px;
+label input[type="radio"]{
+    margin-left: 10px;
+    margin-right: 5px;
+}
+#sf{
+    /* margin-right:3px; */
 }
 .stop-id{
-    margin-top: 5px;
-    margin-bottom: 5px;
+    margin: 5px;
+    width: 100px;
+}
+.load-stops{
+    height: 25px;
+    margin-left: 5px;
+}
+.stop-select{
+    width: 234px;
+    margin-left: 5px;
 }

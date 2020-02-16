@@ -1,6 +1,9 @@
 #!/bin/sh
 
 rm  /home/www/react511/src/components/*
+rm /home/www/react511/src/App.css
+
+ln /home/www/LocalNode/frontend/src/App.css /home/www/react511/src/App.css &&
 
 ln /home/www/LocalNode/frontend/src/components/transit/transit.js /home/www/react511/src/components/ &&
 ln /home/www/LocalNode/frontend/src/components/transit/transitstop.js  /home/www/react511/src/components/ &&
