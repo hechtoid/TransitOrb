@@ -12,5 +12,5 @@ ln /home/www/LocalNode/frontend/src/components/transit/broadway.js  /home/www/re
 
 git add . &&
 git commit -m 'predeploy' &&
-gh-pages -d build
+npx gh-pages -d build
 exit
