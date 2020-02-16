@@ -84,7 +84,6 @@ class TransitStop extends React.Component {
                 
                 <br></br>
                 
-                Agency ShortList:
                 <br></br>
                 <label><input type="radio" onChange={this.updateAgency()} checked={this.state.agency==="SF"} value="SF" />SF Muni</label>
                 <label><input type="radio" onChange={this.updateAgency()} checked={this.state.agency==="GG"} value="GG" />Golden Gate Transit</label>
@@ -94,7 +93,7 @@ class TransitStop extends React.Component {
             <br></br>
             <br></br>
             
-            Full List (all {this.state.agencies.length} transit providers!)
+            All Agencies: ({this.state.agencies.length} transit providers in the SFBA!)
                 <br></br>
                 <select
                     className="agency-select"
