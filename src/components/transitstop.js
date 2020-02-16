@@ -18,13 +18,11 @@ class TransitStop extends React.Component {
     componentDidMount() {
         axios.get(`https://api.511.org/transit/StopMonitoring?api_key=72939361-85f9-4019-aa55-d62e4e7e2e59&Format=JSON&agency=${this.state.agency}&stopCode=${this.state.stopCode}`)
         .then(res => {
-            // console.log(res.data)
             let buss = res.data.ServiceDelivery.StopMonitoringDelivery.MonitoredStopVisit;
             this.setState({ buss });
         })
         axios.get(`https://api.511.org/transit/operators?api_key=72939361-85f9-4019-aa55-d62e4e7e2e59&Format=JSON`)
         .then(res => {
-            console.log(res.data)
             let agencies = res.data;
             this.setState({ agencies });
         })
@@ -33,7 +31,6 @@ class TransitStop extends React.Component {
     handleSubmit(e) {
         axios.get(`http://api.511.org/transit/StopMonitoring?api_key=72939361-85f9-4019-aa55-d62e4e7e2e59&Format=JSON&agency=${this.state.agency}&stopCode=${this.state.stopCode}`)
             .then(res => {
-                // console.log(res.data)
                 let buss = res.data.ServiceDelivery.StopMonitoringDelivery.MonitoredStopVisit;
                 this.setState({ buss });
             })
