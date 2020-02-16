@@ -8,10 +8,13 @@ class TransitStop extends React.Component {
             stopCode: '16513',
             agency: 'SF',
             buss: [],
-            agencies: []
+            agencies: [],
+            stops: [],
+            stop: {}
         }
-        this.dateParser=this.dateParser.bind(this)
-        this.handleSubmit = this.handleSubmit.bind(this);
+        this.dateParser = this.dateParser.bind(this)
+        this.loadBusss = this.loadBusss.bind(this);
+        this.loadStops = this.loadStops.bind(this);
 
     }
 
@@ -28,11 +31,18 @@ class TransitStop extends React.Component {
         })
     }
 
-    handleSubmit(e) {
-        axios.get(`http://api.511.org/transit/StopMonitoring?api_key=72939361-85f9-4019-aa55-d62e4e7e2e59&Format=JSON&agency=${this.state.agency}&stopCode=${this.state.stopCode}`)
+    loadBusss(e) {
+        axios.get(`https://api.511.org/transit/StopMonitoring?api_key=72939361-85f9-4019-aa55-d62e4e7e2e59&Format=JSON&agency=${this.state.agency}&stopCode=${this.state.stopCode}`)
             .then(res => {
                 let buss = res.data.ServiceDelivery.StopMonitoringDelivery.MonitoredStopVisit;
                 this.setState({ buss });
+            })
+    }
+    loadStops(e) {
+        axios.get(`https://api.511.org/transit/stops?api_key=72939361-85f9-4019-aa55-d62e4e7e2e59&Format=JSON&operator_id=${this.state.agency}`)
+            .then(res => {
+                let stops = res.data.Contents.dataObjects.ScheduledStopPoint;
+                this.setState({ stops });
             })
     }
 
@@ -50,11 +60,17 @@ class TransitStop extends React.Component {
             agency: e.currentTarget.value
         })
     }
+    updateStop() {
+        return e => this.setState({
+            stopCode: e.currentTarget.value
+        })
+    }
 
 
     render() {
         let busss
         let stop
+        let stops
         let agencies
         if (this.state.agencies){
             agencies = this.state.agencies.map(agency => {
@@ -62,6 +78,15 @@ class TransitStop extends React.Component {
                         <option value={agency.Id}> 
  {agency.ShortName?agency.ShortName:agency.Name} {agency.ShortName&&agency.ShortName!==agency.Name?`(${agency.Name})`:''}
                          </option> 
+                )
+            })
+        }
+        if (this.state.stops){
+            stops = this.state.stops.map(stop => {
+                return (
+                        <option key={stop.Id} value={stop.Id} obj={stop}>
+                            {stop.name}
+                        </option>
                 )
             })
         }
@@ -79,22 +104,23 @@ class TransitStop extends React.Component {
             })   
         }
         return (
-            <div className = "stop-all" >
+            <div className = "stop" >
             <div className="stop-left">
-                
-                <br></br>
-                
-                <br></br>
-                <label><input type="radio" onChange={this.updateAgency()} checked={this.state.agency==="SF"} value="SF" />SF Muni</label>
-                <label><input type="radio" onChange={this.updateAgency()} checked={this.state.agency==="GG"} value="GG" />Golden Gate Transit</label>
-                <br></br>
+                ShortList:
+                <br></br>                
+                <label id="sf"><input type="radio" onChange={this.updateAgency()} checked={this.state.agency==="SF"} value="SF" />SF Muni</label>
                 <label><input type="radio" onChange={this.updateAgency()} checked={this.state.agency==="AC"} value="AC" />AC Transit</label>
-                <label><input type="radio" onChange={this.updateAgency()} checked={this.state.agency==="MA"} value="MA" />Marin Transit</label>            
-            <br></br>
-            <br></br>
-            
-            All Agencies: ({this.state.agencies.length} transit providers in the SFBA!)
                 <br></br>
+                <label><input type="radio" onChange={this.updateAgency()} checked={this.state.agency==="GG"} value="GG" />Golden Gate Transit</label>
+
+            
+            <div className="agencies-string">
+                All {this.state.agencies.length} Transit Agencies:
+                <span className="politics">
+   (Too many! <a target="_blank" href="https://www.seamlessbayarea.org/">AB2057</a>)
+            </span>
+                </div>
+                
                 <select
                     className="agency-select"
                     value={this.state.agency}
@@ -102,16 +128,23 @@ class TransitStop extends React.Component {
                 >
                     {agencies}
                 </select>
-            <form onSubmit={this.handleSubmit}>
+            <button className="load-stops" onclick={this.loadStops}>Load Stops</button>
+            <br></br>
+            <select
+                className="stop-select"
+                value={this.state.stop.Name}
+                onChange={this.updateStop()}
+            >
+                {stops}
+            </select>
+            <form onSubmit={this.loadBusss}>
                 Stop ID:
-                <br></br>
                 <input type="text"
                     value={this.state.stopCode}
                     onChange={this.updateStopCode()}
                     className="stop-id"
                 />
-                <br></br>
-                <input type="submit" value="Update" />
+                <input type="submit" value="Update Arrivals" />
                 <br></br>
             </form>
             </div>
