@@ -160,6 +160,9 @@ label input[type="radio"]{
     margin-left: 10px;
     margin-right: 5px;
 }
+form input{
+    height: 35px;
+}
 #sf{
     /* margin-right:3px; */
 }
@@ -171,7 +174,7 @@ label input[type="radio"]{
 .stop-filter{
     height: 35px;
     margin: 5px 0px 10px 5px;
-    width: 200px;
+    width: 320px;
 }
 .load-stops{
     height: 35px;

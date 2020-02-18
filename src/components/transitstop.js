@@ -175,16 +175,16 @@ class TransitStop extends React.Component {
                 : <div></div>
                 }
             </div>
-            Live Filter: 
+            
                 <input type="text"
                     value={this.state.stopFilter}
                     onChange={this.updateStopFilter()}
                     className="stop-filter"
+                    placeholder="Live Filter (BackSpace RePopulates StopList)"
                 />
                 <br></br>
             <select
                 className="stop-select"
-                // value={this.state.stop.Id}
                 onChange={this.updateStop()}
             >
                 {stops}
@@ -194,7 +194,6 @@ class TransitStop extends React.Component {
                 <input type="text"
                     value={this.state.stopCode}
                     onChange={this.updateStopCode()}
-                    onSelect={this.updateStopCode()}
                     className="stop-id"
                 />
                 <input type="submit" value="Update Arrivals" />
