@@ -7,7 +7,7 @@ import Broadway from './broadway';
 import TransitStop from './transitstop';
 
 function Transit() {
-  let [pane, setPane] = useState('marin');
+  let [pane, setPane] = useState('user');
   return (
     <div className="transit-master">
       <div className="transit-switcher">
