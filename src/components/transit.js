@@ -15,6 +15,7 @@ function Transit() {
         <div id='marin' className={pane === 'marin' ? 'transit-switch-on' : 'transit-switch-off'} onClick={() => setPane('marin')}>MARIN</div>
         <div className={pane === 'frisco' ? 'transit-switch-on' : 'transit-switch-off'} onClick={() => setPane('frisco')}>FRISCO</div>
         <div className={pane === 'user' ? 'transit-switch-on' : 'transit-switch-off'} onClick={() => setPane('user')}>USER</div>
+
       </div>
     <div className="transit">
         <div className={pane === 'marin' ? 'transit-on' : 'transit-off'} >

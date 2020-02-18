@@ -147,12 +147,12 @@ class TransitStop extends React.Component {
             <div className="stop-left">
                 ShortList:
                 <br></br>                
-                <label id="sf"><input type="radio" onChange={this.updateAgency()} checked={this.state.agency==="SF"} value="SF" />SF Muni</label>
-                <label><input type="radio" onChange={this.updateAgency()} checked={this.state.agency==="AC"} value="AC" />AC Transit</label>
+                <label id="sf"><input type="radio" onChange={this.updateAgency()} checked={this.state.agency==="SF"} value="SF" />SF</label>
+                <label><input type="radio" onChange={this.updateAgency()} checked={this.state.agency==="AC"} value="AC" />AC</label>
                 <br></br>
-                <label><input type="radio" onChange={this.updateAgency()} checked={this.state.agency==="GG"} value="GG" />Golden Gate Transit</label>
+                <label><input type="radio" onChange={this.updateAgency()} checked={this.state.agency==="GG"} value="GG" />GG</label>
+                <label><input type="radio" onChange={this.updateAgency()} checked={this.state.agency==="GG"} value="BA" />Bart</label>
 
-            
             <div className="agencies-string">
                 All {this.state.agencies.length} Transit Agencies:
                 <span className="politics">
