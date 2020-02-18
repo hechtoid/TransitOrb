@@ -123,7 +123,7 @@ img.five-eleven{
     margin: 5px;
     border: 1px solid gray;
     border-radius: 3px;
-    padding: 5px;
+    padding: 10px;
     width: 90%;
 }
 .line{
@@ -135,7 +135,7 @@ img.five-eleven{
 .stop{
     width: 100%;
     margin: 2%;
-    display: flex;
+    /* display: flex; */
 }
 .stop-left{
     width: 100%;
@@ -157,17 +157,23 @@ img.five-eleven{
     margin-top: 10px;
     width: 234px;
     margin-left: 5px;
-    height: 25px;
     height: 35px;
 }
 .agency-code{
     font-weight: 900;
-    margin: 10px;
-    font-size: 23px;
+    padding: 0 0 150px 50px;
+    position: relative;
+    top: -20px;
+    font-size: 42px;
 }
 label input[type="radio"]{
-    margin-left: 10px;
+    margin-left: 25px;
     margin-right: 5px;
+    
+}
+.stop-left label{
+    font-size: 18px;
+    font-weight: 900;
 }
 form input{
     height: 35px;
@@ -183,14 +189,14 @@ form input{
 .stop-filter{
     height: 35px;
     margin: 5px 0px 10px 5px;
-    width: 320px;
+    width: 300px;
 }
 .load-stops{
     height: 35px;
     margin-left: 5px;
 }
 .stop-select{
-    width: 345px;
+    width: 300px;
     height: 35px;
     margin: 5px 0 10px 5px;
 }

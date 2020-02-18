@@ -72,20 +72,28 @@ class TransitStop extends React.Component {
         })
     }
     updateStop() {
-        return e => this.setState({
+        return e => {
+            this.setState({
             stopCode: this.state.stopsFiltered[e.currentTarget.value].id,
             stop: this.state.stopsFiltered[e.currentTarget.value]
         })
     }
+    }
     updateStopFilter() {
         return e => {
-            // if (e.currentTarget.value.length === 0){
-            //     this.setState({
-            //         stopFilter: e.currentTarget.value,
-            //         stopsFiltered: this.state.stops
-            //     })
-            // }
-            if (e.currentTarget.value.length < 2){
+            if (!e.currentTarget.value){
+                this.setState({
+                    stopFilter: '',
+                    stopsFiltered: this.state.stops
+                })
+            }
+            else if (e.currentTarget.value.length === 0){
+                this.setState({
+                    stopFilter: '',
+                    stopsFiltered: this.state.stops
+                })
+            }
+            else if (e.currentTarget.value.length < 2){
                 this.setState({
                     stopFilter: e.currentTarget.value,
                     // stopsFiltered: this.state.stops
@@ -98,18 +106,22 @@ class TransitStop extends React.Component {
                     stopsFiltered: filtered
                 })
             }  
-            else {
+            else if (e.currentTarget.value.length >= 2){
                 let filtered = this.state.stopsFiltered.filter(stop => stop.Name.toLowerCase().includes(e.currentTarget.value.toLowerCase()))
                 this.setState({
                     stopFilter: e.currentTarget.value,
-                    stopsFiltered: filtered
+                    stopsFiltered: filtered //? filtered : this.state.stops
                 })
             }
     }
     }
 
     render() {
-        let busss = <div>No Tracked Vehicles</div>
+        let busss = <div className="bus">
+            No Tracked Vehicles. 
+            <br></br>
+            Update Above, or check the schedule.
+        </div>
         let stop
         let stops
         let agencies
@@ -128,13 +140,15 @@ class TransitStop extends React.Component {
             let key = 0
             stops = this.state.stopsFiltered.map(stop => {
                 return (
-                        <option key={key} value={key++} onClick={this.updateStop()}>
+                        <option key={key} value={key++} 
+                        // onClick={this.updateStop()}
+                        >
                             {stop.Name} ({stop.id})
                         </option>
                 )
             })
         }
-        if (this.state.buss){
+        if (this.state.buss[0]){
             console.log(this.state.buss[0])
             let key = 0 
             busss = this.state.buss.map(bus => {
@@ -153,12 +167,13 @@ class TransitStop extends React.Component {
             <div className="stop-left">
                 ShortList:
                 <br></br>                
+                <br></br>                
                 <label id="sf"><input type="radio" onChange={this.updateAgency()} checked={this.state.agency==="SF"} value="SF" />SF</label>
                 <label><input type="radio" onChange={this.updateAgency()} checked={this.state.agency==="AC"} value="AC" />AC</label>
                 <br></br>
                 <label><input type="radio" onChange={this.updateAgency()} checked={this.state.agency==="GG"} value="GG" />GG</label>
                 <label><input type="radio" onChange={this.updateAgency()} checked={this.state.agency==="BA"} value="BA" />Bart</label>
-
+                <span className="agency-code">{this.state.agency}</span>
             <div className="agencies-string">
                 All {this.state.agencies.length} Transit Agencies:
                 <span className="politics">
@@ -170,6 +185,7 @@ class TransitStop extends React.Component {
                     className="agency-select"
                     value={this.state.agency}
                     onChange={this.updateAgency()}
+                    onMouseDown={this.updateAgency()}
                 >
                     {agencies}
                 </select>
@@ -190,8 +206,11 @@ class TransitStop extends React.Component {
                 />
                 <br></br>
             <select
+                disabled={!this.state.stopsFiltered[0]}
                 className="stop-select"
                 onChange={this.updateStop()}
+                onMouseDown={this.updateStop()}
+                // onClick={this.updateStop()}
             >
                 {stops}
             </select>            
