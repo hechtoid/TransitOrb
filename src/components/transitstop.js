@@ -108,8 +108,8 @@ class TransitStop extends React.Component {
         let stops
         let agencies
         if (this.state.agencies){
+            let key = 0
             agencies = this.state.agencies.map(agency => {
-                let key = 0
                 return (
                         <option value={agency.Id} key={key++}> 
  {agency.ShortName?agency.ShortName:agency.Name} {agency.ShortName&&agency.ShortName!==agency.Name?`(${agency.Name})`:''}
