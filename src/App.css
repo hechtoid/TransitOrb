@@ -126,10 +126,7 @@ img.five-eleven{
     padding: 10px;
     width: 90%;
 }
-.line{
-    font-weight: 900;
-}
-.expected{
+.bold{
     font-weight: 900;
 }
 .stop{
@@ -144,6 +141,9 @@ img.five-eleven{
 .stop-right{
     margin-left: 10px;
     width: 100%;
+}
+.stop-title{
+    font-weight: 900;
 }
 .agencies-string{
     margin-top: 15px;
