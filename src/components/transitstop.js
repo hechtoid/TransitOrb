@@ -45,8 +45,14 @@ class TransitStop extends React.Component {
         this.setState({ loaded: true })
         axios.get(`https://api.511.org/transit/stops?api_key=72939361-85f9-4019-aa55-d62e4e7e2e59&Format=JSON&operator_id=${this.state.agency}`)
             .then(res => {
-                let stops = res.data.Contents.dataObjects.ScheduledStopPoint;
-                this.setState({ stops, stopsFiltered: stops });
+                if (this.state.agency === "BA"){
+                    let stops = res.data.Contents.dataObjects.ScheduledStopPoint.filter(stop => !stop.id.includes('place')&&!stop.Name.includes('Enter/Exit :'))
+                    this.setState({ stops, stopsFiltered: stops });
+                }
+                else {
+                    let stops = res.data.Contents.dataObjects.ScheduledStopPoint;
+                    this.setState({ stops, stopsFiltered: stops });
+                }
             })
     }
 
@@ -151,7 +157,7 @@ class TransitStop extends React.Component {
                 <label><input type="radio" onChange={this.updateAgency()} checked={this.state.agency==="AC"} value="AC" />AC</label>
                 <br></br>
                 <label><input type="radio" onChange={this.updateAgency()} checked={this.state.agency==="GG"} value="GG" />GG</label>
-                <label><input type="radio" onChange={this.updateAgency()} checked={this.state.agency==="GG"} value="BA" />Bart</label>
+                <label><input type="radio" onChange={this.updateAgency()} checked={this.state.agency==="BA"} value="BA" />Bart</label>
 
             <div className="agencies-string">
                 All {this.state.agencies.length} Transit Agencies:
