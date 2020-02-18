@@ -145,11 +145,11 @@
 }
 .agency-select{
     margin-bottom: 10px;
-    margin-top: 5px;
+    margin-top: 10px;
     width: 234px;
     margin-left: 5px;
     height: 25px;
-
+    height: 35px;
 }
 .agency-code{
     font-weight: 900;
@@ -164,16 +164,23 @@ label input[type="radio"]{
     /* margin-right:3px; */
 }
 .stop-id{
+    height: 35px;
     margin: 5px;
     width: 100px;
 }
+.stop-filter{
+    height: 35px;
+    margin: 5px 0px 10px 5px;
+    width: 200px;
+}
 .load-stops{
-    height: 25px;
+    height: 35px;
     margin-left: 5px;
 }
 .stop-select{
     width: 345px;
-    margin-left: 5px;
+    height: 35px;
+    margin: 5px 0 10px 5px;
 }
 .slow{
     font-size: 11px;

@@ -11,12 +11,14 @@ class TransitStop extends React.Component {
             buss: [],
             agencies: [],
             stops: [],
+            stopFilter: '',
+            stopsFiltered: [],
             stop: {}
         }
         this.dateParser = this.dateParser.bind(this)
         this.loadBusss = this.loadBusss.bind(this);
         this.loadStops = this.loadStops.bind(this);
-
+        this.updateStopFilter = this.updateStopFilter.bind(this)
     }
 
     componentDidMount() {
@@ -44,7 +46,7 @@ class TransitStop extends React.Component {
         axios.get(`https://api.511.org/transit/stops?api_key=72939361-85f9-4019-aa55-d62e4e7e2e59&Format=JSON&operator_id=${this.state.agency}`)
             .then(res => {
                 let stops = res.data.Contents.dataObjects.ScheduledStopPoint;
-                this.setState({ stops });
+                this.setState({ stops, stopsFiltered: stops });
             })
     }
 
@@ -53,7 +55,6 @@ class TransitStop extends React.Component {
     dateParser(zulu){
         return new Date(Date.parse(zulu)).toLocaleTimeString()
     }
-
     updateStopCode() {
         return e => this.setState({
             stopCode: e.currentTarget.value
@@ -66,11 +67,40 @@ class TransitStop extends React.Component {
     }
     updateStop() {
         return e => this.setState({
-            stopCode: this.state.stops[e.currentTarget.value].id,
-            stop: this.state.stops[e.currentTarget.value]
+            stopCode: this.state.stopsFiltered[e.currentTarget.value].id,
+            stop: this.state.stopsFiltered[e.currentTarget.value]
         })
     }
-
+    updateStopFilter() {
+        return e => {
+            // if (e.currentTarget.value.length === 0){
+            //     this.setState({
+            //         stopFilter: e.currentTarget.value,
+            //         stopsFiltered: this.state.stops
+            //     })
+            // }
+            if (e.currentTarget.value.length < 2){
+                this.setState({
+                    stopFilter: e.currentTarget.value,
+                    // stopsFiltered: this.state.stops
+                })
+            }
+            else if (e.currentTarget.value.length <= this.state.stopFilter.length){
+                let filtered = this.state.stops//.filter(stop => stop.Name.toLowerCase().includes(e.currentTarget.value.toLowerCase()))
+                this.setState({
+                    stopFilter: e.currentTarget.value,
+                    stopsFiltered: filtered
+                })
+            }  
+            else {
+                let filtered = this.state.stopsFiltered.filter(stop => stop.Name.toLowerCase().includes(e.currentTarget.value.toLowerCase()))
+                this.setState({
+                    stopFilter: e.currentTarget.value,
+                    stopsFiltered: filtered
+                })
+            }
+    }
+    }
 
     render() {
         let busss = <div>No Tracked Vehicles</div>
@@ -87,11 +117,12 @@ class TransitStop extends React.Component {
                 )
             })
         }
-        if (this.state.stops){
+        if (this.state.stopsFiltered){
+            //
             let key = 0
-            stops = this.state.stops.map(stop => {
+            stops = this.state.stopsFiltered.map(stop => {
                 return (
-                        <option key={key} value={key++}>
+                        <option key={key} value={key++} onClick={this.updateStop()}>
                             {stop.Name} ({stop.id})
                         </option>
                 )
@@ -144,18 +175,26 @@ class TransitStop extends React.Component {
                 : <div></div>
                 }
             </div>
+            Live Filter: 
+                <input type="text"
+                    value={this.state.stopFilter}
+                    onChange={this.updateStopFilter()}
+                    className="stop-filter"
+                />
+                <br></br>
             <select
                 className="stop-select"
                 // value={this.state.stop.Id}
                 onChange={this.updateStop()}
             >
                 {stops}
-            </select>
+            </select>            
             <form onSubmit={this.loadBusss}>
                 Stop ID:
                 <input type="text"
                     value={this.state.stopCode}
                     onChange={this.updateStopCode()}
+                    onSelect={this.updateStopCode()}
                     className="stop-id"
                 />
                 <input type="submit" value="Update Arrivals" />

@@ -1,4 +1,5 @@
 #!/bin/sh
+cd /home/www/react511/
 
 rm /home/www/react511/src/App.css
 rm  /home/www/react511/src/components/*
