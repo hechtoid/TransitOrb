@@ -73,7 +73,7 @@ img.five-eleven{
     /* border-left: 1px solid black; */
     border-right: 1px solid black;
     border-top: 1px solid black;
-    /* border-radius: 0px 10px 0 0; */
+    border-radius: 5px 5px 0 0;
     height: 15px;
     width: 75px;
     /* margin-left: 10px; */
@@ -85,7 +85,7 @@ img.five-eleven{
 }
 .transit-switch-off{
     background-color: lightgray;
-
+    border-radius: 10px 10px 0 0;
     margin-top: 10px;
     padding: 10px;
     /* border-top: 1px solid black; */
