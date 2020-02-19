@@ -168,13 +168,14 @@ label input[type="radio"]{
 }
 .load-stops{
     height: 35px;
-    /* margin-right: 5px; */
+    /* margin-bottom: 5px; */
     /* width: 100px; */
 }
 .slow{
     font-size: 11px;
     margin-left: 5px;
     display: flex;
+    height: 50px;
 }
 .slow div{
     margin: 5px 5px 5px 10px;
@@ -208,4 +209,11 @@ form input{
 
 .stop-title{
     font-weight: 900;
+}
+.update{
+    color: blue;
+    text-decoration: underline;
+}
+.update:hover{
+    cursor: pointer
 }

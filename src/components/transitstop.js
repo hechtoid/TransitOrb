@@ -62,13 +62,34 @@ class TransitStop extends React.Component {
         return new Date(Date.parse(zulu)).toLocaleTimeString()
     }
     updateStopCode() {
-        return e => this.setState({
-            stopCode: e.currentTarget.value
-        })
+        return e => {
+            let stop = this.state.stops.filter(stop=>stop.id.toLowerCase()===e.currentTarget.value.toLowerCase())[0]
+            if (stop){
+                this.setState({
+                    stopCode: e.currentTarget.value,
+                    stopsFiltered: this.state.stops, 
+                    stopFilter: '',
+                    stop          
+                })
+            console.log(stop)
+            axios.get(`https://api.511.org/transit/StopMonitoring?api_key=72939361-85f9-4019-aa55-d62e4e7e2e59&Format=JSON&agency=${this.state.agency}&stopCode=${e.currentTarget.value.toUpperCase()}`)
+            .then(res => {
+                let buss = res.data.ServiceDelivery.StopMonitoringDelivery.MonitoredStopVisit;
+                this.setState({ buss });
+            })
+            } else {
+                this.setState({
+                    stopCode: e.currentTarget.value
+                })
+            }
+    }
     }
     updateAgency() {
         return e => this.setState({
-            agency: e.currentTarget.value
+            agency: e.currentTarget.value,
+            stops: [],
+            stopsFiltered: [],
+            loaded: false
         })
     }
     updateStop() {
@@ -81,22 +102,9 @@ class TransitStop extends React.Component {
     }
     updateStopFilter() {
         return e => {
-            if (!e.currentTarget.value){
-                this.setState({
-                    stopFilter: '',
-                    stopsFiltered: this.state.stops
-                })
-            }
-            else if (e.currentTarget.value.length === 0){
-                this.setState({
-                    stopFilter: '',
-                    stopsFiltered: this.state.stops
-                })
-            }
-            else if (e.currentTarget.value.length === 1){
+            if (e.currentTarget.value.length === 1){
                 this.setState({
                     stopFilter: e.currentTarget.value,
-                    stopsFiltered: this.state.stops
                 })
             }
             else if (e.currentTarget.value.length <= this.state.stopFilter.length){
@@ -108,19 +116,33 @@ class TransitStop extends React.Component {
             }  
             else if (e.currentTarget.value.length >= 2){
                 let filtered = this.state.stopsFiltered.filter(stop => stop.Name.toLowerCase().includes(e.currentTarget.value.toLowerCase()))
-                this.setState({
-                    stopFilter: e.currentTarget.value,
-                    stopsFiltered: filtered //? filtered : this.state.stops
-                })
+                    this.setState({
+                        stopFilter: e.currentTarget.value,
+                        stopsFiltered: filtered,
+                        // stop: filtered[0]?filtered[0]:{},
+                        // stopCode: filtered[0]?filtered[0].id:''
+                    })
+                if (filtered[0]){
+                    let stop = filtered[0]
+                    this.setState({
+                        stopCode: stop.id,
+                        stop
+                    })
+                    console.log(stop)
+                    axios.get(`https://api.511.org/transit/StopMonitoring?api_key=72939361-85f9-4019-aa55-d62e4e7e2e59&Format=JSON&agency=${this.state.agency}&stopCode=${stop.id}`)
+                    .then(res => {
+                        let buss = res.data.ServiceDelivery.StopMonitoringDelivery.MonitoredStopVisit;
+                        this.setState({ buss });
+                    })
+                }
             }
+        }
     }
-    }
-
     render() {
         let busss = <div className="bus">
-            No Tracked Vehicles. 
+            No Tracked Vehicles to show. 
             <br></br>
-            Update Above, or check the schedule.
+            <span className='update' onClick={this.loadBusss}>Check again</span>, check your inputs, or check the schedule.
         </div>
         let stop
         let stops
@@ -225,13 +247,12 @@ class TransitStop extends React.Component {
                 : <div></div>
                 }
             </div>
-            
                 <input type="text"
                     value={this.state.stopFilter}
                     className="stop-filter"
                     onChange={this.updateStopFilter()}
-           
-                    placeholder="Live Filter (BackSpace RePopulates StopList)"
+                    disabled={!this.state.loaded}
+                    placeholder={this.state.stopsFiltered[0]?"Live Filter (BackSpace RePopulates StopList)":"No Stops Loaded"}
                 />
                 <br></br>
             <select
@@ -239,23 +260,23 @@ class TransitStop extends React.Component {
                 className="stop-select"
                 onChange={this.updateStop()}
                 onMouseDown={this.updateStop()}
+                placeholder="No Stops Loaded"
                 // onClick={this.updateStop()}
             >
                 {stops}
             </select>            
-            <form onSubmit={this.loadBusss}>
+            <br></br>
+            {/* <form onSubmit={this.loadBusss}> */}
                 Stop ID:
                 <input type="text"
                     value={this.state.stopCode}
                     onChange={this.updateStopCode()}
                     className="stop-id"
                 />
-                <input type="submit" value="Update Arrivals" />
-                <br></br>
-            </form>
-            </div>
-            <div className="stop-right">
+                {/* <input type="submit" value="Update Arrivals" /> */}
+            {/* </form> */}
                 <span className="stop-title">{ stop } </span>
+                <br></br>
                 { busss }
             </div>
             </div>
