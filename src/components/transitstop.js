@@ -124,11 +124,11 @@ class TransitStop extends React.Component {
     updateStop() {
         return e => {
             let stop = this.state.stopsFiltered[e.currentTarget.value]
-            this.setState({
-            stopCode: stop.id,
-            stop 
-        })
-        console.log(stop)
+                this.setState({
+                    stopCode: stop.id,
+                    stop 
+                })
+            console.log(stop)
             axios.get(`https://api.511.org/transit/StopMonitoring?api_key=72939361-85f9-4019-aa55-d62e4e7e2e59&Format=JSON&agency=${this.state.agency}&stopCode=${stop.id}`)
             .then(res => {
                 let buss = res.data.ServiceDelivery.StopMonitoringDelivery.MonitoredStopVisit;
@@ -178,17 +178,24 @@ class TransitStop extends React.Component {
     render() {
         let slow
             if (this.state.loaded && !this.state.stops[0]){
-            slow = <div>Loading.....Muni and VTA have ~3500 stops,<br></br>ACTransit more than 5000.</div>
-            }else{
-            slow = <div>
-                    Loaded <span className="bold">
-                    {this.state.loaded 
-                        && this.state.stops[0]
-                        ? this.state.stops.length
-                        : '∅'
-                    }
-                    </span> stops.
-                </div>
+                slow = <div>Loading.....Muni and VTA have ~3500 stops,<br></br>ACTransit more than 5000.</div>
+            }
+            else if (this.state.loaded && this.state.stops[0] && this.state.stopFilter){
+                slow = <div>
+                        Loaded <span className="bold">
+                        {this.state.stops.length}
+                        </span> stops.<br></br>
+                        <span className="bold">
+                            {this.state.stopsFiltered.length}
+                        </span> in Filter.
+                    </div>
+            } 
+            else if (this.state.loaded && this.state.stops[0]){
+                slow = <div>
+                        Loaded <span className="bold">
+                        {this.state.stops.length}
+                        </span> stops.<br></br>
+                    </div>
             }
         let busss = <div className="bus">
             No Tracked Vehicles to show. 
@@ -208,7 +215,6 @@ class TransitStop extends React.Component {
             })
         }
         if (this.state.stopsFiltered){
-            //
             let key = 0
             stops = this.state.stopsFiltered.map(stop => {
                 return (
@@ -304,8 +310,6 @@ class TransitStop extends React.Component {
                 className="stop-select"
                 onChange={this.updateStop()}
                 onMouseDown={this.updateStop()}
-                placeholder="No Stops Loaded"
-                // onClick={this.updateStop()}
             >
                 {stops}
             </select>            
