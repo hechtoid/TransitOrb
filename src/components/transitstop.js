@@ -93,10 +93,10 @@ class TransitStop extends React.Component {
                     stopsFiltered: this.state.stops
                 })
             }
-            else if (e.currentTarget.value.length < 2){
+            else if (e.currentTarget.value.length === 1){
                 this.setState({
                     stopFilter: e.currentTarget.value,
-                    // stopsFiltered: this.state.stops
+                    stopsFiltered: this.state.stops
                 })
             }
             else if (e.currentTarget.value.length <= this.state.stopFilter.length){
@@ -227,8 +227,9 @@ class TransitStop extends React.Component {
             
                 <input type="text"
                     value={this.state.stopFilter}
-                    onChange={this.updateStopFilter()}
                     className="stop-filter"
+                    onChange={this.updateStopFilter()}
+           
                     placeholder="Live Filter (BackSpace RePopulates StopList)"
                 />
                 <br></br>
