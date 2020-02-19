@@ -123,7 +123,7 @@ img.five-eleven{
     margin: 5px;
     border: 1px solid gray;
     border-radius: 3px;
-    padding: 10px;
+    padding: 10px 0px 10px 5px;
     width: 90%;
 }
 .bold{
