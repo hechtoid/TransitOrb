@@ -85,43 +85,59 @@ class TransitStop extends React.Component {
     dateParser(zulu){
         return new Date(Date.parse(zulu)).toLocaleTimeString()
     }
+
     updateStopCode() {
         return e => {
-            let stop = this.state.stops.filter(stop=>stop.id.toLowerCase()===e.currentTarget.value.toLowerCase())[0]
-            if (stop){
+            if (e.currentTarget.value.length < 3){
                 this.setState({
-                    stopCode: e.currentTarget.value,
-                    stopsFiltered: this.state.stops, 
-                    stopFilter: '',
-                    stop          
+                    stopCode: e.currentTarget.value
                 })
-            console.log(stop)
-            axios.get(`https://api.511.org/transit/StopMonitoring?api_key=72939361-85f9-4019-aa55-d62e4e7e2e59&Format=JSON&agency=${this.state.agency}&stopCode=${e.currentTarget.value.toUpperCase()}`)
-            .then(res => {
-                let buss = res.data.ServiceDelivery.StopMonitoringDelivery.MonitoredStopVisit;
-                this.setState({ buss });
-                })
-            } else if (
+            }
+             else if (
                     e.currentTarget.value.length >= 3
                     && this.state.agency !== 'SF'
                     && this.state.agency !== 'AC'
                     && this.state.agency !== 'SM'
                     && this.state.agency !== 'SC'
-                ){
-                this.setState({
-                    stopCode: e.currentTarget.value,
-                    stop: {}
-                })
+                    ){
+                let stop = this.state.stops.filter(stop=>stop.id.toLowerCase()===e.currentTarget.value.toLowerCase())[0]
+                    if (stop) {
+                        console.log(stop)
+                        this.setState({
+                            stopCode: e.currentTarget.value,
+                            stopsFiltered: this.state.stops, 
+                            // stopFilter: stop.Name,
+                            stopFilter: '',
+                            stop          
+                        })
+                    } else {
+                        this.setState({
+                            stopCode: e.currentTarget.value,
+                            stop: {}
+                        })
+                    }
                 axios.get(`https://api.511.org/transit/StopMonitoring?api_key=72939361-85f9-4019-aa55-d62e4e7e2e59&Format=JSON&agency=${this.state.agency}&stopCode=${e.currentTarget.value.toUpperCase()}`)
                 .then(res => {
                 let buss = res.data.ServiceDelivery.StopMonitoringDelivery.MonitoredStopVisit;
                     this.setState({ buss });
                 })
             } else if (e.currentTarget.value.length>=5){
-                this.setState({
-                    stopCode: e.currentTarget.value,
-                    stop: {}
-                })
+                let stop = this.state.stops.filter(stop=>stop.id.toLowerCase()===e.currentTarget.value.toLowerCase())[0]
+                    if (stop){
+                        console.log(stop)
+                        this.setState({
+                            stopCode: e.currentTarget.value,
+                            stopsFiltered: this.state.stops, 
+                            // stopFilter: stop.Name,
+                            stopFilter: '',
+                            stop          
+                        })
+                } else {
+                    this.setState({
+                        stopCode: e.currentTarget.value,
+                        stop: {}
+                    })
+                }
                 axios.get(`https://api.511.org/transit/StopMonitoring?api_key=72939361-85f9-4019-aa55-d62e4e7e2e59&Format=JSON&agency=${this.state.agency}&stopCode=${e.currentTarget.value.toUpperCase()}`)
                 .then(res => {
                 let buss = res.data.ServiceDelivery.StopMonitoringDelivery.MonitoredStopVisit;
@@ -150,11 +166,11 @@ class TransitStop extends React.Component {
     updateStop() {
         return e => {
             let stop = this.state.stopsFiltered[e.currentTarget.value]
+                console.log(stop)
                 this.setState({
                     stopCode: stop.id,
                     stop 
                 })
-            console.log(stop)
             axios.get(`https://api.511.org/transit/StopMonitoring?api_key=72939361-85f9-4019-aa55-d62e4e7e2e59&Format=JSON&agency=${this.state.agency}&stopCode=${stop.id}`)
             .then(res => {
                 let buss = res.data.ServiceDelivery.StopMonitoringDelivery.MonitoredStopVisit;
@@ -187,11 +203,11 @@ class TransitStop extends React.Component {
                     })
                 if (stopsFiltered[0]){
                     let stop = stopsFiltered[0]
+                    console.log(stop)
                     this.setState({
                         stopCode: stop.id,
                         stop
                     })
-                    console.log(stop)
                     axios.get(`https://api.511.org/transit/StopMonitoring?api_key=72939361-85f9-4019-aa55-d62e4e7e2e59&Format=JSON&agency=${this.state.agency}&stopCode=${stop.id}`)
                     .then(res => {
                         let buss = res.data.ServiceDelivery.StopMonitoringDelivery.MonitoredStopVisit;
@@ -329,15 +345,16 @@ class TransitStop extends React.Component {
                     className="stop-filter"
                     onChange={this.updateStopFilter()}
                     disabled={!this.state.loaded}
-                    placeholder={this.state.stopsFiltered[0]?"Live Filter (BackSpace RePopulates StopList)":"No Stops Loaded"}
+                    placeholder={this.state.stopsFiltered[0]?"Live Filter by Stop Name":"No Stops Loaded"}
                 />
                 <br></br>
             <select
                 disabled={!this.state.stopsFiltered[0]}
                 className="stop-select"
                 onChange={this.updateStop()}
-                onMouseDown={this.updateStop()}
-            >
+                onMouseDown={this.updateStop()}               
+                >
+                {/* <option selected disabled>{this.state.stop.id ? this.state.stop.Name+' '+this.state.stop.id:this.state.stop.Name}</option> */}
                 {stops}
             </select>            
             <div className="stop-info">
