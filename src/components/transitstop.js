@@ -48,8 +48,8 @@ class TransitStop extends React.Component {
                 if (this.state.agency === "BA"){
                     let stops = res.data.Contents.dataObjects.ScheduledStopPoint.filter(stop => !stop.id.includes('place')&&!stop.Name.includes('Enter/Exit :'))
                     this.setState({ 
-                        stop: this.state.stopCode?this.state.stop:stops.filter(stop => stop.Name==='Embarcadero')[0],
-                        stopCode: this.state.stopCode?this.state.stopCode:'EMBR',
+                        stop: stops.filter(stop => stop.Name==='Embarcadero')[0],
+                        stopCode: 'EMBR',
                         stopsFiltered: stops, 
                         stops
                     });
@@ -65,7 +65,6 @@ class TransitStop extends React.Component {
                     let stops = res.data.Contents.dataObjects.ScheduledStopPoint;
                     let stop = stops[0]
                     this.setState({ 
-                        // buss: [],
                         stop: stop,
                         stopCode: stop.id,
                         stopsFiltered: stops,
@@ -111,8 +110,10 @@ class TransitStop extends React.Component {
     updateAgency() {
         return e => this.setState({
             agency: e.currentTarget.value,
+            stop: {},
             stops: [],
             stopsFiltered: [],
+            stopCode: '',
             buss: [],
             loaded: false
         })
