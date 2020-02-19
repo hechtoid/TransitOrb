@@ -29,7 +29,7 @@ class TransitStop extends React.Component {
         })
         axios.get(`https://api.511.org/transit/operators?api_key=72939361-85f9-4019-aa55-d62e4e7e2e59&Format=JSON`)
         .then(res => {
-            let agencies = res.data;
+            let agencies = res.data.filter(agency => !!agency.WebSite);
             this.setState({ agencies });
         })
     }
@@ -207,7 +207,7 @@ class TransitStop extends React.Component {
    (Too many! <a target="_blank" href="https://www.seamlessbayarea.org/">AB2057</a>)
             </span>
                 </div>
-                
+            <div className="agency">
                 <select
                     className="agency-select"
                     value={this.state.agency}
@@ -216,11 +216,12 @@ class TransitStop extends React.Component {
                 >
                     {agencies}
                 </select>
-            <button className="load-stops" onClick={this.loadStops}>Load Stops</button>
+            </div>
             <div className="slow">
+            <button className="load-stops" onClick={this.loadStops}>Load Stops</button>
                 {
                 (this.state.loaded)
-                ? <div>Loading.....Muni has ~3500 stops, <br></br>ACTransit more than 5000.</div>
+                ? <div>Loading.....Muni and VTA have ~3500 stops,<br></br>ACTransit more than 5000.</div>
                 : <div></div>
                 }
             </div>
