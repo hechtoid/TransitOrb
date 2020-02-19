@@ -6,14 +6,14 @@ class TransitStop extends React.Component {
         super(props);
         this.state = {
             loaded: false,
-            stopCode: '16513',
-            agency: 'SF',
+            stopCode: 'EMBR',
+            agency: 'BA',
             buss: [],
             agencies: [],
             stops: [],
             stopFilter: '',
             stopsFiltered: [],
-            stop: {}
+            stop: {Name: 'Embarcadero'}
         }
         this.dateParser = this.dateParser.bind(this)
         this.loadBusss = this.loadBusss.bind(this);
@@ -105,6 +105,7 @@ class TransitStop extends React.Component {
             if (e.currentTarget.value.length === 1){
                 this.setState({
                     stopFilter: e.currentTarget.value,
+                    stopsFiltered: this.state.stops
                 })
             }
             else if (e.currentTarget.value.length <= this.state.stopFilter.length){
@@ -174,7 +175,7 @@ class TransitStop extends React.Component {
             console.log(this.state.buss[0])
             let key = 0 
             busss = this.state.buss.map(bus => {
-                stop = bus.MonitoredVehicleJourney.MonitoredCall.StopPointName
+                // stop = bus.MonitoredVehicleJourney.MonitoredCall.StopPointName
                 if (bus.MonitoredVehicleJourney.OperatorRef!=='BA'){
                     return (
                     <div className="bus" key={key++}>
@@ -272,10 +273,11 @@ class TransitStop extends React.Component {
                     value={this.state.stopCode}
                     onChange={this.updateStopCode()}
                     className="stop-id"
+                    disabled={!this.state.loaded}
                 />
                 {/* <input type="submit" value="Update Arrivals" /> */}
             {/* </form> */}
-                <span className="stop-title">{ stop } </span>
+                <span className="stop-title">{ this.state.stop.Name } </span>
                 <br></br>
                 { busss }
             </div>

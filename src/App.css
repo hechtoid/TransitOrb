@@ -170,6 +170,9 @@ label input[type="radio"]{
     height: 35px;
     /* margin-bottom: 5px; */
     /* width: 100px; */
+    /* border: 1px solid red; */
+    color: green;
+    font-weight: 900;
 }
 .slow{
     font-size: 11px;
@@ -209,6 +212,7 @@ form input{
 
 .stop-title{
     font-weight: 900;
+    margin-left: 15px;
 }
 .update{
     color: blue;
