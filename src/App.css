@@ -136,11 +136,15 @@ img.five-eleven{
 }
 .stop-left{
     width: 100%;
-    margin-left: 5px;
+    margin: 5px;
 }
 .stop-right{
     margin-left: 10px;
     width: 100%;
+}
+.stop-left label{
+    font-size: 18px;
+    font-weight: 900;
 }
 label input[type="radio"]{
     margin-left: 25px;
@@ -183,22 +187,6 @@ label input[type="radio"]{
 .slow div{
     margin: 5px 5px 5px 10px;
 }
-
-.stop-left label{
-    font-size: 18px;
-    font-weight: 900;
-}
-form input{
-    height: 35px;
-}
-#sf{
-    /* margin-right:3px; */
-}
-.stop-id{
-    height: 35px;
-    margin: 5px;
-    width: 100px;
-}
 .stop-filter{
     height: 35px;
     margin: 10px 0px 10px 5px;
@@ -209,10 +197,21 @@ form input{
     height: 35px;
     margin: 5px 0 10px 5px;
 }
-
+.stop-info{
+    display: flex;
+    padding-top: 5px;
+}
+.stop-info span{
+    margin: 10px 5px 5px 15px;
+}
+.stop-id{
+    height: 35px;
+    margin: 5px;
+    width: 100px;
+    padding-left: 5px;
+}
 .stop-title{
     font-weight: 900;
-    margin-left: 15px;
 }
 .update{
     color: blue;

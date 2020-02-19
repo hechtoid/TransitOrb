@@ -47,11 +47,35 @@ class TransitStop extends React.Component {
             .then(res => {
                 if (this.state.agency === "BA"){
                     let stops = res.data.Contents.dataObjects.ScheduledStopPoint.filter(stop => !stop.id.includes('place')&&!stop.Name.includes('Enter/Exit :'))
-                    this.setState({ stops, stopsFiltered: stops });
+                    this.setState({ 
+                        stop: this.state.stopCode?this.state.stop:stops.filter(stop => stop.Name==='Embarcadero')[0],
+                        stopCode: this.state.stopCode?this.state.stopCode:'EMBR',
+                        stopsFiltered: stops, 
+                        stops
+                    });
+                    axios.get(`https://api.511.org/transit/StopMonitoring?api_key=72939361-85f9-4019-aa55-d62e4e7e2e59&Format=JSON&agency=${this.state.agency}&stopCode=${this.state.stopCode?this.state.stopCode:'EMBR'}`).then(res => {
+                        let buss = res.data.ServiceDelivery.StopMonitoringDelivery.MonitoredStopVisit;
+                        this.setState({ 
+                            buss 
+                        });
+                    })
+                    
                 }
                 else {
                     let stops = res.data.Contents.dataObjects.ScheduledStopPoint;
-                    this.setState({ stops, stopsFiltered: stops });
+                    let stop = stops[0]
+                    this.setState({ 
+                        // buss: [],
+                        stop: stop,
+                        stopCode: stop.id,
+                        stopsFiltered: stops,
+                        stops 
+                    });
+                    axios.get(`https://api.511.org/transit/StopMonitoring?api_key=72939361-85f9-4019-aa55-d62e4e7e2e59&Format=JSON&agency=${this.state.agency}&stopCode=${stop.id}`)
+                    .then(res => {
+                        let buss = res.data.ServiceDelivery.StopMonitoringDelivery.MonitoredStopVisit;
+                        this.setState({ buss });
+                    })
                 }
             })
     }
@@ -89,6 +113,7 @@ class TransitStop extends React.Component {
             agency: e.currentTarget.value,
             stops: [],
             stopsFiltered: [],
+            buss: [],
             loaded: false
         })
     }
@@ -119,9 +144,7 @@ class TransitStop extends React.Component {
                 let filtered = this.state.stopsFiltered.filter(stop => stop.Name.toLowerCase().includes(e.currentTarget.value.toLowerCase()))
                     this.setState({
                         stopFilter: e.currentTarget.value,
-                        stopsFiltered: filtered,
-                        // stop: filtered[0]?filtered[0]:{},
-                        // stopCode: filtered[0]?filtered[0].id:''
+                        stopsFiltered: filtered
                     })
                 if (filtered[0]){
                     let stop = filtered[0]
@@ -145,7 +168,6 @@ class TransitStop extends React.Component {
             <br></br>
             <span className='update' onClick={this.loadBusss}>Check again</span>, check your inputs, or check the schedule.
         </div>
-        let stop
         let stops
         let agencies
         if (this.state.agencies){
@@ -175,11 +197,9 @@ class TransitStop extends React.Component {
             console.log(this.state.buss[0])
             let key = 0 
             busss = this.state.buss.map(bus => {
-                // stop = bus.MonitoredVehicleJourney.MonitoredCall.StopPointName
                 if (bus.MonitoredVehicleJourney.OperatorRef!=='BA'){
                     return (
                     <div className="bus" key={key++}>
-                        
                         <span className="bold">
                             {bus.MonitoredVehicleJourney.LineRef}
                         </span> => {bus.MonitoredVehicleJourney.DestinationName}
@@ -195,7 +215,6 @@ class TransitStop extends React.Component {
             }else {
                 return (
                     <div className="bus" key={key++}>
-                        
                         <span>
                             {bus.MonitoredVehicleJourney.OriginName} 
                         </span> => <span className="bold">
@@ -218,7 +237,7 @@ class TransitStop extends React.Component {
                 ShortList:
                 <br></br>                
                 <br></br>                
-                <label id="sf"><input type="radio" onChange={this.updateAgency()} checked={this.state.agency==="SF"} value="SF" />SF</label>
+                <label><input type="radio" onChange={this.updateAgency()} checked={this.state.agency==="SF"} value="SF" />SF</label>
                 <label><input type="radio" onChange={this.updateAgency()} checked={this.state.agency==="AC"} value="AC" />AC</label>
                 <br></br>
                 <label><input type="radio" onChange={this.updateAgency()} checked={this.state.agency==="GG"} value="GG" />GG</label>
@@ -266,19 +285,18 @@ class TransitStop extends React.Component {
             >
                 {stops}
             </select>            
-            <br></br>
-            {/* <form onSubmit={this.loadBusss}> */}
-                Stop ID:
+            <div className="stop-info">
+                <span>
+                    Stop ID:
+                </span>
                 <input type="text"
                     value={this.state.stopCode}
                     onChange={this.updateStopCode()}
                     className="stop-id"
                     disabled={!this.state.loaded}
                 />
-                {/* <input type="submit" value="Update Arrivals" /> */}
-            {/* </form> */}
                 <span className="stop-title">{ this.state.stop.Name } </span>
-                <br></br>
+            </div>
                 { busss }
             </div>
             </div>
