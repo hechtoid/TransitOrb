@@ -106,7 +106,7 @@ img.five-eleven{
     width: 100%;
     /* border-top: 1px solid black; */
     border-radius: 0 0 10px 10px;
-    padding: 5px;
+    padding: 0px 5px 5px 5px;
     background-color: white;
 }
 .transit-off{
@@ -115,7 +115,7 @@ img.five-eleven{
 .buss{
     border: 1px solid black;
     border-radius: 3px;
-    margin: 5px;
+    margin: 10px 5px 5px 5px;
     padding: 5px;
     width: 33%;
 }
@@ -138,9 +138,8 @@ img.five-eleven{
     width: 100%;
     margin: 5px;
 }
-.stop-right{
-    margin-left: 10px;
-    width: 100%;
+.short-title{
+    margin-left: 15px;
 }
 .stop-left label{
     font-size: 18px;
@@ -149,7 +148,6 @@ img.five-eleven{
 label input[type="radio"]{
     margin-left: 25px;
     margin-right: 5px;
-    
 }
 .agency-code{
     font-weight: 900;
@@ -161,7 +159,7 @@ label input[type="radio"]{
     border: 1px solid black;
 }
 .agencies-string{
-    margin: 15px 0 5px 5px;
+    margin: 15px 0 5px 15px;
 }
 .politics{
     margin: 3px 0 5px 0px;
