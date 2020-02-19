@@ -67,26 +67,26 @@ img.five-eleven{
     height: 33px;
 }
 .transit-switch-on{
-    margin-top: 10px;
+    margin: 10px 1px 0 1px;
     padding: 10px;
     /* border-top: 1px solid black; */
     /* border-left: 1px solid black; */
     border-right: 1px solid black;
     border-top: 1px solid black;
-    border-radius: 5px 5px 0 0;
+    border-radius: 7px 7px 0 0;
     height: 15px;
     width: 75px;
     /* margin-left: 10px; */
     /* color: green; */
     background-color: white;
     color: green;
-
+    font-weight: 900;
 
 }
 .transit-switch-off{
     background-color: lightgray;
-    border-radius: 10px 10px 0 0;
-    margin-top: 10px;
+    border-radius: 7px 7px 0 0;
+    margin-top: 13px;
     padding: 10px;
     /* border-top: 1px solid black; */
     /* border-left: 1px solid black; */
@@ -94,7 +94,7 @@ img.five-eleven{
     border-right: 1px solid black;
     /* border-radius: 0px 10px 0 0; */
     /* border-radius: 2px; */
-    height: 15px;
+    height: 12px;
     width: 75px;
     /* margin-left: 10px; */
 }
