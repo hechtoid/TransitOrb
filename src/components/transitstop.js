@@ -50,6 +50,7 @@ class TransitStop extends React.Component {
                     this.setState({ 
                         stop: stops.filter(stop => stop.Name==='Embarcadero')[0],
                         stopCode: 'EMBR',
+                        stopFilter: '',
                         stopsFiltered: stops, 
                         stops
                     });
@@ -67,6 +68,7 @@ class TransitStop extends React.Component {
                     this.setState({ 
                         stop: stop,
                         stopCode: stop.id,
+                        stopFilter: '',
                         stopsFiltered: stops,
                         stops 
                     });
@@ -112,6 +114,7 @@ class TransitStop extends React.Component {
             agency: e.currentTarget.value,
             stop: {},
             stops: [],
+            stopFilter: '',
             stopsFiltered: [],
             stopCode: '',
             buss: [],
