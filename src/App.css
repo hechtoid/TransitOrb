@@ -153,22 +153,28 @@ label input[type="radio"]{
 }
 .agency-code{
     font-weight: 900;
-    padding: 0 0 150px 50px;
+    padding: 5px;
     position: relative;
     top: -20px;
+    left: 30px;
     font-size: 42px;
+    border: 1px solid black;
 }
 .agencies-string{
     margin: 15px 0 5px 5px;
 }
 .politics{
-    margin: 3px 0 10px 5px;
+    margin: 3px 0 5px 0px;
     font-size: 11px;
 }
 .agency-select{
     width: 300px;
-    margin: 10px 0px 10px 5px;
+    margin: 5px 0px 5px 5px;
     height: 35px;
+}
+hr{
+    width: 90%;
+    margin: 5px 0 10px 0;
 }
 .load-stops{
     height: 35px;
@@ -180,7 +186,7 @@ label input[type="radio"]{
 }
 .slow{
     font-size: 11px;
-    margin-left: 5px;
+    margin: 5px 0 0 5px;
     display: flex;
     height: 50px;
 }
@@ -219,4 +225,7 @@ label input[type="radio"]{
 }
 .update:hover{
     cursor: pointer
+}
+.update:active{
+    color: purple;
 }
