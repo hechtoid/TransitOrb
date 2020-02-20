@@ -13,6 +13,8 @@ ln /home/www/LocalNode/frontend/src/components/transit/vanNess.js  /home/www/rea
 ln /home/www/LocalNode/frontend/src/components/transit/stockton.js   /home/www/react511/src/components/ &&
 ln /home/www/LocalNode/frontend/src/components/transit/sansome.js  /home/www/react511/src/components/ &&
 ln /home/www/LocalNode/frontend/src/components/transit/broadway.js  /home/www/react511/src/components/ &&
+ln /home/www/LocalNode/frontend/src/components/transit/anyStop.js  /home/www/react511/src/components/ &&
+ln /home/www/LocalNode/frontend/src/components/transit/aa.js  /home/www/react511/src/components/ &&
 
 git add . &&
 git commit -m 'predeploy' &&

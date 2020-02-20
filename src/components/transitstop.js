@@ -307,7 +307,7 @@ class TransitStop extends React.Component {
             stop.Name = this.state.buss[0].MonitoredVehicleJourney.MonitoredCall.StopPointName
             let key = 0 
             busss = this.state.buss.map(bus => {
-                if (bus.MonitoredVehicleJourney.OperatorRef!=='BA'){
+                if (bus.MonitoredVehicleJourney.OperatorRef!== "BA"){
                     return (
                     <div className="bus" key={key++}>
                         <span className="bold">
@@ -316,8 +316,7 @@ class TransitStop extends React.Component {
                         <br></br>
                         <span>
                             {this.dateParser(bus.MonitoredVehicleJourney.MonitoredCall.AimedArrivalTime)}
-                        </span> => <span 
-                        className="bold">
+                        </span> => <span className="bold">
                             {this.dateParser(bus.MonitoredVehicleJourney.MonitoredCall.ExpectedArrivalTime)}
                         </span>
                     </div>
@@ -351,7 +350,7 @@ class TransitStop extends React.Component {
                 <label><input type="radio" onChange={this.updateAgency()} checked={this.state.agency==="AC"} value="AC" />AC</label>
                 <br></br>
                 <label><input type="radio" onChange={this.updateAgency()} checked={this.state.agency==="GG"} value="GG" />GG</label>
-                <label>&nbsp;&nbsp;&nbsp;<input type="radio" onChange={this.updateAgency()} checked={this.state.agency==="BA"} value="BA" />Bart</label>
+                <label>&nbsp;&nbsp;&nbsp;<input type="radio" onChange={this.updateAgency()} checked={this.state.agency === "BA"} value="BA" />Bart</label>
                 <span className="agency-code">{this.state.agency}</span>
             <div className="agencies-string">
                 All {this.state.agencies.length} Transit Agencies:
@@ -399,20 +398,20 @@ class TransitStop extends React.Component {
                 {stops}
             </select>            
             <div className="stop-info">
-                <span>
-                    Stop ID:
-                </span>
+                
                 <input type="text"
                     value={this.state.stopCode}
                     onChange={this.updateStopCode()}
                     className="stop-id"
+                    placeholder="Stop by ID"
                     // disabled={!this.state.loaded}
                 />
                 <span 
                 className="stop-title"> { 
                 this.state.stop.Name 
                 ? this.state.stop.Name 
-                : stop.Name } </span>
+                : stop.Name } 
+                </span>
             </div>
                 { busss }
             </div>
