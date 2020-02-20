@@ -38,7 +38,7 @@ function Transit() {
             {pane === 'frisco' ? <><Stockton /> <Union /> <Broadway /> </>: ''}
           </div> 
           <div className={pane === 'user' ? 'transit-on' : 'transit-off'}>
-            {pane === 'user' ? <TransitStop /> : ''}
+            <TransitStop />
           </div>
       </div>
     </div>
