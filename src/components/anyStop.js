@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import { withRouter } from 'react-router-dom';
 
 class AnyStop extends React.Component {
     constructor(props) {
@@ -69,6 +70,7 @@ class AnyStop extends React.Component {
         return (
             <div className="buss">
                 {this.props.title}
+                <br></br>
                 {stop}
                 {busss}
             </div>
@@ -76,4 +78,5 @@ class AnyStop extends React.Component {
     }
 
 }
-export default AnyStop;
+export default withRouter(AnyStop);
+// export default AnyStop;
