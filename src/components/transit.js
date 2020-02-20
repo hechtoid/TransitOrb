@@ -8,6 +8,7 @@ import TransitStop from './transitstop';
 
 function Transit() {
   let [pane, setPane] = useState('user');
+  document.title="react511"
   return (
     <div className="transit-master">
       <div className="transit-switcher">
