@@ -188,9 +188,15 @@ hr{
     color: gray;
     /* background-color: darkgray; */
 }
+.stop-loading{
+    height: 35px;
+    font-weight: 900;
+    color: gray;
+    /* background-color: darkgray; */
+}
 .slow{
     font-size: 11px;
-    margin: 5px 0 0 5px;
+    margin: 0px 0 0 5px;
     display: flex;
     height: 50px;
 }
@@ -214,10 +220,11 @@ hr{
 .stop-title{
     font-weight: 900;
     padding: 2px 5px 3px 5px;
-    margin: 2px 5px 5px 10px; 
+    margin: 2px 5px 5px 5px; 
     font-size: 30px;
     border: 1px solid black;
     border-radius: 3px;
+    min-width: 200px;
 }
 .stop-id{
     height: 35px;
