@@ -20,6 +20,7 @@ class TransitStop extends React.Component {
         this.loadBusss = this.loadBusss.bind(this);
         this.loadStops = this.loadStops.bind(this);
         this.updateStopFilter = this.updateStopFilter.bind(this)
+        this.agencySwitch = this.agencySwitch.bind(this)
     }
 
     componentDidMount() {
@@ -91,7 +92,45 @@ class TransitStop extends React.Component {
     dateParser(zulu){
         return new Date(Date.parse(zulu)).toLocaleTimeString()
     }
-
+    agencySwitch(){
+        switch(this.state.agency){
+            case 'AM':
+            case 'PE':
+            case 'VC':
+                return 3
+            case 'BA':
+            case 'EM':
+            case 'SA':
+                return 4
+            case 'AC':
+            case 'CT':
+            case 'CC':
+            case 'DE':
+            case 'FS':
+            case 'GF':
+            case 'GG':
+            case 'MA':
+            case 'RV':
+            case 'SC':
+            case 'SF':
+            case 'SR':
+            case 'UC':
+            case 'VN':
+            case 'WC':  //variable!
+                return 5
+            case 'SS':
+            case 'WH':
+            case 'SM':
+            case 'ST':
+            case 'TD':  //variable!
+            case '3D':
+                return 6
+            case 'CE':
+            case 'CM':
+            case 'SO':
+                return 7  
+        }
+    }
     updateStopCode() {
         return e => {
             if (e.currentTarget.value.length < 3){
@@ -99,13 +138,7 @@ class TransitStop extends React.Component {
                     stopCode: e.currentTarget.value
                 })
             }
-             else if (
-                    e.currentTarget.value.length >= 3
-                    && this.state.agency !== 'SF'
-                    && this.state.agency !== 'AC'
-                    && this.state.agency !== 'SM'
-                    && this.state.agency !== 'SC'
-                    ){
+             else if (e.currentTarget.value.length === this.agencySwitch()){
                 let stop = this.state.stops.filter(stop=>stop.id.toLowerCase()===e.currentTarget.value.toLowerCase())[0]
                     if (stop) {
                         console.log(stop)
@@ -127,7 +160,7 @@ class TransitStop extends React.Component {
                 let buss = res.data.ServiceDelivery.StopMonitoringDelivery.MonitoredStopVisit;
                     this.setState({ buss });
                 })
-            } else if (e.currentTarget.value.length>=5){
+            } else if (e.currentTarget.value.length>=6){
                 let stop = this.state.stops.filter(stop=>stop.id.toLowerCase()===e.currentTarget.value.toLowerCase())[0]
                     if (stop){
                         console.log(stop)
@@ -407,6 +440,7 @@ class TransitStop extends React.Component {
                     onChange={this.updateStopCode()}
                     className="stop-id"
                     placeholder="Stop by ID"
+                    maxlength={`${this.agencySwitch()}`}
                     // disabled={!this.state.loaded}
                 />
                 <span 
