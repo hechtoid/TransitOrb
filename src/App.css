@@ -29,8 +29,6 @@
     border-radius: 10px;
     background-color: black;
     width: 100%;
-
-
 }
 .transit{
     font-family: sans-serif;
@@ -120,11 +118,11 @@ img.five-eleven{
     width: 33%;
 }
 .bus{
-    margin: 5px;
+    margin: 10px 5px 0 5px;
     border: 1px solid gray;
     border-radius: 3px;
     padding: 5px 5px 7px 7px;
-    width: 90%;
+    /* width: 90%; */
 }
 .bus div{
     margin: 0 0 3px 0;

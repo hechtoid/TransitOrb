@@ -27,8 +27,6 @@ function Transit() {
           </a>
         </div>
       </div>
-
-
       <div className="transit">
           <div className={pane === 'marin' ? 'transit-on' : 'transit-off'} >
             <br></br>
