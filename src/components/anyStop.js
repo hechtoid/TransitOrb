@@ -29,9 +29,9 @@ class AnyStop extends React.Component {
             <br></br>
             <span className='update' onClick={() => window.location.reload(false)}>Check again</span>, check your inputs, or check the schedule.
         </div>
-        let stop
+        let stopName
         if (this.state.buss[0]){
-            stop = this.state.buss[0].MonitoredVehicleJourney.MonitoredCall.StopPointName
+            stopName = this.state.buss[0].MonitoredVehicleJourney.MonitoredCall.StopPointName
             let key = 0 
             busss = this.state.buss.map(bus => {
                 if (bus.MonitoredVehicleJourney.OperatorRef!== "BA"){
@@ -71,7 +71,7 @@ class AnyStop extends React.Component {
             <div className="buss">
                 {this.props.title}
                 <br></br>
-                {stop}
+                {stopName}
                 {busss}
             </div>
         );

@@ -248,7 +248,7 @@ class TransitStop extends React.Component {
     updateStopFilter() {
         return e => {
             let stopFilter = e.currentTarget.value
-            if (stopFilter.length === 1){
+            if (stopFilter.length < 3){
                 this.setState({
                     stopsFiltered: this.state.stops,
                     stopFilter
@@ -261,7 +261,7 @@ class TransitStop extends React.Component {
                     stopsFiltered
                 })
             }
-            else if (stopFilter.length >= 2){
+            else if (stopFilter.length >= 3){
                 let searchTerms = stopFilter.toLowerCase().split(" ")
                 console.log(searchTerms)
                 searchTerms.push("")
@@ -343,14 +343,14 @@ class TransitStop extends React.Component {
                 )
             })
         }
-        let stop = {Name: ''}
+        let stopName = ''
         let busss = <div className="bus">
                 No Tracked Vehicles to show.
                 <br></br>
                 <span className='update' onClick={this.loadBusss}>Check again</span>, check your inputs, or check the schedule.
             </div>
         if (this.state.buss[0]){
-            stop.Name = this.state.buss[0].MonitoredVehicleJourney.MonitoredCall.StopPointName
+            stopName = this.state.buss[0].MonitoredVehicleJourney.MonitoredCall.StopPointName
             let key = 0
             busss = this.state.buss.map(bus => {
                 if (bus.MonitoredVehicleJourney.OperatorRef!== "BA"){
@@ -360,10 +360,10 @@ class TransitStop extends React.Component {
                             {bus.MonitoredVehicleJourney.LineRef}
                         </span> => {bus.MonitoredVehicleJourney.DestinationName}
                         <br></br>
-                        <span>
+                        <span className="gray">
                             {this.dateParser(bus.MonitoredVehicleJourney.MonitoredCall.AimedArrivalTime)}
-                        </span> => <span className="bold">
-                            {this.dateParser(bus.MonitoredVehicleJourney.MonitoredCall.ExpectedArrivalTime)}
+                        </span>
+                        <span className="bold"> => {this.dateParser(bus.MonitoredVehicleJourney.MonitoredCall.ExpectedArrivalTime)}
                         </span>
                     </div>
                 )
@@ -376,10 +376,10 @@ class TransitStop extends React.Component {
                             {bus.MonitoredVehicleJourney.DestinationName}
                         </span>
                         <br></br>
-                        <span>
+                        <span className="gray">
                             {this.dateParser(bus.MonitoredVehicleJourney.MonitoredCall.AimedArrivalTime)}
-                        </span> => <span className="bold">
-                            {this.dateParser(bus.MonitoredVehicleJourney.MonitoredCall.ExpectedArrivalTime)}
+                        </span>
+                        <span className="bold"> => {this.dateParser(bus.MonitoredVehicleJourney.MonitoredCall.ExpectedArrivalTime)}
                         </span>
                     </div>
                 )
@@ -462,7 +462,7 @@ class TransitStop extends React.Component {
                 className="stop-title">
                 { this.state.stop.Name
                 ? this.state.stop.Name
-                : stop.Name
+                : stopName
                 // ? stop.Name
                 // : this.state.stopCode
                 }

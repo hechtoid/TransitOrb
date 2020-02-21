@@ -21,7 +21,7 @@ function Transit() {
         <div className={pane === 'frisco' ? 'transit-switch-on' : 'transit-switch-off'} onClick={() => setPane('frisco')}>FRISCO</div>
         <div className={pane === 'user' ? 'transit-switch-on' : 'transit-switch-off'} onClick={() => setPane('user')}>USER</div>
         <div className="five-eleven">
-          <a href="https://511.org/open-data/transit" target="_blank">
+          <a href="https://511.org/open-data/transit" target="_blank" title="powered by 511 open data">
             <img className="five-eleven" src="http://proxy-prod.511.org/assets/img/branding/511_original_web.png">
             </img>
           </a>

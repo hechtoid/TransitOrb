@@ -129,6 +129,9 @@ img.five-eleven{
 .bold{
     font-weight: 900;
 }
+.gray{
+    color: gray;
+}
 .stop{
     width: 100%;
     margin: 2%;
