@@ -1,6 +1,11 @@
+body{
+    /* margin: 3px; */
+    /* padding: 1px; */
+}
 .App{
-    font-family: sans-serif;
-    margin: 5px;
+    font-family: source-sans-pro, sans-serif;
+    margin: -2px 0 0 -2px;
+    /* width: 100vw; */
 }
 .hourly-item{
     margin: 10px;
@@ -135,11 +140,11 @@ img.five-eleven{
 }
 .stop{
     width: 100%;
-    margin: 2%;
+    margin: 10px 5px 0 5px;
     /* display: flex; */
 }
 .stop-left{
-    width: 100%;
+    /* width: 100%; */
     /* margin: 5px; */
 }
 .short-title{

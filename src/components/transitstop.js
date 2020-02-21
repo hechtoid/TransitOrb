@@ -386,7 +386,6 @@ class TransitStop extends React.Component {
         return (
           
             <div className = "stop" >
-            <div className="stop-left">
                 <span className="short-title">Agency ShortList:</span>
                 <br></br>
                 <label><input type="radio" onChange={this.updateAgency()} checked={this.state.agency==="SF"} value="SF" />Muni</label>
@@ -466,7 +465,6 @@ class TransitStop extends React.Component {
                 </span>
             </div>
                 { busss }
-            </div>
             </div>
         );
     }
