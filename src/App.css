@@ -226,7 +226,7 @@ hr{
     border-radius: 3px;
     min-width: 200px;
 }
-.stop-id{
+#stop-id{
     height: 35px;
     margin: 5px;
     width: 75px;
