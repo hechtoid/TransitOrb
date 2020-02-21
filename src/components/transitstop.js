@@ -378,7 +378,7 @@ class TransitStop extends React.Component {
                 disabled={!this.state.stopsFiltered[0]}
                 className="stop-select"
                 onChange={this.updateStop()}
-                onMouseDown={this.updateStop()}         
+                // onMouseDown={this.updateStop()}         
                 // onBlur={this.updateStop()}         
                 >
                     {this.state.loaded?''
@@ -387,7 +387,6 @@ class TransitStop extends React.Component {
                     {/* {this.state.stop.id 
                     ? <option selected disabled hidden value='0'>{this.state.stop.Name} ({this.state.stop.id})</option>
                     :''} */}
-                    {/* {this.state.stop.id ? `${this.state.stop.Name} (${this.state.stop.id})`:''} */}
                 {stops}
             </select>      
             <br></br>
