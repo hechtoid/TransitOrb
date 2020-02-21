@@ -123,8 +123,11 @@ img.five-eleven{
     margin: 5px;
     border: 1px solid gray;
     border-radius: 3px;
-    padding: 10px 0px 10px 5px;
+    padding: 5px 5px 7px 7px;
     width: 90%;
+}
+.bus div{
+    margin: 0 0 3px 0;
 }
 .bold{
     font-weight: 900;

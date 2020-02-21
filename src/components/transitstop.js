@@ -20,7 +20,7 @@ class TransitStop extends React.Component {
         this.loadBusss = this.loadBusss.bind(this);
         this.loadStops = this.loadStops.bind(this);
         this.updateStopFilter = this.updateStopFilter.bind(this)
-        this.agencySwitch = this.agencySwitch.bind(this)
+        this.agencyCodeLengthSwitch = this.agencyCodeLengthSwitch.bind(this)
         this.selectID = this.selectID.bind(this)
     }
 
@@ -91,12 +91,10 @@ class TransitStop extends React.Component {
     //http://api.511.org/transit/stoptimetable?api_key={your-key}&MonitoringRef=13008&OperatorRef=SF
     selectID = (event) => event.target.select();
 
-
-
     dateParser(zulu){
         return new Date(Date.parse(zulu)).toLocaleTimeString()
     }
-    agencySwitch(){
+    agencyCodeLengthSwitch(){
         switch(this.state.agency){
             case 'AM':
             case 'PE':
@@ -143,7 +141,7 @@ class TransitStop extends React.Component {
                     stopCode
                 })
             }
-             else if (stopCode.length === this.agencySwitch()){
+             else if (stopCode.length === this.agencyCodeLengthSwitch()){
                 let stop = this.state.stops.filter(stop=>stop.id.toUpperCase()===stopCode)[0]
                     if (stop) {
                         console.log(stop)
@@ -356,10 +354,11 @@ class TransitStop extends React.Component {
                 if (bus.MonitoredVehicleJourney.OperatorRef!== "BA"){
                     return (
                     <div className="bus" key={key++}>
-                        <span className="bold">
+                        <div>
+                            <span className="bold">
                             {bus.MonitoredVehicleJourney.LineRef} => </span> 
-                        {bus.MonitoredVehicleJourney.DestinationName}
-                        <br></br>
+                            {bus.MonitoredVehicleJourney.DestinationName} 
+                        </div>
                         <span className="gray">
                             {this.dateParser(bus.MonitoredVehicleJourney.MonitoredCall.AimedArrivalTime)}
                         </span>
@@ -370,12 +369,10 @@ class TransitStop extends React.Component {
             }else {
                 return (
                     <div className="bus" key={key++}>
-                        <span>
-                            {bus.MonitoredVehicleJourney.OriginName}
-                        </span>
-                        <span className="bold"> => {bus.MonitoredVehicleJourney.DestinationName}
-                        </span>
-                        <br></br>
+                        <div>
+                        <span>{bus.MonitoredVehicleJourney.OriginName}</span>
+                        <span className="bold"> => {bus.MonitoredVehicleJourney.DestinationName}</span>
+                        </div>
                         <span className="gray">
                             {this.dateParser(bus.MonitoredVehicleJourney.MonitoredCall.AimedArrivalTime)}
                         </span>
@@ -455,7 +452,7 @@ class TransitStop extends React.Component {
                     onChange={this.updateStopCode()}
                     id="stop-id"
                     placeholder="Stop by ID"
-                    maxLength={`${this.agencySwitch()}`}
+                    maxLength={`${this.agencyCodeLengthSwitch()}`}
                     // onFocus={this.selectID}
                 />
                 <span
