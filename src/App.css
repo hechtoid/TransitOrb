@@ -136,18 +136,17 @@ img.five-eleven{
 }
 .stop-left{
     width: 100%;
-    margin: 5px;
+    /* margin: 5px; */
 }
 .short-title{
-    margin-left: 15px;
+    margin: 0 5px 15px 15px;
 }
 .stop-left label{
-    font-size: 18px;
+    font-size: 23px;
     font-weight: 900;
 }
 label input[type="radio"]{
-    margin-left: 25px;
-    margin-right: 5px;
+    margin: 15px 5px 0px 25px;
 }
 .agency-code{
     font-weight: 900;
@@ -160,7 +159,7 @@ label input[type="radio"]{
     border-radius: 3px;
 }
 .agencies-string{
-    margin: 15px 0 5px 15px;
+    margin: 10px 0 5px 15px;
 }
 .politics{
     margin: 3px 0 5px 0px;
@@ -196,17 +195,17 @@ hr{
     height: 50px;
 }
 .slow div{
-    margin: 5px 5px 5px 10px;
-}
-.stop-filter{
-    height: 35px;
-    margin: 10px 0px 10px 5px;
-    width: 300px;
+    margin: 2px 5px 0px 10px;
 }
 .stop-select{
     width: 300px;
     height: 35px;
-    margin: 5px 0 10px 5px;
+    margin: -5px 0 5px 5px;
+}
+.stop-filter{
+    height: 35px;
+    margin: 5px 5px 5px 5px;
+    width: 300px;
 }
 .stop-info{
     display: flex;
@@ -214,8 +213,11 @@ hr{
 }
 .stop-title{
     font-weight: 900;
-    padding: 15px 10px 10px 5px;
-    /* width: 300px; */
+    padding: 2px 5px 3px 5px;
+    margin: 2px 5px 5px 10px; 
+    font-size: 30px;
+    border: 1px solid black;
+    border-radius: 3px;
 }
 .stop-id{
     height: 35px;

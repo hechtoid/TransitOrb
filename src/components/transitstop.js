@@ -258,12 +258,10 @@ class TransitStop extends React.Component {
                         Loaded <span className="bold">
                         {this.state.stops.length}
                         </span> stops.<br></br>
-                        
                             {this.state.stopsFiltered.length===this.state.stops.length
                             ?''
                             :<><span className="bold">{this.state.stopsFiltered.length}</span> in Filter.</>
-                            }
-                        
+                            }    
                     </div>
             } 
             else if (this.state.loaded && this.state.stops[0]){
@@ -273,7 +271,7 @@ class TransitStop extends React.Component {
                         </span> stops.<br></br>
                     </div>
             }
-        let stops
+        
         let agencies
         if (this.state.agencies){
             let key = 0
@@ -285,6 +283,7 @@ class TransitStop extends React.Component {
                 )
             })
         }
+        let stops
         if (this.state.stopsFiltered){
             let key = 0
             stops = this.state.stopsFiltered.map(stop => {
@@ -343,9 +342,8 @@ class TransitStop extends React.Component {
         return (
             <div className = "stop" >
             <div className="stop-left">
-                <span className="short-title">Agency ShortList:</span>
-                <br></br>                
-                <br></br>                
+                <span className="short-title">Agency ShortList:</span>    
+                <br></br>         
                 <label><input type="radio" onChange={this.updateAgency()} checked={this.state.agency==="SF"} value="SF" />Muni</label>
                 <label><input type="radio" onChange={this.updateAgency()} checked={this.state.agency==="AC"} value="AC" />AC</label>
                 <br></br>
@@ -367,7 +365,6 @@ class TransitStop extends React.Component {
                 >
                     {agencies}
                 </select>
-         
             </div>
             <hr></hr>
             <div className="slow">
@@ -377,27 +374,33 @@ class TransitStop extends React.Component {
             }
                 {slow}
             </div>
+            <select
+                disabled={!this.state.stopsFiltered[0]}
+                className="stop-select"
+                onChange={this.updateStop()}
+                onMouseDown={this.updateStop()}         
+                // onBlur={this.updateStop()}         
+                >
+                    {this.state.loaded?''
+                    :<option selected disabled hidden value='0'>No Stops Loaded</option>
+                    }
+                    {/* {this.state.stop.id 
+                    ? <option selected disabled hidden value='0'>{this.state.stop.Name} ({this.state.stop.id})</option>
+                    :''} */}
+                    {/* {this.state.stop.id ? `${this.state.stop.Name} (${this.state.stop.id})`:''} */}
+                {stops}
+            </select>      
+            <br></br>
                 <input type="text"
                     value={this.state.stopFilter}
                     className="stop-filter"
                     onChange={this.updateStopFilter()}
                     disabled={!this.state.loaded}
-                    placeholder={this.state.stopsFiltered[0]?"Live Filter by Stop Name":"No Stops Loaded"}
+                    placeholder={this.state.loaded?"Live Filter":"No Stops Loaded"}
                 />
                 <br></br>
                 {/* {this.state.stop.Name} */}
-            <select
-                disabled={!this.state.stopsFiltered[0]}
-                className="stop-select"
-                onChange={this.updateStop()}
-                onMouseUp={this.updateStop()}         
-                >
-                    {this.state.stop.id 
-                    ? <option selected disabled hidden value='0'>{this.state.stop.Name} ({this.state.stop.id})</option>
-                    :''}
-                    {/* {this.state.stop.id ? `${this.state.stop.Name} (${this.state.stop.id})`:''} */}
-                {stops}
-            </select>            
+                  
             <div className="stop-info">
                 
                 <input type="text"
