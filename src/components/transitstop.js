@@ -357,8 +357,8 @@ class TransitStop extends React.Component {
                     return (
                     <div className="bus" key={key++}>
                         <span className="bold">
-                            {bus.MonitoredVehicleJourney.LineRef}
-                        </span> => {bus.MonitoredVehicleJourney.DestinationName}
+                            {bus.MonitoredVehicleJourney.LineRef} => </span> 
+                        {bus.MonitoredVehicleJourney.DestinationName}
                         <br></br>
                         <span className="gray">
                             {this.dateParser(bus.MonitoredVehicleJourney.MonitoredCall.AimedArrivalTime)}
@@ -372,8 +372,8 @@ class TransitStop extends React.Component {
                     <div className="bus" key={key++}>
                         <span>
                             {bus.MonitoredVehicleJourney.OriginName}
-                        </span> => <span className="bold">
-                            {bus.MonitoredVehicleJourney.DestinationName}
+                        </span>
+                        <span className="bold"> => {bus.MonitoredVehicleJourney.DestinationName}
                         </span>
                         <br></br>
                         <span className="gray">
