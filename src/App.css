@@ -1,10 +1,9 @@
-body{
-    /* margin: 3px; */
-    /* padding: 1px; */
+#root{
+    margin: 3px;
 }
 .App{
     font-family: source-sans-pro, sans-serif;
-    margin: -2px 0 0 -2px;
+    margin-right: 2px;
     /* width: 100vw; */
 }
 .hourly-item{
