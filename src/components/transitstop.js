@@ -20,8 +20,40 @@ class TransitStop extends React.Component {
         this.loadBusss = this.loadBusss.bind(this);
         this.loadStops = this.loadStops.bind(this);
         this.updateStopFilter = this.updateStopFilter.bind(this)
-        this.agencyCodeLengthSwitch = this.agencyCodeLengthSwitch.bind(this)
+        // this.agencyCodeLengthSwitch = this.agencyCodeLengthSwitch.bind(this)
         this.selectID = this.selectID.bind(this)
+        this.agencyCodeLengthMap = {
+            'AM': 3,
+            'PE': 3,
+            'VC': 3,
+            'BA': 4,
+            'EM': 4,
+            'SA': 4,
+            'AC': 5,
+            'CT': 5,
+            'CC': 5,
+            'DE': 5,
+            'FS': 5,
+            'GF': 5,
+            'GG': 5,
+            'MA': 5,
+            'RV': 5,
+            'SC': 5,
+            'SF': 5,
+            'SR': 5,
+            'UC': 5,
+            'VN': 5,
+            'WC': 5,  //variable!
+            'SS': 6,
+            'WH': 6,
+            'SM': 6,
+            'ST': 6,
+            'TD': 6,  //variable!
+            '3D': 6,
+            'CE': 7,
+            'CM': 7,
+            'SO': 7
+    }
     }
 
     componentDidMount() {
@@ -37,13 +69,56 @@ class TransitStop extends React.Component {
         })
     }
 
-    loadBusss(e) {
+    loadBusss() {
         axios.get(`https://api.511.org/transit/StopMonitoring?api_key=72939361-85f9-4019-aa55-d62e4e7e2e59&Format=JSON&agency=${this.state.agency}&stopCode=${this.state.stopCode}`)
             .then(res => {
                 let buss = res.data.ServiceDelivery.StopMonitoringDelivery.MonitoredStopVisit;
                 this.setState({ buss });
             })
     }
+    selectID = (e) => e.target.select();
+
+    dateParser(zulu){
+        return new Date(Date.parse(zulu)).toLocaleTimeString()
+    }
+
+    updateAgency() {
+        return e =>     {
+            let agency = e.currentTarget.value
+            let stops = []
+            let stop
+        if (this.state.stopLists[agency]){
+            stops = this.state.stopLists[agency]
+            stop = stops[0]
+            this.setState({
+                stopFilter: '',
+                stopsFiltered: stops,
+                stopCode: stop.id,
+                buss: [],
+                loaded: true,
+                stop,
+                stops,
+                agency
+        })
+        axios.get(`https://api.511.org/transit/StopMonitoring?api_key=72939361-85f9-4019-aa55-d62e4e7e2e59&Format=JSON&agency=${this.state.agency}&stopCode=${stop.id}`)
+            .then(res => {
+                let buss = res.data.ServiceDelivery.StopMonitoringDelivery.MonitoredStopVisit;
+                this.setState({ buss });
+            })
+    } else {
+        this.setState({
+            agency: e.currentTarget.value,
+            stop: {},
+            stops: [],
+            stopFilter: '',
+            stopsFiltered: [],
+            stopCode: '',
+            buss: [],
+            loaded: false
+            })
+        }
+    }
+}    
     loadStops(e) {
         this.setState({ loaded: true })
         axios.get(`https://api.511.org/transit/stops?api_key=72939361-85f9-4019-aa55-d62e4e7e2e59&Format=JSON&operator_id=${this.state.agency}`)
@@ -68,7 +143,6 @@ class TransitStop extends React.Component {
                 else {
                     let stops = res.data.Contents.dataObjects.ScheduledStopPoint;
                     let stop = stops[0]
-                    // let agency = this.state.agency
                     let stopLists = this.state.stopLists
                     stopLists[this.state.agency] = stops
                     this.setState({
@@ -89,59 +163,82 @@ class TransitStop extends React.Component {
     }
 
     //http://api.511.org/transit/stoptimetable?api_key={your-key}&MonitoringRef=13008&OperatorRef=SF
-    selectID = (event) => event.target.select();
-
-    dateParser(zulu){
-        return new Date(Date.parse(zulu)).toLocaleTimeString()
+    
+    updateStop() {
+        return e => {
+            let stop = this.state.stopsFiltered[e.currentTarget.value]
+                console.log(stop)
+                this.setState({
+                    stopCode: stop.id,
+                    stop
+                })
+            axios.get(`https://api.511.org/transit/StopMonitoring?api_key=72939361-85f9-4019-aa55-d62e4e7e2e59&Format=JSON&agency=${this.state.agency}&stopCode=${stop.id}`)
+            .then(res => {
+                let buss = res.data.ServiceDelivery.StopMonitoringDelivery.MonitoredStopVisit;
+                this.setState({ buss });
+            })
     }
-    agencyCodeLengthSwitch(){
-        switch(this.state.agency){
-            case 'AM':
-            case 'PE':
-            case 'VC':
-                return 3
-            case 'BA':
-            case 'EM':
-            case 'SA':
-                return 4
-            case 'AC':
-            case 'CT':
-            case 'CC':
-            case 'DE':
-            case 'FS':
-            case 'GF':
-            case 'GG':
-            case 'MA':
-            case 'RV':
-            case 'SC':
-            case 'SF':
-            case 'SR':
-            case 'UC':
-            case 'VN':
-            case 'WC':  //variable!
-                return 5
-            case 'SS':
-            case 'WH':
-            case 'SM':
-            case 'ST':
-            case 'TD':  //variable!
-            case '3D':
-                return 6
-            case 'CE':
-            case 'CM':
-            case 'SO':
-                return 7
+    }
+    updateStopFilter() {
+        return e => {
+            let stopFilter = e.currentTarget.value
+            if (stopFilter.length === 1){
+                this.setState({
+                    stopsFiltered: this.state.stops,
+                })
+            }
+            if (stopFilter.length < 3){
+                this.setState({
+                    stopFilter
+                })
+            }
+            else if (stopFilter.length <= this.state.stopFilter.length){
+                let stopsFiltered = this.state.stops
+                this.setState({
+                    stopFilter,
+                    stopsFiltered
+                })
+            }
+            else if (stopFilter.length >= 3){
+                this.setState({ stopFilter })
+                let searchTerms = stopFilter.toLowerCase().split(" ")
+                searchTerms.push("")
+                searchTerms.push("")
+                searchTerms.push("")
+                let stopsFiltered = this.state.stopsFiltered.filter(stop => {
+                    let stopName = stop.Name.toLowerCase()
+                    if (stopName.includes(searchTerms[0]) 
+                    && stopName.includes(searchTerms[1]) 
+                    && stopName.includes(searchTerms[2]) 
+                    && stopName.includes(searchTerms[3]))
+                    {return true}
+                })
+                this.setState({ stopsFiltered })
+                if (stopsFiltered[0]){
+                    let stop = stopsFiltered[0]
+                    console.log(stop)
+                    this.setState({
+                        stopCode: stop.id,
+                        stop
+                    })
+                    axios.get(`https://api.511.org/transit/StopMonitoring?api_key=72939361-85f9-4019-aa55-d62e4e7e2e59&Format=JSON&agency=${this.state.agency}&stopCode=${stop.id}`)
+                    .then(res => {
+                        let buss = res.data.ServiceDelivery.StopMonitoringDelivery.MonitoredStopVisit;
+                        this.setState({ buss });
+                    })
+                }
+            }
         }
     }
     updateStopCode() {
         return e => {
-            let stopCode = e.currentTarget.value//.toUpperCase()
+            let stopCode = e.currentTarget.value
             let stoppCode = stopCode.toUpperCase()
-            if (stopCode.length <= this.agencyCodeLengthSwitch()){
+            if (stopCode.length <= this.agencyCodeLengthMap[this.state.agency] ){
             this.setState({
                 stopCode
             })}
-            if (stopCode.length === this.agencyCodeLengthSwitch()){
+            if (stopCode.length === this.agencyCodeLengthMap[this.state.agency]){
             let stop = this.state.stops.filter(stop=>stop.id.toUpperCase()===stoppCode)[0]
                 if (stop) {
                     console.log(stop)
@@ -165,108 +262,6 @@ class TransitStop extends React.Component {
     }
     }
 }
-    updateAgency() {
-        return e =>     {
-            let agency = e.currentTarget.value
-            let stops = []
-            let stop
-        if (this.state.stopLists[agency]){
-            stops = this.state.stopLists[agency]
-            stop = stops[0]
-            this.setState({
-                stopFilter: '',
-                stopsFiltered: stops,
-                stopCode: stop.id,
-                buss: [],
-                loaded: true,
-                stop,
-                stops,
-                agency
-        })
-        axios.get(`https://api.511.org/transit/StopMonitoring?api_key=72939361-85f9-4019-aa55-d62e4e7e2e59&Format=JSON&agency=${this.state.agency}&stopCode=${stops.id}`)
-            .then(res => {
-                let buss = res.data.ServiceDelivery.StopMonitoringDelivery.MonitoredStopVisit;
-                this.setState({ buss });
-            })
-    } else {
-        this.setState({
-            agency: e.currentTarget.value,
-            stop: {},
-            stops: [],
-            stopFilter: '',
-            stopsFiltered: [],
-            stopCode: '',
-            buss: [],
-            loaded: false
-            })
-        }
-    }
-}
-    updateStop() {
-        return e => {
-            let stop = this.state.stopsFiltered[e.currentTarget.value]
-                console.log(stop)
-                this.setState({
-                    stopCode: stop.id,
-                    stop
-                })
-            axios.get(`https://api.511.org/transit/StopMonitoring?api_key=72939361-85f9-4019-aa55-d62e4e7e2e59&Format=JSON&agency=${this.state.agency}&stopCode=${stop.id}`)
-            .then(res => {
-                let buss = res.data.ServiceDelivery.StopMonitoringDelivery.MonitoredStopVisit;
-                this.setState({ buss });
-            })
-    }
-    }
-    updateStopFilter() {
-        return e => {
-            let stopFilter = e.currentTarget.value
-            if (stopFilter.length < 3){
-                this.setState({
-                    stopsFiltered: this.state.stops,
-                    stopFilter
-                })
-            }
-            else if (stopFilter.length <= this.state.stopFilter.length){
-                let stopsFiltered = this.state.stops//.filter(stop => stop.Name.toLowerCase().includes(e.currentTarget.value.toLowerCase()))
-                this.setState({
-                    stopFilter,
-                    stopsFiltered
-                })
-            }
-            else if (stopFilter.length >= 3){
-                let searchTerms = stopFilter.toLowerCase().split(" ")
-                console.log(searchTerms)
-                searchTerms.push("")
-                searchTerms.push("")
-                searchTerms.push("")
-                let stopsFiltered = this.state.stopsFiltered.filter(stop => {
-                    let stopName = stop.Name.toLowerCase()
-                    if (stopName.includes(searchTerms[0]) 
-                    && stopName.includes(searchTerms[1]) 
-                    && stopName.includes(searchTerms[2]) 
-                    && stopName.includes(searchTerms[3]))
-                    {return true}
-                })
-                    this.setState({
-                        stopFilter,
-                        stopsFiltered
-                    })
-                if (stopsFiltered[0]){
-                    let stop = stopsFiltered[0]
-                    console.log(stop)
-                    this.setState({
-                        stopCode: stop.id,
-                        stop
-                    })
-                    axios.get(`https://api.511.org/transit/StopMonitoring?api_key=72939361-85f9-4019-aa55-d62e4e7e2e59&Format=JSON&agency=${this.state.agency}&stopCode=${stop.id}`)
-                    .then(res => {
-                        let buss = res.data.ServiceDelivery.StopMonitoringDelivery.MonitoredStopVisit;
-                        this.setState({ buss });
-                    })
-                }
-            }
-        }
-    }
     render() {
         let slow
             if(this.state.loaded && !this.state.stops[0]) {
