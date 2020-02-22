@@ -267,7 +267,7 @@ class TransitStop extends React.Component {
     render() {
         let slow
             if (this.state.loaded && !this.state.stops[0]){
-                slow = <div><span>Muni and the VTA have ~3500 stops,</span><br></br><span>ACTransit more than 5000.</span></div>
+                slow = <div><span>Muni and the VTA have <span className="bold">~3500</span> stops,</span><br></br><span>ACTransit more than <span className="bold">5000</span>.</span></div>
             }
             else if (this.state.loaded && this.state.stops[0] && this.state.stopFilter){
                 slow = <div>
@@ -420,7 +420,6 @@ class TransitStop extends React.Component {
                     onChange={this.updateStopCode()}
                     id="stop-id"
                     placeholder="Stop by ID"
-                    // maxLength="4"//{`${this.agencyCodeLengthSwitch()}`}
                     onFocus={this.selectID}
                 />
                 <span
