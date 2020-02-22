@@ -1,8 +1,8 @@
 {
-  "name": "react511",
+  "name": "transitYourself",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://hechtoid.github.io/react511",
+  "homepage": "https://hechtoid.github.io/transitYourself/#/",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.4.0",

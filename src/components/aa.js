@@ -6,7 +6,7 @@ function AA() {
     <div className="transit-master">
     <div className="transit-switcher">
       <div className="busemoji">
-        <a href="https://github.com/hechtoid/react511" target="_blank">
+        <a href="https://github.com/hechtoid/transitYourself" target="_blank">
           🚌
         </a>
       </div>

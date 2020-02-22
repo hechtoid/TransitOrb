@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="App">
       <Router>
-      <Route exact path="/transit" component={Transit} />
+      <Route exact path="/" component={Transit} />
       </Router>
     </div>
   );

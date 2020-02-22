@@ -8,12 +8,12 @@ import TransitStop from './transitstop';
 
 function Transit() {
   let [pane, setPane] = useState('user');
-  document.title="react511"
+  document.title="transitYourself"
   return (
     <div className="transit-master">
       <div className="transit-switcher">
         <div className="busemoji">
-          <a href="https://github.com/hechtoid/react511" target="_blank">
+          <a href="https://github.com/hechtoid/transitYourself" target="_blank">
             🚌
           </a>
         </div>
