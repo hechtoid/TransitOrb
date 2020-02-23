@@ -69,9 +69,10 @@ class AnyStop extends React.Component {
         }
         return (
             <div className="buss">
-                {this.props.title}
+                 {this.props.title 
+                ? this.props.title
+                : stopName}
                 <br></br>
-                {stopName}
                 {busss}
             </div>
         );

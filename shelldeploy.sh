@@ -6,7 +6,7 @@ rm  /home/www/transitYourself/src/components/*
 
 ln /home/www/LocalNode/frontend/src/App.css /home/www/transitYourself/src/App.css &&
 
-ln /home/www/LocalNode/frontend/src/components/transit/transit.js /home/www/transitYourself/src/components/ &&
+#ln /home/www/LocalNode/frontend/src/components/transit/transit.js /home/www/transitYourself/src/components/ &&
 ln /home/www/LocalNode/frontend/src/components/transit/transitstop.js  /home/www/transitYourself/src/components/ &&
 ln /home/www/LocalNode/frontend/src/components/transit/union.js  /home/www/transitYourself/src/components/ &&
 ln /home/www/LocalNode/frontend/src/components/transit/vanNess.js  /home/www/transitYourself/src/components/ &&
