@@ -27,3 +27,4 @@ if (props.bus.MonitoredVehicleJourney.OperatorRef !== "BA") {
     )}
 }
 export default Bus;
+
