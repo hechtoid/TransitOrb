@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import Bus from './bus'
 
 class TransitStop extends React.Component {
     constructor(props) {
@@ -171,7 +172,7 @@ class TransitStop extends React.Component {
                     && stopName.includes(searchTerms[1]) 
                     && stopName.includes(searchTerms[2]) 
                     && stopName.includes(searchTerms[3]))
-                    {return true}
+                    {return true} else {return false}
                 })
                 this.setState({ stopsFiltered })
                 if (stopsFiltered[0]) {
@@ -280,37 +281,8 @@ class TransitStop extends React.Component {
         if (this.state.buss[0]) {
             stopName = this.state.buss[0].MonitoredVehicleJourney.MonitoredCall.StopPointName
             let key = 0
-            busss = this.state.buss.map(bus => {
-                if (bus.MonitoredVehicleJourney.OperatorRef!== "BA"){
-                    return (
-                    <div className="bus" key={key++}>
-                        <div>
-                            <span className="bold">
-                            {bus.MonitoredVehicleJourney.LineRef} => </span> 
-                            {bus.MonitoredVehicleJourney.DestinationName} 
-                        </div>
-                        <span className="gray">
-                            {this.dateParser(bus.MonitoredVehicleJourney.MonitoredCall.AimedArrivalTime)}
-                        </span>
-                        <span className="bold"> => {this.dateParser(bus.MonitoredVehicleJourney.MonitoredCall.ExpectedArrivalTime)}
-                        </span>
-                    </div>
-                )
-            } else {
-                return (
-                    <div className="bus" key={key++}>
-                        <div>
-                        <span>{bus.MonitoredVehicleJourney.OriginName}</span>
-                        <span className="bold"> => {bus.MonitoredVehicleJourney.DestinationName}</span>
-                        </div>
-                        <span className="gray">
-                            {this.dateParser(bus.MonitoredVehicleJourney.MonitoredCall.AimedArrivalTime)}
-                        </span>
-                        <span className="bold"> => {this.dateParser(bus.MonitoredVehicleJourney.MonitoredCall.ExpectedArrivalTime)}
-                        </span>
-                    </div>
-                )
-            }
+            busss = this.state.buss.map(bus => { 
+                return <Bus bus={bus} key={key++} /> 
             })
         }
         return (
@@ -326,7 +298,8 @@ class TransitStop extends React.Component {
             <div className="agencies-string">
                 All {this.state.agencies.length} Transit Agencies:
                 <div className="politics">
-   (too many? i agree! <a target="_blank" href="https://www.seamlessbayarea.org/">Seamless Bay Area</a>)
+(too many? i agree! <a href="https://www.seamlessbayarea.org/" target="_blank" rel="noopener noreferrer">
+Seamless Bay Area</a>)
             </div>
                 </div>
             <div className="agency">

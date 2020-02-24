@@ -13,8 +13,8 @@ function Transit() {
     <div className="transit-master">
       <div className="transit-switcher">
         <div className="busemoji">
-          <a href="https://github.com/hechtoid/transitYourself" target="_blank">
-            🚌
+          <a href="https://github.com/hechtoid/transitYourself" target="_blank" rel="noopener noreferrer">
+            <span role="img" aria-label="bus emoji">🚌</span>
           </a>
         </div>
         <div className={
@@ -31,8 +31,8 @@ function Transit() {
           ? 'transit-switch-on' 
           : 'transit-switch-off'} onClick={() => setPane('user')}>Anywherer</div>
         <div className="five-eleven">
-          <a href="https://511.org/open-data/transit" target="_blank" title="powered by 511 open data">
-            <img className="five-eleven" src="http://proxy-prod.511.org/assets/img/branding/511_original_web.png">
+          <a href="https://511.org/open-data/transit" title="powered by 511 open data" target="_blank" rel="noopener noreferrer">
+            <img className="five-eleven" src="http://proxy-prod.511.org/assets/img/branding/511_original_web.png" alt="511 logo">
             </img>
           </a>
         </div>
