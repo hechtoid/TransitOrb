@@ -26,5 +26,4 @@ if (props.bus.MonitoredVehicleJourney.OperatorRef !== "BA") {
         </div>
     )}
 }
-
 export default Bus;
