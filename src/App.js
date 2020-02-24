@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { HashRouter as Router, Route } from 'react-router-dom';
+import { WebRouter as Router, Route } from 'react-router-dom';
 import Transit from './components/transit'
 
 function App() {
