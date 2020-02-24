@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { WebRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Transit from './components/transit'
 
 function App() {
