@@ -109,7 +109,7 @@ class TransitStop extends React.Component {
                         stops,
                         stop
                     });
-                    this.loadBusss( e, this.state.agency, stopCode )
+                    this.loadBusss( e, this.state.agency, stop.id )
                 }
                 else {
                     let stops = res.data.Contents.dataObjects.ScheduledStopPoint;
@@ -137,7 +137,7 @@ class TransitStop extends React.Component {
                     stop
                 })
             this.loadBusss( e, this.state.agency, stop.id )
-    }
+        }
     }
     updateStopFilter() {
         return e => {
