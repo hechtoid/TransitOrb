@@ -7,7 +7,9 @@ function App() {
   return (
     <div className="App">
       <Router>
-      <Route exact path="/transityourself" component={Transit} />
+      <Route exact path={process.env.PUBLIC_URL + "/transityourself"} component={Transit} />
+      <Route exact path={process.env.PUBLIC_URL + "/transitYourself"} component={Transit} />
+      <Route exact path={process.env.PUBLIC_URL + "/"} component={Transit} />
       </Router>
     </div>
   );
