@@ -17,7 +17,6 @@ class TransitStop extends React.Component {
             stop: { Name: 'Embarcadero' },
             buss: []
         }
-        this.dateParser = this.dateParser.bind(this)
         this.loadBusss = this.loadBusss.bind(this);
         this.loadStops = this.loadStops.bind(this);
         this.updateStopFilter = this.updateStopFilter.bind(this)
@@ -35,6 +34,7 @@ class TransitStop extends React.Component {
             'CE': 7, 'CM': 7, 'SO': 7
         }
     }
+    selectID = (e) => e.target.select();
 
     componentDidMount() {
         document.title="transitYourself - anywherer"
@@ -54,12 +54,6 @@ class TransitStop extends React.Component {
     }
 
     //loadSched(api=http://api.511.org/transit/stoptimetable?api_key={your-key}&MonitoringRef=13008&OperatorRef=SF
-
-    selectID = (e) => e.target.select();
-
-    dateParser(zulu){
-        return new Date(Date.parse(zulu)).toLocaleTimeString()
-    }
 
     updateAgency() {
         return e =>     {
@@ -274,7 +268,7 @@ class TransitStop extends React.Component {
         }
         let stopName = ''
         let busss = <div className="bus">
-                No Tracked Vehicles to show.
+                No Tracked Vehicles.
                 <br></br>
                 <span className='update' onClick={this.loadBusss}>Check again</span>, check your inputs, or check the schedule.
             </div>
