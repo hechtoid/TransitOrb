@@ -218,22 +218,22 @@ class TransitStop extends React.Component {
     render() {
         let slow
             if (this.state.loaded && !this.state.stops[0]) {
-                slow = <div><span>Muni and the VTA have <span className="bold">~3500</span> stops,</span><br></br><span>ACTransit more than <span className="bold">5000</span>.</span></div>
+                slow = <div><span>Muni and the VTA have <span className="stops-number">~3500</span> stops,</span><br></br><span>ACTransit more than <span className="stops-number">5000</span>.</span></div>
             }
             else if (this.state.loaded && this.state.stops[0] && this.state.stopFilter) {
                 slow = <div>
-                        Loaded <span className="bold">
+                        Loaded <span className="stops-number">
                         {this.state.stops.length}
                         </span> stops.<br></br>
                             {this.state.stopsFiltered.length===this.state.stops.length
                             ?''
-                            :<><span className="bold">{this.state.stopsFiltered.length}</span> in Filter.</>
+                            :<><span className="stops-number">{this.state.stopsFiltered.length}</span> in Filter.</>
                             }
                     </div>
             }
             else if (this.state.loaded && this.state.stops[0]) {
                 slow = <div>
-                        Loaded <span className="bold">
+                        Loaded <span className="stops-number">
                         {this.state.stops.length}
                         </span> stops.<br></br>
                     </div>
@@ -280,15 +280,41 @@ class TransitStop extends React.Component {
             })
         }
         return (
-            <div className = "stop" >
-                <span className="short-title">Agency ShortList:</span>
-                <br></br>
-                <label><input type="radio" onChange={this.updateAgency()} checked={this.state.agency==="SF"} value="SF" />Muni</label>
-                <label><input type="radio" onChange={this.updateAgency()} checked={this.state.agency==="AC"} value="AC" />AC</label>
-                <br></br>
-                <label><input type="radio" onChange={this.updateAgency()} checked={this.state.agency==="GG"} value="GG" />GG</label>
-                <label>&nbsp;&nbsp;&nbsp;<input type="radio" onChange={this.updateAgency()} checked={this.state.agency === "BA"} value="BA" />Bart</label>
-                <span className="agency-code">{this.state.agency}</span>
+            <div className = "stop">
+                <div className="agency-upper">
+                <div className="radios">
+            <div className="short-title">Agency ShortList:</div>
+                <div className="radio-one">
+                    <label><input type="radio" 
+                        onChange={this.updateAgency()} 
+                        checked={this.state.agency==="SF"} 
+                        value="SF" />SF</label>
+                    <label><input type="radio" 
+                        onChange={this.updateAgency()} 
+                        checked={this.state.agency==="GG"} 
+                        value="GG" />GG</label>
+                    <label>&nbsp;&nbsp;&nbsp;<input type="radio" 
+                        onChange={this.updateAgency()} 
+                        checked={this.state.agency === "BA"} 
+                        value="BA" />Bart</label>
+                </div>
+                <div className="radio-two">
+                    <label><input type="radio" 
+                        onChange={this.updateAgency()} 
+                        checked={this.state.agency==="AC"} 
+                        value="AC" />AC</label>
+                    <label><input type="radio" 
+                        onChange={this.updateAgency()} 
+                        checked={this.state.agency === "SM"} 
+                        value="SM" />Sam</label>
+                    <label><input type="radio" 
+                        onChange={this.updateAgency()} 
+                        checked={this.state.agency==="MA"} 
+                        value="MA" />Marin</label>
+                </div>
+                </div>
+            <span className="agency-code">{this.state.agency}</span>
+		    </div>
             <div className="agencies-string">
                 All {this.state.agencies.length} Transit Agencies:
                 <div className="politics">
@@ -338,19 +364,21 @@ Seamless Bay Area</a>)
                 />
                 <br></br>
             <div className="stop-info">
-                <input type="text"
+                <span className="stop-title">
+                { this.state.stop.Name
+                ? this.state.stop.Name
+                : stopName }
+                </span>
+            <input type="text"
                     id="stop-id"
                     placeholder="Stop Code"
                     value={this.state.stopCode}
                     onFocus={this.selectID}
                     onChange={this.updateStopCode()}
                 />
-                <span className="stop-title">
-                { this.state.stop.Name
-                ? this.state.stop.Name
-                : stopName }
-                </span>
-            </div>
+
+
+		</div>
                 { busss }
             </div>
         );

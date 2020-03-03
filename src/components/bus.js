@@ -3,7 +3,7 @@ import React from 'react';
 function Bus(props) {
 if (props.bus.MonitoredVehicleJourney.OperatorRef === "BA") {
     return (
-            <div className="bus" key={props.key}><div>
+            <div className="bus"><div>
     <span>{props.bus.MonitoredVehicleJourney.OriginName}</span>
     <span className="bold"> => {props.bus.MonitoredVehicleJourney.DestinationName}</span>
             </div>
@@ -21,7 +21,7 @@ if (props.bus.MonitoredVehicleJourney.OperatorRef === "BA") {
     </div>
     )} else {
         return(
-        <div className="bus" key={props.key}>
+        <div className="bus">
             <div><span className="bold">
 {props.bus.MonitoredVehicleJourney.LineRef} => </span> 
 {props.bus.MonitoredVehicleJourney.DestinationName} 
