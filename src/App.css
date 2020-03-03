@@ -149,9 +149,13 @@ img.five-eleven{
 }
 .short-title{
     margin: 5px 5px 3px 15px;
+    font-weight: 900;
+}
+.radios label{
+    margin-right: 5px;
 }
 label input[type="radio"]{
-    margin: 5px 5px 10px 15px;
+    margin: 5px 5px 10px 10px;
 }
 .agency-code{
     font-weight: 900;
@@ -166,10 +170,12 @@ label input[type="radio"]{
 }
 .agencies-string{
     margin: 5px 0 5px 15px;
+    font-weight: 900;
 }
 .politics{
     margin: 1px 0 3px 0px;
     font-size: 11px;
+    font-weight: 300;
 }
 .agency-select{
     width: 327px;
