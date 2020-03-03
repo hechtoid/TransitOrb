@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import AnyStop from './anyStop';
 
 function AA() {
@@ -6,9 +6,6 @@ function AA() {
     <div className="transit-master">
     <div className="transit-switcher">
       <div className="busemoji">
-        <a href="https://github.com/hechtoid/transitYourself" target="_blank">
-          🚌
-        </a>
       </div>
       <div className="transit">
         <div className='transit-on'>

@@ -18,13 +18,13 @@ class AnyStopWildCard extends React.Component {
                 this.setState({ buss });
             })
     }
-    componentDidUpdate() {
-        axios.get(`https://api.511.org/transit/StopMonitoring?api_key=72939361-85f9-4019-aa55-d62e4e7e2e59&Format=JSON&agency=${this.props.match.params.agency.toUpperCase()}&stopCode=${this.props.match.params.stop.toUpperCase()}`)
-            .then(res => {
-                let buss = res.data.ServiceDelivery.StopMonitoringDelivery.MonitoredStopVisit;
-                this.setState({ buss });
-            })
-    }
+    // componentDidUpdate() {
+    //     axios.get(`https://api.511.org/transit/StopMonitoring?api_key=72939361-85f9-4019-aa55-d62e4e7e2e59&Format=JSON&agency=${this.props.match.params.agency.toUpperCase()}&stopCode=${this.props.match.params.stop.toUpperCase()}`)
+    //         .then(res => {
+    //             let buss = res.data.ServiceDelivery.StopMonitoringDelivery.MonitoredStopVisit;
+    //             this.setState({ buss });
+    //         })
+    // }
 
     render() {
         let busss = <div className="bus">
@@ -44,9 +44,6 @@ class AnyStopWildCard extends React.Component {
         <div className="transit-master">
         <div className="transit-switcher">
         <div className="busemoji">
-        <a href="https://github.com/hechtoid/transitYourself" target="_blank">
-          🚌
-        </a>
       </div>
       <div className="transit">
         <div className='transit-on'>

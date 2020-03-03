@@ -258,3 +258,6 @@ hr{
 .update:active{
     color: purple;
 }
+#vehicle-number{
+    margin: 5px 10px 10px 10px;
+}
