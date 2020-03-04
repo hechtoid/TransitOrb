@@ -1,5 +1,7 @@
 import React from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
+
 
 class Vehicular extends React.Component {
     constructor(props) {
@@ -91,8 +93,11 @@ class Vehicular extends React.Component {
                         {this.state.vehicle.OnwardCalls.OnwardCall.map(stop => {
                             return (
                         <div className="bus" key={key++}>
-                            {stop.StopPointName}
-                                <br></br>
+                            |  Stop <Link 
+                            to={`/anystop/${this.state.agency}/${stop.StopPointRef}`}>
+                                #{stop.StopPointRef}
+                            </Link>  |    &nbsp;&nbsp;&nbsp;  {stop.StopPointName}
+                            <br></br>
                             <span className="gray">
                                 {new Date(Date.parse(stop.AimedArrivalTime)).toLocaleTimeString()}
                                 </span>

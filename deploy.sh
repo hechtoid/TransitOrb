@@ -1,9 +1,11 @@
 #!/bin/sh
+cd /home/www/transitYourself/
+
 git add . &&
 git commit -m 'predeploy' &&
 npm run build &&
-#???automate 404.html from index.html???
-git push
+cp build/index.html build/404.html
+git push &&
 npx gh-pages -d build &&
 
 exit
