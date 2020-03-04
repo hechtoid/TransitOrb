@@ -53,36 +53,29 @@ class Vehicular extends React.Component {
             let vehicleInfo = <div className="vehicle-info">No Tracked Vehicle</div>
             let futureStops = <div className="future-stops">No Future Stops</div>
             let key = 0
-            let gmapsURL 
-            let gmapsLink = 'No Location Data'
+            let gFrame
             if (this.state.vehicle && this.state.vehicle.VehicleLocation) { 
-                gmapsURL = `https://www.google.com/maps/search/?api=1&query=${this.state.vehicle.VehicleLocation.Latitude},${this.state.vehicle.VehicleLocation.Longitude}`
-                gmapsLink = <a href = {gmapsURL} target="_blank" rel="noopener noreferrer">
-                                Last Reported Coördinates
-                            </a>
+                gFrame = <iframe title="gFrame" frameBorder="1"
+src={`https://www.google.com/maps/embed/v1/place?zoom=14&q=${this.state.vehicle.VehicleLocation.Latitude},${this.state.vehicle.VehicleLocation.Longitude}&key=AIzaSyAIe8CQdaU5qYMgUBimNtNLtz6MKhODsNU`}></iframe> 
             }
             if (this.state.vehicle && this.state.vehicle.MonitoredCall) {
                 vehicleInfo = <div className="vehicle-info">
-                        Vehicle <span className="bold">
-                            #{this.state.vehicle.VehicleRef}
-                        </span> - {gmapsLink}
-                        <br></br>
-                        Current Route:
-                        <span className="bold"> {this.state.vehicle.LineRef}</span> 
-                        <br></br>
-                        Final Destination: <span className="bold"> {this.state.vehicle.DestinationName}
+                      Route <span className="bold">
+                            {this.state.vehicle.LineRef}
+                        </span> to <span className="bold">
+                            {this.state.vehicle.DestinationName}
                         </span>
                         <br></br>
-                      
-                        NextStop: <span className="bold">
+                        <Link 
+to={`/anystop/${this.state.agency||'SF'}/${this.state.vehicle.MonitoredCall.StopPointRef}`}>
+                        NextStop</Link>: <span className="bold">
                             {this.state.vehicle.MonitoredCall.StopPointName}
                             </span>
                         <br></br>
-                        Scheduled: <span className="bold">
-                            {new Date(Date.parse(this.state.vehicle.MonitoredCall.AimedArrivalTime)).toLocaleTimeString()} </span>
-                        <br></br>
-                        Predicted: <span className="bold">
-                            {new Date(Date.parse(this.state.vehicle.MonitoredCall.ExpectedArrivalTime)).toLocaleTimeString()}
+                        <span className="gray">
+{new Date(Date.parse(this.state.vehicle.MonitoredCall.AimedArrivalTime)).toLocaleTimeString()} </span>
+                        => <span className="bold">
+{new Date(Date.parse(this.state.vehicle.MonitoredCall.ExpectedArrivalTime)).toLocaleTimeString()}
                         </span>
                         </div>
             }
@@ -111,9 +104,13 @@ class Vehicular extends React.Component {
             }
         return (
             <div className="vehicular">
-                <div className="short-title">Live Vehicle Tracking</div>
-                {/* <iframe title="gmaps embed" src="http://www.google.com/maps/embed/v1/MODE?key=AIzaSyAIe8CQdaU5qYMgUBimNtNLtz6MKhODsNU&q=Eiffel+Tower,Paris+France"></iframe> */}
-                
+                <div className="short-title">
+                    Live Tracking - Vehicle {
+                             this.state.vehicle
+                            ? this.state.vehicle.VehicleRef
+                            : this.state.vehicleNumber
+                        }</div>
+                { gFrame }
                 <form onSubmit={this.handleSubmit}>
                  <input type="text"
                     id="vehicle-number"

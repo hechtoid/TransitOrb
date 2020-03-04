@@ -288,6 +288,11 @@ hr{
     background-color: white;
     padding-right: 10px;
 }
+.vehicular iframe{
+    margin-left: 15px;
+    width: 320px;
+    height: 200px;
+}
 .vehicular form input{
     margin: 10px;
     /* width: 100px; */
