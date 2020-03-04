@@ -53,11 +53,11 @@ class Vehicular extends React.Component {
             let vehicleInfo = <div className="vehicle-info">No Tracked Vehicle</div>
             let futureStops = <div className="future-stops">No Future Stops</div>
             let key = 0
-//             let gFrame
-//             if (this.state.vehicle && this.state.vehicle.VehicleLocation) { 
-//                 gFrame = <iframe title="gFrame" frameBorder="1"
-// src={`https://www.google.com/maps/embed/v1/place?zoom=14&q=${this.state.vehicle.VehicleLocation.Latitude},${this.state.vehicle.VehicleLocation.Longitude}&key=AIzaSyAIe8CQdaU5qYMgUBimNtNLtz6MKhODsNU`}></iframe> 
-//             }
+            let gFrame
+            if (this.state.vehicle && this.state.vehicle.VehicleLocation) { 
+                gFrame = <iframe title="gFrame" frameBorder="1"
+src={`https://www.google.com/maps/embed/v1/place?zoom=14&q=${this.state.vehicle.VehicleLocation.Latitude},${this.state.vehicle.VehicleLocation.Longitude}&key=AIzaSyAIe8CQdaU5qYMgUBimNtNLtz6MKhODsNU`}></iframe> 
+            }
             if (this.state.vehicle && this.state.vehicle.MonitoredCall) {
                 vehicleInfo = <div className="vehicle-info">
                       Route <span className="bold">
@@ -110,7 +110,7 @@ to={`/anystop/${this.state.agency||'SF'}/${this.state.vehicle.MonitoredCall.Stop
                             ? this.state.vehicle.VehicleRef
                             : this.state.vehicleNumber
                         }</div>
-                {/* { gFrame } */}
+                { gFrame }
                 <form onSubmit={this.handleSubmit}>
                  <input type="text"
                     id="vehicle-number"
