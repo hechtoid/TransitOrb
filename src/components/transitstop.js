@@ -53,8 +53,6 @@ class TransitStop extends React.Component {
             })
     }
 
-    //loadSched(api=https://api.511.org/transit/stoptimetable?api_key={your-key}&MonitoringRef=13008&OperatorRef=SF
-
     updateAgency() {
         return e =>     {
             let agency = e.currentTarget.value
