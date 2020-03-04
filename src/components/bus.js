@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 function Bus(props) {
 if (props.bus.MonitoredVehicleJourney.OperatorRef === "BA") {
     return (
-            <div className="bus"><div>
+            <div className="bus" id={props.bus.MonitoredVehicleJourney.LineRef}><div>
     <span>{props.bus.MonitoredVehicleJourney.OriginName}</span>
     <span className="bold"> => {props.bus.MonitoredVehicleJourney.DestinationName}</span>
             </div>

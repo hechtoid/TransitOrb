@@ -272,6 +272,77 @@ hr{
 .update:active{
     color: purple;
 }
+#vehicle-agency{
+    margin: 5px 10px 0px 10px;
+    width: 100px;
+}
 #vehicle-number{
-    margin: 5px 10px 10px 10px;
+    margin: 5px 10px 0px 10px;
+    width: 200px;
+}
+.vehicle-info{
+    margin: 15px 5px 5px 5px;
+}
+.future-stops{
+    margin-left: 5px;
+}
+.vehicular form input{
+    margin: 10px;
+    /* width: 100px; */
+    padding: 0px;
+}
+.vehicular form a{
+    font-size: 10px;
+    /* margin: -20px 0 10px 25px; */
+    position: relative;
+    top: -15px;
+    left: 15px;
+}
+#YL-N{
+    border-left: 5px solid yellow;
+    border-right: 5px solid yellow;
+}
+#YL-S{
+    border-left: 5px solid yellow;
+    border-right: 5px solid yellow;
+}
+#OR-N{
+    border-left: 5px solid orange;
+    border-right: 5px solid orange;
+}
+#OR-S{
+    border-left: 5px solid orange;
+    border-right: 5px solid orange;
+}
+#BL-N{
+    border-left: 5px solid blue;
+    border-right: 5px solid blue;
+}
+#BL-S{
+    border-left: 5px solid blue;
+    border-right: 5px solid blue;
+}
+#GN-N{
+    border-left: 5px solid green;
+    border-right: 5px solid green;
+}
+#GN-S{
+    border-left: 5px solid green;
+    border-right: 5px solid green;
+}
+#RD-N{
+    border-left: 5px solid red;
+    border-right: 5px solid red;
+}
+#RD-S{
+    border-left: 5px solid red;
+    border-right: 5px solid red;
+}
+#PR-N{
+    border-left: 5px solid purple;
+    border-right: 5px solid purple;
+}
+#PR-S{
+    border-left: 5px solid purple;
+    border-right: 5px solid purple;
 }
