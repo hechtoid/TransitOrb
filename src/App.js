@@ -8,6 +8,7 @@ import AnyStop from './components/anyStop';
 import AnyStopWildCard from './components/anyStopWildCard';
 
 import AA from './components/aa';
+import DA from './components/da';
 
 function App(props) {
   return (
@@ -38,6 +39,7 @@ function App(props) {
         <AnyStopWildCard {...props} /> )}
       />
         <Route exact path="/aa" component={AA} />
+        <Route exact path="/da" component={DA} />
 
     </div>
     </div>

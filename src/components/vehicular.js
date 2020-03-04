@@ -14,7 +14,6 @@ class Vehicular extends React.Component {
 
     componentDidMount() {
         this.loadVehicle()
-        document.title="transitYourself - Vehicular"
     }
     handleSubmit(e){
         e.preventDefault()

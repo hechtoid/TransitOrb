@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 
 function TransitHeader(props) {
+  document.title=`transitYourself//${props.location.pathname}`
   return (
     <div className="transit-header">
       <Link to= "/vehicular" >
@@ -10,7 +11,7 @@ function TransitHeader(props) {
           ? 'transit-switch-on' 
           : 'transit-switch-off'
         }>
-<span title="Vehicle Tracker" role="img" aria-label="bus emoji">🚌</span>
+<span title="Vehicular" role="img" aria-label="bus emoji">🚌</span>
         </div>
       </Link>
       <Link to= "/commuter" >

@@ -37,7 +37,6 @@ class TransitStop extends React.Component {
     selectID = (e) => e.target.select();
 
     componentDidMount() {
-        document.title="transitYourself - anywherer"
         axios.get(`https://api.511.org/transit/operators?api_key=72939361-85f9-4019-aa55-d62e4e7e2e59&Format=JSON`)
         .then(res => {
             let agencies = res.data.filter(agency => !!agency.WebSite);
