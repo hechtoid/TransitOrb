@@ -109,7 +109,7 @@ img.five-eleven{
     border-radius: 3px;
     margin: 10px 5px 5px 5px;
     padding: 5px;
-    width: 33%;
+    /* width: 33%; */
 }
 .bus{
     margin: 10px 0px 0 5px;

@@ -18,14 +18,6 @@ class AnyStopWildCard extends React.Component {
                 this.setState({ buss });
             })
     }
-    // componentDidUpdate() {
-    //     axios.get(`https://api.511.org/transit/StopMonitoring?api_key=72939361-85f9-4019-aa55-d62e4e7e2e59&Format=JSON&agency=${this.props.match.params.agency.toUpperCase()}&stopCode=${this.props.match.params.stop.toUpperCase()}`)
-    //         .then(res => {
-    //             let buss = res.data.ServiceDelivery.StopMonitoringDelivery.MonitoredStopVisit;
-    //             this.setState({ buss });
-    //         })
-    // }
-
     render() {
         let busss = <div className="bus">
             No Tracked Vehicles to show. 
@@ -41,13 +33,12 @@ class AnyStopWildCard extends React.Component {
             })   
         }
         return (
-        <div className="transit-master">
-        <div className="transit-switcher">
-        <div className="busemoji">
-      </div>
-      <div className="transit">
         <div className='transit-on'>
-        {this.props.match.params.stop.toUpperCase()}
+            <div className='short-title'>
+        #{this.props.match.params.stop.toUpperCase()}
+        <br></br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{this.props.match.params.agency.toUpperCase()}
+        </div>
             <div className="buss">
                 <span className="bold">
                     {stop}
@@ -55,9 +46,7 @@ class AnyStopWildCard extends React.Component {
                     {busss}
             </div>
         </div>
-        </div>
-        </div>
-        </div>
+       
         );
     }
 
