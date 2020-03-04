@@ -286,6 +286,9 @@ hr{
 .future-stops{
     margin-left: 5px;
 }
+.vehicular{
+    background-color: white;
+}
 .vehicular form input{
     margin: 10px;
     /* width: 100px; */
