@@ -274,11 +274,11 @@ hr{
 }
 #vehicle-agency{
     margin: 5px 10px 0px 10px;
-    width: 100px;
+    width: 50px;
 }
 #vehicle-number{
     margin: 5px 10px 0px 10px;
-    width: 200px;
+    width: 100px;
 }
 .vehicle-info{
     margin: 15px 5px 5px 5px;
@@ -288,66 +288,68 @@ hr{
 }
 .vehicular{
     background-color: white;
+    padding-right: 10px;
 }
 .vehicular form input{
     margin: 10px;
     /* width: 100px; */
-    padding: 0px;
+    /* padding: 0px; */
 }
-.vehicular form a{
+.vehicular-feedback{
     font-size: 10px;
     /* margin: -20px 0 10px 25px; */
     position: relative;
-    top: -15px;
+    top: -10px;
     left: 15px;
 }
-#YL-N{
-    border-left: 5px solid #FFE800;
-    border-right: 5px solid #FFE800;
-}
-#YL-S{
-    border-left: 5px solid #FFE800;
-    border-right: 5px solid #FFE800;
-}
-#OR-N{
-    border-left: 5px solid #FAA61A;
-    border-right: 5px solid #FAA61A;
-}
-#OR-S{
-    border-left: 5px solid #FAA61A;
-    border-right: 5px solid #FAA61A;
-}
-#BL-N{
-    border-left: 5px solid #00AEEF;
-    border-right: 5px solid #00AEEF;
-}
-#BL-S{
-    border-left: 5px solid #00AEEF;
-    border-right: 5px solid #00AEEF;
-}
-#GN-N{
-    border-left: 5px solid #4DB848;
-    border-right: 5px solid #4DB848;
-}
-#GN-S{
-    border-left: 5px solid #4DB848;
-    border-right: 5px solid #4DB848;
-}
-#RD-N{
-    border-left: 5px solid #ED1C24;
-    border-right: 5px solid #ED1C24;
-}
-#RD-S{
-    border-left: 5px solid #ED1C24;
-    border-right: 5px solid #ED1C24;
-}
 #PR-N{
-    border-left: 5px solid #903E98;
-    border-right: 5px solid #903E98;
+    border-left: 5px solid PURPLE;
+    border-right: 5px solid PURPLE;
 }
 #PR-S{
-    border-left: 5px solid #903E98;
-    border-right: 5px solid #903E98;
+    border-left: 5px solid PURPLE;
+    border-right: 5px solid PURPLE;
+}
+#RD-N{
+    border-left: 5px solid #D4202F;
+    border-right: 5px solid #D4202F;
+}
+#RD-S{
+    border-left: 5px solid #D4202F;
+    border-right: 5px solid #D4202F;
+}
+#OR-N{
+    border-left: 5px solid #FE8220;
+    border-right: 5px solid #FE8220;
+}
+#OR-S{
+    border-left: 5px solid #FE8220;
+    border-right: 5px solid #FE8220;
+}
+#YL-N{
+    border-left: 5px solid #FEFE00;
+    border-right: 5px solid #FEFE00;
+}
+#YL-S{
+    border-left: 5px solid #FEFE00;
+    border-right: 5px solid #FEFE00;
+}
+#GN-N{
+    border-left: 5px solid #41B14A;
+    border-right: 5px solid #41B14A;
+}
+#GN-S{
+    border-left: 5px solid #41B14A;
+    border-right: 5px solid #41B14A;
+}
+
+#BL-N{
+    border-left: 5px solid #07A5E1;
+    border-right: 5px solid #07A5E1;
+}
+#BL-S{
+    border-left: 5px solid #07A5E1;
+    border-right: 5px solid #07A5E1;
 }
 #GY-N{
     border-left: 5px solid gray;

@@ -13,9 +13,10 @@ function App() {
   return (
     
       <Router basename={process.env.PUBLIC_URL}>
-        <div className="App">
+      <div className="App">
       <div className="transit-master">
       <div className="transit-switcher">
+        
         <div className="busemoji">
             <Link to= "/vehicular" >
             <span title="Vehicle Tracker" role="img" aria-label="bus emoji">🚌</span>

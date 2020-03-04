@@ -107,23 +107,22 @@ class Vehicular extends React.Component {
         return (
             <div className="vehicular">
                 <form onSubmit={this.handleSubmit}>
-                <input type="text"
-                    id="vehicle-agency"
-                    placeholder="Agency Code"
-                    value={this.state.agency}
-                    onChange={this.updateAgency()}
-                />
                  <input type="text"
                     id="vehicle-number"
                     placeholder="Vehicle Number"
                     value={this.state.vehicleNumber}
                     onChange={this.updateVehicleNumber()}
                 />
-                <br></br>
+                <input type="text"
+                    id="vehicle-agency"
+                    placeholder="Agency Code"
+                    value={this.state.agency}
+                    onChange={this.updateAgency()}
+                />
                 <input type="submit" value="Track Vehicle" />
-            <a href="https://www.sfmta.com/getting-around/muni/muni-feedback" target="_blank" rel="noopener noreferrer">
-                Vehicle Number Locations (SFMUNI)</a>
             </form>
+            <a href="https://www.sfmta.com/getting-around/muni/muni-feedback" className="vehicular-feedback" target="_blank" rel="noopener noreferrer">
+                Vehicle Number Locations (SFMUNI)</a>
             {vehicleInfo}
             {futureStops}
             </div>
