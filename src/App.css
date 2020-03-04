@@ -1,3 +1,4 @@
+a {text-decoration: none}
 #root{
     margin: 3px;
 }
@@ -6,28 +7,6 @@
     margin-right: 2px;
     /* width: 100vw; */
 }
-.hourly-item{
-    margin: 10px;
-}
-.hour{
-    font-weight: 900;
-}
-
-.weather-tele{
-    /* border: 1px solid red; */
-    width: 20%;
-}
-
-.weather-boxes{
-    display: flex;
-}
-
-.weather-spots{
-    display: inline;
-}
-.spot{
-    margin: 5px;
-}
 .transit-master{
     border: 1px solid black;
     border-radius: 10px;
@@ -35,11 +14,17 @@
     width: 100%;
 }
 .transit{
+    background-color: white;
     font-family: sans-serif;
     display: flex;
     width: 100%;
     /* margin-left: 10px; */
     
+}
+.transit-header{
+    display: flex;
+    text-decoration: none;
+
 }
 .transit-switcher{
     display: flex;
@@ -51,18 +36,25 @@
     /* border-radius: 10px 0 0 0; */
     
 }
-.busemoji{
+#busemoji{
     border-right: 1px solid black;
-    margin: 1px 10px 15px 5px;
-    height: 25px;
+    /* margin: 10px 10px 0px 5px; */
+    /* padding-bottom: 10px; */
+    /* height: 15px; */
     font-size: 33px;
-    
+    width: 40px; 
+    padding-right: 3px;
+    padding-left: 7px;
+}
+#busemoji span{
+    position: relative;
+    top: -10px;
 }
 div.five-eleven{
     background-color: white;
     border-radius: 10px;
     height: 36px;
-    margin: 4px 5px 3px 10px;
+    margin: 4px 5px 3px 4px;
     padding: 3px 2px 0px 2px;
 }
 img.five-eleven{
@@ -70,7 +62,7 @@ img.five-eleven{
 }
 .transit-switch-on{
     margin: 10px 1px 0 1px;
-    padding: 10px 9px 10px 7px;
+    padding: 10px 7px 10px 5px;
     border-right: 1px solid black;
     border-top: 1px solid black;
     border-radius: 7px 7px 0 0;
@@ -80,17 +72,17 @@ img.five-eleven{
     color: green;
     font-weight: 900;
     font-size: 12px;
-
-
+    text-decoration: none;
+    
 }
 .transit-switch-off{
-    margin-top: 13px;
-    padding: 9px 7px 11px 9px;
+    margin: 13px 0 0 1px;
+    padding: 9px 7px 11px 5px;
     background-color: lightgray;
     border-radius: 7px 7px 0 0;
     border-top: 1px solid black;
     border-right: 1px solid black;
-    
+    color: black;
     height: 12px;
     font-size: 12px;
     width: 75px;

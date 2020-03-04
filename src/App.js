@@ -1,49 +1,39 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './App.css';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import Transit from './components/transit';
-import AnyStopWildCard from './components/anyStopWildCard';
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
+import TransitStop from './components/transitstop';
+import TransitHeader from './components/transitheader';
 import Vehicular from './components/vehicular'
+import AnyStop from './components/anyStop';
+import AnyStopWildCard from './components/anyStopWildCard';
 
 import AA from './components/aa';
 
-function App() {
-  let [pane, setPane] = useState('user');
-
+function App(props) {
   return (
-    
-      <Router basename={process.env.PUBLIC_URL}>
+    <Router basename={process.env.PUBLIC_URL}>
       <div className="App">
       <div className="transit-master">
+      <TransitHeader />
       <div className="transit-switcher">
         
-        <div className="busemoji">
-            <Link to= "/vehicular" >
-            <span title="Vehicle Tracker" role="img" aria-label="bus emoji">🚌</span>
-            </Link>
-        </div>
-        <div className={
-          pane === 'frisco' 
-          ? 'transit-switch-on' 
-          : 'transit-switch-off'
-          } onClick={() => setPane('frisco')}>Commuter</div>
-        <div id='marin' className={
-          pane === 'marin' 
-          ? 'transit-switch-on' 
-          : 'transit-switch-off'} onClick={() => setPane('marin')}>Weekender</div>
-        <div className={
-          pane === 'user' 
-          ? 'transit-switch-on' 
-          : 'transit-switch-off'} onClick={() => setPane('user')}>Anywherer</div>
-        <div className="five-eleven">
-          <a href="https://511.org/open-data/transit" title="powered by 511 open data" target="_blank" rel="noopener noreferrer">
-            <img className="five-eleven" src="https://proxy-prod.511.org/assets/img/branding/511_original_web.png" alt="511 logo">
-            </img>
-          </a>
-        </div>
-      </div>
-        <Route exact path="/" component={Transit} />
+        
+      <div className="transit">
+      <Route exact path="/">
+        <Redirect to="/anywherer" />
+      </Route>
+        <Route exact path="/anywherer" component={TransitStop} />
         <Route exact path="/vehicular" component={Vehicular} />
+        <Route exact path="/weekender">
+            <AnyStop agency="GG" stop="42006" />
+            <AnyStop title="Van Sess" agency="GG" stop="40032" />
+        </Route>
+        <Route exact path="/commuter">
+            <AnyStop agency="SF" stop="16513" />
+            <AnyStop agency="SF" stop="16750" />
+            <AnyStop title="BroadWay" agency="SF" stop="13082" />
+        </Route>
+
         <Route path="/anystop/:agency/:stop" render={(props) => (
         <AnyStopWildCard {...props} /> )}
       />
@@ -51,7 +41,9 @@ function App() {
 
     </div>
     </div>
-      </Router>
+    </div>
+    </div>
+    </Router>
   );
 }
 
