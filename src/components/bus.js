@@ -21,6 +21,28 @@ if (props.bus.MonitoredVehicleJourney.OperatorRef === "BA") {
 {new Date(Date.parse(props.bus.MonitoredVehicleJourney.MonitoredCall.AimedArrivalTime)).toLocaleTimeString()}
         </span>}
     </div>
+    )} else if (props.bus.MonitoredVehicleJourney.OperatorRef === "CT") {
+        let caltrainLine = 'GY-N'
+        if (props.bus.MonitoredVehicleJourney.LineRef === 'Limited') {caltrainLine = 'YL-N'}
+        if (props.bus.MonitoredVehicleJourney.LineRef === 'Bullet') {caltrainLine = 'RD-N'}
+        return (
+        <div className="bus" id={caltrainLine}>
+            <div><span className="bold">
+                {props.bus.MonitoredVehicleJourney.LineRef} => </span> 
+                {props.bus.MonitoredVehicleJourney.DestinationName} 
+                </div>
+        {props.bus.MonitoredVehicleJourney.MonitoredCall.ExpectedDepartureTime && props.bus.MonitoredVehicleJourney.MonitoredCall.ExpectedDepartureTime !== props.bus.MonitoredVehicleJourney.MonitoredCall.AimedArrivalTime
+        ? <>
+        <span className="gray">
+{new Date(Date.parse(props.bus.MonitoredVehicleJourney.MonitoredCall.AimedArrivalTime)).toLocaleTimeString()}
+        </span>
+<span className="bold"> => {new Date(Date.parse(props.bus.MonitoredVehicleJourney.MonitoredCall.ExpectedDepartureTime)).toLocaleTimeString()}
+        </span>
+        </>
+        : <span className="bold">
+{new Date(Date.parse(props.bus.MonitoredVehicleJourney.MonitoredCall.AimedArrivalTime)).toLocaleTimeString()}
+        </span>}
+    </div>
     )} else if (['SF', 'AC', 'GG', 'SM', 'MA', 'SC'].includes(props.bus.MonitoredVehicleJourney.OperatorRef)){
         return(
         <div className="bus">
