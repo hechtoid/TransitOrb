@@ -129,6 +129,20 @@ img.five-eleven{
 .bus div{
     margin: 0 0 3px 0;
 }
+.gps{
+    color: blue;
+    text-decoration: none;
+}
+.gps:active{
+    color: purple;
+}
+.gps sup{
+    font-size: 7px;
+    color: black;
+    position: relative;
+    top: -2px;
+    left: 1px;
+}
 .bold{
     font-weight: 900;
 }
