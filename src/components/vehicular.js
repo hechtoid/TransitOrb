@@ -44,9 +44,10 @@ class Vehicular extends React.Component {
     updateAgency(e) {
         return e => {
             let agency = e.currentTarget.value
+            if (agency.length <= 2){
             this.setState({
                 agency
-            })
+            })}
         }
     }
     render() {
@@ -123,6 +124,7 @@ to={`/anystop/${this.state.agency||'SF'}/${this.state.vehicle.MonitoredCall.Stop
                     placeholder="Agency Code"
                     value={this.state.agency}
                     onChange={this.updateAgency()}
+                    // LIMIT TO TWO chars
                 />
                 <input type="submit" value="Load" />
             </form>
