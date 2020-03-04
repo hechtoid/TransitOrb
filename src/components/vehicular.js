@@ -106,6 +106,7 @@ class Vehicular extends React.Component {
             }
         return (
             <div className="vehicular">
+                <div className="vehicular">Live Vehicle Tracking</div>
                 <form onSubmit={this.handleSubmit}>
                  <input type="text"
                     id="vehicle-number"
@@ -119,7 +120,7 @@ class Vehicular extends React.Component {
                     value={this.state.agency}
                     onChange={this.updateAgency()}
                 />
-                <input type="submit" value="Track Vehicle" />
+                <input type="submit" value="Load" />
             </form>
             <a href="https://www.sfmta.com/getting-around/muni/muni-feedback" className="vehicular-feedback" target="_blank" rel="noopener noreferrer">
                 Vehicle Number Locations (SFMUNI)</a>

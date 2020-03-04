@@ -1,4 +1,4 @@
-a {text-decoration: none}
+a, a:visited, a:hover, a:link, a:active {text-decoration: none}
 #root{
     margin: 3px;
 }
@@ -265,12 +265,12 @@ hr{
     color: purple;
 }
 #vehicle-agency{
-    margin: 5px 10px 0px 10px;
-    width: 50px;
+    margin: 5px 5px 0px 5px;
+    width: 90px;
 }
 #vehicle-number{
-    margin: 5px 10px 0px 10px;
-    width: 100px;
+    margin: 5px 5px 0px 15px;
+    width: 110px;
 }
 .vehicle-info{
     margin: 15px 5px 5px 5px;
@@ -282,10 +282,18 @@ hr{
     background-color: white;
     padding-right: 10px;
 }
+div.vehicular{
+    font-weight: 900;
+    margin: 5px 5px 3px 5px;
+}
 .vehicular form input{
     margin: 10px;
     /* width: 100px; */
     /* padding: 0px; */
+}
+.vehicular input[type="submit"]{
+    font-weight: 900;
+    color: green;
 }
 .vehicular-feedback{
     font-size: 10px;
