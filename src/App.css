@@ -302,52 +302,52 @@ hr{
     left: 15px;
 }
 #YL-N{
-    border-left: 5px solid yellow;
-    border-right: 5px solid yellow;
+    border-left: 5px solid #FFE800;
+    border-right: 5px solid #FFE800;
 }
 #YL-S{
-    border-left: 5px solid yellow;
-    border-right: 5px solid yellow;
+    border-left: 5px solid #FFE800;
+    border-right: 5px solid #FFE800;
 }
 #OR-N{
-    border-left: 5px solid orange;
-    border-right: 5px solid orange;
+    border-left: 5px solid #FAA61A;
+    border-right: 5px solid #FAA61A;
 }
 #OR-S{
-    border-left: 5px solid orange;
-    border-right: 5px solid orange;
+    border-left: 5px solid #FAA61A;
+    border-right: 5px solid #FAA61A;
 }
 #BL-N{
-    border-left: 5px solid blue;
-    border-right: 5px solid blue;
+    border-left: 5px solid #00AEEF;
+    border-right: 5px solid #00AEEF;
 }
 #BL-S{
-    border-left: 5px solid blue;
-    border-right: 5px solid blue;
+    border-left: 5px solid #00AEEF;
+    border-right: 5px solid #00AEEF;
 }
 #GN-N{
-    border-left: 5px solid green;
-    border-right: 5px solid green;
+    border-left: 5px solid #4DB848;
+    border-right: 5px solid #4DB848;
 }
 #GN-S{
-    border-left: 5px solid green;
-    border-right: 5px solid green;
+    border-left: 5px solid #4DB848;
+    border-right: 5px solid #4DB848;
 }
 #RD-N{
-    border-left: 5px solid red;
-    border-right: 5px solid red;
+    border-left: 5px solid #ED1C24;
+    border-right: 5px solid #ED1C24;
 }
 #RD-S{
-    border-left: 5px solid red;
-    border-right: 5px solid red;
+    border-left: 5px solid #ED1C24;
+    border-right: 5px solid #ED1C24;
 }
 #PR-N{
-    border-left: 5px solid purple;
-    border-right: 5px solid purple;
+    border-left: 5px solid #903E98;
+    border-right: 5px solid #903E98;
 }
 #PR-S{
-    border-left: 5px solid purple;
-    border-right: 5px solid purple;
+    border-left: 5px solid #903E98;
+    border-right: 5px solid #903E98;
 }
 #GY-N{
     border-left: 5px solid gray;

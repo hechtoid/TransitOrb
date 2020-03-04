@@ -22,7 +22,7 @@ class Vehicular extends React.Component {
     }
     loadVehicle() { 
         let vehicle = {}
-        let agency = this.state.agency.toUpperCase()
+        let agency = this.state.agency.toUpperCase()||'SF'
         axios.get(`https://api.511.org/transit/VehicleMonitoring?api_key=72939361-85f9-4019-aa55-d62e4e7e2e59&agency=${agency}&format=json&vehicleID=${this.state.vehicleNumber}`)
             .then(res => {
                 vehicle = res.data.Siri.ServiceDelivery.VehicleMonitoringDelivery.VehicleActivity
