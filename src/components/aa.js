@@ -3,8 +3,7 @@ import AnyStop from './anyStop';
 
 function AA() {
   return (
-    <div className="transit-master">
-    <div className="transit-switcher">
+    <div>
       <div className="busemoji">
       </div>
       <div className="transit">
@@ -15,8 +14,7 @@ function AA() {
             <AnyStop title='CalTrain San Mateo' agency='CT' stop='70091' />
         </div>
       </div>
-    </div>
-    </div>
+      </div>
   );
 }
 
