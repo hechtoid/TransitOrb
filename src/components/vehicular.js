@@ -64,22 +64,23 @@ class Vehicular extends React.Component {
                 vehicleInfo = <div className="vehicle-info">
                         Vehicle <span className="bold">
                             #{this.state.vehicle.VehicleRef}
-                        </span> is currently serving route
-                        <span className="bold"> {this.state.vehicle.LineRef}</span>, 
+                        </span> - {gmapsLink}
                         <br></br>
-                        Final Destination <span className="bold"> {this.state.vehicle.DestinationName}
-                        </span>.
+                        Current Route:
+                        <span className="bold"> {this.state.vehicle.LineRef}</span> 
                         <br></br>
-                        {gmapsLink}
+                        Final Destination: <span className="bold"> {this.state.vehicle.DestinationName}
+                        </span>
                         <br></br>
+                      
                         NextStop: <span className="bold">
                             {this.state.vehicle.MonitoredCall.StopPointName}
-                            </span>,
+                            </span>
                         <br></br>
-                        Scheduled for <span className="bold">
+                        Scheduled: <span className="bold">
                             {new Date(Date.parse(this.state.vehicle.MonitoredCall.AimedArrivalTime)).toLocaleTimeString()} </span>
                         <br></br>
-                        Predicted at <span className="bold">
+                        Predicted: <span className="bold">
                             {new Date(Date.parse(this.state.vehicle.MonitoredCall.ExpectedArrivalTime)).toLocaleTimeString()}
                         </span>
                         </div>
@@ -106,7 +107,7 @@ class Vehicular extends React.Component {
             }
         return (
             <div className="vehicular">
-                <div className="vehicular">Live Vehicle Tracking</div>
+                <div className="short-title">Live Vehicle Tracking</div>
                 <form onSubmit={this.handleSubmit}>
                  <input type="text"
                     id="vehicle-number"

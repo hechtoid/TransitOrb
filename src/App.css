@@ -273,7 +273,7 @@ hr{
     width: 110px;
 }
 .vehicle-info{
-    margin: 15px 5px 5px 5px;
+    margin: 5px;
 }
 .future-stops{
     margin-left: 5px;
@@ -281,10 +281,6 @@ hr{
 .vehicular{
     background-color: white;
     padding-right: 10px;
-}
-div.vehicular{
-    font-weight: 900;
-    margin: 5px 5px 3px 5px;
 }
 .vehicular form input{
     margin: 10px;
