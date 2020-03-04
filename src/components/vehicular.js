@@ -75,8 +75,8 @@ to={`/anystop/${this.state.agency||'SF'}/${this.state.vehicle.MonitoredCall.Stop
                         <br></br>
                         <span className="gray">
 {new Date(Date.parse(this.state.vehicle.MonitoredCall.AimedArrivalTime)).toLocaleTimeString()} </span>
-                        => <span className="bold">
-{new Date(Date.parse(this.state.vehicle.MonitoredCall.ExpectedArrivalTime)).toLocaleTimeString()}
+                         <span className="bold">
+=> {new Date(Date.parse(this.state.vehicle.MonitoredCall.ExpectedArrivalTime)).toLocaleTimeString()}
                         </span>
                         </div>
             }
@@ -124,7 +124,6 @@ to={`/anystop/${this.state.agency||'SF'}/${this.state.vehicle.MonitoredCall.Stop
                     placeholder="Agency Code"
                     value={this.state.agency}
                     onChange={this.updateAgency()}
-                    // LIMIT TO TWO chars
                 />
                 <input type="submit" value="Load" />
             </form>
