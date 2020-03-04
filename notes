@@ -1,0 +1,39 @@
+TO ASK COACHES
+best practice for multi word filter 'search'kludge or .any?
+prop vehicular thru params? - for easy refresh/works anyways?
+cookies/backend?
+
+
+embed map at least on vehicular
+show countdown at least on first
+
+switch softlink transit into local, still git itself
+
+#IWISHindex by stopCode by adding id of index [0] - probs only for Muni if even
+
+add Line Filter prop to anyStop
+
+#switch agencyswitch to hash!
+
+#internalBusLoad
+#??BUT ALSO
+#??componentDidUPdate
+
+#?if no expected time only show aimed, don't gray
+??or if the same?
+
+#multiple names with .every?
+#EMPTY STRINGS HACKERMAN
+
+use schedules
+
+#add map
+
+user GPS
+
+#update stopCode if filter.length===1
+
+#update stop object by stop code
+
+https://www.npmjs.com/package/react-device-detect
+https://www.npmjs.com/package/react-select
