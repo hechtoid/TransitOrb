@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/transitYourself/static/css/main.570df273.chunk.css",
-    "main.js": "/transitYourself/static/js/main.df30f513.chunk.js",
-    "main.js.map": "/transitYourself/static/js/main.df30f513.chunk.js.map",
+    "main.css": "/transitYourself/static/css/main.ab619acd.chunk.css",
+    "main.js": "/transitYourself/static/js/main.0f1e88ed.chunk.js",
+    "main.js.map": "/transitYourself/static/js/main.0f1e88ed.chunk.js.map",
     "runtime-main.js": "/transitYourself/static/js/runtime-main.a28ec231.js",
     "runtime-main.js.map": "/transitYourself/static/js/runtime-main.a28ec231.js.map",
     "static/js/2.0632c3ad.chunk.js": "/transitYourself/static/js/2.0632c3ad.chunk.js",
     "static/js/2.0632c3ad.chunk.js.map": "/transitYourself/static/js/2.0632c3ad.chunk.js.map",
     "index.html": "/transitYourself/index.html",
-    "precache-manifest.f893bba63e91df399b73e62a95e8ef23.js": "/transitYourself/precache-manifest.f893bba63e91df399b73e62a95e8ef23.js",
+    "precache-manifest.f3b070d09cd0e02b1bf731496bc68b9f.js": "/transitYourself/precache-manifest.f3b070d09cd0e02b1bf731496bc68b9f.js",
     "service-worker.js": "/transitYourself/service-worker.js",
-    "static/css/main.570df273.chunk.css.map": "/transitYourself/static/css/main.570df273.chunk.css.map",
+    "static/css/main.ab619acd.chunk.css.map": "/transitYourself/static/css/main.ab619acd.chunk.css.map",
     "static/js/2.0632c3ad.chunk.js.LICENSE.txt": "/transitYourself/static/js/2.0632c3ad.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.a28ec231.js",
     "static/js/2.0632c3ad.chunk.js",
-    "static/css/main.570df273.chunk.css",
-    "static/js/main.df30f513.chunk.js"
+    "static/css/main.ab619acd.chunk.css",
+    "static/js/main.0f1e88ed.chunk.js"
   ]
 }
