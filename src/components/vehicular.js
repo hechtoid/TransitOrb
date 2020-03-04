@@ -94,7 +94,7 @@ class Vehicular extends React.Component {
                             return (
                         <div className="bus" key={key++}>
                             |  Stop <Link 
-                            to={`/anystop/${this.state.agency}/${stop.StopPointRef}`}>
+                            to={`/anystop/${this.state.agency||'SF'}/${stop.StopPointRef}`}>
                                 #{stop.StopPointRef}
                             </Link>  |    &nbsp;&nbsp;&nbsp;  {stop.StopPointName}
                             <br></br>
