@@ -112,7 +112,8 @@ class Vehicular extends React.Component {
         return (
             <div className="vehicular">
                 <div className="short-title">Live Vehicle Tracking</div>
-                <iframe title="gmaps embed" src="https://www.google.com/maps/embed/v1/MODE?key=AIzaSyAIe8CQdaU5qYMgUBimNtNLtz6MKhODsNU&q=Eiffel+Tower,Paris+France"></iframe>
+                {/* <iframe title="gmaps embed" src="http://www.google.com/maps/embed/v1/MODE?key=AIzaSyAIe8CQdaU5qYMgUBimNtNLtz6MKhODsNU&q=Eiffel+Tower,Paris+France"></iframe> */}
+                
                 <form onSubmit={this.handleSubmit}>
                  <input type="text"
                     id="vehicle-number"

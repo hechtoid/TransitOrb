@@ -16,6 +16,6 @@ ln /home/www/LocalNode/frontend/src/components/transit/aa.js  /home/www/transitY
 git add . &&
 git commit -m 'predeploy' &&
 npm run build &&
-git push
+git push &&
 npx gh-pages -d build &&
 exit
