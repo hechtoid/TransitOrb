@@ -279,6 +279,14 @@ class TransitStop extends React.Component {
                 return <Bus bus={bus} key={key++} /> 
             })
         }
+        let gmapsURL = ''
+        let locationLink = ''
+        if (this.state.stop.Location){
+            gmapsURL = `https://www.google.com/maps/search/?api=1&query=${this.state.stop.Location.Latitude},${this.state.stop.Location.Longitude}`
+            locationLink = <a href = {gmapsURL} target="_blank" rel="noopener noreferrer">
+            View on Map
+            </a>
+        }
         return (
 
             <div className = "stop">
@@ -377,11 +385,12 @@ Seamless Bay Area</a>)
                     onFocus={this.selectID}
                     onChange={this.updateStopCode()}
                 />
+                <br></br>
+                <div>{ locationLink }</div>
 
-
-		</div>
-                { busss }
-            </div>
+		    </div>
+            { busss }
+        </div>
         );
     }
 }

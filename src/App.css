@@ -239,6 +239,11 @@ hr{
     display: flex;
     /* padding-top: 5px; */
 }
+.stop-info div{
+    margin-top: 45px;
+    margin-left: -80px;
+    font-size: 10px;
+}
 .stop-title{
     font-weight: 900;
     padding: 3px 5px 3px 5px;
@@ -246,7 +251,8 @@ hr{
     font-size: 30px;
     border: 1px solid black;
     border-radius: 3px;
-    min-width: 222px;
+    width: 222px;
+    min-height: 40px;
 }
 #stop-id{
     height: 35px;
