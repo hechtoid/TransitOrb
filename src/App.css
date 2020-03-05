@@ -279,7 +279,7 @@ hr{
     display: flex;
     /* padding-top: 5px; */
 }
-div.stop-title{
+.stop div.stop-title{
     font-weight: 900;
     padding: 3px 5px 3px 5px;
     margin: 3px 5px 5px 5px; 
@@ -323,7 +323,12 @@ div.stop-title:active{
 .map-link:active{
     color: purple;
 }
+.bust .map-link{
+    margin: 0px 20px 0px 0px;
+    padding: 1px;
+    max-width: 30%;
 
+}
 .update{
     color: blue;
     text-decoration: underline;
@@ -376,14 +381,26 @@ div.stop-title:active{
 .any-stop-wild-card{
     text-align: center;
 }
+.any-stop-wild-card .stop-title{
+    font-weight: 900;
+    padding: 3px 5px 3px 5px;
+    margin: 1px 5% 3px 5%; 
+    font-size: 30px;
+    border: 1px solid black;
+    border-radius: 3px;
+    /* width: 100%; */
+    min-height: 57px;
+}
+.any-stop-wild-card .buss{
+    /* margin-right: 5%;
+    margin-left: 5%;
+    width: 100%; */
+}
 .any-stop-wild-card iframe{
     margin: 3px;
     width: 90%;
 }
-.any-stop-wild-card .stop-title{
-    /* width: 90%; */
-    margin: 5px auto;
-}
+
 #PR-N{
     border-left: 5px solid PURPLE;
     border-right: 5px solid PURPLE;

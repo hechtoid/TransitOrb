@@ -86,16 +86,22 @@ to={`/anystop/${this.state.agency||'SF'}/${this.state.vehicle.MonitoredCall.Stop
                         {this.state.vehicle.OnwardCalls.OnwardCall.map(stop => {
                             return (
                         <div className="bust" key={key++}>
-                            |  Stop <Link 
-                            to={`/anystop/${this.state.agency||'SF'}/${stop.StopPointRef}`}>
-                                #{stop.StopPointRef}
-                            </Link>  |    &nbsp;&nbsp;&nbsp;  {stop.StopPointName}
+                             <span>
+                                {stop.StopPointName}
+                            </span>
                             <br></br>
                             <span className="gray">
                                 {new Date(Date.parse(stop.AimedArrivalTime)).toLocaleTimeString()}
                                 </span>
                             <span className="bold"> => {new Date(Date.parse(stop.ExpectedArrivalTime)).toLocaleTimeString()}
                                 </span>
+                                <Link 
+                            to={`/anystop/${this.state.agency||'SF'}/${stop.StopPointRef}`}>
+                            <div className="map-link">
+                                Stop #{stop.StopPointRef}
+                                </div>
+                            </Link>
+                           
                         </div>
                                 )
                             })

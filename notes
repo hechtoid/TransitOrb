@@ -4,11 +4,14 @@ cookies/backend?
 
 #PROLLY COOLprop vehicular thru params? - for easy refresh/works anyways?
 
-thread stopLists - map link to anystop wildcard with embed!
+countdown on vehicular
 
-vehicular stop children list just title and link no number shown til anystop wildcard
+thread stopLists - #!!map link to anystop wildcard with embed!
 
-anyStops have timetable endpoint for ferries
+#vehicular stop children list just title and link no number shown til anystop wildcard
+
+
+anyStops have timetable endpoint for ferries COMMENTED OUT
 switch softlink transit into local, still git itself
 
 

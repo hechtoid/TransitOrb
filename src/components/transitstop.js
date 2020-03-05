@@ -275,7 +275,6 @@ class TransitStop extends React.Component {
                 return <Bus bus={bus} key={key++} /> 
             })
         }
-        let gmapsURL = ''
         let locationLink
         if (this.state.stop.Location){
             locationLink = <Link 
