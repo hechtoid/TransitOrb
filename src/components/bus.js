@@ -55,7 +55,7 @@ if (props.bus.MonitoredVehicleJourney.OperatorRef === "BA") {
     <div className="min">in</div>
 <div className="min-math">{Math.floor(((new Date(Date.parse(props.bus.MonitoredVehicleJourney.MonitoredCall.ExpectedDepartureTime))-new Date))/60000)}</div>
     <div className="min">min</div></div></div>
-    )} else if ([ 'AC', 'GG', 'SM', 'MA', 'SC'].includes(props.bus.MonitoredVehicleJourney.OperatorRef)){
+    )} else if (['SF', 'AC', 'GG', 'SM', 'MA', 'SC'].includes(props.bus.MonitoredVehicleJourney.OperatorRef)){
         return(
         <div className="bus"><div className="bus-left">
             <div><span title="Track Vehicle" className="bold">
