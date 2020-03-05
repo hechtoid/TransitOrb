@@ -123,7 +123,6 @@ class TransitStop extends React.Component {
     updateStop() {
         return e => {
             let stop = this.state.stopsFiltered[e.currentTarget.value]
-                console.log(stop)
                 this.setState({
                     stopCode: stop.id,
                     stop
@@ -169,7 +168,6 @@ class TransitStop extends React.Component {
                 if (stopsFiltered[0]) {
                     let stop = stopsFiltered[0]
                     if (this.state.stopCode !== stop.id) {
-                        console.log(stop)
                         this.setState({
                             stopCode: stop.id,
                             stop
@@ -191,7 +189,6 @@ class TransitStop extends React.Component {
             if (stopCode.length === this.agencyCodeLengthMap[this.state.agency]) {
             let stop = this.state.stops.filter(stop => stop.id.toUpperCase() === stoppCode)[0]
                 if (stop) {
-                    console.log(stop)
                     this.setState({
                         stopsFiltered: this.state.stops,
                         stopFilter: '',
