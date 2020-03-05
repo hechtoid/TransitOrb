@@ -27,12 +27,12 @@ function App(props) {
         <Route exact path="/vehicular" component={Vehicular} />
         <Route exact path="/weekender">
             <AnyStop agency="GG" stop="42006" />
-            <AnyStop title="Van Sess" agency="GG" stop="40032" />
+            <AnyStop agency="GG" stop="40032" />
         </Route>
         <Route exact path="/commuter">
             <AnyStop agency="SF" stop="16513" filterOUT={['8','8X']} />
-            <AnyStop agency="SF" stop="16750" />
-            <AnyStop title="BroadWay" agency="SF" stop="13082" />
+            <AnyStop agency="SF" stop="16750" title="Across from Mario's"/>
+            <AnyStop agency="SF" stop="13082" />
         </Route>
 
         <Route path="/anystop/:agency/:stop" render={(props) => (

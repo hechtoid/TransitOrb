@@ -9,7 +9,7 @@ cookies/backend?
 
 thread stopLists - map link to anystop wildcard with embed!
 
-anyStops are halfway to timetables
+anyStops have timetable endpoint for ferries
 switch softlink transit into local, still git itself
 
 #IWISHindex by stopCode by adding id of index [0] - probs only for Muni if even

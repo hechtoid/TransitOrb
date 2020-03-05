@@ -12,14 +12,15 @@ class AnyStopWildCard extends React.Component {
     }
 
     componentDidMount() {
-        if (this.props.match.params.agency.toUpperCase() === 'SB' || this.props.match.params.agency.toUpperCase() === 'GF') {
-            axios.get(`https://api.511.org/transit/stoptimetable?api_key=72939361-85f9-4019-aa55-d62e4e7e2e59&Format=JSON&OperatorRef=${this.props.match.params.agency.toUpperCase()}&MonitoringRef=${this.props.match.params.stop.toUpperCase()}`)
-            .then(res => {
-                console.log(res)
-                let buss = res.data.ServiceDelivery.StopMonitoringDelivery.MonitoredStopVisit;
-                this.setState({ buss });
-            })
-        } else {
+        // if (this.props.match.params.agency.toUpperCase() === 'SB' || this.props.match.params.agency.toUpperCase() === 'GF') {
+        //     axios.get(`https://api.511.org/transit/stoptimetable?api_key=72939361-85f9-4019-aa55-d62e4e7e2e59&Format=JSON&OperatorRef=${this.props.match.params.agency.toUpperCase()}&MonitoringRef=${this.props.match.params.stop.toUpperCase()}`)
+        //     .then(res => {
+        //         console.log(res)
+        //         let buss = res.data.ServiceDelivery.StopMonitoringDelivery.MonitoredStopVisit;
+        //         this.setState({ buss });
+        //     })
+        // } else 
+        {
         axios.get(`https://api.511.org/transit/StopMonitoring?api_key=72939361-85f9-4019-aa55-d62e4e7e2e59&Format=JSON&agency=${this.props.match.params.agency.toUpperCase()}&stopCode=${this.props.match.params.stop.toUpperCase()}`)
             .then(res => {
                 let buss = res.data.ServiceDelivery.StopMonitoringDelivery.MonitoredStopVisit;

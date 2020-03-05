@@ -362,7 +362,7 @@ Seamless Bay Area</a>)
                     className="stop-filter"
                     onChange={this.updateStopFilter()}
                     disabled={!this.state.loaded}
-                    placeholder={this.state.loaded?"Type to Search":"Load Stops to enable Search"}
+                    placeholder={this.state.loaded?"Type to Search":"Load Stops to Search"}
                     //onPaste={}
                 />
                 <br></br>
