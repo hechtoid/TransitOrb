@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/transitYourself/static/css/main.080ebb1a.chunk.css",
+    "main.css": "/transitYourself/static/css/main.847ffa92.chunk.css",
     "main.js": "/transitYourself/static/js/main.da0563e3.chunk.js",
     "main.js.map": "/transitYourself/static/js/main.da0563e3.chunk.js.map",
     "runtime-main.js": "/transitYourself/static/js/runtime-main.a28ec231.js",
@@ -8,15 +8,15 @@
     "static/js/2.bff9c0d4.chunk.js": "/transitYourself/static/js/2.bff9c0d4.chunk.js",
     "static/js/2.bff9c0d4.chunk.js.map": "/transitYourself/static/js/2.bff9c0d4.chunk.js.map",
     "index.html": "/transitYourself/index.html",
-    "precache-manifest.7c113509135f8f9d83877af1b818db78.js": "/transitYourself/precache-manifest.7c113509135f8f9d83877af1b818db78.js",
+    "precache-manifest.50ed4412262dc44cb20a5a641c0b2d24.js": "/transitYourself/precache-manifest.50ed4412262dc44cb20a5a641c0b2d24.js",
     "service-worker.js": "/transitYourself/service-worker.js",
-    "static/css/main.080ebb1a.chunk.css.map": "/transitYourself/static/css/main.080ebb1a.chunk.css.map",
+    "static/css/main.847ffa92.chunk.css.map": "/transitYourself/static/css/main.847ffa92.chunk.css.map",
     "static/js/2.bff9c0d4.chunk.js.LICENSE.txt": "/transitYourself/static/js/2.bff9c0d4.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.a28ec231.js",
     "static/js/2.bff9c0d4.chunk.js",
-    "static/css/main.080ebb1a.chunk.css",
+    "static/css/main.847ffa92.chunk.css",
     "static/js/main.da0563e3.chunk.js"
   ]
 }
