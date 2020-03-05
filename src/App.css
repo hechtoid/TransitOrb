@@ -279,10 +279,10 @@ hr{
 }
 .stop-info div{
     margin-top: 45px;
-    margin-left: -80px;
+    /* margin-left: -80px; */
     font-size: 10px;
 }
-.stop-title{
+div.stop-title{
     font-weight: 900;
     padding: 3px 5px 3px 5px;
     margin: 3px 5px 5px 5px; 
@@ -292,11 +292,22 @@ hr{
     width: 222px;
     min-height: 40px;
 }
-.stop-title:hover{
+div.stop-title div{
+    font-size: 10px;
+    font-weight: 100;
+    margin: 0px;
+    margin-right: 15px;
+    width: 100%;
+    text-align: right;
+    font-style: oblique;
+}
+div.stop-title:hover{
     cursor: pointer
 }
-.stop-title:active{
+div.stop-title:active{
     color: purple;
+    border: 1px solid purple;
+
 }
 #stop-id{
     height: 35px;

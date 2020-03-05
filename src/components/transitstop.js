@@ -367,11 +367,12 @@ Seamless Bay Area</a>)
                 />
                 <br></br>
             <div className="stop-info">
-                <span className="stop-title" onClick={this.loadBusss}>
+                <div className="stop-title" onClick={this.loadBusss}>
                 { this.state.stop.Name
                 ? this.state.stop.Name
                 : stopName }
-                </span>
+                <div>Tap to ReFresh</div>
+                </div>
             <input type="text"
                     id="stop-id"
                     placeholder="Stop Code"
@@ -383,7 +384,6 @@ Seamless Bay Area</a>)
                 <div>{ locationLink }</div>
 
 		    </div>
-            {/* <span className="refresh">Tap to ReFresh</span> */}
             { busss }
         </div>
         );
