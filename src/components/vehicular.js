@@ -85,7 +85,7 @@ to={`/anystop/${this.state.agency||'SF'}/${this.state.vehicle.MonitoredCall.Stop
                         <br></br>
                         {this.state.vehicle.OnwardCalls.OnwardCall.map(stop => {
                             return (
-                        <div className="bus" key={key++}>
+                        <div className="bust" key={key++}>
                             |  Stop <Link 
                             to={`/anystop/${this.state.agency||'SF'}/${stop.StopPointRef}`}>
                                 #{stop.StopPointRef}

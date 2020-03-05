@@ -115,11 +115,27 @@ img.five-eleven{
     margin: 10px 0px 0 5px;
     border: 1px solid gray;
     border-radius: 3px;
-    padding: 5px 5px 7px 7px;
+    padding: 7px 5px 7px 10px;
     /* width: 90%; */
+    display: flex;
+    justify-content: space-between;
+    max-width: 440px;
+}
+.bust{
+    margin: 10px 0px 0 5px;
+    border: 1px solid gray;
+    border-radius: 3px;
+    padding: 7px 5px 7px 7px;
+    max-width: 440px;
 }
 .bus div{
-    margin: 0 0 3px 0;
+    /* margin: 3px; */
+}
+.bus-left{
+    margin-top: 10px;
+}
+.bus-left div{
+    margin-bottom: 5px;
 }
 .gps{
     color: blue;
@@ -134,6 +150,26 @@ img.five-eleven{
     position: relative;
     top: -2px;
     left: 1px;
+}
+div.countdown{
+    border: 1px solid black;
+    border-radius: 3px;
+    text-align: center;
+    max-height: 70px;
+    width: 40px;
+}
+div.min{
+    font-size: 13px;
+    /* border: 1px solid red; */
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+div.min-math{
+    margin-top: 0px;
+    margin-bottom: 0px;
+    /* border: 1px solid green; */
+    color: red;
+    font-size: 23px;
 }
 .bold{
     font-weight: 900;

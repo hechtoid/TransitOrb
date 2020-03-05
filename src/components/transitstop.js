@@ -261,7 +261,7 @@ class TransitStop extends React.Component {
             })
         }
         let stopName = ''
-        let busss = <div className="bus">
+        let busss = <div className="bust">
                 No Tracked Vehicles.
                 <br></br>
                 <span className='update' onClick={this.loadBusss}>Check again</span>, check your inputs, or check the schedule.
@@ -362,7 +362,7 @@ Seamless Bay Area</a>)
                     className="stop-filter"
                     onChange={this.updateStopFilter()}
                     disabled={!this.state.loaded}
-                    placeholder={this.state.loaded?"Type to Search":"No Stops Loaded"}
+                    placeholder={this.state.loaded?"Type to Search":"Load Stops to enable Search"}
                     //onPaste={}
                 />
                 <br></br>

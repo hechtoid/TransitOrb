@@ -31,7 +31,7 @@ class AnyStop extends React.Component {
     }
 
     render() {
-        let busss = <div className="bus">
+        let busss = <div className="bust">
             No Tracked Vehicles to show. 
             <br></br>
             <span className='update' onClick={this.loadBusss}>Check again</span>, check your inputs, or check the schedule.
