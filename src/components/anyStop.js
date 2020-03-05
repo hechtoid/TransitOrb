@@ -25,6 +25,8 @@ class AnyStop extends React.Component {
         axios.get(`https://api.511.org/transit/StopMonitoring?api_key=72939361-85f9-4019-aa55-d62e4e7e2e59&Format=JSON&agency=${this.props.agency}&stopCode=${this.props.stop}`)
             .then(res => {
                 let buss = res.data.ServiceDelivery.StopMonitoringDelivery.MonitoredStopVisit;
+                if (this.props.filterIN){buss = buss.filter( bus => this.props.filterIN.includes(bus.MonitoredVehicleJourney.LineRef))} 
+                if (this.props.filterOUT){buss = buss.filter( bus => !this.props.filterOUT.includes(bus.MonitoredVehicleJourney.LineRef))}
                 this.setState({ buss });
             })
         }

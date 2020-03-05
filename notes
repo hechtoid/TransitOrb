@@ -1,12 +1,13 @@
 TO ASK COACHES
-best practice for multi word filter 'search'kludge or .any?
-prop vehicular thru params? - for easy refresh/works anyways?
+best practice for multi word filter 'search' my kludge or .any?
 cookies/backend?
 
+#PROLLY COOLprop vehicular thru params? - for easy refresh/works anyways?
 
-embed map at least on vehicular
-show countdown at least on first
+#!embed map at least on vehicular
+#!show countdown at least on first
 
+anyStops are halfway to timetables
 switch softlink transit into local, still git itself
 
 #IWISHindex by stopCode by adding id of index [0] - probs only for Muni if even
@@ -25,7 +26,7 @@ add Line Filter prop to anyStop
 #multiple names with .every?
 #EMPTY STRINGS HACKERMAN
 
-use schedules
+use schedules # where are they mtc plz
 
 #add map
 
