@@ -278,7 +278,7 @@ class TransitStop extends React.Component {
         if (this.state.stop.Location){
             gmapsURL = `https://www.google.com/maps/search/?api=1&query=${this.state.stop.Location.Latitude},${this.state.stop.Location.Longitude}`
             locationLink = <a href = {gmapsURL} target="_blank" rel="noopener noreferrer">
-            View on Map
+            View in Maps
             </a>
         }
         return (
@@ -373,6 +373,7 @@ Seamless Bay Area</a>)
                 : stopName }
                 <div>Tap to ReFresh</div>
                 </div>
+                <div>
             <input type="text"
                     id="stop-id"
                     placeholder="Stop Code"
@@ -381,7 +382,8 @@ Seamless Bay Area</a>)
                     onChange={this.updateStopCode()}
                 />
                 <br></br>
-                <div>{ locationLink }</div>
+                <div className="map-link">{ locationLink }</div>
+                </div>
 
 		    </div>
             { busss }
