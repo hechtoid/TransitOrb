@@ -152,6 +152,7 @@ img.five-eleven{
     left: 1px;
 }
 div.countdown{
+    margin-left: 3px;
     border: 1px solid black;
     padding: 1px;
     border-radius: 3px;
