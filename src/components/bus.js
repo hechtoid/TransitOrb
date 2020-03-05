@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 
 
 function Bus(props) {
-        let date= new Date
 if (props.bus.MonitoredVehicleJourney.OperatorRef === "BA") {
     return (
             <div className="bus" id={props.bus.MonitoredVehicleJourney.LineRef}>
@@ -26,7 +25,7 @@ if (props.bus.MonitoredVehicleJourney.OperatorRef === "BA") {
         </div>
         <div className="countdown">
                 <div className="min">in</div>
-        <div className="min-math">{Math.floor(((new Date(Date.parse(props.bus.MonitoredVehicleJourney.MonitoredCall.ExpectedArrivalTime))-new Date))/60000)}</div>
+        <div className="min-math">{Math.floor(((new Date(Date.parse(props.bus.MonitoredVehicleJourney.MonitoredCall.ExpectedArrivalTime))-new Date()))/60000)}</div>
                 <div className="min">min</div></div>
     </div>
     )} else if (props.bus.MonitoredVehicleJourney.OperatorRef === "CT") {
@@ -53,7 +52,7 @@ if (props.bus.MonitoredVehicleJourney.OperatorRef === "BA") {
     </div>
     <div className="countdown">
     <div className="min">in</div>
-<div className="min-math">{Math.floor(((new Date(Date.parse(props.bus.MonitoredVehicleJourney.MonitoredCall.ExpectedDepartureTime))-new Date))/60000)}</div>
+<div className="min-math">{Math.floor(((new Date(Date.parse(props.bus.MonitoredVehicleJourney.MonitoredCall.ExpectedDepartureTime))-new Date()))/60000)}</div>
     <div className="min">min</div></div></div>
     )} else if (['SF', 'AC', 'GG', 'SM', 'MA', 'SC'].includes(props.bus.MonitoredVehicleJourney.OperatorRef)){
         return(
@@ -88,7 +87,7 @@ if (props.bus.MonitoredVehicleJourney.OperatorRef === "BA") {
     </div>
     <div className="countdown">
     <div className="min">in</div>
-<div className="min-math">{Math.floor(((new Date(Date.parse(props.bus.MonitoredVehicleJourney.MonitoredCall.ExpectedArrivalTime))-new Date))/60000)}</div>
+<div className="min-math">{Math.floor(((new Date(Date.parse(props.bus.MonitoredVehicleJourney.MonitoredCall.ExpectedArrivalTime))-new Date()))/60000)}</div>
     <div className="min">min</div></div>
 </div>
     )} else {
@@ -112,7 +111,7 @@ if (props.bus.MonitoredVehicleJourney.OperatorRef === "BA") {
     </div>
     <div className="countdown">
     <div className="min">in</div>
-<div className="min-math">{Math.floor(((new Date(Date.parse(props.bus.MonitoredVehicleJourney.MonitoredCall.ExpectedArrivalTime))-new Date))/60000)}</div>
+<div className="min-math">{Math.floor(((new Date(Date.parse(props.bus.MonitoredVehicleJourney.MonitoredCall.ExpectedArrivalTime))-new Date()))/60000)}</div>
     <div className="min">min</div></div>
 </div>
     )}
