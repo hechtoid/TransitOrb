@@ -7,6 +7,8 @@ cookies/backend?
 #!embed map at least on vehicular
 #!show countdown at least on first
 
+thread stopLists - map link to anystop wildcard with embed!
+
 anyStops are halfway to timetables
 switch softlink transit into local, still git itself
 

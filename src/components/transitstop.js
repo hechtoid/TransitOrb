@@ -276,7 +276,7 @@ class TransitStop extends React.Component {
         let gmapsURL = ''
         let locationLink = ''
         if (this.state.stop.Location){
-            gmapsURL = `https://www.google.com/maps/search/?api=1&query=${this.state.stop.Location.Latitude},${this.state.stop.Location.Longitude}`
+            gmapsURL = `https://www.google.com/maps/place/${this.state.stop.Location.Latitude},${this.state.stop.Location.Longitude}/@${this.state.stop.Location.Latitude},${this.state.stop.Location.Longitude},14z`
             locationLink = <a href = {gmapsURL} target="_blank" rel="noopener noreferrer">
             View in Maps
             </a>
