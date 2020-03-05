@@ -4,17 +4,20 @@ cookies/backend?
 
 #PROLLY COOLprop vehicular thru params? - for easy refresh/works anyways?
 
-#!embed map at least on vehicular
-#!show countdown at least on first
-
 thread stopLists - map link to anystop wildcard with embed!
+
+vehicular stop children list just title and link no number shown til anystop wildcard
 
 anyStops have timetable endpoint for ferries
 switch softlink transit into local, still git itself
 
+
+#!embed map at least on vehicular
+#!show countdown at least on first
+
 #IWISHindex by stopCode by adding id of index [0] - probs only for Muni if even
 
-add Line Filter prop to anyStop
+#!add Line Filter prop to anyStop
 
 #switch agencyswitch to hash!
 

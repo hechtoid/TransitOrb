@@ -287,7 +287,7 @@ div.stop-title{
     border: 1px solid black;
     border-radius: 3px;
     width: 222px;
-    min-height: 40px;
+    min-height: 57px;
 }
 div.stop-title div{
     font-size: 11px;
@@ -306,18 +306,24 @@ div.stop-title:active{
     border: 1px solid purple;
 }
 #stop-id{
-    height: 35px;
-    margin: 5px 0 1px 5px;
+    height: 25px;
+    margin: 3px 0 1px 5px;
     width: 75px;
     padding-left: 5px;
 }
 .map-link{
-    /* margin-right: 5px; */
+    margin: 3px 0px 5px 5px;
     text-align: center;
-    font-size: 11px;
-    /* font-style: oblique; */
-    /* font-weight: 100; */
+    /* font-size: 12px; */
+    padding: 3px;
+    color: green;
+    border: 1px solid green;
+    border-radius: 3px;
 }
+.map-link:active{
+    color: purple;
+}
+
 .update{
     color: blue;
     text-decoration: underline;
@@ -366,6 +372,17 @@ div.stop-title:active{
     position: relative;
     top: -10px;
     left: 15px;
+}
+.any-stop-wild-card{
+    text-align: center;
+}
+.any-stop-wild-card iframe{
+    margin: 3px;
+    width: 90%;
+}
+.any-stop-wild-card .stop-title{
+    /* width: 90%; */
+    margin: 5px auto;
 }
 #PR-N{
     border-left: 5px solid PURPLE;

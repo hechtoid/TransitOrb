@@ -1,5 +1,7 @@
 import React from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
+
 import Bus from './bus'
 
 class TransitStop extends React.Component {
@@ -274,12 +276,17 @@ class TransitStop extends React.Component {
             })
         }
         let gmapsURL = ''
-        let locationLink = ''
+        let locationLink
         if (this.state.stop.Location){
-            gmapsURL = `https://www.google.com/maps/place/${this.state.stop.Location.Latitude},${this.state.stop.Location.Longitude}/@${this.state.stop.Location.Latitude},${this.state.stop.Location.Longitude},14z`
-            locationLink = <a href = {gmapsURL} target="_blank" rel="noopener noreferrer">
-            View in Maps
-            </a>
+            locationLink = <Link 
+                to={{
+    pathname: `/anystop/${this.state.agency||'SF'}/${this.state.stopCode}`,
+    state: {
+        stopName: this.state.stop.Name,
+        stopLocation: this.state.stop.Location
+    }
+        }}
+><div className="map-link">View Stop</div></Link>
         }
         return (
 
@@ -382,7 +389,7 @@ Seamless Bay Area</a>)
                     onChange={this.updateStopCode()}
                 />
                 <br></br>
-                <div className="map-link">{ locationLink }</div>
+                { locationLink }
                 </div>
 
 		    </div>
