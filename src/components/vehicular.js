@@ -56,7 +56,7 @@ class Vehicular extends React.Component {
             let gFrame
             if (this.state.vehicle && this.state.vehicle.VehicleLocation) { 
                 gFrame = <iframe title="gFrame" frameBorder="1"
-src={`https://www.google.com/maps/embed/v1/place?zoom=14&q=${this.state.vehicle.VehicleLocation.Latitude},${this.state.vehicle.VehicleLocation.Longitude}&key=AIzaSyAIe8CQdaU5qYMgUBimNtNLtz6MKhODsNU`}></iframe> 
+src={`https://www.google.com/maps/embed/v1/place?zoom=14&q=${this.state.vehicle.VehicleLocation.Latitude},${this.state.vehicle.VehicleLocation.Longitude}&key=AIzaSyAIe8CQdaU5qYMgUBimNtNLtz6MKhODsNU`}>Loading Map...</iframe> 
             }
             if (this.state.vehicle && this.state.vehicle.MonitoredCall) {
                 vehicleInfo = <div className="vehicle-info">

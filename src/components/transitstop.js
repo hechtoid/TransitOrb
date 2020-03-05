@@ -320,10 +320,6 @@ class TransitStop extends React.Component {
 		    </div>
             <div className="agencies-string">
                 All {this.state.agencies.length} Transit Agencies:
-                <div className="politics">
-(too many? i agree! <a href="https://www.seamlessbayarea.org/" target="_blank" rel="noopener noreferrer">
-Seamless Bay Area</a>)
-            </div>
                 </div>
             <div className="agency">
                 <select
@@ -334,6 +330,10 @@ Seamless Bay Area</a>)
                 >
                     {agencies}
                 </select>
+                <div className="politics">
+(too many? i agree! <a href="https://www.seamlessbayarea.org/" target="_blank" rel="noopener noreferrer">
+Seamless Bay Area</a>)
+            </div>
             </div>
             <hr></hr>
             <div className="slow">
@@ -367,7 +367,7 @@ Seamless Bay Area</a>)
                 />
                 <br></br>
             <div className="stop-info">
-                <span className="stop-title">
+                <span className="stop-title" onClick={this.loadBusss}>
                 { this.state.stop.Name
                 ? this.state.stop.Name
                 : stopName }
@@ -383,6 +383,7 @@ Seamless Bay Area</a>)
                 <div>{ locationLink }</div>
 
 		    </div>
+            {/* <span className="refresh">Tap to ReFresh</span> */}
             { busss }
         </div>
         );
