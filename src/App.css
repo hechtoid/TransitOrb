@@ -279,15 +279,19 @@ hr{
     display: flex;
     /* padding-top: 5px; */
 }
-.stop div.stop-title{
+.stop-title{
     font-weight: 900;
     padding: 3px 5px 3px 5px;
-    margin: 3px 5px 5px 5px; 
     font-size: 30px;
     border: 1px solid black;
     border-radius: 3px;
-    width: 222px;
     min-height: 57px;
+    overflow: hidden;
+}
+.stop div.stop-title{
+    margin: 3px 5px 5px 5px; 
+    width: 222px;
+  
 }
 div.stop-title div{
     font-size: 11px;
@@ -360,7 +364,7 @@ div.stop-title:active{
 .vehicular iframe{
     margin-left: 15px;
     width: 320px;
-    height: 320px;
+    height: 200px;
 }
 .vehicular form input{
     margin: 10px;
@@ -382,14 +386,8 @@ div.stop-title:active{
     text-align: center;
 }
 .any-stop-wild-card .stop-title{
-    font-weight: 900;
-    padding: 3px 5px 3px 5px;
     margin: 1px 5% 3px 5%; 
-    font-size: 30px;
-    border: 1px solid black;
-    border-radius: 3px;
     /* width: 100%; */
-    min-height: 57px;
 }
 .any-stop-wild-card .buss{
     /* margin-right: 5%;
@@ -397,8 +395,8 @@ div.stop-title:active{
     width: 100%; */
 }
 .any-stop-wild-card iframe{
-    margin: 3px;
-    width: 90%;
+    margin: 5px 5px 0px 5px;
+    width: 330px;
 }
 
 #PR-N{

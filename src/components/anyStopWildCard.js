@@ -62,9 +62,9 @@ src={`https://www.google.com/maps/embed/v1/place?zoom=13&q=${this.props.location
                 { stop }
                 <div>Tap to ReFresh</div>
                 </div>
+                    {gFrame}
                 <div className="buss">
              
-                    {gFrame}
                     {busss}
             </div>
         </div>
