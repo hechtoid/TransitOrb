@@ -124,7 +124,9 @@ to={`/anystop/${this.state.agency||'SF'}/${this.state.vehicle.MonitoredCall.Stop
                     value={this.state.agency}
                     onChange={this.updateAgency()}
                 />
-                <input type="submit" value="Load" />
+                {this.state.vehicle && this.state.vehicle.Monitored
+                ?<input type="submit" value="ReLoad" />
+                :<input type="submit" value="Load" />}
             </form>
             <a href="https://www.sfmta.com/getting-around/muni/muni-feedback" className="vehicular-feedback" target="_blank" rel="noopener noreferrer">
                 Vehicle Number Locations (SFMUNI)</a>
