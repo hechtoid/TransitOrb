@@ -198,12 +198,10 @@ div.min-math{
 .gray{
     margin-left: 5px;
     text-decoration: line-through;
+    color: gray;
 }
 .bold{
     font-weight: 900;
-}
-.gray{
-    color: gray;
 }
 .transit-stop{
     width: 100%;
