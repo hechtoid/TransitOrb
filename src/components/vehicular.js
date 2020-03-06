@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 class Vehicular extends React.Component {
     constructor(props) {
         super(props);
-        this.state = this.props.location.state || {vehicleNumber: '', agency: ''}
+        this.state = this.props.location.state || {vehicleNumber: '', agency: 'SF'}
     
         this.loadVehicle = this.loadVehicle.bind(this)
         this.updateVehicleNumber = this.updateVehicleNumber.bind(this)
@@ -22,7 +22,7 @@ class Vehicular extends React.Component {
     }
     loadVehicle() { 
         let vehicle = {}
-        let agency = this.state.agency.toUpperCase()||'SF'
+        let agency = this.state.agency.toUpperCase()
         axios.get(`https://api.511.org/transit/VehicleMonitoring?api_key=72939361-85f9-4019-aa55-d62e4e7e2e59&agency=${agency}&format=json&vehicleID=${this.state.vehicleNumber}`)
             .then(res => {
                 vehicle = res.data.Siri.ServiceDelivery.VehicleMonitoringDelivery.VehicleActivity
@@ -67,7 +67,7 @@ src={`https://www.google.com/maps/embed/v1/place?zoom=14&q=${this.state.vehicle.
                         </span>
                         <br></br>
                         <Link 
-to={`/anystop/${this.state.agency||'SF'}/${this.state.vehicle.MonitoredCall.StopPointRef}`}>
+to={`/anystop/${this.state.agency}/${this.state.vehicle.MonitoredCall.StopPointRef}`}>
                         NextStop</Link>: <span className="bold">
                             {this.state.vehicle.MonitoredCall.StopPointName}
                             </span>
@@ -96,7 +96,7 @@ to={`/anystop/${this.state.agency||'SF'}/${this.state.vehicle.MonitoredCall.Stop
                             <span className="bold"> => {new Date(Date.parse(stop.ExpectedArrivalTime)).toLocaleTimeString()}
                                 </span>
                                 <Link 
-                            to={`/anystop/${this.state.agency||'SF'}/${stop.StopPointRef}`}>
+                            to={`/anystop/${this.state.agency}/${stop.StopPointRef}`}>
                             <div className="map-link">
                                 Stop #{stop.StopPointRef}
                                 </div>
