@@ -123,8 +123,16 @@ img.five-eleven{
     /* width: 33%; */
     text-align: left;
 }
+.bust{
+    margin-top: 10px;
+    margin-left: 5px;
+    border: 1px solid gray;
+    border-radius: 3px;
+    padding: 7px 5px 7px 7px;
+    max-width: 350px;  
+}
 .bus{
-    margin: 5px 0px 0 5px;
+    margin: 5px 5px 0px 5px;
     border: 1px solid gray;
     border-radius: 3px;
     padding: 7px 5px 7px 10px;
@@ -289,7 +297,7 @@ hr{
     min-height: 57px;
     overflow: hidden;
 }
-.stop div.stop-title{
+.transit-stop div.stop-title{
     margin: 3px 5px 5px 5px; 
     width: 222px;
   
@@ -403,13 +411,11 @@ div.map-link:active{
     /* width: 100%; */
 }
 .stop{
-    margin-top: 10px;
-    margin-left: 5px;
+    margin: 10px 7px 0px 12px;
     border: 1px solid gray;
     border-radius: 3px;
     padding: 7px 5px 7px 7px;
     max-width: 350px;
-
 }
 .stop-top{
     display: flex;
@@ -425,11 +431,11 @@ div.map-link:active{
     text-align: center;
 }
 .any-stop-wild-card .stop-title{
-    margin: 1px 5% 3px 5%; 
+    margin: 1px 5% 5px 5%; 
     /* width: 100%; */
 }
 .any-stop-wild-card .buss{
-   /* text-align: left; */
+    margin-top: 10px;
 }
 .any-stop-wild-card iframe{
     margin: 5px 5px 0px 5px;
