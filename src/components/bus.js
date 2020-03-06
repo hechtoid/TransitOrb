@@ -36,8 +36,21 @@ if (props.bus.MonitoredVehicleJourney.OperatorRef === "BA") {
         if (props.bus.MonitoredVehicleJourney.LineRef === 'Bullet') {caltrainLine = 'RD-N'}
         return (
         <div className="bus" id={caltrainLine}>
-            <div className="bus-left"><div><span className="bold">
-                {props.bus.MonitoredVehicleJourney.LineRef} => </span> 
+            <div className="bus-left">
+            <div><span title="Track Vehicle" className="bold">
+        { props.bus.MonitoredVehicleJourney.VehicleRef
+        ? <Link className="gps"
+                to={{
+                pathname: "/vehicular", 
+                state: {
+        vehicleNumber: props.bus.MonitoredVehicleJourney.VehicleRef,
+        agency: props.bus.MonitoredVehicleJourney.OperatorRef
+                        }
+                }} >
+        {props.bus.MonitoredVehicleJourney.LineRef}<sup>GPS</sup>
+        </Link>
+        : <>{props.bus.MonitoredVehicleJourney.LineRef}</>
+        } => </span> 
                 {props.bus.MonitoredVehicleJourney.DestinationName} 
                 </div>
         {props.bus.MonitoredVehicleJourney.MonitoredCall.ExpectedDepartureTime && props.bus.MonitoredVehicleJourney.MonitoredCall.ExpectedDepartureTime !== props.bus.MonitoredVehicleJourney.MonitoredCall.AimedArrivalTime

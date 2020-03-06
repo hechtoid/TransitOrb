@@ -30,7 +30,11 @@ input[type=number] {
     display: flex;
     width: 100%;
     /* margin-left: 10px; */
-    
+}
+@media  only screen and (max-width: 600px) {
+.transit{
+    overflow: scroll;  
+}
 }
 .transit-header{
     display: flex;
@@ -151,8 +155,11 @@ img.five-eleven{
     margin-bottom: 5px;
 }
 .gps{
-    color: blue;
+    color: green;
     text-decoration: none;
+    border: 1px solid green;
+    border-radius: 3px;
+    padding: 1px;
 }
 .gps:active{
     color: purple;
