@@ -63,77 +63,90 @@ src={`https://www.google.com/maps/embed/v1/place?zoom=14&q=${this.state.vehicle.
             }
             if (this.state.vehicle && this.state.vehicle.MonitoredCall) {
                 vehicleInfo =
-                        <div className="vehicle-info">
-                      Route <span className="bold">
-                            {this.state.vehicle.LineRef}
-                        </span> to <span className="bold">
-                            {this.state.vehicle.DestinationName}
-                        </span>
-                        </div>
+                    <div className="vehicle-info">
+                    Route <span className="bold">
+                        {this.state.vehicle.LineRef}
+                    </span> to <span className="bold">
+                        {this.state.vehicle.DestinationName}
+                    </span>
+                    </div>
                 firstStop =  
-                      <div className="stop" >
-                      <div className="stop-top">
-                      <div>
-                       <span>
-                          {this.state.vehicle.MonitoredCall.StopPointName}
-                      </span>
-                      <Link 
-                      to={`/anystop/${this.state.agency}/${this.state.vehicle.MonitoredCall.StopPointRef}`}>
-                      <div className="map-link">
+                <div className="stop" >
+                <div className="stop-top">
+                        <div>
+                            <span>
+                            {this.state.vehicle.MonitoredCall.StopPointName}
+                            </span>
+                        <Link 
+            to={`/anystop/${this.state.agency}/${this.state.vehicle.MonitoredCall.StopPointRef}`}>
+                        <div className="map-link">
                             #{this.state.vehicle.MonitoredCall.StopPointRef}
-                          </div>
-                      </Link>
-                      <span className="bold">{new Date(Date.parse(this.state.vehicle.MonitoredCall.ExpectedArrivalTime)).toLocaleTimeString([],{ hour: 'numeric', minute: 'numeric' })}
-                          </span>
-                          <span className="gray">
-                          {new Date(Date.parse(this.state.vehicle.MonitoredCall.AimedArrivalTime)).toLocaleTimeString([],{ hour: 'numeric', minute: 'numeric' })}
-                          </span>
-                          </div>
-                          <div className="countdown">
-          <div className="min">in</div>
-          {this.state.vehicle.MonitoredCall.ExpectedArrivalTime
-?<div className="min-math">{Math.floor(((new Date(Date.parse(this.state.vehicle.MonitoredCall.ExpectedArrivalTime))-new Date()))/60000)}</div>
-:<div className="min-math">{Math.floor(((new Date(Date.parse(this.state.vehicle.MonitoredCall.AimedArrivalTime))-new Date()))/60000)}</div>}               
-<div className="min">min</div></div>
-                          </div>   
-                  </div>
+                        </div>
+                        </Link>
+                        {this.state.vehicle.MonitoredCall.ExpectedArrivalTime
+                        ? <>
+                        <span className="bold">
+            {new Date(Date.parse(this.state.vehicle.MonitoredCall.ExpectedArrivalTime)).toLocaleTimeString([],{ hour: 'numeric', minute: 'numeric' })}
+                        </span>
+                        <span className="gray">
+            {new Date(Date.parse(this.state.vehicle.MonitoredCall.AimedArrivalTime)).toLocaleTimeString([],{ hour: 'numeric', minute: 'numeric' })}
+                        </span>
+                        </>
+                        : <span className="bold">
+            Scheduled {new Date(Date.parse(this.state.vehicle.MonitoredCall.AimedArrivalTime)).toLocaleTimeString([],{ hour: 'numeric', minute: 'numeric' })}
+                        </span>}
+                    </div>
+                    <div className="countdown">
+                    <div className="min">in</div>
+                {this.state.vehicle.MonitoredCall.ExpectedArrivalTime
+                ? <div className="min-math">
+            {Math.floor(((new Date(Date.parse(this.state.vehicle.MonitoredCall.ExpectedArrivalTime))-new Date()))/60000)}</div>
+                : <div className="min-math">
+            {Math.floor(((new Date(Date.parse(this.state.vehicle.MonitoredCall.AimedArrivalTime))-new Date()))/60000)}</div>}               
+                    <div className="min">min</div>
+                    </div>
+                </div>   
+                </div>
             }
             if (this.state.vehicle && this.state.vehicle.OnwardCalls && this.state.vehicle.OnwardCalls.OnwardCall[0]) {
-                futureStops = <div className="future-stops">
+                futureStops = 
+                    <div className="future-stops">
                         {firstStop}
                         {this.state.vehicle.OnwardCalls.OnwardCall.map(stop => {
                             return (
                         <div className="stop" key={key++}>
-                            <div className="stop-top">
+                        <div className="stop-top">
                             <div>
-                             <span>
-                                {stop.StopPointName}
-                            </span>
-                            <Link 
-                            to={`/anystop/${this.state.agency}/${stop.StopPointRef}`}>
+                                <span>
+                                    {stop.StopPointName}
+                                </span>
+                            <Link to={`/anystop/${this.state.agency}/${stop.StopPointRef}`}>
                             <div className="map-link">
                                 #{stop.StopPointRef}
-                                </div>
+                            </div>
                             </Link>
-                            <span className="bold">{new Date(Date.parse(stop.ExpectedArrivalTime)).toLocaleTimeString([],{ hour: 'numeric', minute: 'numeric' })}
-                                </span>
-                                <span className="gray">
-                                {new Date(Date.parse(stop.AimedArrivalTime)).toLocaleTimeString([],{ hour: 'numeric', minute: 'numeric' })}
-                                </span>
-                                </div>
-                                <div className="countdown">
-                <div className="min">in</div>
+                            <span className="bold">
+            {new Date(Date.parse(stop.ExpectedArrivalTime)).toLocaleTimeString([],{ hour: 'numeric', minute: 'numeric' })}
+                            </span>
+                            <span className="gray">
+            {new Date(Date.parse(stop.AimedArrivalTime)).toLocaleTimeString([],{ hour: 'numeric', minute: 'numeric' })}
+                            </span>
+                            </div>
+                    <div className="countdown">
+                    <div className="min">in</div>
                 {stop.ExpectedArrivalTime
-?<div className="min-math">{Math.floor(((new Date(Date.parse(stop.ExpectedArrivalTime))-new Date()))/60000)}</div>
-:<div className="min-math">{Math.floor(((new Date(Date.parse(stop.AimedArrivalTime))-new Date()))/60000)}</div>}               
- <div className="min">min</div>
-                                </div>
-                                </div> 
+                ?<div className="min-math">
+            {Math.floor(((new Date(Date.parse(stop.ExpectedArrivalTime))-new Date()))/60000)}</div>
+                :<div className="min-math">
+            {Math.floor(((new Date(Date.parse(stop.AimedArrivalTime))-new Date()))/60000)}</div>}               
+                    <div className="min">min</div>
+                </div>
+                        </div> 
                         </div>
                                 )
                             })
                         }
-                        </div>
+                    </div>
             }
         return (
             <div className="vehicular">

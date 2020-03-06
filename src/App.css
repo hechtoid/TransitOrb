@@ -152,7 +152,6 @@ img.five-eleven{
     margin-top: 10px;
 }
 .bus-left div{
-    overflow: hidden;
     margin-bottom: 5px;
 }
 .gps{
@@ -343,6 +342,7 @@ div.stop-title:active{
     border: 1px solid green;
     border-radius: 3px;
     /* width: 250px; */
+    width: 90px;
 }
 div.map-link:active{
     color: purple;

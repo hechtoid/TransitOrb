@@ -54,10 +54,10 @@ if (props.bus.MonitoredVehicleJourney.OperatorRef === "BA") {
                 </div>
         {props.bus.MonitoredVehicleJourney.MonitoredCall.ExpectedDepartureTime && props.bus.MonitoredVehicleJourney.MonitoredCall.ExpectedDepartureTime !== props.bus.MonitoredVehicleJourney.MonitoredCall.AimedArrivalTime
         ? <>
+<span className="bold">{new Date(Date.parse(props.bus.MonitoredVehicleJourney.MonitoredCall.ExpectedDepartureTime)).toLocaleTimeString([],{ hour: 'numeric', minute: 'numeric' })}
+        </span>
         <span className="gray">
 {new Date(Date.parse(props.bus.MonitoredVehicleJourney.MonitoredCall.AimedArrivalTime)).toLocaleTimeString([],{ hour: 'numeric', minute: 'numeric' })}
-        =></span>
-<span className="bold">{new Date(Date.parse(props.bus.MonitoredVehicleJourney.MonitoredCall.ExpectedDepartureTime)).toLocaleTimeString([],{ hour: 'numeric', minute: 'numeric' })}
         </span>
         </>
         : <span className="bold">
