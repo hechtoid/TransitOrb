@@ -412,6 +412,7 @@ div.map-link:active{
 .stop-top{
     display: flex;
     justify-content: space-between;
+    border: 1px solid red;
 }
 .stop .min-math{
     
@@ -430,9 +431,7 @@ div.map-link:active{
     /* width: 100%; */
 }
 .any-stop-wild-card .buss{
-    /* margin-right: 5%;
-    margin-left: 5%;
-    width: 100%; */
+   text-align: left;
 }
 .any-stop-wild-card iframe{
     margin: 5px 5px 0px 5px;
