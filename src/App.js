@@ -32,7 +32,15 @@ function App(props) {
             <AnyStop agency="SF" stop="16750" filterIN={['45']} title="Across from Mario's"/>
             <AnyStop agency="SF" stop="13082" />
         </Route>
+        <Route exact path="/multi">
 
+            <AnyStop agency="SF" stop="16513" />
+            <AnyStop agency="SF" stop="16513" />
+            <AnyStop agency="SF" stop="16513" />
+            <AnyStop agency="SF" stop="16513" />
+            <AnyStop agency="SF" stop="16513" />
+            
+        </Route>
         <Route path="/anystop/:agency/:stop" render={(props) => (
         <AnyStopWildCard {...props} /> )}
       />

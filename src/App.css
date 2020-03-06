@@ -152,6 +152,7 @@ img.five-eleven{
     margin-top: 10px;
 }
 .bus-left div{
+    overflow: hidden;
     margin-bottom: 5px;
 }
 .gps{
@@ -170,6 +171,9 @@ img.five-eleven{
     position: relative;
     top: -2px;
     left: 1px;
+}
+.bus .gray{
+    margin-left: 3px;
 }
 div.countdown{
     margin-left: 5px;
@@ -332,13 +336,14 @@ div.stop-title:active{
     padding-left: 5px;
 }
 .map-link{
-    margin: 3px 0px 5px 5px;
+    margin: 3px 0px 5px 0px;
     text-align: center;
     /* font-size: 12px; */
     padding: 3px;
     color: green;
     border: 1px solid green;
     border-radius: 3px;
+    /* width: 250px; */
 }
 div.map-link:active{
     color: purple;
@@ -450,7 +455,14 @@ div.map-link:active{
     margin-top: 5px;
     width: 320px;
 }
-
+.any-stop{
+        border: 1px solid black;
+        border-radius: 3px;
+        margin: 5px;
+        padding: 5px;
+        /* width: 33%; */
+        text-align: left;
+}
 #PR-N{
     border-left: 5px solid PURPLE;
     border-right: 5px solid PURPLE;

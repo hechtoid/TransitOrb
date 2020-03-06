@@ -77,18 +77,18 @@ src={`https://www.google.com/maps/embed/v1/place?zoom=14&q=${this.state.vehicle.
                        <span>
                           {this.state.vehicle.MonitoredCall.StopPointName}
                       </span>
-                      <br></br>
-                      <span className="gray">
-                          {new Date(Date.parse(this.state.vehicle.MonitoredCall.AimedArrivalTime)).toLocaleTimeString()}
-                          </span>
-                      <span className="bold"> => {new Date(Date.parse(this.state.vehicle.MonitoredCall.ExpectedArrivalTime)).toLocaleTimeString()}
-                          </span>
-                          <Link 
+                      <Link 
                       to={`/anystop/${this.state.agency}/${this.state.vehicle.MonitoredCall.StopPointRef}`}>
                       <div className="map-link">
-                          Stop #{this.state.vehicle.MonitoredCall.StopPointRef}
+                            #{this.state.vehicle.MonitoredCall.StopPointRef}
                           </div>
                       </Link>
+                      <span className="gray">
+                          {new Date(Date.parse(this.state.vehicle.MonitoredCall.AimedArrivalTime)).toLocaleTimeString([],{ hour: 'numeric', minute: 'numeric' })}
+                          =></span>
+                      <span className="bold">{new Date(Date.parse(this.state.vehicle.MonitoredCall.ExpectedArrivalTime)).toLocaleTimeString([],{ hour: 'numeric', minute: 'numeric' })}
+                          </span>
+                          
                           </div>
                           <div className="countdown">
           <div className="min">in</div>
@@ -111,18 +111,18 @@ src={`https://www.google.com/maps/embed/v1/place?zoom=14&q=${this.state.vehicle.
                              <span>
                                 {stop.StopPointName}
                             </span>
-                            <br></br>
-                            <span className="gray">
-                                {new Date(Date.parse(stop.AimedArrivalTime)).toLocaleTimeString()}
-                                </span>
-                            <span className="bold"> => {new Date(Date.parse(stop.ExpectedArrivalTime)).toLocaleTimeString()}
-                                </span>
-                                <Link 
+                            <Link 
                             to={`/anystop/${this.state.agency}/${stop.StopPointRef}`}>
                             <div className="map-link">
-                                Stop #{stop.StopPointRef}
+                                #{stop.StopPointRef}
                                 </div>
                             </Link>
+                            <span className="gray">
+                                {new Date(Date.parse(stop.AimedArrivalTime)).toLocaleTimeString([],{ hour: 'numeric', minute: 'numeric' })}
+                                =></span>
+                            <span className="bold">{new Date(Date.parse(stop.ExpectedArrivalTime)).toLocaleTimeString([],{ hour: 'numeric', minute: 'numeric' })}
+                                </span>
+                                
                                 </div>
                                 <div className="countdown">
                 <div className="min">in</div>
