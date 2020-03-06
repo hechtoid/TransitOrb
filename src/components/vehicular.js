@@ -85,26 +85,24 @@ src={`https://www.google.com/maps/embed/v1/place?zoom=14&q=${this.state.vehicle.
                         </div>
                         </Link>
                         {this.state.vehicle.MonitoredCall.ExpectedArrivalTime
-                        ? <>
-                        <span className="bold">
-            {new Date(Date.parse(this.state.vehicle.MonitoredCall.ExpectedArrivalTime)).toLocaleTimeString([],{ hour: 'numeric', minute: 'numeric' })}
-                        </span>
-                        <span className="gray">
+                        ? <><span className="gray">
             {new Date(Date.parse(this.state.vehicle.MonitoredCall.AimedArrivalTime)).toLocaleTimeString([],{ hour: 'numeric', minute: 'numeric' })}
                         </span>
-                        </>
+                        <span className="bold">
+            {new Date(Date.parse(this.state.vehicle.MonitoredCall.ExpectedArrivalTime)).toLocaleTimeString([],{ hour: 'numeric', minute: 'numeric' })}
+                        </span></>
                         : <span className="bold">
             Scheduled {new Date(Date.parse(this.state.vehicle.MonitoredCall.AimedArrivalTime)).toLocaleTimeString([],{ hour: 'numeric', minute: 'numeric' })}
                         </span>}
                     </div>
                     <div className="countdown">
-                    <div className="min">in</div>
+                        <div className="min">in</div>
                 {this.state.vehicle.MonitoredCall.ExpectedArrivalTime
                 ? <div className="min-math">
             {Math.floor(((new Date(Date.parse(this.state.vehicle.MonitoredCall.ExpectedArrivalTime))-new Date()))/60000)}</div>
                 : <div className="min-math">
             {Math.floor(((new Date(Date.parse(this.state.vehicle.MonitoredCall.AimedArrivalTime))-new Date()))/60000)}</div>}               
-                    <div className="min">min</div>
+                        <div className="min">min</div>
                     </div>
                 </div>   
                 </div>
@@ -127,22 +125,22 @@ src={`https://www.google.com/maps/embed/v1/place?zoom=14&q=${this.state.vehicle.
                                 View Stop
                             </div>
                             </Link>
-                            <span className="bold">
-            {new Date(Date.parse(stop.ExpectedArrivalTime)).toLocaleTimeString([],{ hour: 'numeric', minute: 'numeric' })}
-                            </span>
                             <span className="gray">
             {new Date(Date.parse(stop.AimedArrivalTime)).toLocaleTimeString([],{ hour: 'numeric', minute: 'numeric' })}
                             </span>
+                            <span className="bold">
+            {new Date(Date.parse(stop.ExpectedArrivalTime)).toLocaleTimeString([],{ hour: 'numeric', minute: 'numeric' })}
+                            </span>
                             </div>
-                    <div className="countdown">
-                    <div className="min">in</div>
+                            <div className="countdown">
+                                <div className="min">in</div>
                 {stop.ExpectedArrivalTime
-                ?<div className="min-math">
+                ? <div className="min-math">
             {Math.floor(((new Date(Date.parse(stop.ExpectedArrivalTime))-new Date()))/60000)}</div>
-                :<div className="min-math">
+                : <div className="min-math">
             {Math.floor(((new Date(Date.parse(stop.AimedArrivalTime))-new Date()))/60000)}</div>}               
-                    <div className="min">min</div>
-                </div>
+                                <div className="min">min</div>
+                            </div>
                         </div> 
                         </div>
                                 )
@@ -153,38 +151,37 @@ src={`https://www.google.com/maps/embed/v1/place?zoom=14&q=${this.state.vehicle.
         return (
             <div className="vehicular">
                 <div className="short-title">
-                    Live Tracking - Vehicle {
-                             this.state.vehicle
-                            ? this.state.vehicle.VehicleRef
-                            : this.state.vehicleNumber
-                        }
-                    </div>             
+                    Live Tracking - Vehicle {this.state.vehicle
+                        ? this.state.vehicle.VehicleRef
+                        : this.state.vehicleNumber}
+                </div>             
                     {vehicleInfo}
                 <form onSubmit={this.handleSubmit}>
-                <input type="text"
-                    id="vehicle-agency"
-                    placeholder="Agency"
-                    value={this.state.agency}
-                    onChange={this.updateAgency()}
-                    />
-                 <input type="number"
-                    id="vehicle-number"
-                    placeholder="Vehicle"
-                    value={this.state.vehicleNumber}
-                    onFocus={this.selectID}
-                    onChange={this.updateVehicleNumber()}
-                    />
-                {this.state.vehicle && this.state.vehicle.Monitored
-                ?<input type="submit" value="ReLoad" />
-                :<input type="submit" value="Load" />}
-                <br></br>
-                     <a href="https://www.sfmta.com/getting-around/muni/muni-feedback" className="vehicular-feedback" target="_blank" rel="noopener noreferrer">
-                SFMUNI Vehicle Numbers</a>
-            </form>
+                    <input type="text"
+                        id="vehicle-agency"
+                        placeholder="Agency"
+                        value={this.state.agency}
+                        onChange={this.updateAgency()}
+                        />
+                    <input type="number"
+                        id="vehicle-number"
+                        placeholder="Vehicle"
+                        value={this.state.vehicleNumber}
+                        onFocus={this.selectID}
+                        onChange={this.updateVehicleNumber()}
+                        />
+                    {this.state.vehicle && this.state.vehicle.Monitored
+                    ?<input type="submit" value="ReLoad" />
+                    :<input type="submit" value="Load" />}
+                        <br></br>
+                    <a className="vehicular-feedback" href="https://www.sfmta.com/getting-around/muni/muni-feedback" target="_blank" rel="noopener noreferrer">
+                        SFMUNI Vehicle Numbers
+                    </a>
+                </form>
             <div className='g-frame'>
-            {gFrame}
+                {gFrame}
             </div> 
-            {futureStops}
+                {futureStops}
             </div>
         );
     }

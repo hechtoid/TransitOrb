@@ -36,8 +36,8 @@ function App(props) {
 
             <AnyStop agency="SF" stop="16513" />
             <AnyStop agency="SF" stop="16513" />
-            <AnyStop agency="SF" stop="16513" />
-            <AnyStop agency="SF" stop="16513" />
+            <AnyStop title='Twenty Fourth Street BART' agency='BA' stop='24TH' />
+            <AnyStop title='CalTrain MillBrae' agency='CT' stop='70062' />
             <AnyStop agency="SF" stop="16513" />
             <AnyStop agency="SF" stop="16513" />
             
