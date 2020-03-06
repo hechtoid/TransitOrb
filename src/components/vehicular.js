@@ -116,27 +116,29 @@ to={`/anystop/${this.state.agency||'SF'}/${this.state.vehicle.MonitoredCall.Stop
                             ? this.state.vehicle.VehicleRef
                             : this.state.vehicleNumber
                         }</div>
-                { gFrame }
+                
                 <form onSubmit={this.handleSubmit}>
-                 <input type="text"
-                    id="vehicle-number"
-                    placeholder="Vehicle Number"
-                    value={this.state.vehicleNumber}
-                    onChange={this.updateVehicleNumber()}
-                />
                 <input type="text"
                     id="vehicle-agency"
-                    placeholder="Agency Code"
+                    placeholder="Agency"
                     value={this.state.agency}
                     onChange={this.updateAgency()}
-                />
+                    />
+                 <input type="number"
+                    id="vehicle-number"
+                    placeholder="Vehicle #"
+                    value={this.state.vehicleNumber}
+                    onChange={this.updateVehicleNumber()}
+                    />
                 {this.state.vehicle && this.state.vehicle.Monitored
                 ?<input type="submit" value="ReLoad" />
                 :<input type="submit" value="Load" />}
-            </form>
-            <a href="https://www.sfmta.com/getting-around/muni/muni-feedback" className="vehicular-feedback" target="_blank" rel="noopener noreferrer">
+                <br></br>
+                     <a href="https://www.sfmta.com/getting-around/muni/muni-feedback" className="vehicular-feedback" target="_blank" rel="noopener noreferrer">
                 Vehicle Number Locations (SFMUNI)</a>
+            </form>
             {vehicleInfo}
+            { gFrame }
             {futureStops}
             </div>
         );
