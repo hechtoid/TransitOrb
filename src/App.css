@@ -121,7 +121,7 @@ img.five-eleven{
 }
 .buss{
     border: 1px solid black;
-    border-radius: 3px;
+    border-radius: 5px;
     margin: 5px;
     padding: 5px;
     /* width: 33%; */
@@ -138,7 +138,7 @@ img.five-eleven{
 .bus{
     margin: 5px 5px 0px 5px;
     border: 1px solid gray;
-    border-radius: 3px;
+    border-radius: 5px;
     padding: 7px 5px 7px 10px;
     /* width: 90%; */
     display: flex;
@@ -159,12 +159,12 @@ img.five-eleven{
     text-decoration: none;
     border: 1px solid green;
     border-radius: 3px;
-    padding: 3px;
+    padding: 0 3px;
 }
 .no-gps{
     border: 1px solid black;
     border-radius: 3px;
-    padding: 3px;
+    padding: 0 3px;
 }
 .gps:active{
     color: purple;
@@ -181,7 +181,7 @@ div.countdown{
     margin-right: 3px;
     border: 1px solid black;
     padding: 1px 3px 1px 3px;
-    border-radius: 3px;
+    border-radius: 10px;
     text-align: center;
     max-height: 70px;
     width: 40px;
@@ -200,7 +200,7 @@ div.min-math{
     font-size: 23px;
 }
 .gray{
-    margin-right: 3px;
+    margin-left: 5px;
     text-decoration: line-through;
     color: gray;
 }
@@ -234,7 +234,7 @@ label input[type="radio"]{
     /* left: 30px; */
     font-size: 42px;
     border: 1px solid black;
-    border-radius: 3px;
+    border-radius: 5px;
 }
 .agencies-string{
     margin: 5px 0 5px 15px;
@@ -307,7 +307,7 @@ hr{
     padding: 3px 5px 3px 5px;
     font-size: 30px;
     border: 1px solid black;
-    border-radius: 3px;
+    border-radius: 5px;
     min-height: 57px;
     overflow: hidden;
 }
@@ -339,7 +339,7 @@ div.stop-title:active{
     padding-left: 5px;
 }
 .map-link{
-    margin: 3px 0px 5px 0px;
+    margin: 3px 0px 5px 5px;
     text-align: center;
     /* font-size: 12px; */
     padding: 3px;
@@ -429,7 +429,7 @@ div.map-link:active{
 .stop{
     margin: 10px 7px 0px 12px;
     border: 1px solid gray;
-    border-radius: 3px;
+    border-radius: 5px;
     padding: 7px 5px 7px 7px;
     max-width: 350px;
 }
