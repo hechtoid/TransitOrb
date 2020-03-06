@@ -25,6 +25,7 @@ input[type=number] {
     width: 100%;
 }
 .transit{
+    border: none;
     background-color: white;
     font-family: sans-serif;
     display: flex;
