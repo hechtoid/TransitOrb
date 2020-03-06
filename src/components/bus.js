@@ -8,16 +8,16 @@ if (props.bus.MonitoredVehicleJourney.OperatorRef === "BA") {
             <div className="bus" id={props.bus.MonitoredVehicleJourney.LineRef}>
                     <div className="bus-left">
                     <div>
-    <span>{props.bus.MonitoredVehicleJourney.OriginName} =></span>
+    <span>{props.bus.MonitoredVehicleJourney.OriginName}=> </span>
     <span className="bold">{props.bus.MonitoredVehicleJourney.DestinationName}</span>
             </div>
         {props.bus.MonitoredVehicleJourney.MonitoredCall.ExpectedArrivalTime
         ? <>
-        <span className="gray">
-        {new Date(Date.parse(props.bus.MonitoredVehicleJourney.MonitoredCall.AimedArrivalTime)).toLocaleTimeString([],{ hour: 'numeric', minute: 'numeric' })}
-        =></span>
         <span className="bold">{new Date(Date.parse(props.bus.MonitoredVehicleJourney.MonitoredCall.ExpectedArrivalTime)).toLocaleTimeString([],{ hour: 'numeric', minute: 'numeric' })}
                 </span>
+                <span className="gray">
+        {new Date(Date.parse(props.bus.MonitoredVehicleJourney.MonitoredCall.AimedArrivalTime)).toLocaleTimeString([],{ hour: 'numeric', minute: 'numeric' })}
+        </span>
         </> :
         <span className="bold">
                 {new Date(Date.parse(props.bus.MonitoredVehicleJourney.MonitoredCall.AimedArrivalTime)).toLocaleTimeString([],{ hour: 'numeric', minute: 'numeric' })}
@@ -50,8 +50,7 @@ if (props.bus.MonitoredVehicleJourney.OperatorRef === "BA") {
         {props.bus.MonitoredVehicleJourney.LineRef}<sup>GPS</sup>
         </Link>
         : <>{props.bus.MonitoredVehicleJourney.LineRef}</>
-        }</span>=> 
-                {props.bus.MonitoredVehicleJourney.DestinationName} 
+        }</span>=> {props.bus.MonitoredVehicleJourney.DestinationName} 
                 </div>
         {props.bus.MonitoredVehicleJourney.MonitoredCall.ExpectedDepartureTime && props.bus.MonitoredVehicleJourney.MonitoredCall.ExpectedDepartureTime !== props.bus.MonitoredVehicleJourney.MonitoredCall.AimedArrivalTime
         ? <>
@@ -87,7 +86,7 @@ if (props.bus.MonitoredVehicleJourney.OperatorRef === "BA") {
         {props.bus.MonitoredVehicleJourney.LineRef}<sup>GPS</sup>
         </Link>
         : <>{props.bus.MonitoredVehicleJourney.LineRef}</>
-        }</span> to <span className="bold">
+        }</span>=> <span className="bold">
                 {props.bus.MonitoredVehicleJourney.DestinationName}
                 </span>
         </span>
@@ -97,9 +96,9 @@ if (props.bus.MonitoredVehicleJourney.OperatorRef === "BA") {
         ? <>
         <span className="bold">{new Date(Date.parse(props.bus.MonitoredVehicleJourney.MonitoredCall.ExpectedArrivalTime)).toLocaleTimeString([],{ hour: 'numeric', minute: 'numeric' })}
         </span>
-        <span className="gray">[
+        <span className="gray">
 {new Date(Date.parse(props.bus.MonitoredVehicleJourney.MonitoredCall.AimedArrivalTime)).toLocaleTimeString([],{ hour: 'numeric', minute: 'numeric' })}
-        ] </span>
+        </span>
         </>
         : <span className="bold">
 {new Date(Date.parse(props.bus.MonitoredVehicleJourney.MonitoredCall.AimedArrivalTime)).toLocaleTimeString([],{ hour: 'numeric', minute: 'numeric' })}

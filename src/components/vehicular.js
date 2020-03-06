@@ -83,12 +83,11 @@ src={`https://www.google.com/maps/embed/v1/place?zoom=14&q=${this.state.vehicle.
                             #{this.state.vehicle.MonitoredCall.StopPointRef}
                           </div>
                       </Link>
-                      <span className="gray">
-                          {new Date(Date.parse(this.state.vehicle.MonitoredCall.AimedArrivalTime)).toLocaleTimeString([],{ hour: 'numeric', minute: 'numeric' })}
-                          =></span>
                       <span className="bold">{new Date(Date.parse(this.state.vehicle.MonitoredCall.ExpectedArrivalTime)).toLocaleTimeString([],{ hour: 'numeric', minute: 'numeric' })}
                           </span>
-                          
+                          <span className="gray">
+                          {new Date(Date.parse(this.state.vehicle.MonitoredCall.AimedArrivalTime)).toLocaleTimeString([],{ hour: 'numeric', minute: 'numeric' })}
+                          </span>
                           </div>
                           <div className="countdown">
           <div className="min">in</div>
@@ -96,8 +95,7 @@ src={`https://www.google.com/maps/embed/v1/place?zoom=14&q=${this.state.vehicle.
 ?<div className="min-math">{Math.floor(((new Date(Date.parse(this.state.vehicle.MonitoredCall.ExpectedArrivalTime))-new Date()))/60000)}</div>
 :<div className="min-math">{Math.floor(((new Date(Date.parse(this.state.vehicle.MonitoredCall.AimedArrivalTime))-new Date()))/60000)}</div>}               
 <div className="min">min</div></div>
-                          </div>
-                          
+                          </div>   
                   </div>
             }
             if (this.state.vehicle && this.state.vehicle.OnwardCalls && this.state.vehicle.OnwardCalls.OnwardCall[0]) {
@@ -117,12 +115,11 @@ src={`https://www.google.com/maps/embed/v1/place?zoom=14&q=${this.state.vehicle.
                                 #{stop.StopPointRef}
                                 </div>
                             </Link>
-                            <span className="gray">
-                                {new Date(Date.parse(stop.AimedArrivalTime)).toLocaleTimeString([],{ hour: 'numeric', minute: 'numeric' })}
-                                =></span>
                             <span className="bold">{new Date(Date.parse(stop.ExpectedArrivalTime)).toLocaleTimeString([],{ hour: 'numeric', minute: 'numeric' })}
                                 </span>
-                                
+                                <span className="gray">
+                                {new Date(Date.parse(stop.AimedArrivalTime)).toLocaleTimeString([],{ hour: 'numeric', minute: 'numeric' })}
+                                </span>
                                 </div>
                                 <div className="countdown">
                 <div className="min">in</div>
@@ -131,8 +128,7 @@ src={`https://www.google.com/maps/embed/v1/place?zoom=14&q=${this.state.vehicle.
 :<div className="min-math">{Math.floor(((new Date(Date.parse(stop.AimedArrivalTime))-new Date()))/60000)}</div>}               
  <div className="min">min</div>
                                 </div>
-                                </div>
-                                
+                                </div> 
                         </div>
                                 )
                             })
