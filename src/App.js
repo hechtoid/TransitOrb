@@ -17,8 +17,6 @@ function App(props) {
       <div className="transit-master">
       <TransitHeader />
       <div className="transit-switcher">
-        
-        
       <div className="transit">
       <Route exact path="/">
         <Redirect to="/anywherer" />

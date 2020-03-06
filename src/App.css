@@ -438,15 +438,17 @@ div.map-link:active{
     text-align: center;
 }
 .any-stop-wild-card .stop-title{
-    margin: 1px 5% 5px 5%; 
-    /* width: 100%; */
+    margin: 5px;
+    width: 320px;
 }
 .any-stop-wild-card .buss{
-    margin-top: 10px;
+    margin-top: 5px;
+    width: 320px;
+
 }
 .any-stop-wild-card iframe{
-    margin: 5px 5px 0px 5px;
-    width: 330px;
+    margin-top: 5px;
+    width: 320px;
 }
 
 #PR-N{
