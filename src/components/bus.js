@@ -47,7 +47,7 @@ if (props.bus.MonitoredVehicleJourney.OperatorRef === "BA") {
                 agency: props.bus.MonitoredVehicleJourney.OperatorRef}}} >
                                 {props.bus.MonitoredVehicleJourney.LineRef}<sup>GPS</sup>
                                 </Link>
-                                : <>{props.bus.MonitoredVehicleJourney.LineRef}</>}
+                                : <span className="no-gps">{props.bus.MonitoredVehicleJourney.LineRef}</span>}
                                 </span>=> {props.bus.MonitoredVehicleJourney.DestinationName} 
                         </div>
                         {props.bus.MonitoredVehicleJourney.MonitoredCall.ExpectedDepartureTime 
@@ -84,7 +84,7 @@ if (props.bus.MonitoredVehicleJourney.OperatorRef === "BA") {
                 agency: props.bus.MonitoredVehicleJourney.OperatorRef}}} >
                                 {props.bus.MonitoredVehicleJourney.LineRef}<sup>GPS</sup>
                                 </Link>
-                                : <>{props.bus.MonitoredVehicleJourney.LineRef}</>}
+                                : <span className="no-gps">{props.bus.MonitoredVehicleJourney.LineRef}</span>}
                                 </span>=> <span className="bold">
                                         {props.bus.MonitoredVehicleJourney.DestinationName}
                                 </span>

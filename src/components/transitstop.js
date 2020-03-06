@@ -155,16 +155,9 @@ class TransitStop extends React.Component {
             else if (stopFilter.length >= 3) {
                 this.setState({ stopFilter })
                 let searchTerms = stopFilter.toLowerCase().split(" ")
-                searchTerms.push("")
-                searchTerms.push("")
-                searchTerms.push("")
                 let stopsFiltered = this.state.stopsFiltered.filter(stop => {
                     let stopName = stop.Name.toLowerCase()
-                    if (stopName.includes(searchTerms[0]) 
-                    && stopName.includes(searchTerms[1]) 
-                    && stopName.includes(searchTerms[2]) 
-                    && stopName.includes(searchTerms[3]))
-                    {return true} else {return false}
+                    return searchTerms.every( term => stopName.includes(term))
                 })
                 this.setState({ stopsFiltered })
                 if (stopsFiltered[0]) {

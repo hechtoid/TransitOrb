@@ -159,7 +159,12 @@ img.five-eleven{
     text-decoration: none;
     border: 1px solid green;
     border-radius: 3px;
-    padding: 1px;
+    padding: 3px;
+}
+.no-gps{
+    border: 1px solid black;
+    border-radius: 3px;
+    padding: 3px;
 }
 .gps:active{
     color: purple;
@@ -434,8 +439,9 @@ div.map-link:active{
 }
 .stop .map-link{
     /* margin: 0px 20px 0px 0px; */
-    padding: 2px;
-    max-width: 50%;
+    padding: 3px;
+    /* max-width: 50%; */
+    /* font-size: 12px; */
 
 }
 .any-stop-wild-card{
