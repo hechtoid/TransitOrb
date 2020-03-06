@@ -46,11 +46,11 @@ class AnyStopWildCard extends React.Component {
                 return <Bus bus={bus} key={key++} />
             })   
         }
-        if (this.props.location.state){stop = this.props.location.state.stopName || stop }
+        if (this.props.location.state){stop = this.props.location.state.stop.Name || stop }
         let gFrame
-        if (this.props.location.state && this.props.location.state.stopLocation) { 
+        if (this.props.location.state && this.props.location.state.stop.Location) { 
             gFrame = <iframe title="gFrame" frameBorder="1"
-src={`https://www.google.com/maps/embed/v1/place?zoom=13&q=${this.props.location.state.stopLocation.Latitude},${this.props.location.state.stopLocation.Longitude}&key=AIzaSyAIe8CQdaU5qYMgUBimNtNLtz6MKhODsNU`}>Loading Map...</iframe> 
+src={`https://www.google.com/maps/embed/v1/place?zoom=13&q=${this.props.location.state.stop.Location.Latitude},${this.props.location.state.stop.Location.Longitude}&key=AIzaSyAIe8CQdaU5qYMgUBimNtNLtz6MKhODsNU`}>Loading Map...</iframe> 
         }
         return (
         <div className='transit-on'>

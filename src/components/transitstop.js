@@ -276,19 +276,30 @@ class TransitStop extends React.Component {
             })
         }
         let locationLink
+        if (this.state.stopCode){
+            locationLink = 
+            <Link 
+            to={`/anystop/${this.state.agency}/${this.state.stopCode}`}>
+                <div className="map-link">
+                    View Stop
+                </div>
+            </Link>}
         if (this.state.stop.Location){
-            locationLink = <Link 
-                to={{
-    pathname: `/anystop/${this.state.agency||'SF'}/${this.state.stopCode}`,
-    state: {
-        stopName: this.state.stop.Name,
-        stopLocation: this.state.stop.Location
-    }
-        }}
-><div className="map-link">View Stop</div></Link>
+            let stop = this.state.stop
+            locationLink = 
+            <Link 
+            to={{
+                pathname: `/anystop/${this.state.agency}/${this.state.stopCode}`,
+                state: {
+                    stop
+                }
+            }}>
+                <div className="map-link">
+                    View Stop
+                </div>
+            </Link>
         }
         return (
-
             <div className="transit-stop">
                 <div className="agency-upper">
                 <div className="radios">
