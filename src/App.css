@@ -31,9 +31,9 @@ input[type=number] {
     width: 100%;
     /* margin-left: 10px; */
 }
-@media  only screen and (max-width: 600px) {
+@media  only screen and (max-width: 510px) {
 .transit{
-    overflow: scroll;  
+    overflow: auto;  
 }
 }
 .transit-header{
