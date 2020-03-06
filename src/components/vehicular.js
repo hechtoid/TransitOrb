@@ -80,7 +80,8 @@ src={`https://www.google.com/maps/embed/v1/place?zoom=14&q=${this.state.vehicle.
                         <Link 
             to={`/anystop/${this.state.agency}/${this.state.vehicle.MonitoredCall.StopPointRef}`}>
                         <div className="map-link">
-                            #{this.state.vehicle.MonitoredCall.StopPointRef}
+                            {/* {this.state.vehicle.MonitoredCall.StopPointRef} */}
+                            View Stop
                         </div>
                         </Link>
                         {this.state.vehicle.MonitoredCall.ExpectedArrivalTime
@@ -122,7 +123,8 @@ src={`https://www.google.com/maps/embed/v1/place?zoom=14&q=${this.state.vehicle.
                                 </span>
                             <Link to={`/anystop/${this.state.agency}/${stop.StopPointRef}`}>
                             <div className="map-link">
-                                #{stop.StopPointRef}
+                                {/* {stop.StopPointRef} */}
+                                View Stop
                             </div>
                             </Link>
                             <span className="bold">
@@ -167,7 +169,7 @@ src={`https://www.google.com/maps/embed/v1/place?zoom=14&q=${this.state.vehicle.
                     />
                  <input type="number"
                     id="vehicle-number"
-                    placeholder="Vehicle #"
+                    placeholder="Vehicle"
                     value={this.state.vehicleNumber}
                     onFocus={this.selectID}
                     onChange={this.updateVehicleNumber()}
