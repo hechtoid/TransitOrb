@@ -30,8 +30,8 @@ function App(props) {
             <AnyStop agency="GG" stop="40032" />
         </Route>
         <Route exact path="/commuter">
-            <AnyStop agency="SF" stop="16513" filterOUT={['8','8X']} />
-            <AnyStop agency="SF" stop="16750" title="Across from Mario's"/>
+            <AnyStop agency="SF" stop="16513" filterOUT={['8','8BX']} />
+            <AnyStop agency="SF" stop="16750" filterIN={['45']} title="Across from Mario's"/>
             <AnyStop agency="SF" stop="13082" />
         </Route>
 

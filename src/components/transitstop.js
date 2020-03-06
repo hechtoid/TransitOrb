@@ -263,7 +263,7 @@ class TransitStop extends React.Component {
             })
         }
         let stopName = ''
-        let busss = <div className="bust">
+        let busss = <div className="stop">
                 No Tracked Vehicles.
                 <br></br>
                 <span className='update' onClick={this.loadBusss}>Check again</span>, check your inputs, or check the schedule.
@@ -289,7 +289,7 @@ class TransitStop extends React.Component {
         }
         return (
 
-            <div className = "stop">
+            <div className="transit-stop">
                 <div className="agency-upper">
                 <div className="radios">
             <div className="short-title">Agency ShortList:</div>

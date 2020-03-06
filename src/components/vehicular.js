@@ -70,33 +70,44 @@ src={`https://www.google.com/maps/embed/v1/place?zoom=14&q=${this.state.vehicle.
                             {this.state.vehicle.DestinationName}
                         </span>
                         </div>
-                      firstStop =  
-                      <div >
-                          <div className="bust">
-                             <span>
-                                {this.state.vehicle.MonitoredCall.StopPointName}
-                            </span>
-                            <br></br>
-                            <span className="gray">
-                                {new Date(Date.parse(this.state.vehicle.MonitoredCall.AimedArrivalTime)).toLocaleTimeString()}
-                                </span>
-                            <span className="bold"> => {new Date(Date.parse(this.state.vehicle.MonitoredCall.ExpectedArrivalTime)).toLocaleTimeString()}
-                                </span>
-                                <Link 
-                            to={`/anystop/${this.state.agency}/${this.state.vehicle.MonitoredCall.StopPointRef}`}>
-                            <div className="map-link">
-                                Stop #{this.state.vehicle.MonitoredCall.StopPointRef}
-                                </div>
-                            </Link>
-                        </div>
-                        </div>
+                firstStop =  
+                      <div className="stop" >
+                      <div className="stop-top">
+                      <div>
+                       <span>
+                          {this.state.vehicle.MonitoredCall.StopPointName}
+                      </span>
+                      <br></br>
+                      <span className="gray">
+                          {new Date(Date.parse(this.state.vehicle.MonitoredCall.AimedArrivalTime)).toLocaleTimeString()}
+                          </span>
+                      <span className="bold"> => {new Date(Date.parse(this.state.vehicle.MonitoredCall.ExpectedArrivalTime)).toLocaleTimeString()}
+                          </span>
+                          <Link 
+                      to={`/anystop/${this.state.agency}/${this.state.vehicle.MonitoredCall.StopPointRef}`}>
+                      <div className="map-link">
+                          Stop #{this.state.vehicle.MonitoredCall.StopPointRef}
+                          </div>
+                      </Link>
+                          </div>
+                          <div className="countdown">
+          <div className="min">in</div>
+          {this.state.vehicle.MonitoredCall.ExpectedArrivalTime
+?<div className="min-math">{Math.floor(((new Date(Date.parse(this.state.vehicle.MonitoredCall.ExpectedArrivalTime))-new Date()))/60000)}</div>
+:<div className="min-math">{Math.floor(((new Date(Date.parse(this.state.vehicle.MonitoredCall.AimedArrivalTime))-new Date()))/60000)}</div>}               
+<div className="min">min</div></div>
+                          </div>
+                          
+                  </div>
             }
             if (this.state.vehicle && this.state.vehicle.OnwardCalls && this.state.vehicle.OnwardCalls.OnwardCall[0]) {
                 futureStops = <div className="future-stops">
                         {firstStop}
                         {this.state.vehicle.OnwardCalls.OnwardCall.map(stop => {
                             return (
-                        <div className="bust" key={key++}>
+                        <div className="stop" key={key++}>
+                            <div className="stop-top">
+                            <div>
                              <span>
                                 {stop.StopPointName}
                             </span>
@@ -112,6 +123,16 @@ src={`https://www.google.com/maps/embed/v1/place?zoom=14&q=${this.state.vehicle.
                                 Stop #{stop.StopPointRef}
                                 </div>
                             </Link>
+                                </div>
+                                <div className="countdown">
+                <div className="min">in</div>
+                {stop.ExpectedArrivalTime
+?<div className="min-math">{Math.floor(((new Date(Date.parse(stop.ExpectedArrivalTime))-new Date()))/60000)}</div>
+:<div className="min-math">{Math.floor(((new Date(Date.parse(stop.AimedArrivalTime))-new Date()))/60000)}</div>}               
+ <div className="min">min</div>
+                                </div>
+                                </div>
+                                
                         </div>
                                 )
                             })

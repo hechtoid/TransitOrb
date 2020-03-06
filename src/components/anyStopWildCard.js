@@ -33,10 +33,10 @@ class AnyStopWildCard extends React.Component {
             }
     }
     render() {
-        let busss = <div className="bust">
+        let busss = <div className="stop">
             No Tracked Vehicles to show. 
             <br></br>
-            <span className='update' onClick={() => window.location.reload(false)}>Check again</span>, check your inputs, or check the schedule.
+            <span className='update' onClick={this.loadBusss}>Check again</span>, check your inputs, or check the schedule.
         </div>
         let stop
         if (this.state.buss[0]){
