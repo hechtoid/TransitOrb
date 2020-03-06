@@ -11,7 +11,9 @@ class Vehicular extends React.Component {
         this.updateVehicleNumber = this.updateVehicleNumber.bind(this)
         this.updateAgency = this.updateAgency.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
+        this.selectID = this.selectID.bind(this)
     }
+    selectID = (e) => e.target.select();
 
     componentDidMount() {
         this.loadVehicle()
@@ -51,6 +53,7 @@ class Vehicular extends React.Component {
     }
     render() {
             let vehicleInfo = <div className="vehicle-info">No Tracked Vehicle</div>
+            let firstStop = ''
             let futureStops = <div className="future-stops">No Future Stops</div>
             let key = 0
             let gFrame
@@ -59,30 +62,38 @@ class Vehicular extends React.Component {
 src={`https://www.google.com/maps/embed/v1/place?zoom=14&q=${this.state.vehicle.VehicleLocation.Latitude},${this.state.vehicle.VehicleLocation.Longitude}&key=AIzaSyAIe8CQdaU5qYMgUBimNtNLtz6MKhODsNU`}>Loading Map...</iframe> 
             }
             if (this.state.vehicle && this.state.vehicle.MonitoredCall) {
-                vehicleInfo = <div className="vehicle-info">
+                vehicleInfo =
+                        <div className="vehicle-info">
                       Route <span className="bold">
                             {this.state.vehicle.LineRef}
                         </span> to <span className="bold">
                             {this.state.vehicle.DestinationName}
                         </span>
-                        <br></br>
-                        <Link 
-to={`/anystop/${this.state.agency}/${this.state.vehicle.MonitoredCall.StopPointRef}`}>
-                        NextStop</Link>: <span className="bold">
-                            {this.state.vehicle.MonitoredCall.StopPointName}
+                        </div>
+                      firstStop =  
+                      <div >
+                          <div className="bust">
+                             <span>
+                                {this.state.vehicle.MonitoredCall.StopPointName}
                             </span>
-                        <br></br>
-                        <span className="gray">
-{new Date(Date.parse(this.state.vehicle.MonitoredCall.AimedArrivalTime)).toLocaleTimeString()} </span>
-                         <span className="bold">
-=> {new Date(Date.parse(this.state.vehicle.MonitoredCall.ExpectedArrivalTime)).toLocaleTimeString()}
-                        </span>
+                            <br></br>
+                            <span className="gray">
+                                {new Date(Date.parse(this.state.vehicle.MonitoredCall.AimedArrivalTime)).toLocaleTimeString()}
+                                </span>
+                            <span className="bold"> => {new Date(Date.parse(this.state.vehicle.MonitoredCall.ExpectedArrivalTime)).toLocaleTimeString()}
+                                </span>
+                                <Link 
+                            to={`/anystop/${this.state.agency}/${this.state.vehicle.MonitoredCall.StopPointRef}`}>
+                            <div className="map-link">
+                                Stop #{this.state.vehicle.MonitoredCall.StopPointRef}
+                                </div>
+                            </Link>
+                        </div>
                         </div>
             }
             if (this.state.vehicle && this.state.vehicle.OnwardCalls && this.state.vehicle.OnwardCalls.OnwardCall[0]) {
                 futureStops = <div className="future-stops">
-                        Future Stops: 
-                        <br></br>
+                        {firstStop}
                         {this.state.vehicle.OnwardCalls.OnwardCall.map(stop => {
                             return (
                         <div className="bust" key={key++}>
@@ -101,7 +112,6 @@ to={`/anystop/${this.state.agency}/${this.state.vehicle.MonitoredCall.StopPointR
                                 Stop #{stop.StopPointRef}
                                 </div>
                             </Link>
-                           
                         </div>
                                 )
                             })
@@ -115,8 +125,9 @@ to={`/anystop/${this.state.agency}/${this.state.vehicle.MonitoredCall.StopPointR
                              this.state.vehicle
                             ? this.state.vehicle.VehicleRef
                             : this.state.vehicleNumber
-                        }</div>
-                
+                        }
+                    </div>             
+                    {vehicleInfo}
                 <form onSubmit={this.handleSubmit}>
                 <input type="text"
                     id="vehicle-agency"
@@ -128,6 +139,7 @@ to={`/anystop/${this.state.agency}/${this.state.vehicle.MonitoredCall.StopPointR
                     id="vehicle-number"
                     placeholder="Vehicle #"
                     value={this.state.vehicleNumber}
+                    onFocus={this.selectID}
                     onChange={this.updateVehicleNumber()}
                     />
                 {this.state.vehicle && this.state.vehicle.Monitored
@@ -135,10 +147,11 @@ to={`/anystop/${this.state.agency}/${this.state.vehicle.MonitoredCall.StopPointR
                 :<input type="submit" value="Load" />}
                 <br></br>
                      <a href="https://www.sfmta.com/getting-around/muni/muni-feedback" className="vehicular-feedback" target="_blank" rel="noopener noreferrer">
-                Vehicle Number Locations (SFMUNI)</a>
+                SFMUNI Vehicle Numbers</a>
             </form>
-            {vehicleInfo}
-            { gFrame }
+            <div className='g-frame'>
+            {gFrame}
+            </div> 
             {futureStops}
             </div>
         );
