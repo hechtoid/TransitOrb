@@ -35,12 +35,11 @@ function App(props) {
 
         <Route exact path="/bart">
 		<div className="bart">
+			<span className="barta">a</span>
+			<span className="bartb">b</span>
 			<span className="bart">
 				bart
 			</span>
-			<br></br>
-			<span className="barta">a</span>
-			<span className="bartb">b</span>
 		</div>
         </Route>
 	<Route exact path="/multi">

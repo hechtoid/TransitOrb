@@ -491,15 +491,15 @@ hr{
 
 div.bart{
 	background-color: beige;
-	padding: 0px 5px;
+	padding: 0px 0px 0 9px;
 	border-radius: 3px;
 	font-size: 27px;
 }
 span.bart{
 	font-size: 7px;
 	position: relative;
-	bottom: -17px;
-	left: 8px;
+	top: -16px;
+	left: -19px;
 }
 .bartb{
 	font-weight: 900;
