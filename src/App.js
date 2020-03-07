@@ -32,27 +32,19 @@ function App(props) {
             <AnyStop agency="SF" stopCode="16750" filterIN={['45']} title="Across from Mario's"/>
             <AnyStop agency="SF" stopCode="13082" />
         </Route>
-
-        <Route exact path="/bart">
-		<div className="bart">
-			<span className="barta">a</span>
-			<span className="bartb">b</span>
-			<span className="bart">
-				bart
-			</span>
-		</div>
-        </Route>
-	<Route exact path="/multi">
+      	<Route exact path="/multi">
             <AnyStop agency="SF" stopCode="16513" />
             <AnyStop title='Twenty Fourth Street BART' agency='BA' stop='24TH' />
             <AnyStop title='CalTrain MillBrae' agency='CT' stop='70062' />
             <AnyStop agency="SF" stopCode="16513" />
             
         </Route>
-        <Route path="/anystop/:agency/:stopCode?" render={(props) => <AnyStopWildCard {...props} /> }/>
-
         <Route exact path="/aa" component={AA} />
         <Route exact path="/da" component={DA} />
+        
+        <Route path="/anystop/:agency/:stopCode?" render={(props) => <AnyStopWildCard {...props} /> }/>
+
+      
 
     </div>
     </div>
