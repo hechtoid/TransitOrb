@@ -47,6 +47,7 @@ class AnyStopWildCard extends React.Component {
         //     })
         // } else 
         {
+            if (this.state.stopCode.length === this.agencyCodeLengthMap[this.state.agency]) {
             axios.get(`https://api.511.org/transit/StopMonitoring?api_key=72939361-85f9-4019-aa55-d62e4e7e2e59&Format=JSON&agency=${this.state.agency}&stopCode=${this.state.stopCode}`)
                 .then(res => {
                     let buss = res.data.ServiceDelivery.StopMonitoringDelivery.MonitoredStopVisit;
@@ -54,6 +55,7 @@ class AnyStopWildCard extends React.Component {
                 })
             }
         }
+    }
     updateStopCode() {
         return e => {
             let stopCode = e.currentTarget.value
@@ -96,7 +98,7 @@ src={`https://www.google.com/maps/embed/v1/place?zoom=13&q=${this.props.location
         <div className='transit-on'>
             <div className="any-stop-wild-card">
             <div className='short-title'>
-        {this.state.agency} #{this.props.match.params.stopCode?this.props.match.params.stopCode.toUpperCase():''}
+        {this.state.agency} {this.props.match.params.stopCode?'#'+this.props.match.params.stopCode.toUpperCase():''}
         </div>
         <input type={this.state.agency !=='BA'?"number":"text"}
                     id="stop-id"
