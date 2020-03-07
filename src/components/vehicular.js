@@ -96,7 +96,7 @@ src={`https://www.google.com/maps/embed/v1/place?zoom=14&q=${this.state.vehicle.
                         </span>}
                     </div>
                     <div className="countdown">
-                        <div className="min">in</div>
+                        {/* <div className="min">in</div> */}
                 {this.state.vehicle.MonitoredCall.ExpectedArrivalTime
                 ? <div className="min-math">
             {Math.floor(((new Date(Date.parse(this.state.vehicle.MonitoredCall.ExpectedArrivalTime))-new Date()))/60000)}</div>
@@ -133,7 +133,7 @@ src={`https://www.google.com/maps/embed/v1/place?zoom=14&q=${this.state.vehicle.
                             </span>
                             </div>
                             <div className="countdown">
-                                <div className="min">in</div>
+                                {/* <div className="min">in</div> */}
                 {stop.ExpectedArrivalTime
                 ? <div className="min-math">
             {Math.floor(((new Date(Date.parse(stop.ExpectedArrivalTime))-new Date()))/60000)}</div>

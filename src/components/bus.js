@@ -25,7 +25,7 @@ if (props.bus.MonitoredVehicleJourney.OperatorRef === "BA") {
                         </span>}
                 </div>
                 <div className="countdown">
-                        <div className="min">in</div>
+                        {/* <div className="min">in</div> */}
         {props.bus.MonitoredVehicleJourney.MonitoredCall.ExpectedArrivalTime
 ? <div className="min-math">{Math.floor(((new Date(Date.parse(props.bus.MonitoredVehicleJourney.MonitoredCall.ExpectedArrivalTime))-new Date()))/60000)}</div>
 : <div className="min-math">{Math.floor(((new Date(Date.parse(props.bus.MonitoredVehicleJourney.MonitoredCall.AimedArrivalTime))-new Date()))/60000)}</div>}               
@@ -64,7 +64,7 @@ if (props.bus.MonitoredVehicleJourney.OperatorRef === "BA") {
                         </span>}
                 </div>
                 <div className="countdown">
-                        <div className="min">in</div>
+                        {/* <div className="min">in</div> */}
         {props.bus.MonitoredVehicleJourney.MonitoredCall.ExpectedDepartureTime
 ? <div className="min-math">{Math.floor(((new Date(Date.parse(props.bus.MonitoredVehicleJourney.MonitoredCall.ExpectedDepartureTime))-new Date()))/60000)}</div>
 : <div className="min-math">{Math.floor(((new Date(Date.parse(props.bus.MonitoredVehicleJourney.MonitoredCall.AimedArrivalTime))-new Date()))/60000)}</div>}    
@@ -102,7 +102,7 @@ if (props.bus.MonitoredVehicleJourney.OperatorRef === "BA") {
                         </span>}
                 </div>
                 <div className="countdown">
-                        <div className="min">in</div>
+                        {/* <div className="min">in</div> */}
         {props.bus.MonitoredVehicleJourney.MonitoredCall.ExpectedArrivalTime
 ? <div className="min-math">{Math.floor(((new Date(Date.parse(props.bus.MonitoredVehicleJourney.MonitoredCall.ExpectedArrivalTime))-new Date()))/60000)}</div>
 : <div className="min-math">{Math.floor(((new Date(Date.parse(props.bus.MonitoredVehicleJourney.MonitoredCall.AimedArrivalTime))-new Date()))/60000)}</div>}
