@@ -207,6 +207,10 @@ div.min-math{
     margin-right: 5px;
     color: gray;
 }
+.white{
+    color: white;
+    font-weight: 900;
+}
 .bold{
     font-weight: 900;
 }

@@ -5,11 +5,13 @@ import { Link } from 'react-router-dom';
 function Bus(props) {
 if (props.bus.MonitoredVehicleJourney.OperatorRef === "BA") {
         return (
-        <div className="bus" id={props.bus.MonitoredVehicleJourney.LineRef} origin={props.bus.MonitoredVehicleJourney.OriginName}>
+        <div className="bus" id={props.bus.MonitoredVehicleJourney.LineRef} >
                 <div>
-                        {/* <span>{props.bus.MonitoredVehicleJourney.OriginName}=> </span> */}
                         <span className="bold">
-                                {props.bus.MonitoredVehicleJourney.DestinationName}
+                        {props.bus.MonitoredVehicleJourney.DestinationName}
+                        </span>  
+                        <span className="white">
+                        {'<='} {props.bus.MonitoredVehicleJourney.OriginName}
                         </span>
                 </div>
                 <hr></hr>
@@ -90,12 +92,11 @@ if (props.bus.MonitoredVehicleJourney.OperatorRef === "BA") {
                         </span>
                 </div>
                 <hr></hr>
-                <div>
-                       
+                <div>     
                 {props.bus.MonitoredVehicleJourney.MonitoredCall.ExpectedArrivalTime
                         ? <><span className="gray">
-                        {new Date(Date.parse(props.bus.MonitoredVehicleJourney.MonitoredCall.AimedArrivalTime)).toLocaleTimeString([],{ hour: 'numeric', minute: 'numeric' })}
-                                        </span>
+        {new Date(Date.parse(props.bus.MonitoredVehicleJourney.MonitoredCall.AimedArrivalTime)).toLocaleTimeString([],{ hour: 'numeric', minute: 'numeric' })}
+                        </span>
                         <span className="bold">
         {new Date(Date.parse(props.bus.MonitoredVehicleJourney.MonitoredCall.ExpectedArrivalTime)).toLocaleTimeString([],{ hour: 'numeric', minute: 'numeric' })}
                         </span></>
@@ -106,9 +107,9 @@ if (props.bus.MonitoredVehicleJourney.OperatorRef === "BA") {
         {props.bus.MonitoredVehicleJourney.MonitoredCall.ExpectedArrivalTime
 ? <div className="min-math">{Math.floor(((new Date(Date.parse(props.bus.MonitoredVehicleJourney.MonitoredCall.ExpectedArrivalTime))-new Date()))/60000)}</div>
 : <div className="min-math">{Math.floor(((new Date(Date.parse(props.bus.MonitoredVehicleJourney.MonitoredCall.AimedArrivalTime))-new Date()))/60000)}</div>}
-                        <div className="min">min</div>
-                </div>
+                                <div className="min">min</div>
                         </div>
+                </div>
         </div>
     )} 
 }
