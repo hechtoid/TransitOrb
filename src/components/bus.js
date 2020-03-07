@@ -85,7 +85,7 @@ if (props.bus.MonitoredVehicleJourney.OperatorRef === "BA") {
                                 {props.bus.MonitoredVehicleJourney.LineRef}<sup>GPS</sup>
                         </Link>
                         : <span className="no-gps">{props.bus.MonitoredVehicleJourney.LineRef}</span>}
-                        </span>=> <span className="bold">
+                        =></span><span className="bold">
                 {props.bus.MonitoredVehicleJourney.DestinationName}
                         </span>
                 </div>
