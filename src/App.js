@@ -44,16 +44,13 @@ function App(props) {
         </Route>
 	<Route exact path="/multi">
             <AnyStop agency="SF" stopCode="16513" />
-            <AnyStop agency="SF" stopCode="16513" />
             <AnyStop title='Twenty Fourth Street BART' agency='BA' stop='24TH' />
             <AnyStop title='CalTrain MillBrae' agency='CT' stop='70062' />
             <AnyStop agency="SF" stopCode="16513" />
-            <AnyStop agency="SF" stopCode="16513" />
             
         </Route>
-        <Route path="/anystop/:agency/:stopCode?" render={(props) => (
-        <AnyStopWildCard {...props} /> )}
-      />
+        <Route path="/anystop/:agency/:stopCode?" render={(props) => <AnyStopWildCard {...props} /> }/>
+
         <Route exact path="/aa" component={AA} />
         <Route exact path="/da" component={DA} />
 

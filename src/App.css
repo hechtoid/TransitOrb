@@ -344,8 +344,9 @@ div.stop-title:active{
 .map-link{
     margin: 3px 0px 5px 5px;
     text-align: center;
-    /* font-size: 12px; */
-    padding: 5px 0px 1px 0px;
+    font-weight: 900;
+    /* font-size: 14px; */
+    padding: 5px 3px 1px 3px;
     color: green;
     border: 1px solid green;
     border-radius: 3px;

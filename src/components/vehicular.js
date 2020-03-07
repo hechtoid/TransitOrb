@@ -79,8 +79,8 @@ src={`https://www.google.com/maps/embed/v1/place?zoom=14&q=${this.state.vehicle.
                         <Link 
                 to={`/anystop/${this.state.agency}/${this.state.vehicle.MonitoredCall.StopPointRef}`}>
                             <div className="map-link">
-                                {/* {this.state.vehicle.MonitoredCall.StopPointRef} */}
-                                View Stop
+                                <span title="bus stop" role="img" aria-label="bus stop emoji">🚏</span>
+                                {this.state.vehicle.MonitoredCall.StopPointRef}
                             </div>
                         </Link> 
                     </div>
@@ -121,8 +121,8 @@ src={`https://www.google.com/maps/embed/v1/place?zoom=14&q=${this.state.vehicle.
                                 <Link 
                         to={`/anystop/${this.state.agency}/${stop.StopPointRef}`}>
                                     <div className="map-link">
-                                        {/* {stop.StopPointRef} */}
-                                        View Stop
+                                        <span title="bus stop" role="img" aria-label="bus stop emoji">🚏</span>
+                                        {stop.StopPointRef}
                                     </div>
                                 </Link> 
                             </div>

@@ -5,31 +5,31 @@ import { Link } from 'react-router-dom';
 function Bus(props) {
 if (props.bus.MonitoredVehicleJourney.OperatorRef === "BA") {
         return (
-        <div className="bus" id={props.bus.MonitoredVehicleJourney.LineRef}>
-                <div className="bus-left">
-                        <div>
-                        <span>{props.bus.MonitoredVehicleJourney.OriginName}=> </span>
+        <div className="bus" id={props.bus.MonitoredVehicleJourney.LineRef} origin={props.bus.MonitoredVehicleJourney.OriginName}>
+                <div>
+                        {/* <span>{props.bus.MonitoredVehicleJourney.OriginName}=> </span> */}
                         <span className="bold">
                                 {props.bus.MonitoredVehicleJourney.DestinationName}
                         </span>
-                        </div>
-                {props.bus.MonitoredVehicleJourney.MonitoredCall.ExpectedArrivalTime
-                        ? <><span className="bold">
-        {new Date(Date.parse(props.bus.MonitoredVehicleJourney.MonitoredCall.ExpectedArrivalTime)).toLocaleTimeString([],{ hour: 'numeric', minute: 'numeric' })}
-                        </span>
-                        <span className="gray">
+                </div>
+                <hr></hr>
+                <div>
+                        {props.bus.MonitoredVehicleJourney.MonitoredCall.ExpectedArrivalTime
+                        ? <><span className="gray">
         {new Date(Date.parse(props.bus.MonitoredVehicleJourney.MonitoredCall.AimedArrivalTime)).toLocaleTimeString([],{ hour: 'numeric', minute: 'numeric' })}
+                        </span>
+                        <span className="bold">
+        {new Date(Date.parse(props.bus.MonitoredVehicleJourney.MonitoredCall.ExpectedArrivalTime)).toLocaleTimeString([],{ hour: 'numeric', minute: 'numeric' })}
                         </span></> 
                         : <span className="bold">
         {new Date(Date.parse(props.bus.MonitoredVehicleJourney.MonitoredCall.AimedArrivalTime)).toLocaleTimeString([],{ hour: 'numeric', minute: 'numeric' })}
                         </span>}
-                </div>
-                <div className="countdown">
-                        {/* <div className="min">in</div> */}
+                        <div className="countdown">
         {props.bus.MonitoredVehicleJourney.MonitoredCall.ExpectedArrivalTime
 ? <div className="min-math">{Math.floor(((new Date(Date.parse(props.bus.MonitoredVehicleJourney.MonitoredCall.ExpectedArrivalTime))-new Date()))/60000)}</div>
 : <div className="min-math">{Math.floor(((new Date(Date.parse(props.bus.MonitoredVehicleJourney.MonitoredCall.AimedArrivalTime))-new Date()))/60000)}</div>}               
-                        <div className="min">min</div>
+                                <div className="min">min</div>
+                        </div>
                 </div>
         </div>
 )} else if (props.bus.MonitoredVehicleJourney.OperatorRef === "CT") {
@@ -64,7 +64,6 @@ if (props.bus.MonitoredVehicleJourney.OperatorRef === "BA") {
                         </span>}
                 </div>
                 <div className="countdown">
-                        {/* <div className="min">in</div> */}
         {props.bus.MonitoredVehicleJourney.MonitoredCall.ExpectedDepartureTime
 ? <div className="min-math">{Math.floor(((new Date(Date.parse(props.bus.MonitoredVehicleJourney.MonitoredCall.ExpectedDepartureTime))-new Date()))/60000)}</div>
 : <div className="min-math">{Math.floor(((new Date(Date.parse(props.bus.MonitoredVehicleJourney.MonitoredCall.AimedArrivalTime))-new Date()))/60000)}</div>}    
@@ -75,7 +74,6 @@ if (props.bus.MonitoredVehicleJourney.OperatorRef === "BA") {
     //if (['SF', 'AC', 'GG', 'SM', 'MA', 'SC'].includes(props.bus.MonitoredVehicleJourney.OperatorRef)){
         return(
         <div className="bus">
-       
                 <div>
                         <span>
                                 <span title="Track Vehicle" className="bold">
@@ -105,7 +103,6 @@ if (props.bus.MonitoredVehicleJourney.OperatorRef === "BA") {
         {new Date(Date.parse(props.bus.MonitoredVehicleJourney.MonitoredCall.AimedArrivalTime)).toLocaleTimeString([],{ hour: 'numeric', minute: 'numeric' })}
                         </span>}
                         <div className="countdown">
-                        {/* <div className="min">in</div> */}
         {props.bus.MonitoredVehicleJourney.MonitoredCall.ExpectedArrivalTime
 ? <div className="min-math">{Math.floor(((new Date(Date.parse(props.bus.MonitoredVehicleJourney.MonitoredCall.ExpectedArrivalTime))-new Date()))/60000)}</div>
 : <div className="min-math">{Math.floor(((new Date(Date.parse(props.bus.MonitoredVehicleJourney.MonitoredCall.AimedArrivalTime))-new Date()))/60000)}</div>}
