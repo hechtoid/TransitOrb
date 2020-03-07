@@ -202,8 +202,9 @@ div.min-math{
     font-size: 33px;
 }
 .gray{
-    margin-right: 5px;
     text-decoration: line-through;
+    margin-left: 25px;
+    margin-right: 5px;
     color: gray;
 }
 .bold{
