@@ -342,12 +342,12 @@ div.stop-title:active{
     margin: 3px 0px 5px 5px;
     text-align: center;
     /* font-size: 12px; */
-    padding: 3px;
+    padding: 5px 3px 1px 3px;
     color: green;
     border: 1px solid green;
     border-radius: 3px;
-    /* width: 250px; */
-    width: 90px;
+    height: 24px;
+    min-width: 75px;
 }
 div.map-link:active{
     color: purple;
@@ -438,11 +438,9 @@ div.map-link:active{
     justify-content: space-between;
 }
 .stop .map-link{
-    /* margin: 0px 20px 0px 0px; */
-    padding: 3px;
-    /* max-width: 50%; */
-    /* font-size: 12px; */
-
+    margin: 2px 0px;
+    padding: 5px 0px 1px 0px;
+    width: 90px;
 }
 .any-stop-wild-card{
     text-align: center;
