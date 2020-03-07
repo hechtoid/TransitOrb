@@ -34,8 +34,8 @@ function App(props) {
         </Route>
       	<Route exact path="/multi">
             <AnyStop agency="SF" stopCode="16513" />
-            <AnyStop title='Twenty Fourth Street BART' agency='BA' stop='24TH' />
-            <AnyStop title='CalTrain MillBrae' agency='CT' stop='70062' />
+            <AnyStop title='Twenty Fourth Street BART' agency='BA' stopCode='24TH' />
+            <AnyStop title='CalTrain MillBrae' agency='CT' stopCode='70062' />
             <AnyStop agency="SF" stopCode="16513" />
             
         </Route>
