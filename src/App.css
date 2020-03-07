@@ -139,10 +139,13 @@ img.five-eleven{
     margin: 5px 5px 0px 5px;
     border: 1px solid gray;
     border-radius: 5px;
-    padding: 7px 3px;
+    padding: 7px 5px;
     /* width: 90%; */
     max-width: 400px;
     vertical-align: middle;
+}
+.bus hr{
+    margin-top: 7px;
 }
 .bus div{
     /* margin: 3px; */
