@@ -32,6 +32,7 @@ class AnyStopWildCard extends React.Component {
     selectID = (e) => e.target.select();
 
     componentDidMount() {
+       document.title=`transitYourself - ${this.state.agency} Live Stop #${this.state.stopCode}`
        this.loadBusss()
     }
     loadBusss (e) {

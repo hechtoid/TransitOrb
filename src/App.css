@@ -139,17 +139,20 @@ img.five-eleven{
     margin: 5px 5px 0px 5px;
     border: 1px solid gray;
     border-radius: 5px;
-    padding: 7px 5px 7px 10px;
+    padding: 7px 3px;
     /* width: 90%; */
-    display: flex;
-    justify-content: space-between;
+   
     max-width: 400px;
 }
 .bus div{
     /* margin: 3px; */
+    display: flex;
+    justify-content: space-between;
 }
-.bus-left{
-    margin-top: 10px;
+.bus-top{
+    /* margin-top: 10px;
+    display: flex;
+    justify-content: space-between; */
 }
 .bus-left div{
     margin-bottom: 5px;
@@ -177,8 +180,8 @@ img.five-eleven{
     left: 1px;
 }
 div.countdown{
-    margin-left: 5px;
-    margin-right: 3px;
+    /* margin-left: 5px; */
+    margin-right: 15px;
     /* border: 1px solid black; */
     padding: 1px 3px 1px 3px;
     border-radius: 10px;
@@ -197,10 +200,10 @@ div.min-math{
     margin-bottom: 0px;
     /* border: 1px solid green; */
     color: blue;
-    font-size: 27px;
+    font-size: 33px;
 }
 .gray{
-    margin-left: 5px;
+    margin-right: 5px;
     text-decoration: line-through;
     color: gray;
 }
@@ -251,7 +254,7 @@ label input[type="radio"]{
     margin: 3px 0px 2px 5px;
     height: 35px;
 }
-hr{
+.transit-stop hr{
     width: 327;
     margin: 5px 5px 10px 5px;
 }
@@ -342,12 +345,14 @@ div.stop-title:active{
     margin: 3px 0px 5px 5px;
     text-align: center;
     /* font-size: 12px; */
-    padding: 5px 3px 1px 3px;
+    padding: 5px 0px 1px 0px;
     color: green;
     border: 1px solid green;
     border-radius: 3px;
     height: 24px;
     min-width: 75px;
+    display: flex;
+    justify-content: center;
 }
 div.map-link:active{
     color: purple;
@@ -430,17 +435,27 @@ div.map-link:active{
     margin: 10px 7px 0px 12px;
     border: 1px solid gray;
     border-radius: 5px;
-    padding: 7px 5px 7px 7px;
+    padding: 3px 5px 0 5px;
     max-width: 350px;
+    vertical-align: middle;
+
 }
-.stop-top{
+.stop hr{
+    margin: 2px;
+}
+.stop div{
     display: flex;
     justify-content: space-between;
 }
+.stop span{
+    margin-bottom:auto;
+    margin-top:auto;
+}
 .stop .map-link{
-    margin: 2px 0px;
-    padding: 5px 0px 1px 0px;
-    width: 90px;
+    margin: 3px;
+    min-width: 90px;
+    display: flex;
+    justify-content: center;
 }
 .any-stop-wild-card{
     text-align: center;

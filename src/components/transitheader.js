@@ -2,7 +2,9 @@ import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 
 function TransitHeader(props) {
-  document.title=`transitYourself//${props.location.pathname}`
+  let title=props.location.pathname.substring(1)
+  document.title=`transitYourself - ${title}`
+  console.log(title)
   return (
     <div className="transit-header">
       <Link to= "/vehicular" >
