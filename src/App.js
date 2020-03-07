@@ -32,8 +32,18 @@ function App(props) {
             <AnyStop agency="SF" stopCode="16750" filterIN={['45']} title="Across from Mario's"/>
             <AnyStop agency="SF" stopCode="13082" />
         </Route>
-        <Route exact path="/multi">
 
+        <Route exact path="/bart">
+		<div className="bart">
+			<span className="bart">
+				bart
+			</span>
+			<br></br>
+			<span className="barta">a</span>
+			<span className="bartb">b</span>
+		</div>
+        </Route>
+	<Route exact path="/multi">
             <AnyStop agency="SF" stopCode="16513" />
             <AnyStop agency="SF" stopCode="16513" />
             <AnyStop title='Twenty Fourth Street BART' agency='BA' stop='24TH' />

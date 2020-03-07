@@ -113,7 +113,7 @@ src={`https://www.google.com/maps/embed/v1/place?zoom=14&q=${this.state.vehicle.
                     <div className="future-stops">
                         {firstStop}
                         {this.state.vehicle.OnwardCalls.OnwardCall.map(stop => {
-                            return ( <div className="stop" >
+                            return ( <div className="stop" key={key++}>
                             <div>
                                 <span className="bold">
                                     {stop.StopPointName}
