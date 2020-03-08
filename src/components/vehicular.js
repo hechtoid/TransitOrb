@@ -64,11 +64,21 @@ src={`https://www.google.com/maps/embed/v1/place?zoom=14&q=${this.state.vehicle.
             if (this.state.vehicle && this.state.vehicle.MonitoredCall) {
                 vehicleInfo =
                     <div className="vehicle-info">
-                    Route <span className="bold">
+                    <span>
+                    <span className="no-gps">
                         {this.state.vehicle.LineRef}
-                    </span> to <span className="bold">
+                    </span>=> <span>
                         {this.state.vehicle.DestinationName}
-                    </span>
+                    </span></span>
+                    <div>
+                    <Link 
+                        to={`/anystop/${this.state.agency}/${this.state.vehicle.DestinationRef}`}>
+                        <div className="map-link">
+                            <span title="bus stop" role="img" aria-label="bus stop emoji">🚏</span>
+                            {this.state.vehicle.DestinationRef}
+                        </div>
+                    </Link> 
+                    </div>
                     </div>
                 let expected
                 {this.state.agency === 'CT'
