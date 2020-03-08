@@ -67,8 +67,9 @@ src={`https://www.google.com/maps/embed/v1/place?zoom=14&q=${this.state.vehicle.
                     <span>
                     <span className="no-gps">
                         {this.state.vehicle.LineRef}
-                    </span>=> <span>
-                        {this.state.vehicle.DestinationName}
+                    </span>
+                    <span className="bold">
+                        => {this.state.vehicle.DestinationName}
                     </span></span>
                     <div>
                     <Link 
@@ -176,7 +177,7 @@ src={`https://www.google.com/maps/embed/v1/place?zoom=14&q=${this.state.vehicle.
         return (
             <div className="vehicular">
                 <div className="short-title">
-                    Live Tracking - Vehicle {this.state.vehicle
+                    Live Tracking - Vehicle #{this.state.vehicle
                         ? this.state.vehicle.VehicleRef
                         : this.state.vehicleNumber}
                 </div>             

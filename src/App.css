@@ -422,7 +422,7 @@ div.map-link:active{
 .vehicle-info{
     margin: 0 5px 5px 15px;
     display: flex;
-    /* justify-content: space-between; */
+    justify-content: start;
     width: 70%;
     vertical-align: middle;
 
@@ -434,12 +434,12 @@ div.map-link:active{
     margin-bottom: auto;
 }
 .vehicle-info div{
-    width: 50px;
+    width: 70px;
     margin-top: auto;
     margin-bottom: auto;
 }
 .vehicle-info .map-link{
-    width: 50px;
+    /* margin: 0; */
 }
 .future-stops{
     margin-left: 5px;
