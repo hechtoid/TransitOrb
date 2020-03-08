@@ -95,36 +95,35 @@ class AnyStopWildCard extends React.Component {
         let gFrame
         if (this.props.location.state && this.props.location.state.stop.Location) { 
             gFrame = <iframe title="gFrame" frameBorder="1"
-src={`https://www.google.com/maps/embed/v1/place?zoom=13&q=${this.props.location.state.stop.Location.Latitude},${this.props.location.state.stop.Location.Longitude}&key=AIzaSyAIe8CQdaU5qYMgUBimNtNLtz6MKhODsNU`}>Loading Map...</iframe> 
+                    src={`https://www.google.com/maps/embed/v1/place?zoom=13&q=${this.props.location.state.stop.Location.Latitude},${this.props.location.state.stop.Location.Longitude}&key=AIzaSyAIe8CQdaU5qYMgUBimNtNLtz6MKhODsNU`}>
+                        Loading Map...
+                    </iframe> 
         }
-        return (
-        <div className='transit-on'>
-            <div className="any-stop-wild-card">
+return (
+    <div className='transit-on'>
+        <div className="any-stop-wild-card">
             <div className='short-title'>
-        {this.state.agency} {this.props.match.params.stopCode?'#'+this.props.match.params.stopCode.toUpperCase():''}
-        </div>
-        <input  
-                    type={(this.state.agency ==='BA'||this.state.agency ==='AM')?"text":"number"}
-                    id="stop-id"
-                    placeholder="Stop Code"
-                    value={this.state.stopCode}
-                    onFocus={this.selectID}
-                    onChange={this.updateStopCode()}
-                />
-            
+                {this.state.agency} {this.props.match.params.stopCode?'#'+this.props.match.params.stopCode.toUpperCase():''}
+            </div>
+            <input  
+                type={(this.state.agency ==='BA'||this.state.agency ==='AM')?"text":"number"}
+                id="stop-id"
+                placeholder="Stop Code"
+                value={this.state.stopCode}
+                onFocus={this.selectID}
+                onChange={this.updateStopCode()}
+            />
             <div className="stop-title" onClick={this.loadBusss}>
-                { stop }
+                {stop}
                 <div>Tap to ReFresh</div>
-                </div>
-                    {gFrame}
-                <div className="buss">
-             
-                    {busss}
+            </div>
+                {gFrame}
+            <div className="buss">
+                {busss}
             </div>
         </div>
-        </div>
-       
-        );
+    </div>
+);
     }
 
 }
