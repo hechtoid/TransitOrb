@@ -11,7 +11,7 @@ when to use e.preventDefault
 
 #fix vehicular for CalTrain. 
 refactor/split off?
-thread stopLists OR HardCode #!!map link to anystop wildcard with embed!
+thread stopLists OR #BOTH!!!HardCode #!!map link to anystop wildcard with embed!
 
 embiggen gps
 

@@ -100,7 +100,6 @@ class AnyStopWildCard extends React.Component {
                     </iframe> 
         }
 return (
-    <div className='transit-on'>
         <div className="any-stop-wild-card">
             <div className='short-title'>
                 {this.state.agency} {this.props.match.params.stopCode?'#'+this.props.match.params.stopCode.toUpperCase():''}
@@ -113,16 +112,17 @@ return (
                 onFocus={this.selectID}
                 onChange={this.updateStopCode()}
             />
+            <div className="g-frame">
+                {gFrame}
+            </div>
             <div className="stop-title" onClick={this.loadBusss}>
                 {stop}
                 <div>Tap to ReFresh</div>
             </div>
-                {gFrame}
             <div className="buss">
                 {busss}
             </div>
         </div>
-    </div>
 );
     }
 
