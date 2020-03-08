@@ -22,6 +22,7 @@ class TransitStop extends React.Component {
         this.loadBusss = this.loadBusss.bind(this);
         this.loadStops = this.loadStops.bind(this);
         this.updateStopFilter = this.updateStopFilter.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
         this.selectID = this.selectID.bind(this)
         this.agencyCodeLengthMap = {
             'AM': 3, 'PE': 3, 'VC': 3, 
@@ -46,7 +47,11 @@ class TransitStop extends React.Component {
         })
         this.loadBusss()
     }
-    loadBusss(e, agency = this.state.agency, stopCode = this.state.stopCode) {
+    handleSubmit(e){
+        e.preventDefault()
+        this.loadBusss()
+    }
+    loadBusss(agency = this.state.agency, stopCode = this.state.stopCode) {
         axios.get(`https://api.511.org/transit/StopMonitoring?api_key=72939361-85f9-4019-aa55-d62e4e7e2e59&Format=JSON&agency=${agency}&stopCode=${stopCode}`)
             .then(res => {
                 let buss = res.data.ServiceDelivery.StopMonitoringDelivery.MonitoredStopVisit;
@@ -54,7 +59,7 @@ class TransitStop extends React.Component {
             })
     }
 
-    updateAgency() {
+    updateAgency(e) {
         return e =>     {
             let agency = e.currentTarget.value
             let stops = []
@@ -72,7 +77,7 @@ class TransitStop extends React.Component {
                 stops,
                 agency
         })
-        this.loadBusss( e, agency, stop.id )
+        this.loadBusss( agency, stop.id )
     } else {
         this.setState({
             agency: e.currentTarget.value,
@@ -103,7 +108,7 @@ class TransitStop extends React.Component {
                         stops,
                         stop
                     });
-                    this.loadBusss( e, this.state.agency, stop.id )
+                    this.loadBusss( this.state.agency, stop.id )
                 }
                 else {
                     let stops = res.data.Contents.dataObjects.ScheduledStopPoint;
@@ -118,21 +123,21 @@ class TransitStop extends React.Component {
                         stops,
                         stop
                     });
-                    this.loadBusss( e, this.state.agency, stop.id )
+                    this.loadBusss( this.state.agency, stop.id )
                 }
             })
     }    
-    updateStop() {
+    updateStop(e) {
         return e => {
             let stop = this.state.stopsFiltered[e.currentTarget.value]
                 this.setState({
                     stopCode: stop.id,
                     stop
                 })
-            this.loadBusss( e, this.state.agency, stop.id )
+            this.loadBusss(  this.state.agency, stop.id )
         }
     }
-    updateStopFilter() {
+    updateStopFilter(e) {
         return e => {
             let stopFilter = e.currentTarget.value
             if (stopFilter.length === 1) {
@@ -155,10 +160,8 @@ class TransitStop extends React.Component {
             else if (stopFilter.length >= 3) {
                 this.setState({ stopFilter })
                 let searchTerms = stopFilter.toLowerCase().split(" ")
-                let stopsFiltered = this.state.stopsFiltered.filter(stop => {
-                    let stopName = stop.Name.toLowerCase()
-                    return searchTerms.every(term => stopName.includes(term))
-                })
+                let stopsFiltered = this.state.stopsFiltered.filter(
+                    stop => searchTerms.every(term => stop.Name.toLowerCase().includes(term)))
                 this.setState({ stopsFiltered })
                 if (stopsFiltered[0]) {
                     let stop = stopsFiltered[0]
@@ -167,13 +170,13 @@ class TransitStop extends React.Component {
                             stopCode: stop.id,
                             stop
                         })
-                        this.loadBusss( e, this.state.agency, stop.id )
+                        this.loadBusss(  this.state.agency, stop.id )
                     }
                 }
             }
         }
     }
-    updateStopCode() {
+    updateStopCode(e) {
         return e => {
             let stopCode = e.currentTarget.value
             let stoppCode = stopCode.toUpperCase()
@@ -259,7 +262,7 @@ class TransitStop extends React.Component {
         let busss = <div className="bust">
                 No Tracked Vehicles.
                 <br></br>
-                <span className='update' onClick={this.loadBusss}>Check again</span>, check your inputs, or check the schedule.
+                <span className='update' onClick={this.handleSubmit}>Check again</span>, check your inputs, or check the schedule.
             </div>
         if (this.state.buss[0]) {
             stopName = this.state.buss[0].MonitoredVehicleJourney.MonitoredCall.StopPointName
@@ -377,7 +380,7 @@ Seamless Bay Area</a>)
                 />
                 <br></br>
             <div className="stop-info">
-                <div className="stop-title" onClick={this.loadBusss}>
+                <div className="stop-title" onClick={this.handleSubmit}>
                 { this.state.stop.Name
                 ? this.state.stop.Name
                 : stopName }

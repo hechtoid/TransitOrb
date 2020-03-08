@@ -35,7 +35,7 @@ class AnyStopWildCard extends React.Component {
        document.title=`transitYourself - ${this.state.agency} Live Stop #${this.state.stopCode}`
        this.loadBusss()
     }
-    loadBusss (e) {
+    loadBusss () {
  // if (this.state.agency === 'SB' || this.state.agency === 'GF') {
  // if (this.state.agency === 'SB' || this.state.agency === 'GF') {
  // if (this.state.agency === 'SB' || this.state.agency === 'GF') {
@@ -57,7 +57,7 @@ class AnyStopWildCard extends React.Component {
             }
         }
     }
-    updateStopCode() {
+    updateStopCode(e) {
         return e => {
             let stopCode = e.currentTarget.value
             let stoppCode = stopCode.toUpperCase()
