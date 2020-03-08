@@ -177,9 +177,9 @@ src={`https://www.google.com/maps/embed/v1/place?zoom=14&q=${this.state.vehicle.
         return (
             <div className="vehicular">
                 <div className="short-title">
-                    Live Tracking - Vehicle #{this.state.vehicle
-                        ? this.state.vehicle.VehicleRef
-                        : this.state.vehicleNumber}
+                    Live Tracking{this.state.vehicle && this.state.vehicle.VehicleRef
+                        ? ` - Vehicle # ${this.state.vehicle.VehicleRef}`
+                        :''}
                 </div>             
                 <form onSubmit={this.handleSubmit}>
                     <input type="text"
