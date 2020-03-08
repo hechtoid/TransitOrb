@@ -54,6 +54,7 @@ class AnyStopWildCard extends React.Component {
                     let buss = res.data.ServiceDelivery.StopMonitoringDelivery.MonitoredStopVisit;
                     this.setState({ buss });
                 })
+                .catch(this.setState({ buss: [] }))
             }
         }
     }
@@ -72,6 +73,7 @@ class AnyStopWildCard extends React.Component {
                         let buss = res.data.ServiceDelivery.StopMonitoringDelivery.MonitoredStopVisit;
                         this.setState({ buss, stopCode: stoppCode });
             })
+                    .catch(this.setState({ buss: [] }))
             }
         }
     }
