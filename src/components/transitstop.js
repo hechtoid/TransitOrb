@@ -387,7 +387,7 @@ Seamless Bay Area</a>)
                 <div>Tap to ReFresh</div>
                 </div>
                 <div>
-            <input type={this.state.agency !=='BA'?"number":"text"}
+            <input type={!(this.state.agency ==='BA'||'AM')?"number":"text"}
                     id="stop-id"
                     placeholder="Stop Code"
                     value={this.state.stopCode}
