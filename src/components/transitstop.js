@@ -303,108 +303,124 @@ class TransitStop extends React.Component {
 return (
     <div className="transit-stop">
         <div className="agency-upper">
-        <div className="radios">
-    <div className="short-title">Agency ShortList:</div>
-        <div className="radio-one">
-            <label><input type="radio" 
-                onChange={this.updateAgency()} 
-                checked={this.state.agency==="SF"} 
-                value="SF" />SF</label>
-            <label><input type="radio" 
-                onChange={this.updateAgency()} 
-                checked={this.state.agency==="GG"} 
-                value="GG" />GG</label>
-            <label>&nbsp;&nbsp;&nbsp;<input type="radio" 
-                onChange={this.updateAgency()} 
-                checked={this.state.agency === "BA"} 
-                value="BA" />Bart</label>
+            <div className="radios">
+                <div className="short-title">Agency ShortList:</div>
+                <div className="radio-one">
+                    <label>
+                        <input type="radio" 
+                            onChange={this.updateAgency()} 
+                            checked={this.state.agency==="SF"} 
+                            value="SF" />
+                        SF
+                    </label>
+                    <label>
+                        <input type="radio" 
+                            onChange={this.updateAgency()} 
+                            checked={this.state.agency==="GG"} 
+                            value="GG" />
+                        GG
+                    </label>
+                    <label>
+                        &nbsp;&nbsp;&nbsp;
+                        <input type="radio" 
+                            onChange={this.updateAgency()} 
+                            checked={this.state.agency === "BA"} 
+                            value="BA" />
+                        Bart
+                    </label>
+                </div>
+                <div className="radio-two">
+                    <label>
+                        <input type="radio" 
+                            onChange={this.updateAgency()} 
+                            checked={this.state.agency==="AC"} 
+                            value="AC" />
+                        AC
+                    </label>
+                    <label>
+                        <input type="radio" 
+                            onChange={this.updateAgency()} 
+                            checked={this.state.agency === "SM"} 
+                            value="SM" />
+                        Sam
+                    </label>
+                    <label>
+                        <input type="radio" 
+                            onChange={this.updateAgency()} 
+                            checked={this.state.agency==="MA"} 
+                            value="MA" />
+                        Marin
+                    </label>
+                </div>
+            </div>
+            <span className="agency-code">{this.state.agency}</span>
         </div>
-        <div className="radio-two">
-            <label><input type="radio" 
-                onChange={this.updateAgency()} 
-                checked={this.state.agency==="AC"} 
-                value="AC" />AC</label>
-            <label><input type="radio" 
-                onChange={this.updateAgency()} 
-                checked={this.state.agency === "SM"} 
-                value="SM" />Sam</label>
-            <label><input type="radio" 
-                onChange={this.updateAgency()} 
-                checked={this.state.agency==="MA"} 
-                value="MA" />Marin</label>
+        <div className="agencies-string">
+            All {this.state.agencies.length} Transit Agencies:
         </div>
+        <div className="agency">
+            <select
+                className="agency-select"
+                value={this.state.agency}
+                onChange={this.updateAgency()}
+                onMouseDown={this.updateAgency()} >
+                {agencies}
+            </select>
+            <div className="politics">
+                (too many? i agree! <a 
+                    href="https://www.seamlessbayarea.org/" target="_blank" rel="noopener noreferrer">
+                Seamless Bay Area</a>)
+            </div>
         </div>
-    <span className="agency-code">{this.state.agency}</span>
-    </div>
-    <div className="agencies-string">
-        All {this.state.agencies.length} Transit Agencies:
-        </div>
-    <div className="agency">
-        <select
-            className="agency-select"
-            value={this.state.agency}
-            onChange={this.updateAgency()}
-            onMouseDown={this.updateAgency()}
-        >
-            {agencies}
-        </select>
-        <div className="politics">
-(too many? i agree! <a href="https://www.seamlessbayarea.org/" target="_blank" rel="noopener noreferrer">
-Seamless Bay Area</a>)
-    </div>
-    </div>
     <hr></hr>
-    <div className="slow">
-    {!this.state.loaded
-    ? <button className="load-stops" onClick={this.loadStops}>Load Stops</button>
-    : this.state.stops[0]
-    ?  <button disabled className="stop-loads" >Loaded</button>
-    : <button disabled className="stop-loading" >Loading</button>
-    }
-        {slow}
-    </div>
+        <div className="slow">
+            {!this.state.loaded
+            ? <button className="load-stops" onClick={this.loadStops}>Load Stops</button>
+            : this.state.stops[0]
+                ?  <button disabled className="stop-loads" >Loaded</button>
+                : <button disabled className="stop-loading" >Loading</button>}
+            {slow}
+        </div>
         <select
-        disabled={!this.state.stopsFiltered[0]}
-        className="stop-select"
-        onChange={this.updateStop()}
-        >
+            disabled={!this.state.stopsFiltered[0]}
+            className="stop-select"
+            onChange={this.updateStop()} >
             {this.state.stop.id
-            ? <option selected disabled hidden value='0'>{this.state.stop.Name} ({this.state.stop.id})</option>
+            ? <option selected disabled hidden value='0'>
+                {this.state.stop.Name} ({this.state.stop.id})
+            </option>
             :''}
-            {this.state.stop.id}
-        {stops}
-    </select>
+            {stops}
+        </select>
     <br></br>
         <input type="text"
+            //onPaste={}
             value={this.state.stopFilter}
             className="stop-filter"
             onChange={this.updateStopFilter()}
             disabled={!this.state.loaded}
-            placeholder={this.state.loaded?"Type to Search":"Load Stops to Search"}
-            //onPaste={}
-        />
-        <br></br>
-    <div className="stop-info">
-        <div className="stop-title" onClick={this.handleSubmit}>
-        { this.state.stop.Name
-        ? this.state.stop.Name
-        : stopName }
-        <div>Tap to ReFresh</div>
-        </div>
-        <div>
-            <input 
-            type={(this.state.agency ==='BA'||this.state.agency ==='AM')?"text":"number"}
-            id="stop-id"
-            placeholder="Stop Code"
-            value={this.state.stopCode}
-            onFocus={this.selectID}
-            onChange={this.updateStopCode()}
-            />
-        { locationLink }
-        </div>
+            placeholder={this.state.loaded?"Type to Search":"Load Stops to Search"} />
+    <br></br>
+        <div className="stop-info">
+            <div className="stop-title" onClick={this.handleSubmit}>
+                { this.state.stop.Name
+                ? this.state.stop.Name
+                : stopName }
+                <div>Tap to ReFresh</div>
+            </div>
+            <div>
+                <input 
+                    type={(this.state.agency ==='BA'||this.state.agency ==='AM')?"text":"number"}
+                    id="stop-id"
+                    placeholder="Stop Code"
+                    value={this.state.stopCode}
+                    onFocus={this.selectID}
+                    onChange={this.updateStopCode()} />
+                {locationLink}
+            </div>
 
-    </div>
-    { busss }
+        </div>
+    {busss}
 </div>
 );
     }
