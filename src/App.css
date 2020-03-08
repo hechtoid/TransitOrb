@@ -392,7 +392,7 @@ div.map-link:active{
 
 }
 .vehicular form input{
-    margin: 5px 5px 0px 15px;
+    margin: 0px 5px 0px 15px;
     margin: 10px;
     font-size: 18px;
 
@@ -411,21 +411,20 @@ div.map-link:active{
     /* margin: -20px 0 10px 25px; */
     position: relative;
     top: -15px;
-    left: 100px;
+    left: 110px;
 }
 .vehicular{
     padding: 0;
 }
 .vehicular .short-title{
     font-size: 23px;
+    margin-bottom: 0px;
 }
 .vehicle-info{
-    margin: 0 5px 5px 15px;
+    margin: -10px 25px 5px 10px;
     display: flex;
-    justify-content: start;
-    width: 70%;
+    justify-content: space-between;
     vertical-align: middle;
-
 }
 
 .vehicle-info span{
@@ -460,7 +459,7 @@ div.map-link:active{
     /* width: 100%; */
 }
 .stop{
-    margin: 10px 7px 0px 12px;
+    margin: 10px 5px 0px 10px;
     border: 1px solid gray;
     border-radius: 5px;
     padding: 3px 5px 0 5px;

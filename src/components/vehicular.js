@@ -181,7 +181,6 @@ src={`https://www.google.com/maps/embed/v1/place?zoom=14&q=${this.state.vehicle.
                         ? this.state.vehicle.VehicleRef
                         : this.state.vehicleNumber}
                 </div>             
-                    {vehicleInfo}
                 <form onSubmit={this.handleSubmit}>
                     <input type="text"
                         id="vehicle-agency"
@@ -204,6 +203,7 @@ src={`https://www.google.com/maps/embed/v1/place?zoom=14&q=${this.state.vehicle.
                         SFMUNI Vehicle Numbers
                     </a>
                 </form>
+                {vehicleInfo}
             <div className='g-frame'>
                 {gFrame}
             </div> 
