@@ -60,12 +60,12 @@ class AnyStopWildCard extends React.Component {
     updateStopCode(e) {
         return e => {
             let stopCode = e.currentTarget.value
-            let stoppCode = stopCode.toUpperCase()
             if (stopCode.length <= this.agencyCodeLengthMap[this.state.agency]) {
-            this.setState({
-                stopCode
-            })}
+                this.setState({
+                    stopCode
+                })}
             if (stopCode.length === this.agencyCodeLengthMap[this.state.agency]) {
+                let stoppCode = stopCode.toUpperCase()
                 this.props.history.push(`/anystop/${this.state.agency}/${stoppCode}`)
                 axios.get(`https://api.511.org/transit/StopMonitoring?api_key=72939361-85f9-4019-aa55-d62e4e7e2e59&Format=JSON&agency=${this.state.agency}&stopCode=${stoppCode}`)
                     .then(res => {

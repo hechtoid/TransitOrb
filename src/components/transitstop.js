@@ -22,8 +22,10 @@ class TransitStop extends React.Component {
         this.loadBusss = this.loadBusss.bind(this);
         this.loadStops = this.loadStops.bind(this);
         this.updateStopFilter = this.updateStopFilter.bind(this)
+        this.updateStopCode = this.updateStopCode.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
         this.selectID = this.selectID.bind(this)
+        
         this.agencyCodeLengthMap = {
             'AM': 3, 'PE': 3, 'VC': 3, 
             'BA': 4, 'EM': 4, 'SA': 4, 
@@ -184,28 +186,28 @@ class TransitStop extends React.Component {
                     stopCode
                 })
             }
-            let stoppCode = stopCode.toUpperCase()
             if (stopCode.length === this.agencyCodeLengthMap[this.state.agency]) {
+                let stoppCode = stopCode.toUpperCase()
                 axios.get(`https://api.511.org/transit/StopMonitoring?api_key=72939361-85f9-4019-aa55-d62e4e7e2e59&Format=JSON&agency=${this.state.agency}&stopCode=${stoppCode}`)
                 .then(res => {
                     let buss = res.data.ServiceDelivery.StopMonitoringDelivery.MonitoredStopVisit;
                     this.setState({  buss })
                     if (buss[0]) {this.setState({ stopCode: stoppCode })}
                 })         
-            }
-            if (this.state.stops) {
-            let stop = this.state.stops.filter(stop => stop.id.toUpperCase() === stoppCode)[0]
-                if (stop) {
-                    this.setState({
-                        stopsFiltered: this.state.stops,
-                        stopFilter: '',
-                        stopCode: stoppCode,
-                        stop
-                    })
-                } else {
-                    this.setState({
-                        stop: {},
-                    })
+                if (this.state.stops) {
+                let stop = this.state.stops.filter(stop => stop.id.toUpperCase() === stoppCode)[0]
+                    if (stop) {
+                        this.setState({
+                            stopsFiltered: this.state.stops,
+                            stopFilter: '',
+                            stopCode: stoppCode,
+                            stop
+                        })
+                    } else {
+                        this.setState({
+                            stop: {},
+                        })
+                    }
                 }
             }
         }
@@ -275,7 +277,7 @@ class TransitStop extends React.Component {
             })
         }
         let locationLink
-        if (this.state.stopCode){
+        if (this.state.stopCode.length === this.agencyCodeLengthMap[this.state.agency]){
             locationLink = 
             <Link 
             to={`/anystop/${this.state.agency}/${this.state.stopCode}`}>
@@ -390,15 +392,14 @@ Seamless Bay Area</a>)
                 <div>Tap to ReFresh</div>
                 </div>
                 <div>
-            <input 
+                    <input 
                     type={(this.state.agency ==='BA'||this.state.agency ==='AM')?"text":"number"}
                     id="stop-id"
                     placeholder="Stop Code"
                     value={this.state.stopCode}
-                    // onFocus={this.selectID}
+                    onFocus={this.selectID}
                     onChange={this.updateStopCode()}
-                />
-                <br></br>
+                    />
                 { locationLink }
                 </div>
 
