@@ -101,7 +101,8 @@ src={`https://www.google.com/maps/embed/v1/place?zoom=13&q=${this.props.location
             <div className='short-title'>
         {this.state.agency} {this.props.match.params.stopCode?'#'+this.props.match.params.stopCode.toUpperCase():''}
         </div>
-        <input type={this.state.agency !=='BA'?"number":"text"}
+        <input  
+                    type={(this.state.agency ==='BA'||this.state.agency ==='AM')?"text":"number"}
                     id="stop-id"
                     placeholder="Stop Code"
                     value={this.state.stopCode}

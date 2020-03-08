@@ -176,16 +176,15 @@ class TransitStop extends React.Component {
             }
         }
     }
-    updateStopCode() {
+    updateStopCode(e) {
         return e => {
-            e.preventDefault()
             let stopCode = e.currentTarget.value
-            this.setState({
-                stopCode
-            })
+            if (stopCode.length <= this.agencyCodeLengthMap[this.state.agency]) {
+                this.setState({
+                    stopCode
+                })
+            }
             let stoppCode = stopCode.toUpperCase()
-            // if (stopCode.length <= this.agencyCodeLengthMap[this.state.agency]) {}
-            
             if (stopCode.length === this.agencyCodeLengthMap[this.state.agency]) {
                 axios.get(`https://api.511.org/transit/StopMonitoring?api_key=72939361-85f9-4019-aa55-d62e4e7e2e59&Format=JSON&agency=${this.state.agency}&stopCode=${stoppCode}`)
                 .then(res => {
@@ -193,9 +192,9 @@ class TransitStop extends React.Component {
                     this.setState({  buss })
                     if (buss[0]) {this.setState({ stopCode: stoppCode })}
                 })         
-            
-                if (this.state.stops) {
-                let stop = this.state.stops.filter(stop => stop.id.toUpperCase() === stoppCode)[0]
+            }
+            if (this.state.stops) {
+            let stop = this.state.stops.filter(stop => stop.id.toUpperCase() === stoppCode)[0]
                 if (stop) {
                     this.setState({
                         stopsFiltered: this.state.stops,
@@ -208,8 +207,7 @@ class TransitStop extends React.Component {
                         stop: {},
                     })
                 }
-                }
-            } 
+            }
         }
     }
     render() {
@@ -393,11 +391,11 @@ Seamless Bay Area</a>)
                 </div>
                 <div>
             <input 
-                    type={!(this.state.agency ==='BA'||'AM')?"number":"text"}
+                    type={(this.state.agency ==='BA'||this.state.agency ==='AM')?"text":"number"}
                     id="stop-id"
                     placeholder="Stop Code"
                     value={this.state.stopCode}
-                    onFocus={this.selectID}
+                    // onFocus={this.selectID}
                     onChange={this.updateStopCode()}
                 />
                 <br></br>
