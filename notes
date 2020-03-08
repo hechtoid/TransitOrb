@@ -1,5 +1,6 @@
 TO ASK COACHES
 cookies/backend?
+
 when to use e.preventDefault
 
 ##best practice for multi word filter 'search' my kludge or .any?fixedLol
@@ -8,7 +9,7 @@ when to use e.preventDefault
 
 #countdown on vehicular
 
-fix vehicular for CalTrain. refactor/split off?
+#fix vehicular for CalTrain. refactor/split off?
 thread stopLists OR HardCode #!!map link to anystop wildcard with embed!
 
 #vehicular stop children list just title and link no number shown til anystop wildcard

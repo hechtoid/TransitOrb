@@ -70,6 +70,10 @@ src={`https://www.google.com/maps/embed/v1/place?zoom=14&q=${this.state.vehicle.
                         {this.state.vehicle.DestinationName}
                     </span>
                     </div>
+                let expected
+                {this.state.agency === 'CT'
+                ? expected = this.state.vehicle.MonitoredCall.ExpectedDepartureTime 
+                : expected = this.state.vehicle.MonitoredCall.ExpectedArrivalTime}
                 firstStop =  
                 <div className="stop" >
                     <div>
@@ -86,21 +90,21 @@ src={`https://www.google.com/maps/embed/v1/place?zoom=14&q=${this.state.vehicle.
                     </div>
                     <hr></hr>
                     <div>
-                    {this.state.vehicle.MonitoredCall.ExpectedArrivalTime
+                    {expected && expected !== this.state.vehicle.MonitoredCall.AimedDepartureTime
                         ? <><span className="gray">
             {new Date(Date.parse(this.state.vehicle.MonitoredCall.AimedArrivalTime)).toLocaleTimeString([],{ hour: 'numeric', minute: 'numeric' })}
                         </span>
                         <span className="bold">
-            {new Date(Date.parse(this.state.vehicle.MonitoredCall.ExpectedArrivalTime)).toLocaleTimeString([],{ hour: 'numeric', minute: 'numeric' })}
+            {new Date(Date.parse(expected)).toLocaleTimeString([],{ hour: 'numeric', minute: 'numeric' })}
                         </span></>
                         : <span className="bold">
             Scheduled {new Date(Date.parse(this.state.vehicle.MonitoredCall.AimedArrivalTime)).toLocaleTimeString([],{ hour: 'numeric', minute: 'numeric' })}
                         </span>}
                     <div className="countdown">
                         {/* <div className="min">in</div> */}
-                {this.state.vehicle.MonitoredCall.ExpectedArrivalTime
+                {expected && expected !== this.state.vehicle.MonitoredCall.AimedDepartureTime
                 ? <div className="min-math">
-            {Math.floor(((new Date(Date.parse(this.state.vehicle.MonitoredCall.ExpectedArrivalTime))-new Date()))/60000)}</div>
+            {Math.floor(((new Date(Date.parse(expected))-new Date()))/60000)}</div>
                 : <div className="min-math">
             {Math.floor(((new Date(Date.parse(this.state.vehicle.MonitoredCall.AimedArrivalTime))-new Date()))/60000)}</div>}               
                         <div className="min">min</div>
@@ -113,6 +117,10 @@ src={`https://www.google.com/maps/embed/v1/place?zoom=14&q=${this.state.vehicle.
                     <div className="future-stops">
                         {firstStop}
                         {this.state.vehicle.OnwardCalls.OnwardCall.map(stop => {
+                            let expected
+                            {this.state.agency.toUpperCase() === 'CT'
+                            ? expected = stop.ExpectedDepartureTime 
+                            : expected = stop.ExpectedArrivalTime}
                             return ( <div className="stop" key={key++}>
                             <div>
                                 <span className="bold">
@@ -128,12 +136,12 @@ src={`https://www.google.com/maps/embed/v1/place?zoom=14&q=${this.state.vehicle.
                             </div>
                             <hr></hr>
                             <div>
-                            {stop.ExpectedArrivalTime
+                            {expected  && expected !== stop.AimedDepartureTime
                                 ? <><span className="gray">
                     {new Date(Date.parse(stop.AimedArrivalTime)).toLocaleTimeString([],{ hour: 'numeric', minute: 'numeric' })}
                                     </span>
                                     <span className="bold">
-                    {new Date(Date.parse(stop.ExpectedArrivalTime)).toLocaleTimeString([],{ hour: 'numeric', minute: 'numeric' })}
+                    {new Date(Date.parse(expected)).toLocaleTimeString([],{ hour: 'numeric', minute: 'numeric' })}
                                 </span>
                                 </>
                                 : <span className="bold">
@@ -141,9 +149,9 @@ src={`https://www.google.com/maps/embed/v1/place?zoom=14&q=${this.state.vehicle.
                                 </span>}
                             <div className="countdown">
                                 {/* <div className="min">in</div> */}
-                        {stop.ExpectedArrivalTime
+                        {expected
                         ? <div className="min-math">
-                    {Math.floor(((new Date(Date.parse(stop.ExpectedArrivalTime))-new Date()))/60000)}</div>
+                    {Math.floor(((new Date(Date.parse(expected))-new Date()))/60000)}</div>
                         : <div className="min-math">
                     {Math.floor(((new Date(Date.parse(stop.AimedArrivalTime))-new Date()))/60000)}</div>}               
                                 <div className="min">min</div>
