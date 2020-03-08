@@ -21,6 +21,7 @@ class TransitStop extends React.Component {
         }
         this.loadBusss = this.loadBusss.bind(this);
         this.loadStops = this.loadStops.bind(this);
+        this.stopListIntegrator = this.stopListIntegrator.bind(this)
         this.updateStopFilter = this.updateStopFilter.bind(this)
         this.updateStopCode = this.updateStopCode.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
@@ -96,39 +97,44 @@ class TransitStop extends React.Component {
     }    
     loadStops(e) {
         this.setState({ loaded: true })
-        axios.get(`https://api.511.org/transit/stops?api_key=72939361-85f9-4019-aa55-d62e4e7e2e59&Format=JSON&operator_id=${this.state.agency}`)
-            .then(res => {
-                if (this.state.agency === "BA") {
-                    let stops = res.data.Contents.dataObjects.ScheduledStopPoint.filter(stop => !stop.id.includes('place') && !stop.Name.includes('Enter/Exit :'))
-                    let stopCode = this.state.stopCode || 'EMBR'
-                    let stop = stops.filter(stop => stop.id === stopCode.toUpperCase())[0] || stops.filter(stop => stop.id === 'EMBR')[0]
-                    this.setState({
-                        stopFilter: '',
-                        stopsFiltered: stops,
-                        stopLists: {'BA': stops},
-                        stopCode: stop.id,
-                        stops,
-                        stop
-                    });
-                    this.loadBusss( this.state.agency, stop.id )
-                }
-                else {
-                    let stops = res.data.Contents.dataObjects.ScheduledStopPoint;
-                    let stop = stops.filter(stop => stop.id === this.state.stopCode.toUpperCase())[0] || stops[0]
-                    let stopLists = this.state.stopLists
-                    stopLists[this.state.agency] = stops
-                    this.setState({
-                        stopCode: stop.id,
-                        stopFilter: '',
-                        stopsFiltered: stops,
-                        stopLists,
-                        stops,
-                        stop
-                    });
-                    this.loadBusss( this.state.agency, stop.id )
-                }
+        axios.get(`${process.env.PUBLIC_URL}/stopLists/stopList${this.state.agency}.json`)
+            .then(res =>{this.stopListIntegrator(res)})
+            .catch( (err) => {
+                axios.get(`https://api.511.org/transit/stops?api_key=72939361-85f9-4019-aa55-d62e4e7e2e59&Format=JSON&operator_id=${this.state.agency}`) 
+                .then (res =>{this.stopListIntegrator(res)})
             })
     }    
+    stopListIntegrator(res) {
+        if (this.state.agency === "BA") {
+            let stops = res.data.Contents.dataObjects.ScheduledStopPoint.filter(stop => !stop.id.includes('place') && !stop.Name.includes('Enter/Exit :'))
+            let stopCode = this.state.stopCode || 'EMBR'
+            let stop = stops.filter(stop => stop.id === stopCode.toUpperCase())[0] || stops.filter(stop => stop.id === 'EMBR')[0]
+            this.setState({
+                stopFilter: '',
+                stopsFiltered: stops,
+                stopLists: {'BA': stops},
+                stopCode: stop.id,
+                stops,
+                stop
+            });
+            this.loadBusss( this.state.agency, stop.id )
+        }
+        else {
+            let stops = res.data.Contents.dataObjects.ScheduledStopPoint;
+            let stop = stops.filter(stop => stop.id === this.state.stopCode.toUpperCase())[0] || stops[0]
+            let stopLists = this.state.stopLists
+            stopLists[this.state.agency] = stops
+            this.setState({
+                stopCode: stop.id,
+                stopFilter: '',
+                stopsFiltered: stops,
+                stopLists,
+                stops,
+                stop
+            });
+            this.loadBusss( this.state.agency, stop.id )
+        }
+    }
     updateStop(e) {
         return e => {
             let stop = this.state.stopsFiltered[e.currentTarget.value]
