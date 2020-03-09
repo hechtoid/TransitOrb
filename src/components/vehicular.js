@@ -54,8 +54,6 @@ class Vehicular extends React.Component {
     render() {
         let vehicleInfo = <div className="vehicle-info">No Tracked Vehicle</div>
         let firstStop = ''
-        let futureStops = <div className="future-stops">No Future Stops</div>
-        let key = 0
         let gFrame
         if (this.state.vehicle && this.state.vehicle.VehicleLocation) { 
         gFrame = <iframe title="gFrame" frameBorder="1"
@@ -130,6 +128,9 @@ class Vehicular extends React.Component {
                 </div>   
             </div>
         }
+        let futureStops = <div className="future-stops"><div className="stop" >
+        No Future Stops</div></div>
+        let key = 0
         if (this.state.vehicle && this.state.vehicle.OnwardCalls && this.state.vehicle.OnwardCalls.OnwardCall[0]) {
         futureStops = 
             <div className="future-stops">
