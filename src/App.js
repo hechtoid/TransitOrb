@@ -14,15 +14,20 @@ function App(props) {
   return (
     <Router basename={process.env.PUBLIC_URL}>
       <div className="App">
-      <div className="transit-master">
-      <TransitHeader />
-      <div className="transit-switcher">
-      <div className="transit">
-      <Route exact path="/">
-        <Redirect to="/anywherer" />
-      </Route>
-        <Route exact path="/anywherer" component={TransitStop} />
+        <div className="transit-master">
+          <TransitHeader />
+        <div className="transit-switcher">
+        <div className="transit">
+
+        <Route exact path="/">
+          <Redirect to="/anywherer" />
+        </Route>
+
+        <TransitStop />
+
         <Route exact path="/vehicular" component={Vehicular} />
+        <Route path="/anystop/:agency/:stopCode?" render={(props) => <AnyStopWildCard {...props} /> }/>
+        
         <Route exact path="/weekender">
             <AnyStop agency="GG" stopCode="42006" />
             <AnyStop agency="GG" stopCode="40032" />
@@ -32,19 +37,16 @@ function App(props) {
             <AnyStop agency="SF" stopCode="16750" filterIN={['45']} title="Across from Mario's"/>
             <AnyStop agency="SF" stopCode="13082" />
         </Route>
-      	<Route exact path="/multi">
+        <Route exact path="/multi">
             <AnyStop agency="SF" stopCode="16513" />
             <AnyStop title='Twenty Fourth Street BART' agency='BA' stopCode='24TH' />
             <AnyStop title='CalTrain MillBrae' agency='CT' stopCode='70062' />
-            <AnyStop agency="SF" stopCode="16513" />
-            
-        </Route>
-        <Route exact path="/aa" component={AA} />
-        <Route exact path="/da" component={DA} />
-        
-        <Route path="/anystop/:agency/:stopCode?" render={(props) => <AnyStopWildCard {...props} /> }/>
+            <AnyStop agency="SF" stopCode="16513" />   
+          </Route>
+          <Route exact path="/aa" component={AA} />
+          <Route exact path="/da" component={DA} />
+          
 
-      
 
     </div>
     </div>

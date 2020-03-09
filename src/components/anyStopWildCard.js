@@ -139,7 +139,7 @@ class AnyStopWildCard extends React.Component {
             })   
         }
         let gFrame =<div className="map-link" onClick={this.loadStopList}>Load Map</div>
-        if (this.state.stop.Location && this.state.stopCode === this.state.stop.id) { 
+        if (this.state.stop.Location && this.state.stopCode.toUpperCase() === this.state.stop.id) { 
             gFrame = <iframe title="gFrame" frameBorder="1"
                     src={`https://www.google.com/maps/embed/v1/place?zoom=13&q=${this.state.stop.Location.Latitude},${this.state.stop.Location.Longitude}&key=AIzaSyAIe8CQdaU5qYMgUBimNtNLtz6MKhODsNU`}>
                         Loading Map...
@@ -162,7 +162,7 @@ return (
                 {gFrame}
             </div>
             <div className="stop-title" onClick={this.loadBusss}>
-                { this.state.stop.Name && this.state.stopCode === this.state.stop.id
+                { this.state.stop.Name && this.state.stopCode.toUpperCase() === this.state.stop.id
                 ? this.state.stop.Name
                 : stopName }
                 <div>Tap to ReFresh</div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 import Bus from './bus'
 
@@ -307,8 +307,12 @@ class TransitStop extends React.Component {
             </Link>
         }
 return (
-    <div className="transit-stop">
+    <div className={ this.props.location.pathname === '/anywherer'
+                    ? "transit-stop"
+                    : "transit-off" }
+                    >
         <div className="agency-upper">
+       
             <div className="radios">
                 <div className="short-title">Agency ShortList:</div>
                 <div className="radio-one">
@@ -431,4 +435,4 @@ return (
 );
     }
 }
-export default TransitStop;
+export default withRouter(TransitStop);
