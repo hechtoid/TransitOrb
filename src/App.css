@@ -86,12 +86,12 @@ div[title="Search"]{
     display: flex;
     justify-content: center;
 }
-div[title="Any Stop"]{
+div[title="Stop Departures"]{
     width: 40px;
     display: flex;
     justify-content: center;
 }
-div[title="Any Stop"] span{
+div[title="Stop Departures"] span{
     font-size: 23px;
     position: relative;
     top: -5px;

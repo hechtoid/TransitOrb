@@ -12,15 +12,15 @@ function TransitHeader(props) {
           ? 'transit-switch-on' 
           : 'transit-switch-off'
         }>
-<span title="Vehicular" role="img" aria-label="bus emoji">🚌</span>
+<span title="Vehicle Tracking" role="img" aria-label="bus emoji">🚌</span>
         </div>
       </Link>
       <Link to= "/anystop" >
-        <div title="Any Stop" className={
+        <div title="Stop Departures" className={
           props.location.pathname.includes('/anystop')
           ? 'transit-switch-on' 
           : 'transit-switch-off' }>
-            <span title="bus stop" role="img" aria-label="bus stop emoji">🚏</span>
+            <span title="Stop Departures" role="img" aria-label="bus stop emoji">🚏</span>
         </div>
       </Link>
       <Link to="/weekender">
