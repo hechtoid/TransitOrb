@@ -1,4 +1,4 @@
-a, a:visited, a:hover, a:link, a:active {text-decoration: none}
+a, a:visited, a:hover, a:link, a:active {text-decoration: none; color: black;}
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -156,12 +156,16 @@ img.five-eleven{
     margin-bottom:auto;
     margin-top:auto;
 }
-.gps{
+span.gps{
     color: green;
     text-decoration: none;
     border: 1px solid green;
     border-radius: 3px;
     padding: 0 3px;
+}
+.gps a{
+    color: green;
+    text-decoration: none; 
 }
 .no-gps{
     border: 1px solid black;
@@ -169,8 +173,11 @@ img.five-eleven{
     padding: 0 3px;
     font-weight: 900;
 }
-.gps:active{
+.gps:active a{
     color: purple;
+}
+span.gps:active{
+    border: 1px solid purple;
 }
 .gps sup{
     font-size: 7px;
