@@ -104,7 +104,7 @@ class Vehicular extends React.Component {
                 </div>
             <hr></hr>
                 <div>
-                    {expected && expected !== this.state.vehicle.MonitoredCall.AimedDepartureTime
+                    { expected && expected !== this.state.vehicle.MonitoredCall.AimedDepartureTime
                     ? <><span className="gray">
                         {niceDate(this.state.vehicle.MonitoredCall.AimedArrivalTime)}
                     </span>
@@ -113,13 +113,13 @@ class Vehicular extends React.Component {
                     </span></>
                     : <span className="bold">
                         Scheduled {niceDate(this.state.vehicle.MonitoredCall.AimedArrivalTime)}
-                    </span>}
+                    </span> }
                     <div className="countdown">
-                        {expected && expected !== this.state.vehicle.MonitoredCall.AimedDepartureTime
+                        { expected && expected !== this.state.vehicle.MonitoredCall.AimedDepartureTime
                         ? <div className="min-math">
                             {countDown(expected)}</div>
                         : <div className="min-math">
-                            {countDown(this.state.vehicle.MonitoredCall.AimedArrivalTime)}</div>}               
+                            {countDown(this.state.vehicle.MonitoredCall.AimedArrivalTime)}</div> }               
                         <div className="min">min</div>
                     </div>
                 </div>   
@@ -176,9 +176,10 @@ class Vehicular extends React.Component {
 return (
     <div className="vehicular">
         <div className="short-title">
-            Live Tracking{this.state.vehicle && this.state.vehicle.VehicleRef
+            Live Tracking
+                { this.state.vehicle && this.state.vehicle.VehicleRef
                 ? ` - Vehicle #${this.state.vehicle.VehicleRef}`
-                :''}
+                : '' }
         </div>             
         <form onSubmit={this.handleSubmit}>
             <input type="text"
@@ -194,9 +195,9 @@ return (
                 onFocus={this.selectID}
                 onChange={this.updateVehicleNumber()}
                 />
-            {this.state.vehicle && this.state.vehicle.Monitored
-            ?<input type="submit" value="ReLoad" />
-            :<input type="submit" value="Load" />}
+            { this.state.vehicle && this.state.vehicle.Monitored
+            ? <input type="submit" value="ReLoad" />
+            : <input type="submit" value="Load" /> }
                 <br></br>
             <a className="vehicular-feedback" href="https://www.sfmta.com/getting-around/muni/muni-feedback" target="_blank" rel="noopener noreferrer">
                 SFMUNI Vehicle Numbers

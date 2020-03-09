@@ -129,15 +129,14 @@ class AnyStopWildCard extends React.Component {
             <br></br>
             <span className='update' onClick={this.loadBusss}>Check again</span>, check your inputs, or check the schedule.
         </div>
-        let stop
+        let stopName
         if (this.state.buss[0]){
-            stop = this.state.buss[0].MonitoredVehicleJourney.MonitoredCall.StopPointName
+            stopName = this.state.buss[0].MonitoredVehicleJourney.MonitoredCall.StopPointName
             let key = 0 
             busss = this.state.buss.map(bus => {
                 return <Bus bus={bus} key={key++} />
             })   
         }
-        if (this.props.location.state){stop = this.props.location.state.stop.Name || stop }
         let gFrame =<div className="map-link" onClick={this.loadStopList}>Load Map</div>
         if (this.state.stop.Location && this.state.stopCode === this.state.stop.id) { 
             gFrame = <iframe title="gFrame" frameBorder="1"
@@ -162,7 +161,9 @@ return (
                 {gFrame}
             </div>
             <div className="stop-title" onClick={this.loadBusss}>
-                {stop}
+                { this.state.stop.Name && this.state.stopCode === this.state.stop.id
+                ? this.state.stop.Name
+                : stopName }
                 <div>Tap to ReFresh</div>
             </div>
             <div className="buss">
