@@ -17,7 +17,7 @@ function TransitHeader(props) {
       </Link>
       <Link to= "/anystop" >
         <div title="Any Stop" className={
-          props.location.pathname === '/anystop' 
+          props.location.pathname.includes('/anystop')
           ? 'transit-switch-on' 
           : 'transit-switch-off' }>
             <span title="bus stop" role="img" aria-label="bus stop emoji">🚏</span>
@@ -46,13 +46,12 @@ function TransitHeader(props) {
           <span title="My Stops" role="img" aria-label="map pin emoji">📍</span>
         </div>
       </Link> */}
-      <Link to="/anywherer">
-        <div title="Anywherer" className={
-          props.location.pathname === '/anywherer' 
+      <Link to="/search">
+        <div title="Search" className={
+          props.location.pathname === '/search' 
           ? 'transit-switch-on' 
           : 'transit-switch-off' }>
-          <span title="Anywherer" role="img" aria-label="magnifying glass emoji">🔍</span>
-          {/* <span title="Anywherer" role="img" aria-label="world map emoji">🗺️</span> */}
+          <span title="Search" role="img" aria-label="magnifying glass emoji">🔍</span>
         </div>
       </Link>
      

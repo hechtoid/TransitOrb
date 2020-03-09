@@ -81,7 +81,7 @@ div [title="My Stops"]{
     display: flex;
     justify-content: center;
 }
-div[title="Anywherer"]{
+div[title="Search"]{
     width: 40px;
     display: flex;
     justify-content: center;
@@ -132,7 +132,7 @@ img.five-eleven{
     font-size: 11px;
 }
 .transit-switch-on{
-    margin: 10px 1px 0 1px;
+    margin: 2px 1px 0 1px;
     padding: 10px 7px 10px 5px;
     border-right: 1px solid black;
     border-top: 1px solid black;
@@ -147,7 +147,7 @@ img.five-eleven{
     
 }
 .transit-switch-off{
-    margin: 13px 0 0 1px;
+    margin: 5px 0 0 1px;
     padding: 9px 7px 11px 5px;
     background-color: lightgray;
     border-radius: 7px 7px 0 0;

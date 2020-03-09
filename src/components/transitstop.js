@@ -302,7 +302,7 @@ class TransitStop extends React.Component {
             </Link>
         }
 return (
-    <div className={ this.props.location.pathname === '/anywherer'
+    <div className={ this.props.location.pathname === '/search'
                     ? "transit-stop"
                     : "transit-off" }
                     >

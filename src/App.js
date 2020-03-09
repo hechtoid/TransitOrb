@@ -20,7 +20,7 @@ function App(props) {
         <div className="transit">
 
         <Route exact path="/">
-          <Redirect to="/anywherer" />
+          <Redirect to="/search" />
         </Route>
 
         <TransitStop />
