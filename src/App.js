@@ -24,8 +24,8 @@ function App(props) {
         </Route>
 
         <TransitStop />
-        <Vehicular />
-        {/* <Route exact path="/vehicular" component={Vehicular} /> */}
+        {/* <Vehicular /> */}
+        <Route exact path="/vehicular" component={Vehicular} />
         <Route path="/anystop/:agency/:stopCode?" render={(props) => <AnyStopWildCard {...props} /> }/>
         
         <Route exact path="/weekender">
