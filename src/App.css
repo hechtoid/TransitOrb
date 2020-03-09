@@ -9,20 +9,35 @@ input::-webkit-inner-spin-button {
 input[type=number] {
   -moz-appearance: textfield;
 }
-
+html {
+    height: 100%;
+}
+body{
+    min-height: 100%;
+}
 #root{
-    margin: 3px;
+    margin:0 2px;
+    min-height: 100%;
+
 }
 .App{
     font-family: source-sans-pro, sans-serif;
     margin-right: 2px;
-    /* width: 100vw; */
+    min-height: 100%;
 }
 .transit-master{
     border: 1px solid black;
     border-radius: 10px;
     background-color: black;
     width: 100%;
+    min-height: 100%;
+}
+.transit-switcher{
+    display: flex;
+    /* margin-left: 15px; */
+    width: 100%;
+    /* margin-right: 15px; */
+    min-height: 100%;
 }
 .transit{
     background-color: white;
@@ -30,6 +45,8 @@ input[type=number] {
     display: flex;
     width: 100%;
     /* margin-left: 10px; */
+    min-height: 100%;
+    padding-bottom: 3px;
 }
 @media  only screen and (max-width: 510px) {
 .transit{
@@ -39,13 +56,6 @@ input[type=number] {
 .transit-header{
     display: flex;
     text-decoration: none;
-
-}
-.transit-switcher{
-    display: flex;
-    /* margin-left: 15px; */
-    width: 100%;
-    /* margin-right: 15px; */
 }
 #marin{
     /* border-radius: 10px 0 0 0; */
@@ -66,14 +76,26 @@ input[type=number] {
     top: -10px;
 }
 div.five-eleven{
+    display: flex;
+    align-items: baseline;
+}
+div.five-eleven div{
     background-color: white;
     border-radius: 10px;
     height: 36px;
-    margin: 4px 5px 3px 4px;
+    margin: 5px;
     padding: 3px 2px 0px 2px;
+    width: 23px;
 }
 img.five-eleven{
     height: 33px;
+}
+.five-eleven span{
+    color: white;
+    /* font-style: oblique; */
+    font-weight: 900;
+    /* margin-left: 5px; */
+    font-size: 11px;
 }
 .transit-switch-on{
     margin: 10px 1px 0 1px;

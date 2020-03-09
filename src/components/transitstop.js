@@ -148,21 +148,16 @@ class TransitStop extends React.Component {
     updateStopFilter(e) {
         return e => {
             let stopFilter = e.currentTarget.value
-            if (stopFilter.length === 1) {
-                this.setState({
-                    stopsFiltered: this.state.stops,
-                })
+            if (stopFilter.length === 1 && this.state.stopsFiltered.length < this.state.stops.length) {
+                this.setState({stopsFiltered: this.state.stops,})
             }
             if (stopFilter.length < 3) {
-                this.setState({
-                    stopFilter
-                })
+                this.setState({stopFilter})
             }
             else if (stopFilter.length <= this.state.stopFilter.length) {
                 this.setState({stopFilter})
                 if (this.state.stopsFiltered.length < this.state.stops.length) {
-                    let stopsFiltered = this.state.stops
-                    this.setState({stopsFiltered})
+                    this.setState({stopsFiltered: this.state.stops})
                 }
             }
             else if (stopFilter.length >= 3) {

@@ -36,11 +36,7 @@ function TransitHeader(props) {
           : 'transit-switch-off'
         }>Anywherer</div>
       </Link>
-      <div className="five-eleven">
-  <a href="https://511.org/open-data/transit" title="Powered by 511 Open Data" target="_blank" rel="noopener noreferrer">
-  <img className="five-eleven" src="https://proxy-prod.511.org/assets/img/branding/511_original_web.png" alt="511 logo"></img>
-      </a>
-      </div>
+     
     </div>
   );
 }
