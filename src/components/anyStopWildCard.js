@@ -118,6 +118,7 @@ class AnyStopWildCard extends React.Component {
                     .then(res => {
                         let buss = res.data.ServiceDelivery.StopMonitoringDelivery.MonitoredStopVisit;
                         this.setState({ buss, stopCode: stoppCode });
+                        document.title=`transitYourself - ${this.state.agency} Live Stop #${stoppCode}`
             })
                     .catch(this.setState({ buss: [] }))
             }
