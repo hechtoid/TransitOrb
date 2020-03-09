@@ -9,11 +9,19 @@ when to use e.preventDefault
 
 #countdown on vehicular
 
+
 #fix vehicular for CalTrain. 
+vehicular => match params
+
 refactor/split off?
+expecteddepart or arrival or aimed, depending on which is earliest etc
+logic in vehicular, feed to stop component
+
+
 thread stopLists OR #BOTH!!!HardCode #!!map link to anystop wildcard with embed!
 
-embiggen gps
+
+#embiggen gps
 
 #vehicular stop children list just title and link no number shown til anystop wildcard
 

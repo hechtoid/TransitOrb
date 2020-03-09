@@ -1,4 +1,4 @@
-a, a:visited, a:hover, a:link, a:active {text-decoration: none; color: black;}
+a, a:visited, a:hover, a:link, a:active {text-decoration: none;}
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -424,40 +424,59 @@ div.map-link:hover{
     margin-bottom: 0px;
 }
 .vehicle-info{
-    margin: -10px 25px 5px 10px;
+    margin: -13px 5px 5px 5px;
     display: flex;
     justify-content: space-between;
     vertical-align: middle;
+    border: 1px solid black;
+    border-radius: 3px;
+    padding: 3px 5px; 
+    /* width: 90%; */
 }
 
 .vehicle-info span{
     /* width: 50px; */
     margin-top: auto;
     margin-bottom: auto;
+    vertical-align: middle;   
 }
 .vehicle-info div{
     width: 70px;
     margin-top: auto;
     margin-bottom: auto;
+    margin-right: 33px;
 }
-.vehicle-info .no-gps{
-    font-size: 23px;
-    /* margin-left: 5px; */
+.vehicle-info span span:first-child{
+    font-size: 33px;
+    font-weight: 900;
+    color: blue;
+    border: 1px solid black;
+    border-radius: 3px;
 }
 .vehicle-info .map-link{
-    /* margin: 0; */
+    margin: 3px 33px 3px 3px;
+    min-width: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 3px;
+}
+.vehicle-info .map-link span{
+    border: none;
 }
 .future-stops{
     margin: 0 5px;
 }
 .vehicular{
     background-color: white;
-    /* padding-right: 10px; */
+    width: 100%;
+    max-width: 420px;
 }
 .g-frame{
     display: flex;
     justify-content: space-evenly;
     width: 100%;
+    /* border: 1px solid red; */
 }
 iframe{
     /* margin: 5px 0px 0px 10px; */
@@ -470,7 +489,7 @@ iframe{
     border: 1px solid gray;
     border-radius: 5px;
     padding: 3px 5px 0 5px;
-    max-width: 350px;
+    max-width: 360px;
     vertical-align: middle;
 }
 hr{
@@ -489,6 +508,8 @@ hr{
     min-width: 90px;
     display: flex;
     justify-content: center;
+    align-items: center;
+    padding-top: 3px;
 }
 .any-stop-wild-card{
     text-align: center;
