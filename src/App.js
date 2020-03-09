@@ -29,12 +29,12 @@ function App(props) {
         <Route path="/anystop/:agency/:stopCode?" render={(props) => <AnyStopWildCard {...props} /> }/>
         
         <Route exact path="/weekender">
-            <AnyStop agency="GG" stopCode="42006" />
+            <AnyStop agency="GG" stopCode="42006" filterIN={['4']} />
             <AnyStop agency="GG" stopCode="40032" />
         </Route>
         <Route exact path="/commuter">
             <AnyStop agency="SF" stopCode="16513" filterOUT={['8','8BX']} />
-            <AnyStop agency="SF" stopCode="16750" filterIN={['45']} title="Across from Mario's"/>
+            <AnyStop agency="SF" stopCode="16750" filterIN={['45']} title="Across from Mario's" />
             <AnyStop agency="SF" stopCode="13082" />
         </Route>
         <Route exact path="/multi">

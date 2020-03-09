@@ -71,17 +71,22 @@ class Vehicular extends React.Component {
                             {this.state.vehicle.LineRef}
                         </span>
                         <span className="bold">
-                            => {this.state.vehicle.DestinationName}
+                            => 
                         </span>
                     </span>
                     <div>
-                        <Link 
-                            to={`/anystop/${this.state.agency}/${this.state.vehicle.DestinationRef}`}>
-                            <div className="map-link">
-                                <span title="bus stop" role="img" aria-label="bus stop emoji">🚏</span>
-                                {this.state.vehicle.DestinationRef}
-                            </div>
-                        </Link> 
+                        <span className="bold">
+                            {this.state.vehicle.DestinationName}
+                        </span>
+                        <div>
+                            <Link 
+                                to={`/anystop/${this.state.agency}/${this.state.vehicle.DestinationRef}`}>
+                                <div className="map-link">
+                                    <span title="bus stop" role="img" aria-label="bus stop emoji">🚏</span>
+                                    {this.state.vehicle.DestinationRef}
+                                </div>
+                            </Link> 
+                        </div>
                     </div>
                 </div>
             let expected

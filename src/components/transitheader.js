@@ -29,12 +29,22 @@ function TransitHeader(props) {
           : 'transit-switch-off'
         }>Commuter</div>
       </Link>
+      {/* <Link to= "/saved" >
+        <div title="My Stops" className={
+          props.location.pathname === '/saved' 
+          ? 'transit-switch-on' 
+          : 'transit-switch-off' }>
+          <span title="My Stops" role="img" aria-label="map pin emoji">📍</span>
+        </div>
+      </Link> */}
       <Link to="/anywherer">
         <div title="Anywherer" className={
           props.location.pathname === '/anywherer' 
           ? 'transit-switch-on' 
-          : 'transit-switch-off'
-        }>Anywherer</div>
+          : 'transit-switch-off' }>
+          <span title="Anywherer" role="img" aria-label="magnifying glass emoji">🔍</span>
+          {/* <span title="Anywherer" role="img" aria-label="world map emoji">🗺️</span> */}
+        </div>
       </Link>
      
     </div>
