@@ -159,11 +159,11 @@ class TransitStop extends React.Component {
                 })
             }
             else if (stopFilter.length <= this.state.stopFilter.length) {
-                let stopsFiltered = this.state.stops
-                this.setState({
-                    stopFilter,
-                    stopsFiltered
-                })
+                this.setState({stopFilter})
+                if (this.state.stopsFiltered.length < this.state.stops.length) {
+                    let stopsFiltered = this.state.stops
+                    this.setState({stopsFiltered})
+                }
             }
             else if (stopFilter.length >= 3) {
                 this.setState({ stopFilter })
