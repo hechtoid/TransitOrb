@@ -71,7 +71,7 @@ class AnyStopWildCard extends React.Component {
     }
     stopListIntegrator(res) {
         let stops = res.data.Contents.dataObjects.ScheduledStopPoint;
-        let stop = stops.filter(stop => stop.id === this.state.stopCode.toUpperCase())[0]
+        let stop = stops.filter(stop => stop.id === this.state.stopCode.toUpperCase())[0] || {}
         this.setState({stop})
         // if (this.state.agency === "BA") {
         //     let stops = res.data.Contents.dataObjects.ScheduledStopPoint.filter(stop => !stop.id.includes('place') && !stop.Name.includes('Enter/Exit :'))
@@ -138,7 +138,10 @@ class AnyStopWildCard extends React.Component {
                 return <Bus bus={bus} key={key++} />
             })   
         }
-        let gFrame =<div className="map-link" onClick={this.loadStopList}>Load Map</div>
+        let gFrame = <button disabled className="stop-loads" >Load Map</button>
+        if (this.state.stopCode.length === this.agencyCodeLengthMap[this.state.agency]) {
+            gFrame = <button className="load-stops" onClick={this.loadStopList}>Load Map</button>
+        }
         if (this.state.stop.Location && this.state.stopCode.toUpperCase() === this.state.stop.id) { 
             gFrame = <iframe title="gFrame" frameBorder="1"
                     src={`https://www.google.com/maps/embed/v1/place?zoom=13&q=${this.state.stop.Location.Latitude},${this.state.stop.Location.Longitude}&key=AIzaSyAIe8CQdaU5qYMgUBimNtNLtz6MKhODsNU`}>

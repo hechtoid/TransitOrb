@@ -387,8 +387,8 @@ return (
             {!this.state.loaded
             ? <button className="load-stops" onClick={this.loadStops}>Load Stops</button>
             : this.state.stops[0]
-                ?  <button disabled className="stop-loads" >Loaded</button>
-                : <button disabled className="stop-loading" >Loading</button>}
+                ? <button disabled className="stop-loads" >Loaded</button>
+                : <button disabled className="stop-loads" >Loading</button>}
             {slow}
         </div>
         <select

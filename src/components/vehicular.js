@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { niceDate, countDown } from '../utils/date';
 
 class Vehicular extends React.Component {
@@ -174,7 +174,9 @@ class Vehicular extends React.Component {
             </div>
         }
 return (
-    <div className="vehicular">
+    <div className={ this.props.location.pathname === '/vehicular'
+                    ? "vehicular"
+                    : "transit-off" } >
         <div className="short-title">
             Live Tracking
                 { this.state.vehicle && this.state.vehicle.VehicleRef
@@ -212,4 +214,4 @@ return (
 );
     }
 }
-export default Vehicular;
+export default withRouter(Vehicular);
