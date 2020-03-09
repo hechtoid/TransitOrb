@@ -10,9 +10,12 @@ class AnyStopWildCard extends React.Component {
         this.state = {
             stopCode: this.props.match.params.stopCode?this.props.match.params.stopCode.toUpperCase():'',
             agency: this.props.match.params.agency.toUpperCase(),
+            stop: this.props.location.state?this.props.location.state.stop:{},
             buss: []
         }
         this.loadBusss = this.loadBusss.bind(this);
+        this.loadStopList = this.loadStopList.bind(this)
+        this.stopListIntegrator = this.stopListIntegrator.bind(this)
         this.updateStopCode = this.updateStopCode.bind(this)
         this.selectID = this.selectID.bind(this)
 
@@ -35,7 +38,7 @@ class AnyStopWildCard extends React.Component {
        document.title=`transitYourself - ${this.state.agency} Live Stop #${this.state.stopCode}`
        this.loadBusss()
     }
-    loadBusss () {
+    loadBusss() {
  // if (this.state.agency === 'SB' || this.state.agency === 'GF') {
  // if (this.state.agency === 'SB' || this.state.agency === 'GF') {
  // if (this.state.agency === 'SB' || this.state.agency === 'GF') {
@@ -58,6 +61,49 @@ class AnyStopWildCard extends React.Component {
             }
         }
     }
+    loadStopList() {
+            axios.get(`${process.env.PUBLIC_URL}/stopLists/stopList${this.state.agency}.json`)
+            .then(res =>{this.stopListIntegrator(res)})
+            .catch( (err) => {
+                axios.get(`https://api.511.org/transit/stops?api_key=72939361-85f9-4019-aa55-d62e4e7e2e59&Format=JSON&operator_id=${this.state.agency}`) 
+                .then (res =>{this.stopListIntegrator(res)})
+            })
+    }
+    stopListIntegrator(res) {
+        let stops = res.data.Contents.dataObjects.ScheduledStopPoint;
+        let stop = stops.filter(stop => stop.id === this.state.stopCode.toUpperCase())[0]
+        this.setState({stop})
+        // if (this.state.agency === "BA") {
+        //     let stops = res.data.Contents.dataObjects.ScheduledStopPoint.filter(stop => !stop.id.includes('place') && !stop.Name.includes('Enter/Exit :'))
+        //     let stopCode = this.state.stopCode || 'EMBR'
+        //     let stop = stops.filter(stop => stop.id === stopCode.toUpperCase())[0] || stops.filter(stop => stop.id === 'EMBR')[0]
+        //     this.setState({
+        //         stopFilter: '',
+        //         stopsFiltered: stops,
+        //         stopLists: {'BA': stops},
+        //         stopCode: stop.id,
+        //         stops,
+        //         stop
+        //     });
+        //     this.loadBusss( this.state.agency, stop.id )
+        // }
+        // else {
+        //     let stops = res.data.Contents.dataObjects.ScheduledStopPoint;
+        //     let stop = stops.filter(stop => stop.id === this.state.stopCode.toUpperCase())[0] || stops[0]
+        //     let stopLists = this.state.stopLists
+        //     stopLists[this.state.agency] = stops
+        //     this.setState({
+        //         stopCode: stop.id,
+        //         stopFilter: '',
+        //         stopsFiltered: stops,
+        //         stopLists,
+        //         stops,
+        //         stop
+        //     });
+        //     this.loadBusss( this.state.agency, stop.id )
+        // }
+    }
+
     updateStopCode(e) {
         return e => {
             let stopCode = e.currentTarget.value
@@ -92,10 +138,10 @@ class AnyStopWildCard extends React.Component {
             })   
         }
         if (this.props.location.state){stop = this.props.location.state.stop.Name || stop }
-        let gFrame
-        if (this.props.location.state && this.props.location.state.stop.Location) { 
+        let gFrame =<div className="map-link" onClick={this.loadStopList}>Load Map</div>
+        if (this.state.stop.Location && this.state.stopCode === this.state.stop.id) { 
             gFrame = <iframe title="gFrame" frameBorder="1"
-                    src={`https://www.google.com/maps/embed/v1/place?zoom=13&q=${this.props.location.state.stop.Location.Latitude},${this.props.location.state.stop.Location.Longitude}&key=AIzaSyAIe8CQdaU5qYMgUBimNtNLtz6MKhODsNU`}>
+                    src={`https://www.google.com/maps/embed/v1/place?zoom=13&q=${this.state.stop.Location.Latitude},${this.state.stop.Location.Longitude}&key=AIzaSyAIe8CQdaU5qYMgUBimNtNLtz6MKhODsNU`}>
                         Loading Map...
                     </iframe> 
         }

@@ -364,7 +364,9 @@ div.map-link:active{
     color: purple;
     border: 1px solid purple;
 }
-
+div.map-link:hover{
+    cursor: pointer;
+}
 .update{
     color: blue;
     text-decoration: underline;
