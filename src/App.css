@@ -86,6 +86,17 @@ div[title="Anywherer"]{
     display: flex;
     justify-content: center;
 }
+div[title="Any Stop"]{
+    width: 40px;
+    display: flex;
+    justify-content: center;
+}
+div[title="Any Stop"] span{
+    font-size: 23px;
+    position: relative;
+    top: -5px;
+}
+
 span[aria-label="magnifying glass emoji"]{
     font-size: 23px;
     position: relative;

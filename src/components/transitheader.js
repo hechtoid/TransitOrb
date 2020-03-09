@@ -15,6 +15,14 @@ function TransitHeader(props) {
 <span title="Vehicular" role="img" aria-label="bus emoji">🚌</span>
         </div>
       </Link>
+      <Link to= "/anystop" >
+        <div title="Any Stop" className={
+          props.location.pathname === '/anystop' 
+          ? 'transit-switch-on' 
+          : 'transit-switch-off' }>
+            <span title="bus stop" role="img" aria-label="bus stop emoji">🚏</span>
+        </div>
+      </Link>
       <Link to="/weekender">
         <div id='marin' title="Weekender" className={
           props.location.pathname === '/weekender' 
@@ -29,6 +37,7 @@ function TransitHeader(props) {
           : 'transit-switch-off'
         }>Commuter</div>
       </Link>
+    
       {/* <Link to= "/saved" >
         <div title="My Stops" className={
           props.location.pathname === '/saved' 

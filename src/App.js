@@ -26,7 +26,7 @@ function App(props) {
         <TransitStop />
         {/* <Vehicular /> */}
         <Route exact path="/vehicular" component={Vehicular} />
-        <Route path="/anystop/:agency/:stopCode?" render={(props) => <AnyStopWildCard {...props} /> }/>
+        <Route path="/anystop/:agency?/:stopCode?" render={(props) => <AnyStopWildCard {...props} /> }/>
         
         <Route exact path="/weekender">
             <AnyStop agency="GG" stopCode="42006" filterIN={['4']} />

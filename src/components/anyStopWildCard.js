@@ -8,9 +8,9 @@ class AnyStopWildCard extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            stopCode: this.props.match.params.stopCode?this.props.match.params.stopCode.toUpperCase():'',
-            agency: this.props.match.params.agency.toUpperCase(),
-            stop: this.props.location.state?this.props.location.state.stop:{},
+            stopCode: this.props.match.params.stopCode ? this.props.match.params.stopCode.toUpperCase() : '',
+            agency: this.props.match.params.agency ? this.props.match.params.agency.toUpperCase() : 'SF',
+            stop: this.props.location.state  ?this.props.location.state.stop : {},
             buss: []
         }
         this.loadBusss = this.loadBusss.bind(this);
