@@ -296,7 +296,7 @@ class TransitStop extends React.Component {
             locationLink = 
             <Link 
             to={{
-                pathname: `/anystop/${this.state.agency}/${this.state.stopCode}`,
+                pathname: `/anystop/${this.state.agency}/${this.state.stop.id}`,
                 state: {
                     stop
                 }
