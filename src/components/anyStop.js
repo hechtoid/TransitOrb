@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 import Bus from './bus'
 
 class AnyStop extends React.Component {
@@ -50,10 +51,16 @@ class AnyStop extends React.Component {
         }
         return (
             <div className="any-stop">
-                 {this.props.title 
-                ? this.props.title
-                : stopName}
-                <br></br>
+                <div className="header">
+                    <Link to={`/anystop/${this.props.agency}/${this.props.stopCode}`}>
+                        <div className="map-link">
+                            <span title="bus stop" role="img" aria-label="bus stop emoji">🚏</span>                  
+                            { this.props.title 
+                            ? this.props.title
+                            : stopName }
+                        </div>
+                    </Link> 
+                </div>
                 {busss}
             </div>
         );

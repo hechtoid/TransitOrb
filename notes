@@ -10,7 +10,7 @@ when to use e.preventDefault
 
 #countdown on vehicular
 
-anystop link to anystopwildcard
+#anystop link to anystopwildcard
 
 #PROLLY COOL?prop vehicular thru params? - for easy refresh/works anyways?
 vehicular => match params
