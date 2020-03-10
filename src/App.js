@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
-import TransitStop from './components/transitstop';
+import TransitSearch from './components/transitsearch';
 import TransitHeader from './components/transitheader';
 import Vehicular from './components/vehicular'
 import AnyStop from './components/anyStop';
@@ -22,7 +22,7 @@ function App(props) {
         <Route exact path="/">
           <Redirect to="/saved" />
         </Route>
-        <TransitStop />
+        <TransitSearch />
         {/* <Vehicular /> */}
         <Route exact path="/vehicular" component={Vehicular} />
         
@@ -43,6 +43,7 @@ function App(props) {
             <AnyStop agency="SF" stopCode="16750" limit="2" filterIN={['45']} title="Across from Mario's" />
           </div>
         </Route>
+
         <Route exact path="/aa" component={AA} />
         <Route exact path="/da" component={DA} />
 
@@ -56,9 +57,7 @@ function App(props) {
             <AnyStop agency="SF" stopCode="13082" />
         </Route>
         
-          
-
-
+        
     </div>
     </div>
     <div className="five-eleven">

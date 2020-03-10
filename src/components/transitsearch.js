@@ -4,7 +4,7 @@ import { Link, withRouter } from 'react-router-dom';
 
 import Bus from './bus'
 
-class TransitStop extends React.Component {
+class TransitSearch extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -154,12 +154,12 @@ class TransitStop extends React.Component {
             if (stopFilter.length < 3) {
                 this.setState({stopFilter})
             }
-            else if (stopFilter.length <= this.state.stopFilter.length) {
-                this.setState({stopFilter})
-                if (this.state.stopsFiltered.length < this.state.stops.length) {
-                    this.setState({stopsFiltered: this.state.stops})
-                }
-            }
+            // else if (stopFilter.length <= this.state.stopFilter.length) {
+            //     this.setState({stopFilter})
+            //     if (this.state.stopsFiltered.length < this.state.stops.length) {
+            //         this.setState({stopsFiltered: this.state.stops})
+            //     }
+            // }
             else if (stopFilter.length >= 3) {
                 this.setState({ stopFilter })
                 let searchTerms = stopFilter.toLowerCase().split(" ")
@@ -430,4 +430,4 @@ return (
 );
     }
 }
-export default withRouter(TransitStop);
+export default withRouter(TransitSearch);
