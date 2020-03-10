@@ -3,24 +3,25 @@ cookies/backend?
 
 when to use e.preventDefault
 
-move 511 to bottom
+#move 511 to bottom
 
 ##best practice for multi word filter 'search' my kludge or .any?fixedLol
 
-#PROLLY COOL?prop vehicular thru params? - for easy refresh/works anyways?
 
 #countdown on vehicular
 
+anystop link to anystopwildcard
 
-#fix vehicular for CalTrain. 
+#PROLLY COOL?prop vehicular thru params? - for easy refresh/works anyways?
 vehicular => match params
 
 refactor/split off?
-expecteddepart or arrival or aimed, depending on which is earliest etc
 logic in vehicular, feed to stop component
+expecteddepart or arrival or aimed, depending on which is earliest etc
+#fix vehicular for CalTrain. 
 
 
-thread stopLists OR #BOTH!!!HardCode #!!map link to anystop wildcard with embed!
+#thread stopLists OR #BOTH!!!HardCode #!!map link to anystop wildcard with embed!
 
 
 #embiggen gps

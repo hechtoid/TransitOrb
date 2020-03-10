@@ -33,8 +33,11 @@ function App(props) {
             <AnyStop agency='SF' stopCode='16513' limit="2" filterOUT={['8','8BX']} />
             <AnyStop agency="SF" stopCode="13082" limit="4"/>
           </div>
-            <AnyStop agency='BA' stopCode='EMBR' />
+            <AnyStop agency='BA' stopCode='EMBR' limit="9" />
+          <div>
+            <AnyStop title="frisco train" agency='CT' stopCode='70012' />
             <AnyStop title='CalTrain MillBrae' agency='CT' stopCode='70062' />
+          </div>
           <div>
             <AnyStop agency="GG" stopCode="42006" filterIN={['4']} />
             <AnyStop agency="SF" stopCode="16750" limit="2" filterIN={['45']} title="Across from Mario's" />
