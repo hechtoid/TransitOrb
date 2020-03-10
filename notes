@@ -18,6 +18,8 @@ vehicular => match params
 refactor/split off?
 logic in vehicular, feed to stop component
 expecteddepart or arrival or aimed, depending on which is earliest etc
+if expected arrival is more than one minute before expected departure
+
 #fix vehicular for CalTrain. 
 
 
