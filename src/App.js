@@ -22,12 +22,7 @@ function App(props) {
         <Route exact path="/">
           <Redirect to="/saved" />
         </Route>
-        <TransitSearch />
-        {/* <Vehicular /> */}
-        <Route exact path="/vehicular" component={Vehicular} />
-        
-        <Route path="/anystop/:agency?/:stopCode?" render={(props) => <AnyStopWildCard {...props} /> }/>
-        
+                        
         <Route exact path="/saved">
           <div>
             <AnyStop agency='SF' stopCode='16513' limit="2" filterOUT={['8','8BX']} />
@@ -43,6 +38,16 @@ function App(props) {
             <AnyStop agency="SF" stopCode="16750" limit="2" filterIN={['45']} title="Across from Mario's" />
           </div>
         </Route>
+
+        <Route exact path="/vehicular" component={Vehicular} />
+
+        <Route path="/anystop/:agency?/:stopCode?" render={(props) => <AnyStopWildCard {...props} /> }/>
+
+        <Route exact path="/cookies">
+            <div className="bus">COMING SOON</div>
+        </Route>
+
+        <TransitSearch />
 
         <Route exact path="/aa" component={AA} />
         <Route exact path="/da" component={DA} />

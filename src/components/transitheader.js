@@ -30,6 +30,14 @@ function TransitHeader(props) {
           <span title="Stop Departures" role="img" aria-label="bus stop emoji">🚏</span>
         </div>
       </Link>
+      <Link to= "/cookies" >
+        <div title="Cookies" className={
+          props.location.pathname === '/cookies'
+          ? 'transit-switch-on' 
+          : 'transit-switch-off' }>
+          <span title="Cookies" role="img" aria-label="cookie emoji">🍪</span>
+        </div>
+      </Link>
       <Link to="/search">
         <div title="Search" className={
           props.location.pathname === '/search' 

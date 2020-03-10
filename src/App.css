@@ -94,6 +94,16 @@ div[title="Stop Departures"] span{
     position: relative;
     top: -5px;
 }
+div[title="Cookies"]{
+    width: 49px;
+    display: flex;
+    justify-content: center;
+}
+div[title="Cookies"] span{
+    font-size: 25px;
+    position: relative;
+    top: -3px;
+}
 div[title="Search"]{
     width: 49px;
     display: flex;
