@@ -47,6 +47,7 @@ body{
     /* margin-left: 10px; */
     min-height: 100%;
     padding-bottom: 3px;
+    border-radius: 0 5px 5px 5px;
 }
 @media  only screen and (max-width: 510px) {
 .transit{
@@ -56,6 +57,7 @@ body{
 .transit-header{
     display: flex;
     text-decoration: none;
+    /* padding-left: 2px; */
 }
 div [title="My Stops"]{
     width: 49px;
@@ -126,7 +128,7 @@ img.five-eleven{
     font-size: 11px;
 }
 .transit-switch-on{
-    margin: 2px 1px 0 1px;
+    margin: 2px 1px 0 0px;
     padding: 10px 7px 10px 5px;
     border-right: 1px solid black;
     border-top: 1px solid black;
@@ -142,7 +144,7 @@ img.five-eleven{
     
 }
 .transit-switch-off{
-    margin: 5px 0 0 1px;
+    margin: 5px 0 0 0px;
     padding: 9px 7px 11px 5px;
     background-color: lightgray;
     border-radius: 7px 7px 0 0;
@@ -161,7 +163,7 @@ img.five-eleven{
     display: flex;
     width: 100%;
     /* border-top: 1px solid black; */
-    border-radius: 0 0 10px 10px;
+    /* border-radius: 10px; */
     padding: 0px 5px 5px 5px;
     background-color: white;
 }
