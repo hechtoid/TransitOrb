@@ -57,58 +57,52 @@ body{
     display: flex;
     text-decoration: none;
 }
-#marin{
-    /* border-radius: 10px 0 0 0; */
-    
-}
-#busemoji{
-    border-right: 1px solid black;
-    /* margin: 10px 10px 0px 5px; */
-    /* padding-bottom: 10px; */
-    /* height: 15px; */
-    font-size: 33px;
-    width: 40px; 
-    padding-right: 3px;
-    padding-left: 7px;
-}
-#busemoji span{
-    position: relative;
-    top: -10px;
-}
 div [title="My Stops"]{
-    width: 40px;
+    width: 49px;
     font-size: 18px;
     display: flex;
     justify-content: center;
 }
-div[title="Search"]{
-    width: 40px;
+span[aria-label="map pin emoji"]{
+    margin: -3px 0 0 14px;
+    font-size: 27px;
+    -webkit-transform: rotate(42deg); 
+    -moz-transform: rotate(42deg); 
+
+}
+#busemoji{
+    border-right: 1px solid black;
+    font-size: 33px;
+    width: 49px; 
     display: flex;
     justify-content: center;
 }
+#busemoji span{
+    position: relative;
+    top: -16px;
+}
+
 div[title="Stop Departures"]{
     width: 40px;
     display: flex;
     justify-content: center;
 }
 div[title="Stop Departures"] span{
-    font-size: 23px;
+    font-size: 25px;
     position: relative;
     top: -5px;
 }
-
+div[title="Search"]{
+    width: 40px;
+    display: flex;
+    justify-content: center;
+}
 span[aria-label="magnifying glass emoji"]{
     font-size: 23px;
     position: relative;
-    top: -7px;
+    top: -5px;
     /* margin-left: 11px; */
 }
-span[aria-label="world map emoji"]{
-    font-size: 23px;
-    position: relative;
-    top: -7px;
-}
-
 div.five-eleven{
     display: flex;
     align-items: baseline;
@@ -144,6 +138,7 @@ img.five-eleven{
     font-weight: 900;
     font-size: 12px;
     text-decoration: none;
+     
     
 }
 .transit-switch-off{
@@ -157,9 +152,7 @@ img.five-eleven{
     height: 12px;
     font-size: 12px;
     width: 75px;
-    /* font-weight: 900; */
-
-    /* margin-left: 10px; */
+    overflow: hidden;
 }
 .transit-switch-off:hover{
     cursor: pointer;

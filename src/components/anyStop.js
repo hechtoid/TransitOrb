@@ -28,6 +28,7 @@ class AnyStop extends React.Component {
                 let buss = res.data.ServiceDelivery.StopMonitoringDelivery.MonitoredStopVisit;
                 if (this.props.filterIN){buss = buss.filter( bus => this.props.filterIN.includes(bus.MonitoredVehicleJourney.LineRef))} 
                 if (this.props.filterOUT){buss = buss.filter( bus => !this.props.filterOUT.includes(bus.MonitoredVehicleJourney.LineRef))}
+                if (this.props.limit){buss = buss.slice(0,this.props.limit)}
                 this.setState({ buss });
             })
         }

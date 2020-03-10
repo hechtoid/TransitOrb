@@ -20,9 +20,8 @@ function App(props) {
         <div className="transit">
 
         <Route exact path="/">
-          <Redirect to="/search" />
+          <Redirect to="/saved" />
         </Route>
-
         <TransitStop />
         {/* <Vehicular /> */}
         <Route exact path="/vehicular" component={Vehicular} />
@@ -37,14 +36,20 @@ function App(props) {
             <AnyStop agency="SF" stopCode="16750" filterIN={['45']} title="Across from Mario's" />
             <AnyStop agency="SF" stopCode="13082" />
         </Route>
-        <Route exact path="/multi">
-            <AnyStop agency="SF" stopCode="16513" />
-            <AnyStop title='Twenty Fourth Street BART' agency='BA' stopCode='24TH' />
+        <Route exact path="/saved">
+          <div>
+            <AnyStop agency='SF' stopCode='16513' limit="4" filterOUT={['8','8BX']} />
+            <AnyStop agency="SF" stopCode="13082" limit="3"/>
+          </div>
+            <AnyStop agency='BA' stopCode='EMBR' />
             <AnyStop title='CalTrain MillBrae' agency='CT' stopCode='70062' />
-            <AnyStop agency="SF" stopCode="16513" />   
-          </Route>
-          <Route exact path="/aa" component={AA} />
-          <Route exact path="/da" component={DA} />
+          <div>
+            <AnyStop agency="GG" stopCode="42006" filterIN={['4']} />
+            <AnyStop agency="SF" stopCode="16750" limit="2" filterIN={['45']} title="Across from Mario's" />
+          </div>
+        </Route>
+        <Route exact path="/aa" component={AA} />
+        <Route exact path="/da" component={DA} />
           
 
 
