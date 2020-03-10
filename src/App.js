@@ -25,21 +25,13 @@ function App(props) {
         <TransitStop />
         {/* <Vehicular /> */}
         <Route exact path="/vehicular" component={Vehicular} />
+        
         <Route path="/anystop/:agency?/:stopCode?" render={(props) => <AnyStopWildCard {...props} /> }/>
         
-        <Route exact path="/weekender">
-            <AnyStop agency="GG" stopCode="42006" filterIN={['4']} />
-            <AnyStop agency="GG" stopCode="40032" />
-        </Route>
-        <Route exact path="/commuter">
-            <AnyStop agency="SF" stopCode="16513" filterOUT={['8','8BX']} />
-            <AnyStop agency="SF" stopCode="16750" filterIN={['45']} title="Across from Mario's" />
-            <AnyStop agency="SF" stopCode="13082" />
-        </Route>
         <Route exact path="/saved">
           <div>
-            <AnyStop agency='SF' stopCode='16513' limit="4" filterOUT={['8','8BX']} />
-            <AnyStop agency="SF" stopCode="13082" limit="3"/>
+            <AnyStop agency='SF' stopCode='16513' limit="2" filterOUT={['8','8BX']} />
+            <AnyStop agency="SF" stopCode="13082" limit="4"/>
           </div>
             <AnyStop agency='BA' stopCode='EMBR' />
             <AnyStop title='CalTrain MillBrae' agency='CT' stopCode='70062' />
@@ -50,6 +42,17 @@ function App(props) {
         </Route>
         <Route exact path="/aa" component={AA} />
         <Route exact path="/da" component={DA} />
+
+        <Route exact path="/weekender">
+            <AnyStop agency="GG" stopCode="42006" filterIN={['4']} />
+            <AnyStop agency="GG" stopCode="40032" />
+        </Route>
+        <Route exact path="/commuter">
+            <AnyStop agency="SF" stopCode="16513" filterOUT={['8','8BX']} />
+            <AnyStop agency="SF" stopCode="16750" filterIN={['45']} title="Across from Mario's" />
+            <AnyStop agency="SF" stopCode="13082" />
+        </Route>
+        
           
 
 

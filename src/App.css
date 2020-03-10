@@ -83,7 +83,7 @@ span[aria-label="map pin emoji"]{
 }
 
 div[title="Stop Departures"]{
-    width: 40px;
+    width: 49px;
     display: flex;
     justify-content: center;
 }
@@ -93,7 +93,7 @@ div[title="Stop Departures"] span{
     top: -5px;
 }
 div[title="Search"]{
-    width: 40px;
+    width: 49px;
     display: flex;
     justify-content: center;
 }
