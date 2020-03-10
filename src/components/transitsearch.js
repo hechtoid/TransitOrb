@@ -149,17 +149,17 @@ class TransitSearch extends React.Component {
         return e => {
             let stopFilter = e.currentTarget.value
             if (stopFilter.length === 1 && this.state.stopsFiltered.length < this.state.stops.length) {
-                this.setState({stopsFiltered: this.state.stops,})
+                this.setState({ stopsFiltered: this.state.stops })
             }
             if (stopFilter.length < 3) {
-                this.setState({stopFilter})
+                this.setState({ stopFilter })
             }
-            // else if (stopFilter.length <= this.state.stopFilter.length) {
-            //     this.setState({stopFilter})
-            //     if (this.state.stopsFiltered.length < this.state.stops.length) {
-            //         this.setState({stopsFiltered: this.state.stops})
-            //     }
-            // }
+            else if (stopFilter.length <= this.state.stopFilter.length) {
+                this.setState({stopFilter})
+                if (this.state.stopsFiltered.length !== this.state.stops.length) {
+                    this.setState({ stopsFiltered: this.state.stops })
+                }
+            }
             else if (stopFilter.length >= 3) {
                 this.setState({ stopFilter })
                 let searchTerms = stopFilter.toLowerCase().split(" ")
@@ -223,10 +223,9 @@ class TransitSearch extends React.Component {
                         Loaded <span className="stops-number">
                         {this.state.stops.length}
                         </span> stops.<br></br>
-                            {this.state.stopsFiltered.length===this.state.stops.length
-                            ?''
-                            :<><span className="stops-number">{this.state.stopsFiltered.length}</span> in Filter.</>
-                            }
+                            { this.state.stopsFiltered.length===this.state.stops.length
+                            ? ''
+                            : <><span className="stops-number">{this.state.stopsFiltered.length}</span> in Filter.</> }
                     </div>
             }
             else if (this.state.loaded && this.state.stops[0]) {
@@ -245,10 +244,10 @@ class TransitSearch extends React.Component {
                         <option value={agency.Id} key={key++}>
                             {agency.ShortName
                             ? agency.ShortName
-                            : agency.Name} {
+                            : agency.Name } {
                             agency.ShortName && agency.ShortName !== agency.Name
                             ? `(${agency.Name})`
-                            : ''}
+                            : '' }
                          </option>
                 )
             })
@@ -304,8 +303,7 @@ class TransitSearch extends React.Component {
 return (
     <div className={ this.props.location.pathname === '/search'
                     ? "transit-stop"
-                    : "transit-off" }
-                    >
+                    : "transit-off" } >
         <div className="agency-upper">
        
             <div className="radios">
@@ -383,7 +381,7 @@ return (
             ? <button className="load-stops" onClick={this.loadStops}>Load Stops</button>
             : this.state.stops[0]
                 ? <button disabled className="stop-loads" >Loaded</button>
-                : <button disabled className="stop-loads" >Loading</button>}
+                : <button disabled className="stop-loads" >Loading</button> }
             {slow}
         </div>
         <select

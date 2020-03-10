@@ -13,11 +13,11 @@ import DA from './components/da';
 function App(props) {
   return (
     <Router basename={process.env.PUBLIC_URL}>
-      <div className="App">
-        <div className="transit-master">
-          <TransitHeader />
-        <div className="transit-switcher">
-        <div className="transit">
+    <div className="App">
+    <div className="transit-master">
+        <TransitHeader />
+      <div className="transit-switcher">
+      <div className="transit">
 
         <Route exact path="/">
           <Redirect to="/saved" />
@@ -61,17 +61,15 @@ function App(props) {
             <AnyStop agency="SF" stopCode="16750" filterIN={['45']} title="Across from Mario's" />
             <AnyStop agency="SF" stopCode="13082" />
         </Route>
-        
-        
-    </div>
-    </div>
-    <div className="five-eleven">
-      <div>
-      <a href="https://511.org/open-data/transit" title="Powered by 511 Open Data" target="_blank" rel="noopener noreferrer">
-  <img className="five-eleven" src="https://proxy-prod.511.org/assets/img/branding/511_original_web.png" alt="511 logo"></img>
-      </a>
       </div>
-      <span>Powered by 511 Open Data</span>
+      </div>
+      <div className="five-eleven">
+        <div>
+          <a href="https://511.org/open-data/transit" title="Powered by 511 Open Data" target="_blank" rel="noopener noreferrer">
+            <img className="five-eleven" src="https://proxy-prod.511.org/assets/img/branding/511_original_web.png" alt="511 logo"></img>
+          </a>
+        </div>
+        <span>Powered by 511 Open Data</span>
       </div>
     </div>
     </div>

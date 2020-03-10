@@ -11,19 +11,10 @@ class AnyStop extends React.Component {
         }
         this.loadBusss = this.loadBusss.bind(this)
     }
-
     componentDidMount() {
         this.loadBusss()
     }
     loadBusss() {
-        // if (this.props.agency === 'SB' || this.props.agency === 'GF') {
-        //     axios.get(`https://api.511.org/transit/stoptimetable?api_key=72939361-85f9-4019-aa55-d62e4e7e2e59&Format=JSON&OperatorRef=${this.props.agency}&MonitoringRef=${this.props.stopCode}`)
-        //     .then(res => {
-        //         let buss = res.data.ServiceDelivery.StopMonitoringDelivery.MonitoredStopVisit;
-        //         this.setState({ buss });
-        //     })
-        // } else 
-        {
         axios.get(`https://api.511.org/transit/StopMonitoring?api_key=72939361-85f9-4019-aa55-d62e4e7e2e59&Format=JSON&agency=${this.props.agency}&stopCode=${this.props.stopCode}`)
             .then(res => {
                 let buss = res.data.ServiceDelivery.StopMonitoringDelivery.MonitoredStopVisit;
@@ -32,9 +23,7 @@ class AnyStop extends React.Component {
                 if (this.props.limit){buss = buss.slice(0,this.props.limit)}
                 this.setState({ buss });
             })
-        }
     }
-
     render() {
         let busss = <div className="bust">
             No Tracked Vehicles to show. 
@@ -57,7 +46,9 @@ class AnyStop extends React.Component {
                             <span title="bus stop" role="img" aria-label="bus stop emoji">🚏</span>                  
                             { this.props.title 
                             ? this.props.title
-                            : stopName }
+                            : stopName
+                                ? stopName
+                                : `#${this.props.stopCode}` }
                         </div>
                     </Link> 
                 </div>

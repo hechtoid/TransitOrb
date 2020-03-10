@@ -39,26 +39,13 @@ class AnyStopWildCard extends React.Component {
        this.loadBusss()
     }
     loadBusss() {
- // if (this.state.agency === 'SB' || this.state.agency === 'GF') {
- // if (this.state.agency === 'SB' || this.state.agency === 'GF') {
- // if (this.state.agency === 'SB' || this.state.agency === 'GF') {
-        //     axios.get(`https://api.511.org/transit/stoptimetable?api_key=72939361-85f9-4019-aa55-d62e4e7e2e59&Format=JSON&OperatorRef=${this.state.agency}&MonitoringRef=${this.props.match.params.stop.toUpperCase()}`)
-        //     axios.get(`https://api.511.org/transit/stoptimetable?api_key=72939361-85f9-4019-aa55-d62e4e7e2e59&Format=JSON&OperatorRef=${this.state.agency}&MonitoringRef=${this.props.match.params.stop.toUpperCase()}`)
-        //     .then(res => {
-        //         console.log(res)
-        //         let buss = res.data.ServiceDelivery.StopMonitoringDelivery.MonitoredStopVisit;
-        //         this.setState({ buss });
-        //     })
-        // } else 
-        {
             if (this.state.stopCode.length === this.agencyCodeLengthMap[this.state.agency]) {
             axios.get(`https://api.511.org/transit/StopMonitoring?api_key=72939361-85f9-4019-aa55-d62e4e7e2e59&Format=JSON&agency=${this.state.agency}&stopCode=${this.state.stopCode}`)
                 .then(res => {
                     let buss = res.data.ServiceDelivery.StopMonitoringDelivery.MonitoredStopVisit;
                     this.setState({ buss });
                 })
-                .catch(this.setState({ buss: [] }))
-            }
+                .catch(this.setState({ buss: [] }))   
         }
     }
     loadStopList() {
@@ -73,37 +60,7 @@ class AnyStopWildCard extends React.Component {
         let stops = res.data.Contents.dataObjects.ScheduledStopPoint;
         let stop = stops.filter(stop => stop.id === this.state.stopCode.toUpperCase())[0] || {}
         this.setState({stop})
-        // if (this.state.agency === "BA") {
-        //     let stops = res.data.Contents.dataObjects.ScheduledStopPoint.filter(stop => !stop.id.includes('place') && !stop.Name.includes('Enter/Exit :'))
-        //     let stopCode = this.state.stopCode || 'EMBR'
-        //     let stop = stops.filter(stop => stop.id === stopCode.toUpperCase())[0] || stops.filter(stop => stop.id === 'EMBR')[0]
-        //     this.setState({
-        //         stopFilter: '',
-        //         stopsFiltered: stops,
-        //         stopLists: {'BA': stops},
-        //         stopCode: stop.id,
-        //         stops,
-        //         stop
-        //     });
-        //     this.loadBusss( this.state.agency, stop.id )
-        // }
-        // else {
-        //     let stops = res.data.Contents.dataObjects.ScheduledStopPoint;
-        //     let stop = stops.filter(stop => stop.id === this.state.stopCode.toUpperCase())[0] || stops[0]
-        //     let stopLists = this.state.stopLists
-        //     stopLists[this.state.agency] = stops
-        //     this.setState({
-        //         stopCode: stop.id,
-        //         stopFilter: '',
-        //         stopsFiltered: stops,
-        //         stopLists,
-        //         stops,
-        //         stop
-        //     });
-        //     this.loadBusss( this.state.agency, stop.id )
-        // }
     }
-
     updateStopCode(e) {
         return e => {
             let stopCode = e.currentTarget.value
@@ -148,32 +105,31 @@ class AnyStopWildCard extends React.Component {
                         Loading Map...
                     </iframe> 
         }
-return (
-        <div className="any-stop-wild-card">
-            <div className='short-title'>
-                {this.state.agency} {this.props.match.params.stopCode?'#'+this.props.match.params.stopCode.toUpperCase():''}
+        return (
+            <div className="any-stop-wild-card">
+                <div className='short-title'>
+                    {this.state.agency} {this.props.match.params.stopCode?'#'+this.props.match.params.stopCode.toUpperCase():''}
+                </div>
+                <input  
+                    type={(this.state.agency ==='BA'||this.state.agency ==='AM')?"text":"number"}
+                    id="stop-id"
+                    placeholder="Stop Code"
+                    value={this.state.stopCode}
+                    onFocus={this.selectID}
+                    onChange={this.updateStopCode()} />
+                <div className="g-frame">
+                    {gFrame}
+                </div>
+                <div className="stop-title" onClick={this.loadBusss}>
+                    { this.state.stop.Name && this.state.stopCode.toUpperCase() === this.state.stop.id
+                    ? this.state.stop.Name
+                    : stopName }
+                    <div>Tap to ReFresh</div>
+                </div>
+                <div className="buss">
+                    {busss}
+                </div>
             </div>
-            <input  
-                type={(this.state.agency ==='BA'||this.state.agency ==='AM')?"text":"number"}
-                id="stop-id"
-                placeholder="Stop Code"
-                value={this.state.stopCode}
-                onFocus={this.selectID}
-                onChange={this.updateStopCode()}
-            />
-            <div className="g-frame">
-                {gFrame}
-            </div>
-            <div className="stop-title" onClick={this.loadBusss}>
-                { this.state.stop.Name && this.state.stopCode.toUpperCase() === this.state.stop.id
-                ? this.state.stop.Name
-                : stopName }
-                <div>Tap to ReFresh</div>
-            </div>
-            <div className="buss">
-                {busss}
-            </div>
-        </div>
 );
     }
 
