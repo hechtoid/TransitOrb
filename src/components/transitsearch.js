@@ -282,7 +282,7 @@ class TransitSearch extends React.Component {
             <Link 
             to={`/anystop/${this.state.agency}/${this.state.stopCode}`}>
                 <div className="map-link">
-                    View Stop
+                    View
                 </div>
             </Link>}
         if (this.state.stop.Location){
@@ -296,13 +296,13 @@ class TransitSearch extends React.Component {
                 }
             }}>
                 <div className="map-link">
-                    View Stop
+                    View
                 </div>
             </Link>
         }
 return (
     <div className={ this.props.location.pathname === '/search'
-                    ? "transit-stop"
+                    ? "transit-search"
                     : "transit-off" } >
         <div className="agency-upper">
        

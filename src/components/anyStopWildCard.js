@@ -10,7 +10,7 @@ class AnyStopWildCard extends React.Component {
         this.state = {
             stopCode: this.props.match.params.stopCode ? this.props.match.params.stopCode.toUpperCase() : '',
             agency: this.props.match.params.agency ? this.props.match.params.agency.toUpperCase() : 'SF',
-            stop: this.props.location.state  ?this.props.location.state.stop : {},
+            stop: this.props.location.state  ? this.props.location.state.stop : {},
             buss: []
         }
         this.loadBusss = this.loadBusss.bind(this);
@@ -95,9 +95,9 @@ class AnyStopWildCard extends React.Component {
                 return <Bus bus={bus} key={key++} />
             })   
         }
-        let gFrame = <button disabled className="stop-loads" >Load Map</button>
+        let gFrame = <button disabled className="stop-loads" >Show Map</button>
         if (this.state.stopCode.length === this.agencyCodeLengthMap[this.state.agency]) {
-            gFrame = <button className="load-stops" onClick={this.loadStopList}>Load Map</button>
+            gFrame = <button className="load-stops" onClick={this.loadStopList}>Show Map</button>
         }
         if (this.state.stop.Location && this.state.stopCode.toUpperCase() === this.state.stop.id) { 
             gFrame = <iframe title="gFrame" frameBorder="1"

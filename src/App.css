@@ -283,7 +283,7 @@ div.min-math{
 .bold{
     font-weight: 900;
 }
-.transit-stop{
+.transit-search{
     width: 100%;
     margin: 10px 5px 0 5px;
     /* display: flex; */
@@ -327,7 +327,7 @@ label input[type="radio"]{
     margin: 3px 0px 2px 5px;
     height: 35px;
 }
-.transit-stop hr{
+.transit-search hr{
     width: 327;
     margin: 5px 5px 10px 5px;
 }
@@ -381,7 +381,7 @@ label input[type="radio"]{
     min-height: 57px;
     overflow: hidden;
 }
-.transit-stop div.stop-title{
+.transit-search div.stop-title{
     margin: 3px 5px 5px 5px; 
     width: 222px;
   
@@ -407,6 +407,9 @@ div.stop-title:active{
     margin: 3px 0 1px 5px;
     width: 75px;
     padding-left: 5px;
+}
+.transit-search .map-link{
+    /* width: 75px; */
 }
 .map-link{
     margin: 3px 0px 5px 5px;
