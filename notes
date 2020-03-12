@@ -1,7 +1,7 @@
 TO ASK COACHES
-cookies/backend?
+MERN#cookies/backend?
 
-when to use e.preventDefault
+#when to use e.preventDefault
 
 #move 511 to bottom
 
@@ -32,8 +32,8 @@ custom agency shortlist
 #vehicular stop children list just title and link no number shown til anystop wildcard
 
 
-anyStops have timetable endpoint for ferries COMMENTED OUT
-switch softlink transit into local, still git itself
+#anyStops have timetable endpoint for ferries COMMENTED OUT
+#switch softlink transit into local, still git itself
 
 
 #!embed map at least on vehicular

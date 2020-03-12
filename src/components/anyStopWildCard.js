@@ -101,7 +101,7 @@ class AnyStopWildCard extends React.Component {
         }
         if (this.state.stop.Location && this.state.stopCode.toUpperCase() === this.state.stop.id) { 
             gFrame = <iframe title="gFrame" frameBorder="1"
-                    src={`https://www.google.com/maps/embed/v1/place?zoom=13&q=${this.state.stop.Location.Latitude},${this.state.stop.Location.Longitude}&key=AIzaSyAIe8CQdaU5qYMgUBimNtNLtz6MKhODsNU`}>
+                    src={`https://www.google.com/maps/embed/v1/place?zoom=16&q=${this.state.stop.Location.Latitude},${this.state.stop.Location.Longitude}&key=AIzaSyAIe8CQdaU5qYMgUBimNtNLtz6MKhODsNU`}>
                         Loading Map...
                     </iframe> 
         }

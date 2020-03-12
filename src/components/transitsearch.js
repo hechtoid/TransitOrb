@@ -24,7 +24,6 @@ class TransitSearch extends React.Component {
         this.stopListIntegrator = this.stopListIntegrator.bind(this)
         this.updateStopFilter = this.updateStopFilter.bind(this)
         this.updateStopCode = this.updateStopCode.bind(this)
-        this.handleSubmit = this.handleSubmit.bind(this)
         this.selectID = this.selectID.bind(this)
         
         this.agencyCodeLengthMap = {
@@ -48,10 +47,6 @@ class TransitSearch extends React.Component {
             let agencies = res.data.filter(agency => !!agency.WebSite);
             this.setState({ agencies });
         })
-        this.loadBusss()
-    }
-    handleSubmit(e){
-        e.preventDefault()
         this.loadBusss()
     }
     loadBusss(agency = this.state.agency, stopCode = this.state.stopCode) {
@@ -267,7 +262,7 @@ class TransitSearch extends React.Component {
         let busss = <div className="bust">
                 No Tracked Vehicles.
                 <br></br>
-                <span className='update' onClick={this.handleSubmit}>Check again</span>, check your inputs, or check the schedule.
+                <span className='update' onClick={this.loadBusss}>Check again</span>, check your inputs, or check the schedule.
             </div>
         if (this.state.buss[0]) {
             stopName = this.state.buss[0].MonitoredVehicleJourney.MonitoredCall.StopPointName
@@ -405,7 +400,7 @@ return (
             placeholder={this.state.loaded?"Type to Search":"Load Stops to Search"} />
     <br></br>
         <div className="stop-info">
-            <div className="stop-title" onClick={this.handleSubmit}>
+            <div className="stop-title" onClick={this.loadBusss}>
                 { this.state.stop.Name
                 ? this.state.stop.Name
                 : stopName }
