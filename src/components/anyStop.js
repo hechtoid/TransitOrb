@@ -48,7 +48,7 @@ class AnyStop extends React.Component {
                             ? this.props.title
                             : stopName
                                 ? stopName
-                                : `#${this.props.stopCode}` }
+                                : `${this.props.agency}#${this.props.stopCode}` }
                         </div>
                     </Link> 
                 </div>
