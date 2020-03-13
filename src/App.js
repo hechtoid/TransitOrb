@@ -43,7 +43,7 @@ function App(props) {
 
         <Route path="/anystop/:agency?/:stopCode?" render={(props) => <AnyStopWildCard {...props} /> }/>
 
-        <Route exact path="/cookies">
+        <Route exact path="/user">
             <div className="bus">COMING SOON</div>
         </Route>
 
@@ -63,13 +63,17 @@ function App(props) {
         </Route>
       </div>
       </div>
-      <div className="five-eleven">
-        <div>
+      <div className="footer">
+        <div className="five-eleven">
           <a href="https://511.org/open-data/transit" title="Powered by 511 Open Data" target="_blank" rel="noopener noreferrer">
             <img className="five-eleven" src="https://proxy-prod.511.org/assets/img/branding/511_original_web.png" alt="511 logo"></img>
           </a>
         </div>
-        <span>Powered by 511 Open Data</span>
+        <div className="disclaimer">
+          <span>Powered by 511 Open Data</span>
+          <br></br>
+          <span>transitYourself makes no claim as to the veracity or timeliness</span>
+        </div>
       </div>
     </div>
     </div>

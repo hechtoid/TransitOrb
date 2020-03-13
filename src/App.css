@@ -94,12 +94,12 @@ div[title="Stop Departures"] span{
     position: relative;
     top: -5px;
 }
-div[title="Cookies"]{
+div[title="User"]{
     width: 49px;
     display: flex;
     justify-content: center;
 }
-div[title="Cookies"] span{
+div[title="User"] span{
     font-size: 25px;
     position: relative;
     top: -3px;
@@ -115,11 +115,11 @@ span[aria-label="magnifying glass emoji"]{
     top: -5px;
     /* margin-left: 11px; */
 }
-div.five-eleven{
+div.footer{
     display: flex;
-    align-items: baseline;
+    align-items: center;
 }
-div.five-eleven div{
+div.five-eleven{
     background-color: white;
     border-radius: 10px;
     height: 36px;
@@ -130,12 +130,14 @@ div.five-eleven div{
 img.five-eleven{
     height: 33px;
 }
-.five-eleven span{
-    color: white;
-    /* font-style: oblique; */
-    font-weight: 900;
-    /* margin-left: 5px; */
-    font-size: 11px;
+div.disclaimer{
+   color: white;
+   font-style: oblique;
+   font-weight: 900;
+   font-size: 11px;
+}
+div.disclaimer span:first-child{
+    font-style: normal;
 }
 .transit-switch-on{
     margin: 2px 1px 0 0px;
