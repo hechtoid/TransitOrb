@@ -25,7 +25,7 @@ function App(props) {
                         
         <Route exact path="/saved">
           <div>
-            <AnyStop agency='SF' stopCode='16513' limit="2" filterOUT={['8','8BX']} />
+            <AnyStop agency='SF' stopCode='16513' limit="2" />
             <AnyStop agency="SF" stopCode="13082" limit="4"/>
           </div>
             <AnyStop agency='BA' stopCode='EMBR' limit="9" />

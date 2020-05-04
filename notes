@@ -1,5 +1,14 @@
-TO ASK COACHES
-MERN#cookies/backend?
+myStop
+
+Prolly Prop Thread
+Change Name
+
+vehicular => match params
+
+MAKE IT MERN
+custom agency shortlist
+#TO ASK COACHES
+#MERN#cookies/backend?
 
 #when to use e.preventDefault
 
@@ -13,7 +22,6 @@ MERN#cookies/backend?
 #anystop link to anystopwildcard
 
 #PROLLY COOL?prop vehicular thru params? - for easy refresh/works anyways?
-vehicular => match params
 
 refactor/split off?
 logic in vehicular, feed to stop component
@@ -22,7 +30,6 @@ if expected arrival is more than one minute before expected departure
 
 #fix vehicular for CalTrain. 
 
-custom agency shortlist
 
 #thread stopLists OR #BOTH!!!HardCode #!!map link to anystop wildcard with embed!
 
