@@ -56,7 +56,7 @@ The bulk of this work appears in the [transitsearch](src/components/transitsearc
 
     ![pinned stops image](scrots/saved.jpg)
 
-* Another feature I am proud of ,and which I have not seen implemented elsehwere, is direct access to the Live Vehicle Tracking API. While riding a bus somebody asked me how long until we arrive at our stop - and I thought "hey, I know where to access that data!"
+* Another feature I am fond of, and which I actually have not seen implemented elsehwere, is direct access to the Live Vehicle Tracking API. While riding a bus somebody asked me how long until we arrive at our stop - and I thought "hey, I know where to access that data!"
     * Mobile Optimized and embedded with Maps!
     * Simply enter the vehicle number (displayed prominently inside and out) and the app will load a map and schedule of upcoming stops. Depending on agency these are accurate to within one minute.
 
