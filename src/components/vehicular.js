@@ -23,19 +23,24 @@ class Vehicular extends React.Component {
         document.title=`transitYourself - Vehicular Tracking`
         this.loadVehicle()
     }
+    componentDidUpdate(prevProps, prevState) {
+        if (this.props.match.params.vehicleNumber !== prevProps.match.params.vehicleNumber){
+            this.loadVehicle()
+        }
+    }
     handleSubmit(e){
         e.preventDefault()
         this.props.history.push(`/vehicular/${this.state.agency}/${this.state.vehicleNumber}`)
         this.loadVehicle()
     }
     loadVehicle() { 
-        let vehicle
+        let vehicle = { VehicleRef: this.props.match.params.vehicleNumber }
         let agency = this.state.agency.toUpperCase()
-        axios.get(`https://api.511.org/transit/VehicleMonitoring?api_key=72939361-85f9-4019-aa55-d62e4e7e2e59&agency=${agency}&format=json&vehicleID=${this.state.vehicleNumber}`)
+        axios.get(`https://api.511.org/transit/VehicleMonitoring?api_key=72939361-85f9-4019-aa55-d62e4e7e2e59&agency=${agency}&format=json&vehicleID=${vehicle.VehicleRef}`)
             .then(res => {
-                vehicle = res.data.Siri.ServiceDelivery.VehicleMonitoringDelivery.VehicleActivity
-                ? res.data.Siri.ServiceDelivery.VehicleMonitoringDelivery.VehicleActivity[0].MonitoredVehicleJourney
-                : {VehicleRef: this.state.vehicleNumber}
+                if (res.data.Siri.ServiceDelivery.VehicleMonitoringDelivery.VehicleActivity){
+                    vehicle = res.data.Siri.ServiceDelivery.VehicleMonitoringDelivery.VehicleActivity[0].MonitoredVehicleJourney
+                }
                 this.setState({ vehicleNumber: vehicle.VehicleRef, vehicle, agency });
                 document.title=
                     `transitYourself - Vehicular Tracking
@@ -79,7 +84,7 @@ class Vehicular extends React.Component {
                             {this.state.vehicle.LineRef}
                         </span>
                         <span className="bold">
-                            => 
+                            {`=>`}
                         </span>
                     </span>
                     <div>
@@ -202,6 +207,7 @@ return (
                 id="vehicle-agency"
                 placeholder="Agency"
                 value={this.state.agency}
+                onFocus={this.selectID}
                 onChange={this.updateAgency()}
                 />
             <input type="number"
