@@ -46,9 +46,7 @@ if (props.bus.MonitoredVehicleJourney.OperatorRef === "BA") {
                         <span title="Track Vehicle" className="bold">
                         {props.bus.MonitoredVehicleJourney.VehicleRef
                         ? <span className="gps">
-                                <Link to={{pathname: "/vehicular", state: {
-                                vehicleNumber: props.bus.MonitoredVehicleJourney.VehicleRef,
-                                agency: props.bus.MonitoredVehicleJourney.OperatorRef}}} >
+                                <Link to={`/vehicular/${props.bus.MonitoredVehicleJourney.OperatorRef}/${props.bus.MonitoredVehicleJourney.VehicleRef}`}>
                         {props.bus.MonitoredVehicleJourney.LineRef}<sup>GPS</sup>
                         </Link></span>
                         : <span className="no-gps">
@@ -89,9 +87,7 @@ if (props.bus.MonitoredVehicleJourney.OperatorRef === "BA") {
                         <span title="Track Vehicle" className="bold">
                         {props.bus.MonitoredVehicleJourney.VehicleRef
                         ? <span className="gps">
-                                <Link to={{pathname: "/vehicular", state: {
-                                vehicleNumber: props.bus.MonitoredVehicleJourney.VehicleRef,
-                                agency: props.bus.MonitoredVehicleJourney.OperatorRef}}} >
+                                <Link to={`/vehicular/${props.bus.MonitoredVehicleJourney.OperatorRef}/${props.bus.MonitoredVehicleJourney.VehicleRef}`}>
                         {props.bus.MonitoredVehicleJourney.LineRef}<sup>GPS</sup>
                         </Link></span>
                         : <span className="no-gps">

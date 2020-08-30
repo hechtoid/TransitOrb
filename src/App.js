@@ -39,7 +39,7 @@ function App(props) {
           </div>
         </Route>
 
-        <Route exact path="/vehicular" component={Vehicular} />
+        <Route path="/vehicular/:agency?/:vehicleNumber?" render={(props) => <Vehicular {...props} /> }/>
 
         <Route path="/anystop/:agency?/:stopCode?" render={(props) => <AnyStopWildCard {...props} /> }/>
 

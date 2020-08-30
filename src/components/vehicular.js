@@ -6,8 +6,11 @@ import { niceDate, countDown } from '../utils/date';
 class Vehicular extends React.Component {
     constructor(props) {
         super(props);
-        this.state = this.props.location.state || {vehicleNumber: '', agency: 'SF'}
-    
+            this.state = {
+                vehicleNumber: this.props.match.params.vehicleNumber ? this.props.match.params.vehicleNumber.toUpperCase() : '',
+                agency: this.props.match.params.agency ? this.props.match.params.agency.toUpperCase() : 'SF'
+            }
+
         this.loadVehicle = this.loadVehicle.bind(this)
         this.updateVehicleNumber = this.updateVehicleNumber.bind(this)
         this.updateAgency = this.updateAgency.bind(this)
@@ -17,10 +20,12 @@ class Vehicular extends React.Component {
     selectID = (e) => e.target.select();
 
     componentDidMount() {
+        document.title=`transitYourself - ${this.state.agency} Vehicle #${this.state.vehicleNumber}`
         this.loadVehicle()
     }
     handleSubmit(e){
         e.preventDefault()
+        this.props.history.push(`/vehicular/${this.state.agency}/${this.state.vehicleNumber}`)
         this.loadVehicle()
     }
     loadVehicle() { 
@@ -31,8 +36,8 @@ class Vehicular extends React.Component {
                 vehicle = res.data.Siri.ServiceDelivery.VehicleMonitoringDelivery.VehicleActivity
                 ? res.data.Siri.ServiceDelivery.VehicleMonitoringDelivery.VehicleActivity[0].MonitoredVehicleJourney
                 : {}
-                this.setState({ vehicle });
-            })
+                this.setState({ vehicleNumber: vehicle.VehicleRef, vehicle, agency });
+            })   
     }
     updateVehicleNumber(e) {
         return e => {
@@ -180,9 +185,7 @@ class Vehicular extends React.Component {
             </div>
         }
 return (
-    <div className={ this.props.location.pathname === '/vehicular'
-                    ? "vehicular"
-                    : "transit-off" } >
+    <div className="vehicular">
         <div className="short-title">
             Live Tracking
                 { this.state.vehicle && this.state.vehicle.VehicleRef
