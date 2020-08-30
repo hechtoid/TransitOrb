@@ -20,7 +20,7 @@ class Vehicular extends React.Component {
     selectID = (e) => e.target.select();
 
     componentDidMount() {
-        document.title=`transitYourself - ${this.state.agency} Vehicle #${this.state.vehicleNumber}`
+        document.title=`transitYourself - Vehicular Tracking`
         this.loadVehicle()
     }
     handleSubmit(e){
@@ -37,6 +37,7 @@ class Vehicular extends React.Component {
                 ? res.data.Siri.ServiceDelivery.VehicleMonitoringDelivery.VehicleActivity[0].MonitoredVehicleJourney
                 : {}
                 this.setState({ vehicleNumber: vehicle.VehicleRef, vehicle, agency });
+                document.title=`transitYourself - Vehicular Tracking - ${agency} #${vehicle.VehicleRef}`
             })   
     }
     updateVehicleNumber(e) {
