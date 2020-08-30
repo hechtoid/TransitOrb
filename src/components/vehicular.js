@@ -29,15 +29,19 @@ class Vehicular extends React.Component {
         this.loadVehicle()
     }
     loadVehicle() { 
-        let vehicle = {}
+        let vehicle
         let agency = this.state.agency.toUpperCase()
         axios.get(`https://api.511.org/transit/VehicleMonitoring?api_key=72939361-85f9-4019-aa55-d62e4e7e2e59&agency=${agency}&format=json&vehicleID=${this.state.vehicleNumber}`)
             .then(res => {
                 vehicle = res.data.Siri.ServiceDelivery.VehicleMonitoringDelivery.VehicleActivity
                 ? res.data.Siri.ServiceDelivery.VehicleMonitoringDelivery.VehicleActivity[0].MonitoredVehicleJourney
-                : {}
+                : {VehicleRef: this.state.vehicleNumber}
                 this.setState({ vehicleNumber: vehicle.VehicleRef, vehicle, agency });
-                document.title=`transitYourself - Vehicular Tracking - ${agency} #${vehicle.VehicleRef}`
+                document.title=
+                    `transitYourself - Vehicular Tracking
+                    ${vehicle.OperatorRef
+                    ?`- ${vehicle.OperatorRef} #${vehicle.VehicleRef}`
+                    :''}`
             })   
     }
     updateVehicleNumber(e) {
@@ -188,9 +192,9 @@ class Vehicular extends React.Component {
 return (
     <div className="vehicular">
         <div className="short-title">
-            Live Tracking
-                { this.state.vehicle && this.state.vehicle.VehicleRef
-                ? ` - Vehicle #${this.state.vehicle.VehicleRef}`
+            Vehicular Tracking
+                { this.state.vehicle && this.state.vehicle.VehicleRef && this.state.vehicle.OperatorRef
+                ? ` - ${this.state.vehicle.OperatorRef} #${this.state.vehicle.VehicleRef}`
                 : '' }
         </div>             
         <form onSubmit={this.handleSubmit}>
