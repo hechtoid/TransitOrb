@@ -38,7 +38,10 @@ if (props.bus.MonitoredVehicleJourney.OperatorRef === "BA") {
         </div>
 )} else if (props.bus.MonitoredVehicleJourney.OperatorRef === "CT") {
         let caltrainLine = 'GY-N'
-                if (props.bus.MonitoredVehicleJourney.LineRef === 'Limited') {caltrainLine = 'YL-N'}
+                if (props.bus.MonitoredVehicleJourney.LineRef === 'Limited' 
+                || props.bus.MonitoredVehicleJourney.LineRef === 'LTD A'
+                || props.bus.MonitoredVehicleJourney.LineRef === 'LTD B') 
+                        {caltrainLine = 'YL-N'}
                 if (props.bus.MonitoredVehicleJourney.LineRef === 'Bullet') {caltrainLine = 'RD-N'}
         return (
         <div className="bus" id={caltrainLine}>
