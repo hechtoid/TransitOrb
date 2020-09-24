@@ -27,7 +27,7 @@ function TransitHeader(props) {
           props.location.pathname.includes('/vehicular')
           ? 'transit-switch-on' 
           : 'transit-switch-off' }>
-<span title="Vehicle Tracking" role="img" aria-label="bus emoji">🚌</span>
+<span title="Vehicular Tracking" role="img" aria-label="bus emoji">🚌</span>
         </div>
       </Link>
       <Link to= "/anystop" >
@@ -35,7 +35,7 @@ function TransitHeader(props) {
           props.location.pathname.includes('/anystop')
           ? 'transit-switch-on' 
           : 'transit-switch-off' }>
-<span title="Stop Departures" role="img" aria-label="bus stop emoji">🚏</span>
+<span title="Live Departures" role="img" aria-label="bus stop emoji">🚏</span>
         </div>
       </Link>
       <Link to= "/user" >
@@ -43,7 +43,7 @@ function TransitHeader(props) {
           props.location.pathname === '/user'
           ? 'transit-switch-on' 
           : 'transit-switch-off' }>
-<span title="User" role="img" aria-label="user emoji">👤</span>
+<span title="User Settings" role="img" aria-label="user emoji">👤</span>
         </div>
       </Link>
     </div>
