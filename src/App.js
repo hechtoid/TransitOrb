@@ -67,7 +67,7 @@ function App(props) {
         <div>
           <a href="https://511.org/open-data/transit" title="Powered by 511 Open Data" target="_blank" rel="noopener noreferrer">
           <div className="five-eleven">
-            <img className="five-eleven" src="511_original_web.png" alt="511 logo"></img>
+            <img src="./511_original_web.png" alt="511 logo"></img>
           </div>
           </a>
         <div className="disclaimer">
@@ -78,7 +78,7 @@ function App(props) {
         </div>
         <a href="https://github.com/hechtoid/transitYourself" title="View Source on GitHub" target="_blank" rel="noopener noreferrer">
         <div className="GitHub">
-          <img src="GitHub-Mark-120px-plus.png" alt="GitHub Logo"></img>
+          <img src="./GitHub-Mark-120px-plus.png" alt="GitHub Logo"></img>
         </div>
         </a>
       </div>
