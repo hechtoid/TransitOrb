@@ -102,9 +102,10 @@ class Vehicular extends React.Component {
                         </div>
                     </div>
                 </div>
-        let expected = this.state.agency === 'CT'
-                     ? expected = this.state.vehicle.MonitoredCall.ExpectedDepartureTime 
-                     : expected = this.state.vehicle.MonitoredCall.ExpectedArrivalTime
+        let expected
+	expected = this.state.agency === 'CT'
+                 ? expected = this.state.vehicle.MonitoredCall.ExpectedDepartureTime 
+                 : expected = this.state.vehicle.MonitoredCall.ExpectedArrivalTime
         firstStop =  
             <div className="stop" >
                 <div>
@@ -150,9 +151,10 @@ class Vehicular extends React.Component {
             <div className="future-stops">
                 {firstStop}
                 {this.state.vehicle.OnwardCalls.OnwardCall.map(stop => {
-                    let expected = this.state.agency.toUpperCase() === 'CT'
-                                 ? expected = stop.ExpectedDepartureTime 
-                                 : expected = stop.ExpectedArrivalTime
+                    let expected 
+		    expected = this.state.agency.toUpperCase() === 'CT'
+                             ? expected = stop.ExpectedDepartureTime 
+                             : expected = stop.ExpectedArrivalTime
                     return ( 
                     <div className="stop" key={key++}>
                         <div>
