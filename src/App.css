@@ -491,7 +491,7 @@ div.map-link:hover{
 .vehicular-feedback{
     font-size: 11px;
     position: relative;
-    top: -9px;
+    top: -5px;
     left: 120px;
 }
 
@@ -501,7 +501,7 @@ div.map-link:hover{
     margin-left: 10px;
 }
 .vehicle-info{
-    margin: -10px 5px 5px 5px;
+    margin: -5px 5px 5px 5px;
     display: flex;
     justify-content: space-between;
     vertical-align: middle;
