@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import TransitSearch from './components/transitsearch';
 import TransitHeader from './components/transitheader';
 import Vehicular from './components/vehicular'
-import AnyStop from './components/anyStop';
+import AnyStop from './components/anyStopFunction';
 import AnyStopWildCard from './components/anyStopWildCard';
 
 import AA from './components/aa';
