@@ -14,7 +14,8 @@ function AnyStop(props) {
                 if (props.filterOUT){buss = buss.filter( bus => !props.filterOUT.includes(bus.MonitoredVehicleJourney.LineRef))}
                 if (props.limit){buss = buss.slice(0,props.limit)}
                 setBuss(buss);
-            }).catch(exception => setError(`[${exception.toString()}]`))
+            })
+            .catch(exception => setError(`[${exception.toString()}]`))
     }
     useEffect(loadBusss)
 

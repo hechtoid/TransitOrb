@@ -17,7 +17,8 @@ class TransitSearch extends React.Component {
             stopFilter: '',
             stopsFiltered: [],
             stop: { Name: 'Embarcadero' },
-            buss: []
+            buss: [],
+            error: ''
         }
         this.selectID = this.selectID.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
@@ -49,6 +50,7 @@ class TransitSearch extends React.Component {
         this.loadBusss()
     }
     handleSubmit(e){
+        this.setState({ error: '' })
         e.preventDefault()
         this.loadBusss()
     }
@@ -58,6 +60,7 @@ class TransitSearch extends React.Component {
                 let buss = res.data.ServiceDelivery.StopMonitoringDelivery.MonitoredStopVisit;
                 this.setState({ buss });
             })
+            .catch(exception => this.setState({ buss: [], error: `[${exception.toString()}]` }))   
     }
 
     updateAgency(e) {
@@ -265,7 +268,7 @@ class TransitSearch extends React.Component {
         let busss = <div className="bust">
                 No Tracked Vehicles.
                 <br></br>
-                <span className='update' onClick={this.handleSubmit}>Check again</span>, check your inputs, or check the schedule.
+                <span className='update' onClick={this.handleSubmit}>Check again</span>, check your inputs, or check the schedule. <span className='error'>{this.state.error}</span> 
             </div>
         if (this.state.buss[0]) {
             stopName = this.state.buss[0].MonitoredVehicleJourney.MonitoredCall.StopPointName

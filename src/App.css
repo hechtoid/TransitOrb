@@ -219,6 +219,7 @@ div.GitHub img{
 .error{
     color: red;
     font-style: oblique;
+    font-size: 12px;
 }
 .bus{
     margin: 5px 5px 0px 5px;
