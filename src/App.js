@@ -28,7 +28,9 @@ function App(props) {
             <AnyStop agency='SF' stopCode='16513' limit="2" />
             <AnyStop agency="SF" stopCode="13082" limit="4"/>
           </div>
+          <div>
             <AnyStop agency='BA' stopCode='EMBR' limit="9" />
+          </div>
           <div>
             <AnyStop title="frisco train" agency='CT' stopCode='70012' />
             <AnyStop title='CalTrain MillBrae' agency='CT' stopCode='70062' />
@@ -44,7 +46,9 @@ function App(props) {
         <Route path="/anystop/:agency?/:stopCode?" render={(props) => <AnyStopWildCard {...props} /> }/>
 
         <Route exact path="/user">
+          <div>
             <div className="bus">COMING SOON</div>
+          </div>
         </Route>
 
         <TransitSearch />
