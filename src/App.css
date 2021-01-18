@@ -215,6 +215,10 @@ div.GitHub img{
     padding: 7px 5px 7px 7px;
     max-width: 360px;  
 }
+.error{
+    color: red;
+    font-style: oblique;
+}
 .bus{
     margin: 5px 5px 0px 5px;
     border: 1px solid gray;

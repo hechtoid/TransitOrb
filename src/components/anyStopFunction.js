@@ -5,6 +5,7 @@ import Bus from './bus'
 
 function AnyStop(props) {
     const [buss, setBuss] = useState([])
+    const [error, setError] = useState('')
     const loadBusss = () => {
         axios.get(`https://api.511.org/transit/StopMonitoring?api_key=72939361-85f9-4019-aa55-d62e4e7e2e59&Format=JSON&agency=${props.agency}&stopCode=${props.stopCode}`)
             .then(res => {
@@ -13,7 +14,7 @@ function AnyStop(props) {
                 if (props.filterOUT){buss = buss.filter( bus => !props.filterOUT.includes(bus.MonitoredVehicleJourney.LineRef))}
                 if (props.limit){buss = buss.slice(0,props.limit)}
                 setBuss(buss);
-            })
+            }).catch(exception => setError(exception.toString()))
     }
     useEffect(loadBusss)
 
@@ -22,7 +23,7 @@ function AnyStop(props) {
                         <br></br>
                     <span className='update' onClick={loadBusss}>
                         Check again
-                    </span>, check your inputs, or check the schedule. 
+                    </span>, check your inputs, or check the schedule. <span className='error'>[{error}]</span>
                 </div>
     let stopName
     if (buss[0]) {
