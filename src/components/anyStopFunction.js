@@ -14,16 +14,16 @@ function AnyStop(props) {
                 if (props.filterOUT){buss = buss.filter( bus => !props.filterOUT.includes(bus.MonitoredVehicleJourney.LineRef))}
                 if (props.limit){buss = buss.slice(0,props.limit)}
                 setBuss(buss);
-            }).catch(exception => setError(exception.toString()))
+            }).catch(exception => setError(`[${exception.toString()}]`))
     }
     useEffect(loadBusss)
 
     let busss = <div className="bust">
                     No Tracked Vehicles to show. 
                         <br></br>
-                    <span className='update' onClick={loadBusss}>
+                    <span className='update' onClick={ () => {setError(''); loadBusss()} }>
                         Check again
-                    </span>, check your inputs, or check the schedule. <span className='error'>[{error}]</span>
+                    </span>, check your inputs, or check the schedule. <span className='error'>{error}</span>
                 </div>
     let stopName
     if (buss[0]) {
