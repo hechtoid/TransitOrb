@@ -11,7 +11,8 @@ class AnyStopWildCard extends React.Component {
             stopCode: this.props.match.params.stopCode ? this.props.match.params.stopCode.toUpperCase() : '',
             agency: this.props.match.params.agency ? this.props.match.params.agency.toUpperCase() : 'SF',
             stop: this.props.location.state  ? this.props.location.state.stop : {},
-            buss: []
+            buss: [],
+            error: ''
         }
         this.loadBusss = this.loadBusss.bind(this);
         this.loadStopList = this.loadStopList.bind(this)
@@ -45,7 +46,7 @@ class AnyStopWildCard extends React.Component {
                     let buss = res.data.ServiceDelivery.StopMonitoringDelivery.MonitoredStopVisit;
                     this.setState({ buss });
                 })
-                .catch(this.setState({ buss: [] }))   
+                .catch(exception => this.setState({ buss: [], error: `[${exception.toString()}]` }))   
         }
     }
     loadStopList() {
@@ -85,7 +86,7 @@ class AnyStopWildCard extends React.Component {
         let busss = <div className="bust">
             No Tracked Vehicles to show. 
             <br></br>
-            <span className='update' onClick={this.loadBusss}>Check again</span>, check your inputs, or check the schedule.
+            <span className='update' onClick={ () => {this.setState({ error: '' }); this.loadBusss()}}>Check again</span>, check your inputs, or check the schedule. <span className='error'>{this.state.error}</span>
         </div>
         let stopName
         if (this.state.buss[0]){
