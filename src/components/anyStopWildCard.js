@@ -121,7 +121,7 @@ class AnyStopWildCard extends React.Component {
                 <div className="g-frame">
                     {gFrame}
                 </div>
-                <div className="stop-title" onClick={this.loadBusss}>
+                <div className="stop-title" onClick={ () => {this.setState({ error: '' }); this.loadBusss()}}>
                     { this.state.stop.Name && this.state.stopCode.toUpperCase() === this.state.stop.id
                     ? this.state.stop.Name
                     : stopName }
