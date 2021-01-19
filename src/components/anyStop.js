@@ -17,7 +17,7 @@ function AnyStop(props) {
             })
             .catch(exception => setError(`[${exception.toString()}]`))
     }
-    useEffect(loadBusss)
+    useEffect(loadBusss, [])
 
     let busss = <div className="bust">
                     No Tracked Vehicles to show. 
