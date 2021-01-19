@@ -70,6 +70,7 @@ class AnyStopWildCard extends React.Component {
                     stopCode
                 })}
             if (stopCode.length === this.agencyCodeLengthMap[this.state.agency]) {
+                this.setState({ error: '' });
                 let stoppCode = stopCode.toUpperCase()
                 this.props.history.push(`/anystop/${this.state.agency}/${stoppCode}`)
                 axios.get(`https://api.511.org/transit/StopMonitoring?api_key=72939361-85f9-4019-aa55-d62e4e7e2e59&Format=JSON&agency=${this.state.agency}&stopCode=${stoppCode}`)
@@ -77,8 +78,8 @@ class AnyStopWildCard extends React.Component {
                         let buss = res.data.ServiceDelivery.StopMonitoringDelivery.MonitoredStopVisit;
                         this.setState({ buss, stopCode: stoppCode });
                         document.title=`transitYourself - Live Departures - ${this.state.agency} #${stoppCode}`
-            })
-                    .catch(this.setState({ buss: [] }))
+                    })
+                    .catch(exception => this.setState({ buss: [], error: `[${exception.toString()}]` }))   
             }
         }
     }

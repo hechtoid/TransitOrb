@@ -79,7 +79,8 @@ class TransitSearch extends React.Component {
                 loaded: true,
                 stop,
                 stops,
-                agency
+                agency,
+                error: ''
         })
         this.loadBusss( agency, stop.id )
     } else {
@@ -91,7 +92,8 @@ class TransitSearch extends React.Component {
             stopsFiltered: [],
             stopCode: '',
             buss: [],
-            loaded: false
+            loaded: false,
+            error: ''
             })
             }
         }
@@ -141,7 +143,8 @@ class TransitSearch extends React.Component {
             let stop = this.state.stopsFiltered[e.currentTarget.value]
                 this.setState({
                     stopCode: stop.id,
-                    stop
+                    stop,
+                    error: ''
                 })
             this.loadBusss(  this.state.agency, stop.id )
         }
@@ -172,7 +175,8 @@ class TransitSearch extends React.Component {
                     if (this.state.stopCode !== stop.id) {
                         this.setState({
                             stopCode: stop.id,
-                            stop
+                            stop,
+                            error: ''
                         })
                         this.loadBusss(  this.state.agency, stop.id )
                     }
@@ -189,13 +193,14 @@ class TransitSearch extends React.Component {
                 })
             }
             if (stopCode.length === this.agencyCodeLengthMap[this.state.agency]) {
+                this.setState({ error: '' })
                 let stoppCode = stopCode.toUpperCase()
                 axios.get(`https://api.511.org/transit/StopMonitoring?api_key=72939361-85f9-4019-aa55-d62e4e7e2e59&Format=JSON&agency=${this.state.agency}&stopCode=${stoppCode}`)
                 .then(res => {
                     let buss = res.data.ServiceDelivery.StopMonitoringDelivery.MonitoredStopVisit;
                     this.setState({  buss })
                     if (buss[0]) {this.setState({ stopCode: stoppCode })}
-                })         
+                }).catch(exception => this.setState({ buss: [], error: `[${exception.toString()}]` }))   
                 if (this.state.stops) {
                 let stop = this.state.stops.filter(stop => stop.id.toUpperCase() === stoppCode)[0]
                     if (stop) {
