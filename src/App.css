@@ -24,6 +24,7 @@ body{
     font-family: source-sans-pro, sans-serif;
     margin-right: 2px;
     min-height: 100vh;
+    min-width: 100%;
 }
 .transit-master{
     border: 0 1px solid black;
@@ -481,7 +482,10 @@ div.map-link:hover{
 .vehicular{
     padding: 0;
     margin: 0;
-    width: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
 }
 .vehicular form input{
     margin: 0px 5px 0px 15px;
