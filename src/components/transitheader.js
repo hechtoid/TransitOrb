@@ -3,7 +3,7 @@ import { Link, withRouter } from 'react-router-dom';
 
 function TransitHeader(props) {
   let title=props.location.pathname.substring(1)
-  document.title=`transitYourself - ${title}`
+  document.title=`TransitOrb - ${title}`
   return (
     <div className="transit-header">
       <Link to="/search">

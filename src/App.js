@@ -77,10 +77,10 @@ function App(props) {
         <div className="disclaimer">
           <span>Powered by 511 Open Data</span>
           <br></br>
-          <span>transitYourself makes no claim as to the veracity or timeliness</span>
+          <span>TransitOrb makes no claim as to the veracity or timeliness</span>
         </div>
         </div>
-        <a href="https://github.com/hechtoid/transitYourself" title="View Source on GitHub" target="_blank" rel="noopener noreferrer">
+        <a href="https://github.com/hechtoid/TransitOrb" title="View Source on GitHub" target="_blank" rel="noopener noreferrer">
         <div className="GitHub">
           <img src="./GitHub-Mark-120px-plus.png" alt="GitHub Logo"></img>
         </div>

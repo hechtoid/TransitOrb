@@ -20,7 +20,7 @@ class Vehicular extends React.Component {
     selectID = (e) => e.target.select();
 
     componentDidMount() {
-        document.title=`transitYourself - Vehicular Tracking`
+        document.title=`TransitOrb - Vehicular Tracking`
         this.loadVehicle()
     }
     componentDidUpdate(prevProps, prevState) {
@@ -43,7 +43,7 @@ class Vehicular extends React.Component {
                 }
                 this.setState({ vehicleNumber: vehicle.VehicleRef, vehicle, agency });
                 document.title=
-                    `transitYourself - Vehicular Tracking
+                    `TransitOrb - Vehicular Tracking
                     ${vehicle.OperatorRef
                     ?`- ${vehicle.OperatorRef} #${vehicle.VehicleRef}`
                     :''}`
