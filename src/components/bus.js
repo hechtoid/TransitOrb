@@ -41,8 +41,8 @@ if (props.bus.MonitoredVehicleJourney.OperatorRef === "BA") {
                 if (props.bus.MonitoredVehicleJourney.LineRef === 'Limited' 
                 || props.bus.MonitoredVehicleJourney.LineRef === 'LTD A'
                 || props.bus.MonitoredVehicleJourney.LineRef === 'LTD B') 
-                        {caltrainLine = 'YL-N'}
-                if (props.bus.MonitoredVehicleJourney.LineRef === 'Bullet') {caltrainLine = 'RD-N'}
+                        {caltrainLine = 'Yellow-N'}
+                if (props.bus.MonitoredVehicleJourney.LineRef === 'Bullet') {caltrainLine = 'Red-N'}
         return (
         <div className="bus" id={caltrainLine}>
                 <div>
