@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/TransitOrb/precache-manifest.b4d3f7e90a29ca4ec7f0c408c11fee0a.js"
+  "/TransitOrb/precache-manifest.16b01bc1b9ce6a18e061c5ba8e12877e.js"
 );
 
 self.addEventListener('message', (event) => {
