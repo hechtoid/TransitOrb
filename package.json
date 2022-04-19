@@ -15,6 +15,7 @@
     "redux": "^4.0.5"
   },
   "scripts": {
+    "updateSF": "wget 'https://api.511.org/transit/stops?api_key=72939361-85f9-4019-aa55-d62e4e7e2e59&Format=JSON&operator_id=SF' -O public/stopLists/stopListSF.json"
     "predeploy": "npm run build && cp build/index.html build/404.html",
     "deploy": "npx gh-pages -d build",
     "start": "react-scripts start",
